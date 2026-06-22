@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+    gtag('js', new Date());
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookie Policy | Nielsen &amp; Brown</title>
+  <meta name="description" content="What cookies Nielsen &amp; Brown uses, how to control them, and our approach to consent under UK GDPR and PECR."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.nielsenandbrown.com/cookie-policy"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --cream:        #FAF7F2;
+      --cream-2:      #F4EFE5;
+      --cream-3:      #EDE6D8;
+      --charcoal:     #1C1A17;
+      --charcoal-2:   #2E2B26;
+      --gold:         #C4913A;
+      --gold-light:   #D9AA5A;
+      --gold-pale:    #F0DDB5;
+      --muted:        #6B645B;
+      --muted-2:      #8F887E;
+      --stone:        #D8D0C4;
+      --stone-2:      #EAE3D8;
+      --font-display: 'Cormorant', Georgia, serif;
+      --font-body:    'Jost', 'Calibri', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.65;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-pale); transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--stone-2);
+      padding: 1.2rem 5%;
+    }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      border-bottom: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo .amp { color: var(--gold); font-style: italic; padding: 0 0.05em; }
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: none;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 5rem 5% 6rem; }
+
+    .page-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+    .page-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      font-size: 0.88rem;
+      color: var(--muted-2);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--stone-2);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+      font-weight: 500;
+      color: var(--charcoal);
+      margin: 3rem 0 1rem;
+      letter-spacing: -0.005em;
+    }
+
+    h3 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin: 2rem 0 0.7rem;
+      letter-spacing: 0.01em;
+    }
+
+    p { margin-bottom: 1.1rem; color: var(--charcoal-2); font-size: 0.98rem; }
+
+    ul { margin: 0 0 1.4rem 1.2rem; }
+    li { margin-bottom: 0.5rem; color: var(--charcoal-2); font-size: 0.98rem; }
+
+    strong { color: var(--charcoal); font-weight: 600; }
+    li strong { color: var(--charcoal); }
+
+    /* ── Cookie table ── */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      background: var(--cream-2);
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+    .cookie-table thead {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+    .cookie-table th {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cookie-table td {
+      padding: 0.95rem 1rem;
+      border-bottom: 1px solid var(--stone-2);
+      color: var(--charcoal-2);
+      vertical-align: top;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .cookie-table code {
+      font-family: 'SF Mono', Consolas, monospace;
+      font-size: 0.82rem;
+      background: var(--cream-3);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 600px) {
+      .cookie-table { font-size: 0.82rem; }
+      .cookie-table th, .cookie-table td { padding: 0.65rem 0.7rem; }
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--charcoal);
+      color: var(--cream-3);
+      padding: 2.5rem 5%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer a { color: var(--cream-3); border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .footer a:hover { color: var(--cream); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Nielsen <span class="amp">&amp;</span> Brown</a>
+    <a href="/" class="nav-back">← Back to site</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="page-label">Legal</p>
+  <h1>Cookie Policy</h1>
+  <p class="meta">Last updated: 22 June 2026</p>
+
+  <p>This Cookie Policy explains what cookies are, which ones we use on nielsenandbrown.com, and how you can control them. It sits alongside our <a href="/privacy-policy">Privacy Policy</a>, which describes how we handle personal data more broadly.</p>
+
+  <h2>What are cookies?</h2>
+  <p>Cookies are small text files placed on your device when you visit a website. They are used to remember your preferences, understand how the site is used, or enable certain functionality. Some cookies are essential to running a website; others are optional and only set when you give your consent.</p>
+
+  <h2>Our approach</h2>
+  <p>By default, <strong>no analytics or marketing cookies are set when you arrive on our site</strong>. We use Google's Consent Mode v2, which means analytics tracking is denied until you actively accept it via the cookie banner.</p>
+  <p>If you decline, no analytics cookies are set on your device. Google may still receive anonymous, aggregated signals that cannot identify you, but no tracking cookies are placed and no individual browsing data is collected about you.</p>
+  <p>If you change your mind later, you can click "Cookie Settings" in the footer of our homepage to reopen the consent banner and update your choice.</p>
+
+  <h2>Cookies we use</h2>
+
+  <h3>Essential cookies</h3>
+  <p>These cookies are necessary for the site to function properly and do not require your consent.</p>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th>Cookie</th>
+        <th>Purpose</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>nb-consent</code></td>
+        <td>Remembers your cookie consent choice (accepted or declined) so the banner does not reappear on every visit. Set in your browser's local storage.</td>
+        <td>Persistent (until you clear your browser storage or change your choice)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Analytics cookies (only set if you accept)</h3>
+  <p>These cookies help us understand how visitors use our site in aggregate. They are only set after you click "Accept" on the cookie banner.</p>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th>Cookie</th>
+        <th>Purpose</th>
+        <th>Duration</th>
+        <th>Provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>_ga</code></td>
+        <td>Distinguishes individual users for analytics, in a way that does not directly identify them</td>
+        <td>2 years</td>
+        <td>Google Analytics</td>
+      </tr>
+      <tr>
+        <td><code>_ga_V9Q0XLTP7Q</code></td>
+        <td>Used by Google Analytics 4 to persist session state for our specific property</td>
+        <td>2 years</td>
+        <td>Google Analytics</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>We retain analytics data in Google Analytics for 14 months, after which it is automatically deleted.</p>
+  <p>We do <strong>not</strong> use marketing, advertising, or social media tracking cookies.</p>
+
+  <h2>Third-party services that may set cookies or receive data</h2>
+  <p>Beyond the cookies above, our site loads resources from a small number of third-party services. These may receive technical information (such as your IP address and browser type) as part of normal web requests, even though they do not set tracking cookies on our site.</p>
+  <ul>
+    <li><strong>Google Fonts</strong> &mdash; provides the typefaces used on the site. Receives basic request data when your browser fetches font files. Google states that this data is not used for advertising.</li>
+    <li><strong>EmailJS</strong> &mdash; used to deliver contact form submissions to us. Only processes data you actively submit through the form, and only when you submit it.</li>
+    <li><strong>GitHub Pages</strong> &mdash; hosts the site. May log standard web server information (IP, browser, page) for operational and security purposes.</li>
+  </ul>
+
+  <h2>Changing your choice</h2>
+  <p>You can update your cookie preferences at any time:</p>
+  <ul>
+    <li><strong>On our site</strong>: click "Cookie Settings" in the footer of our homepage to reopen the consent banner and accept or decline analytics cookies.</li>
+    <li><strong>In your browser</strong>: most browsers let you block all cookies, block third-party cookies, or clear existing cookies via their settings. Note that blocking essential cookies may break parts of the site.</li>
+  </ul>
+  <p>Useful guides:</p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Chrome</a></li>
+    <li><a href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox" target="_blank" rel="noopener noreferrer">Firefox</a></li>
+    <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
+    <li><a href="https://support.microsoft.com/en-gb/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Edge</a></li>
+  </ul>
+
+  <h2>Changes to this policy</h2>
+  <p>If we add or remove cookies, we will update the table above and the "Last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about how we use cookies, please get in touch via the <a href="/#contact">contact form</a>.</p>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
