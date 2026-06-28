@@ -1748,6 +1748,63 @@
     .footer-bottom a:hover { color: var(--gold-light); }
 
     /* ═══════════════════════════════════════════════
+       BLOG (Soro embed) — dark section above footer
+    ══════════════════════════════════════════════════ */
+    #blog {
+      background: var(--charcoal);
+      padding: 7rem 5% 6rem;
+    }
+
+    .blog-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog-header {
+      margin-bottom: 3.5rem;
+      max-width: 640px;
+    }
+
+    #blog .section-label { color: var(--gold-light); }
+    #blog .section-label::before { background: var(--gold-light); }
+
+    #blog .section-title { color: var(--cream); margin-bottom: 1.2rem; }
+
+    #blog .section-intro {
+      color: rgba(250,247,242,0.55);
+      max-width: 560px;
+    }
+
+    /* Soro widget — nudge its palette toward the site's dark theme.
+       The embed renders inside #soro-blog; these are gentle overrides. */
+    #soro-blog {
+      color: rgba(250,247,242,0.85);
+      font-family: var(--font-body, inherit);
+    }
+
+    #soro-blog a { color: var(--gold-light); }
+    #soro-blog a:hover { color: var(--gold); }
+
+    #soro-blog h1,
+    #soro-blog h2,
+    #soro-blog h3,
+    #soro-blog h4 { color: var(--cream); }
+
+    /* Card-like surfaces inside the embed (best-effort, scoped to #soro-blog) */
+    #soro-blog [class*="card"],
+    #soro-blog article {
+      background: var(--charcoal-2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+
+    #soro-blog [class*="card"]:hover,
+    #soro-blog article:hover {
+      border-color: rgba(196,145,58,0.5);
+    }
+
+    /* ═══════════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
@@ -3045,6 +3102,21 @@
 </main>
 
 <!-- ═══════════════════════════════════════════════
+     BLOG (Soro embed)
+══════════════════════════════════════════════════ -->
+<section id="blog" aria-label="Insights from Nielsen & Brown">
+  <div class="blog-inner">
+    <div class="blog-header">
+      <div class="section-label">Insights</div>
+      <h2 class="section-title">From the <em>blog</em></h2>
+      <p class="section-intro">Practical thinking on AI strategy, adoption, and governance for UK SMBs.</p>
+    </div>
+    <div id="soro-blog"></div>
+    <script src="https://app.trysoro.com/api/embed/fba939fc-95e0-4343-b4c7-f61b00933430?theme=dark" defer></script>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════════════ -->
 <footer id="footer" role="contentinfo">
@@ -3080,6 +3152,7 @@
           <li><a href="#wheel">The Strategy Wheel</a></li>
           <li><a href="#journey">Our Approach</a></li>
           <li><a href="#audience">Who We Serve</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#faq">FAQs</a></li>
         </ul>
       </div>
