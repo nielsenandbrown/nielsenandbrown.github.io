@@ -276,13 +276,20 @@
   <!-- EmailJS — delivers contact form submissions to enquiries@nielsenandbrown.com -->
   <!-- SETUP: Replace YOUR_PUBLIC_KEY below with your EmailJS public key            -->
   <!-- Full setup guide is in the JS section at the bottom of this file             -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
-  <!-- Fonts -->
+  <!-- Fonts — single combined request, loaded async so it never blocks first paint.
+       Cormorant + Jost are the brand fonts; Inter + Fraunces are used only by the
+       "journey" slider and have system fallbacks (Georgia / system-ui) until they load. -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"/>
+  </noscript>
 
   <style>
     /* ═══════════════════════════════════════════════
@@ -3292,8 +3299,11 @@
   const EMAILJS_TEMPLATE_ID = 'template_x5k0q58';  // e.g. 'template_x5k0q58'
   const EMAILJS_PUBLIC_KEY  = 'iG7oUlfEEQt7CJzHX';   // e.g. 'iG7oUlfEEQt7CJzHX'
 
-  // Initialise EmailJS
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  // Initialise EmailJS (library is loaded with defer, so guard against a race
+  // where this inline script could run before the library has parsed).
+  function nbInitEmailJS() { if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); }
+  if (window.emailjs) { nbInitEmailJS(); }
+  else { window.addEventListener('DOMContentLoaded', nbInitEmailJS); }
 
   // ── Form submission ───────────────────────────
   const form = document.getElementById('contact-form');
