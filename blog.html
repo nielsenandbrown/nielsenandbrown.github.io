@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+    gtag('js', new Date());
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Nielsen &amp; Brown</title>
+  <meta name="description" content="Practical thinking on AI strategy, adoption, and governance for UK SMBs from Nielsen &amp; Brown."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.nielsenandbrown.com/blog"/>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --cream:        #FAF7F2;
+      --cream-2:      #F4EFE5;
+      --cream-3:      #EDE6D8;
+      --charcoal:     #1C1A17;
+      --charcoal-2:   #2E2B26;
+      --gold:         #C4913A;
+      --gold-light:   #D9AA5A;
+      --gold-pale:    #F0DDB5;
+      --muted:        #6B645B;
+      --muted-2:      #8F887E;
+      --stone:        #D8D0C4;
+      --stone-2:      #EAE3D8;
+      --font-display: 'Cormorant', Georgia, serif;
+      --font-body:    'Jost', 'Calibri', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.65;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-pale); transition: color 0.2s; }
+    a:hover { color: var(--gold-light); }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--stone-2);
+      padding: 1.2rem 5%;
+    }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      border-bottom: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-logo .amp { color: var(--gold); font-style: italic; padding: 0 0.05em; }
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: none;
+    }
+    .nav-back:hover { color: var(--charcoal); }
+
+    /* ── Page header ── */
+    .page-header {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 5% 3rem;
+      text-align: center;
+    }
+
+    .page-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+    .page-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+    .page-label::after {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    h1 em { color: var(--gold); font-style: italic; }
+
+    .intro {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--charcoal-2);
+      font-size: 1.05rem;
+    }
+
+    /* ── Blog area (Soro embed) ── */
+    .blog-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 5% 6rem;
+    }
+
+    /* Very light styling nudges for the Soro embed —
+       keep it consistent with the cream site palette. */
+    #soro-blog {
+      color: var(--charcoal-2);
+    }
+    #soro-blog a { color: var(--gold); }
+    #soro-blog a:hover { color: var(--gold-light); }
+    #soro-blog h1, #soro-blog h2, #soro-blog h3, #soro-blog h4 {
+      font-family: var(--font-display);
+      color: var(--charcoal);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--charcoal);
+      color: var(--cream-3);
+      padding: 2.5rem 5%;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer a { color: var(--cream-3); border-bottom: 1px solid rgba(255,255,255,0.15); }
+    .footer a:hover { color: var(--cream); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Nielsen <span class="amp">&amp;</span> Brown</a>
+    <a href="/" class="nav-back">← Back to site</a>
+  </div>
+</header>
+
+<div class="page-header">
+  <p class="page-label">Insights</p>
+  <h1>From the <em>blog</em></h1>
+  <p class="intro">Practical thinking on AI strategy, adoption, and governance for UK SMBs. Written by the Nielsen &amp; Brown team.</p>
+</div>
+
+<main class="blog-wrap">
+  <div id="soro-blog"></div>
+  <script src="https://app.trysoro.com/api/embed/fba939fc-95e0-4343-b4c7-f61b00933430" defer></script>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

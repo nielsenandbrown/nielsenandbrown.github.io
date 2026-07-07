@@ -23,6 +23,12 @@
   <meta name="description" content="Practical AI consultancy for UK SMBs. Strategy, training, automation and governance to help your business adopt AI safely and profitably."/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <link rel="canonical" href="https://www.nielsenandbrown.com/"/>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
   <meta name="author" content="Nielsen & Brown"/>
   <meta name="geo.region" content="GB"/>
   <meta name="geo.placename" content="United Kingdom"/>
@@ -1755,61 +1761,98 @@
     .footer-bottom a:hover { color: var(--gold-light); }
 
     /* ═══════════════════════════════════════════════
-       BLOG (Soro embed) — dark section above footer
+       BLOG TEASER — dark section above footer
     ══════════════════════════════════════════════════ */
     #blog {
       background: var(--charcoal);
       padding: 7rem 5% 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Faint gold hairline top border to lead the eye into the section */
+    #blog::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 5%; right: 5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,145,58,0.4), transparent);
     }
 
     .blog-inner {
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
 
     .blog-header {
-      margin-bottom: 3.5rem;
-      max-width: 640px;
+      max-width: 540px;
     }
 
     #blog .section-label { color: var(--gold-light); }
     #blog .section-label::before { background: var(--gold-light); }
-
-    #blog .section-title { color: var(--cream); margin-bottom: 1.2rem; }
+    #blog .section-title { color: var(--cream); margin-bottom: 1.4rem; }
 
     #blog .section-intro {
-      color: rgba(250,247,242,0.55);
-      max-width: 560px;
+      color: rgba(250,247,242,0.62);
+      max-width: 500px;
+      margin-bottom: 2rem;
     }
 
-    /* Soro widget — nudge its palette toward the site's dark theme.
-       The embed renders inside #soro-blog; these are gentle overrides. */
-    #soro-blog {
-      color: rgba(250,247,242,0.85);
-      font-family: var(--font-body, inherit);
-    }
-
-    #soro-blog a { color: var(--gold-light); }
-    #soro-blog a:hover { color: var(--gold); }
-
-    #soro-blog h1,
-    #soro-blog h2,
-    #soro-blog h3,
-    #soro-blog h4 { color: var(--cream); }
-
-    /* Card-like surfaces inside the embed (best-effort, scoped to #soro-blog) */
-    #soro-blog [class*="card"],
-    #soro-blog article {
+    /* CTA card — sits opposite the header text, holds the "Read our thinking" link */
+    .blog-cta-card {
       background: var(--charcoal-2);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 4px;
-      transition: border-color 0.25s;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 3rem 2.5rem;
+      transition: border-color 0.3s var(--ease-out);
+      position: relative;
+    }
+    .blog-cta-card:hover { border-color: rgba(196,145,58,0.4); }
+
+    .blog-cta-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
     }
 
-    #soro-blog [class*="card"]:hover,
-    #soro-blog article:hover {
-      border-color: rgba(196,145,58,0.5);
+    .blog-cta-headline {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.005em;
     }
+    .blog-cta-headline em { color: var(--gold); font-style: italic; }
+
+    .blog-cta-body {
+      color: rgba(250,247,242,0.6);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .blog-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, gap 0.25s var(--ease-out);
+      text-decoration: none;
+    }
+    .blog-cta-link:hover { color: var(--gold-light); gap: 0.9rem; }
+    .blog-cta-link svg { width: 18px; height: 18px; }
 
     /* ═══════════════════════════════════════════════
        RESPONSIVE
@@ -1817,6 +1860,7 @@
     @media (max-width: 1024px) {
       .why-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
     @media (max-width: 768px) {
@@ -3009,78 +3053,21 @@
     <div class="reveal-right">
       <p class="form-promise">In 30 minutes, we'll help you identify one realistic AI opportunity, one avoidable risk, and the best next step for your business.</p>
       <form class="contact-form" id="contact-form" novalidate aria-label="Enquiry form">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="fname">First Name *</label>
-            <input class="form-input" type="text" id="fname" name="fname" autocomplete="given-name" required placeholder="Jane"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="lname">Last Name *</label>
-            <input class="form-input" type="text" id="lname" name="lname" autocomplete="family-name" required placeholder="Smith"/>
-          </div>
+        <div class="form-group">
+          <label class="form-label" for="name">Name *</label>
+          <input class="form-input" type="text" id="name" name="name" autocomplete="name" required placeholder="Jane Smith"/>
         </div>
         <div class="form-group">
           <label class="form-label" for="email">Email Address *</label>
           <input class="form-input" type="email" id="email" name="email" autocomplete="email" required placeholder="jane@yourcompany.co.uk"/>
         </div>
         <div class="form-group">
-          <label class="form-label" for="company">Company Name</label>
-          <input class="form-input" type="text" id="company" name="company" autocomplete="organization" placeholder="Your business name"/>
+          <label class="form-label" for="company">Company Name *</label>
+          <input class="form-input" type="text" id="company" name="company" autocomplete="organization" required placeholder="Your business name"/>
         </div>
         <div class="form-group">
-          <label class="form-label" for="size">Company Size</label>
-          <select class="form-select" id="size" name="size">
-            <option value="">Select employee count</option>
-            <option>Fewer than 25 employees</option>
-            <option>25 to 100 employees</option>
-            <option>100 to 250 employees</option>
-            <option>More than 250 employees</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="service">Primary Interest</label>
-          <select class="form-select" id="service" name="service">
-            <option value="">Select a service area</option>
-            <option>AI Consultancy &amp; Strategy</option>
-            <option>Training &amp; Workshops</option>
-            <option>Custom AI Software Development</option>
-            <option>Governance & Compliance</option>
-            <option>Not sure yet, need advice</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="challenge">Biggest challenge</label>
-            <select class="form-select" id="challenge" name="challenge">
-              <option value="">Select one</option>
-              <option>Save time on repetitive work</option>
-              <option>Reduce admin</option>
-              <option>Train the team</option>
-              <option>Governance and risk</option>
-              <option>Build a tool</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="timeline">Timeline</label>
-            <select class="form-select" id="timeline" name="timeline">
-              <option value="">Select one</option>
-              <option>Now</option>
-              <option>1 to 3 months</option>
-              <option>Just exploring</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="budget">Indicative budget (optional)</label>
-          <select class="form-select" id="budget" name="budget">
-            <option value="">Prefer not to say</option>
-            <option>Not sure yet</option>
-            <option>Under £5k</option>
-            <option>£5k to £15k</option>
-            <option>£15k to £50k</option>
-            <option>£50k or more</option>
-          </select>
+          <label class="form-label" for="phone">Phone <span style="color:var(--muted-2);font-weight:400;">(optional)</span></label>
+          <input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000"/>
         </div>
         <div class="hp-field" aria-hidden="true">
           <label for="company_url">Leave this field empty</label>
@@ -3116,10 +3103,18 @@
     <div class="blog-header">
       <div class="section-label">Insights</div>
       <h2 class="section-title">From the <em>blog</em></h2>
-      <p class="section-intro">Practical thinking on AI strategy, adoption, and governance for UK SMBs.</p>
+      <p class="section-intro">Practical thinking on AI strategy, adoption, and governance for UK SMBs. Short reads written by the Nielsen &amp; Brown team, aimed at leadership teams who want the signal without the noise.</p>
     </div>
-    <div id="soro-blog"></div>
-    <script src="https://app.trysoro.com/api/embed/fba939fc-95e0-4343-b4c7-f61b00933430?theme=dark" defer></script>
+
+    <a href="/blog" class="blog-cta-card" data-ga="cta_blog_teaser">
+      <p class="blog-cta-eyebrow">Read our thinking</p>
+      <p class="blog-cta-headline">The full <em>blog</em> — all articles, one place.</p>
+      <p class="blog-cta-body">Case notes, opinion pieces, and practical guidance. Updated regularly. No lead-magnets, no gates, no fluff.</p>
+      <span class="blog-cta-link">
+        Read the blog
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -3159,7 +3154,7 @@
           <li><a href="#wheel">The Strategy Wheel</a></li>
           <li><a href="#journey">Our Approach</a></li>
           <li><a href="#audience">Who We Serve</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="/blog">Blog</a></li>
           <li><a href="#faq">FAQs</a></li>
         </ul>
       </div>
@@ -3317,14 +3312,15 @@
     const hp = document.getElementById('company_url');
     if (hp && hp.value) { return; }
 
-    const btn   = form.querySelector('.form-submit');
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const msg   = document.getElementById('message').value.trim();
+    const btn     = form.querySelector('.form-submit');
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const msg     = document.getElementById('message').value.trim();
 
-    // Basic client-side validation
-    if (!fname || !lname || !email || !msg) {
+    // Basic client-side validation — name, email, company, message are required
+    if (!name || !email || !company || !msg) {
       showFormError('Please complete the required fields (marked *) before sending.');
       return;
     }
@@ -3342,14 +3338,10 @@
 
     // Build the template parameters — these map to {{variables}} in your EmailJS template
     const templateParams = {
-      from_name : `${fname} ${lname}`,
+      from_name : name,
       from_email: email,
-      company   : document.getElementById('company').value.trim() || 'Not provided',
-      size      : document.getElementById('size').value        || 'Not specified',
-      service   : document.getElementById('service').value     || 'Not specified',
-      challenge : document.getElementById('challenge').value    || 'Not specified',
-      timeline  : document.getElementById('timeline').value     || 'Not specified',
-      budget    : document.getElementById('budget').value       || 'Not specified',
+      company   : company,
+      phone     : phone || 'Not provided',
       message   : msg,
       reply_to  : email,
     };
@@ -3367,18 +3359,14 @@
   });
 
   function showSuccess(params) {
-    // Fire enriched generate_lead. Only categorical fields are sent to GA4 —
-    // never name, email, company name, or message (UK GDPR: that would be
-    // personal data going to a third party beyond what the consent banner covers).
+    // Fire generate_lead. Only non-PII signals are sent to GA4 — never name,
+    // email, company name, phone, or message (UK GDPR: that would be personal
+    // data going to a third party beyond what the consent banner covers).
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
         value: 1,
         currency: 'GBP',
-        company_size:    (params && params.size)      || 'Not specified',
-        service_interest:(params && params.service)   || 'Not specified',
-        challenge:       (params && params.challenge) || 'Not specified',
-        timeline:        (params && params.timeline)  || 'Not specified',
-        budget:          (params && params.budget)    || 'Not specified',
+        has_phone: !!(params && params.phone && params.phone !== 'Not provided'),
       });
     }
     const submittedEmail = document.getElementById('email').value.trim();
