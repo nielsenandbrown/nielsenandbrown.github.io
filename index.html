@@ -25,10 +25,10 @@
   <link rel="canonical" href="https://www.nielsenandbrown.com/"/>
 
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
-  <link rel="icon" href="favicon.ico"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+  <link rel="icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
   <meta name="author" content="Nielsen & Brown"/>
   <meta name="geo.region" content="GB"/>
   <meta name="geo.placename" content="United Kingdom"/>
@@ -103,7 +103,7 @@
           "SMB Consulting"
         ],
         "sameAs": [
-          "https://www.linkedin.com/company/nielsenandbrown"
+          "https://www.linkedin.com/company/nielsen-brown"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
@@ -284,69 +284,72 @@
   <!-- Full setup guide is in the JS section at the bottom of this file             -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
-  <!-- Fonts: single combined request, loaded async so it never blocks first paint.
-       Cormorant Garamond for headings, Jost for body, per the brand spec.
-       System fallbacks (Georgia / system-ui) apply until they load. -->
+  <!-- Fonts — single combined request, loaded async so it never blocks first paint.
+       Cormorant + Jost are the brand fonts; Inter + Fraunces are used only by the
+       "journey" slider and have system fallbacks (Georgia / system-ui) until they load. -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
         onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"/>
+          href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"/>
   </noscript>
 
-  <style>/* ═══════════════════════════════════════════════
+  <style>
+    /* ═══════════════════════════════════════════════
        DESIGN TOKENS — Nielsen & Brown Brand
     ══════════════════════════════════════════════════ */
     :root {
-      --cream:        #FAF8F3;
-      --cream-2:      #F2EDE6;
-      --cream-3:      #E9E1D2;
-      --charcoal:     #2C2C29;
-      --charcoal-2:   #3A3A36;
-      --charcoal-3:   #4A4A45;
-      --gold:         #B8924A;
-      --gold-light:   #C9A867;
-      --gold-pale:    #E9DCC0;
-      --gold-deep:    #9C7936;
-      --ink:          #403D34;
-      --line:         #DCD3BF;
-      --muted:        #7D7968;
-      --muted-2:      #9C9989;
-      --stone:        #DCD3BF;
-      --stone-2:      #E9E1D2;
+      --cream:        #FAF7F2;
+      --cream-2:      #F4EFE5;
+      --cream-3:      #EDE6D8;
+      --charcoal:     #1C1A17;
+      --charcoal-2:   #2E2B26;
+      --charcoal-3:   #3F3B34;
+      --gold:         #C4913A;
+      --gold-light:   #D9AA5A;
+      --gold-pale:    #F0DDB5;
+      --muted:        #7A7060;
+      --muted-2:      #9E9384;
+      --stone:        #D8D0C4;
+      --stone-2:      #EAE3D8;
 
-      --font-display: 'Cormorant Garamond', Cormorant, Georgia, serif;
+      --font-display: 'Cormorant', Georgia, serif;
       --font-body:    'Jost', 'Calibri', sans-serif;
 
       --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
-      --shadow-sm:    0 2px 12px rgba(44,44,41,0.08);
-      --shadow-md:    0 8px 32px rgba(44,44,41,0.12);
-      --shadow-lg:    0 20px 60px rgba(44,44,41,0.16);
+      --shadow-sm:    0 2px 12px rgba(28,26,23,0.08);
+      --shadow-md:    0 8px 32px rgba(28,26,23,0.12);
+      --shadow-lg:    0 20px 60px rgba(28,26,23,0.16);
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        RESET & BASE
     ══════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html {
+
+    html {
       scroll-behavior: smooth;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
     }
-body {
+
+    body {
       font-family: var(--font-body);
       background: var(--cream);
       color: var(--charcoal);
       overflow-x: hidden;
       line-height: 1.6;
     }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: var(--font-body); }
-ul { list-style: none; }
-/* Visible keyboard focus for all interactive elements */
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: var(--font-body); }
+    ul { list-style: none; }
+
+    /* Visible keyboard focus for all interactive elements */
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
@@ -357,7 +360,8 @@ ul { list-style: none; }
       outline-offset: 3px;
       border-radius: 4px;
     }
-/* Respect users who prefer reduced motion: disable reveals, marquee,
+
+    /* Respect users who prefer reduced motion: disable reveals, marquee,
        hero entrance animations, and smooth scrolling. */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -373,7 +377,26 @@ ul { list-style: none; }
       }
       .marquee-track { animation: none !important; }
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
+       UTILITY
+    ══════════════════════════════════════════════════ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
+    .gold { color: var(--gold); }
+    .italic { font-style: italic; }
+
+    /* ═══════════════════════════════════════════════
        SCROLL ANIMATIONS
     ══════════════════════════════════════════════════ */
     .reveal {
@@ -381,29 +404,35 @@ ul { list-style: none; }
       transform: translateY(30px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-.reveal.visible {
+
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-.reveal-left {
+
+    .reveal-left {
       opacity: 0;
       transform: translateX(-30px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-.reveal-left.visible {
+
+    .reveal-left.visible {
       opacity: 1;
       transform: translateX(0);
     }
-.reveal-right {
+
+    .reveal-right {
       opacity: 0;
       transform: translateX(30px);
       transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
     }
-.reveal-right.visible {
+
+    .reveal-right.visible {
       opacity: 1;
       transform: translateX(0);
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        NAVIGATION
     ══════════════════════════════════════════════════ */
     #nav {
@@ -416,13 +445,15 @@ ul { list-style: none; }
       justify-content: space-between;
       transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
     }
-#nav.scrolled {
-      background: rgba(250,248,243, 0.97);
+
+    #nav.scrolled {
+      background: rgba(250, 247, 242, 0.97);
       backdrop-filter: blur(16px);
       box-shadow: 0 1px 0 var(--stone);
       padding: 1rem 5%;
     }
-.nav-logo {
+
+    .nav-logo {
       font-family: var(--font-display);
       font-size: 1.45rem;
       font-weight: 500;
@@ -432,18 +463,20 @@ ul { list-style: none; }
       align-items: baseline;
       gap: 0;
     }
-.nav-logo .amp {
+
+    .nav-logo .amp {
       color: var(--gold);
-      font-style: normal;
-      font-weight: 600;
-      padding: 0 0.06em;
+      font-style: italic;
+      font-weight: 400;
     }
-.nav-links {
+
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 2.5rem;
     }
-.nav-links a {
+
+    .nav-links a {
       font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -451,8 +484,10 @@ ul { list-style: none; }
       color: var(--muted);
       transition: color 0.25s;
     }
-.nav-links a:hover { color: var(--charcoal); }
-.nav-cta {
+
+    .nav-links a:hover { color: var(--charcoal); }
+
+    .nav-cta {
       background: var(--charcoal) !important;
       color: var(--cream) !important;
       padding: 0.65rem 1.5rem;
@@ -463,12 +498,14 @@ ul { list-style: none; }
       border: 2px solid var(--charcoal);
       transition: background 0.25s, color 0.25s, border-color 0.25s !important;
     }
-.nav-cta:hover {
+
+    .nav-cta:hover {
       background: var(--gold) !important;
       border-color: var(--gold) !important;
       color: var(--cream) !important;
     }
-.nav-hamburger {
+
+    .nav-hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
@@ -476,14 +513,16 @@ ul { list-style: none; }
       border: none;
       padding: 4px;
     }
-.nav-hamburger span {
+
+    .nav-hamburger span {
       display: block;
       width: 24px;
       height: 2px;
       background: var(--charcoal);
       transition: transform 0.3s, opacity 0.3s;
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        HERO
     ══════════════════════════════════════════════════ */
     #hero {
@@ -495,14 +534,16 @@ ul { list-style: none; }
       position: relative;
       overflow: hidden;
     }
-.hero-bg {
+
+    .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(184,146,74,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(184,146,74,0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(196,145,58,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(196,145,58,0.04) 0%, transparent 50%);
     }
-.hero-grain {
+
+    .hero-grain {
       position: absolute;
       inset: 0;
       opacity: 0.025;
@@ -510,29 +551,33 @@ ul { list-style: none; }
       background-size: 200px;
       pointer-events: none;
     }
-/* large decorative ampersand */
+
+    /* large decorative ampersand */
     .hero-amp {
       position: absolute;
       right: -2%;
       top: 50%;
       transform: translateY(-55%);
-      width: clamp(20rem, 30vw, 38rem);
-      aspect-ratio: 400 / 500;
-      /* the brand mark itself, so it cannot drift from the asset */
-      background: url("assets/brand/NB_Watermark_Mark.svg") center / contain no-repeat;
-      opacity: 0.30;
+      font-family: var(--font-display);
+      font-size: clamp(20rem, 30vw, 38rem);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(196,145,58,0.06);
+      line-height: 1;
       user-select: none;
       pointer-events: none;
-      font-size: 0;
+      letter-spacing: -0.05em;
     }
-.hero-inner {
+
+    .hero-inner {
       position: relative;
       z-index: 1;
       max-width: 1120px;
       margin: 0 auto;
       width: 100%;
     }
-.hero-eyebrow {
+
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
@@ -545,14 +590,16 @@ ul { list-style: none; }
       opacity: 0;
       animation: heroFadeUp 0.9s 0.2s var(--ease-out) forwards;
     }
-.hero-eyebrow::before {
+
+    .hero-eyebrow::before {
       content: '';
       display: block;
       width: 36px;
       height: 1px;
       background: var(--gold);
     }
-.hero-headline {
+
+    .hero-headline {
       font-family: var(--font-display);
       font-size: clamp(3.2rem, 7vw, 7rem);
       font-weight: 300;
@@ -564,11 +611,13 @@ ul { list-style: none; }
       opacity: 0;
       animation: heroFadeUp 0.9s 0.4s var(--ease-out) forwards;
     }
-.hero-headline em {
+
+    .hero-headline em {
       font-style: italic;
       color: var(--gold);
     }
-.hero-sub {
+
+    .hero-sub {
       font-size: 1.05rem;
       font-weight: 300;
       color: var(--muted);
@@ -578,7 +627,8 @@ ul { list-style: none; }
       opacity: 0;
       animation: heroFadeUp 0.9s 0.6s var(--ease-out) forwards;
     }
-.hero-actions {
+
+    .hero-actions {
       display: flex;
       align-items: center;
       gap: 1.5rem;
@@ -586,7 +636,8 @@ ul { list-style: none; }
       opacity: 0;
       animation: heroFadeUp 0.9s 0.8s var(--ease-out) forwards;
     }
-.btn-primary {
+
+    .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -599,13 +650,16 @@ ul { list-style: none; }
       text-transform: uppercase;
       transition: background 0.3s, transform 0.2s;
     }
-.btn-primary:hover {
+
+    .btn-primary:hover {
       background: var(--gold);
       transform: translateY(-2px);
     }
-.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.btn-primary:hover svg { transform: translateX(3px); }
-.btn-outline {
+
+    .btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -618,11 +672,13 @@ ul { list-style: none; }
       padding-bottom: 3px;
       transition: color 0.25s, border-color 0.25s;
     }
-.btn-outline:hover {
+
+    .btn-outline:hover {
       color: var(--gold);
       border-color: var(--gold);
     }
-/* Hero Stats */
+
+    /* Hero Stats */
     .hero-stats {
       display: flex;
       gap: 0;
@@ -632,17 +688,20 @@ ul { list-style: none; }
       opacity: 0;
       animation: heroFadeUp 0.9s 1s var(--ease-out) forwards;
     }
-.hero-stat {
+
+    .hero-stat {
       flex: 1;
       padding-right: 3rem;
       border-right: 1px solid var(--stone-2);
       margin-right: 3rem;
     }
-.hero-stat:last-child {
+
+    .hero-stat:last-child {
       border-right: none;
       margin-right: 0;
     }
-.hero-stat-num {
+
+    .hero-stat-num {
       font-family: var(--font-display);
       font-size: clamp(2.5rem, 4vw, 3.5rem);
       font-weight: 300;
@@ -650,19 +709,23 @@ ul { list-style: none; }
       line-height: 1;
       margin-bottom: 0.4rem;
     }
-.hero-stat-num span { color: var(--gold); }
-.hero-stat-label {
+
+    .hero-stat-num span { color: var(--gold); }
+
+    .hero-stat-label {
       font-size: 0.78rem;
       font-weight: 400;
       color: var(--muted);
       letter-spacing: 0.04em;
       line-height: 1.4;
     }
-@keyframes heroFadeUp {
+
+    @keyframes heroFadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        MARQUEE TRUST BAR
     ══════════════════════════════════════════════════ */
     #trust-bar {
@@ -671,13 +734,15 @@ ul { list-style: none; }
       overflow: hidden;
       position: relative;
     }
-.marquee-track {
+
+    .marquee-track {
       display: flex;
       gap: 4rem;
       width: max-content;
       animation: marquee 32s linear infinite;
     }
-.marquee-item {
+
+    .marquee-item {
       display: flex;
       align-items: center;
       gap: 0.7rem;
@@ -685,20 +750,23 @@ ul { list-style: none; }
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(250,248,243,0.45);
+      color: rgba(250,247,242,0.45);
       white-space: nowrap;
     }
-.marquee-item .dot {
+
+    .marquee-item .dot {
       width: 4px;
       height: 4px;
       background: var(--gold);
       border-radius: 50%;
     }
-@keyframes marquee {
+
+    @keyframes marquee {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        SECTION HEADERS
     ══════════════════════════════════════════════════ */
     .section-label {
@@ -712,14 +780,16 @@ ul { list-style: none; }
       color: var(--gold);
       margin-bottom: 1.2rem;
     }
-.section-label::before {
+
+    .section-label::before {
       content: '';
       display: block;
       width: 28px;
       height: 1px;
       background: var(--gold);
     }
-.section-title {
+
+    .section-title {
       font-family: var(--font-display);
       font-size: clamp(2rem, 3.5vw, 3.2rem);
       font-weight: 300;
@@ -727,27 +797,237 @@ ul { list-style: none; }
       line-height: 1.1;
       letter-spacing: -0.01em;
     }
-.section-title em {
+
+    .section-title em {
       font-style: italic;
       color: var(--gold);
     }
-.section-intro {
+
+    .section-intro {
       font-size: 1rem;
       font-weight: 300;
       color: var(--muted);
       line-height: 1.75;
       max-width: 520px;
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        OPPORTUNITY SECTION
     ══════════════════════════════════════════════════ */
-.opportunity-text .section-title {
+    #opportunity {
+      padding: 7rem 5%;
+      background: var(--cream-2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opportunity-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: center;
+    }
+
+    .opportunity-text .section-title {
       margin-bottom: 1.5rem;
     }
-/* ═══════════════════════════════════════════════
+
+    .opportunity-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .opportunity-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--stone);
+    }
+
+    .opp-stat {
+      background: var(--cream-2);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opp-stat::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .opp-stat:hover::before { transform: scaleY(1); }
+
+    .opp-stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .opp-stat-num sup {
+      font-size: 0.45em;
+      vertical-align: super;
+      color: var(--gold);
+    }
+
+    .opp-stat-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .opp-stat-src {
+      color: var(--muted);
+      border-bottom: 1px solid var(--stone);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .opp-stat-src:hover { color: var(--gold); border-color: var(--gold); }
+
+    .opp-stat-sources {
+      grid-column: 1 / -1;
+      margin-top: 0.25rem;
+      font-size: 0.72rem;
+      line-height: 1.6;
+      color: var(--muted-2);
+      font-weight: 300;
+    }
+    .opp-stat-sources a {
+      color: var(--muted);
+      border-bottom: 1px solid var(--stone);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .opp-stat-sources a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════
        SERVICES
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #services {
+      padding: 8rem 5%;
+      background: var(--cream);
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      border-bottom: 1px solid var(--stone-2);
+      padding-bottom: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--stone-2);
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .service-card:hover { background: var(--cream-2); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal-3);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      background: var(--cream-3);
+      color: var(--muted);
+      border: 1px solid var(--stone-2);
+    }
+
+    .service-model {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold-pale);
+      padding-bottom: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════
        WHY US
     ══════════════════════════════════════════════════ */
     #why {
@@ -756,20 +1036,314 @@ ul { list-style: none; }
       position: relative;
       overflow: hidden;
     }
-#why .section-label { color: var(--gold-light); }
-#why .section-label::before { background: var(--gold-light); }
-#why .section-title { color: var(--cream); }
-#why .section-intro { color: rgba(250,248,243,0.55); max-width: 100%; }
-/* ═══════════════════════════════════════════════
+
+    .why-bg-text {
+      position: absolute;
+      bottom: -5%;
+      right: -2%;
+      font-family: var(--font-display);
+      font-size: 22rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.02);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    #why .section-label { color: var(--gold-light); }
+    #why .section-label::before { background: var(--gold-light); }
+    #why .section-title { color: var(--cream); }
+
+    .why-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6%;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+
+    #why .section-intro { color: rgba(250,247,242,0.55); max-width: 100%; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .why-item {
+      background: var(--charcoal);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .why-item:hover { background: var(--charcoal-2); }
+
+    .why-item::before {
+      content: attr(data-num);
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(196,145,58,0.15);
+      display: block;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .why-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .why-item p {
+      font-size: 0.82rem;
+      color: rgba(250,247,242,0.5);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════════
        CLIENT JOURNEY
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #journey {
+      padding: 8rem 5%;
+      background: var(--cream-2);
+    }
+
+    .journey-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .journey-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .journey-header .section-label { justify-content: center; }
+    .journey-header .section-label::before { display: none; }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+    }
+
+    .journey-steps::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), var(--gold));
+      z-index: 0;
+    }
+
+    .journey-step {
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-step-bubble {
+      width: 52px;
+      height: 52px;
+      background: var(--cream-2);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gold);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .journey-step:hover .journey-step-bubble {
+      background: var(--gold);
+      color: var(--cream);
+    }
+
+    .journey-step h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.8rem;
+    }
+
+    .journey-step p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .journey-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      background: var(--gold-pale);
+      color: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════════
        WHO WE SERVE
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #audience {
+      padding: 8rem 5%;
+      background: var(--cream);
+    }
+
+    .audience-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: center;
+    }
+
+    .audience-visual {
+      position: relative;
+    }
+
+    .audience-card-main {
+      background: var(--charcoal);
+      padding: 3.5rem;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .audience-card-main::before {
+      content: '5.5M';
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      font-family: var(--font-display);
+      font-size: 8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+    }
+
+    .audience-card-main h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .audience-card-main h3 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .audience-card-main p {
+      font-size: 0.88rem;
+      color: rgba(250,247,242,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .audience-card-float {
+      background: var(--gold);
+      padding: 1.5rem 2rem;
+      margin-top: -2rem;
+      margin-left: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .audience-card-float p {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .audience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .audience-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--cream-2);
+      border-left: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .audience-item:hover {
+      border-color: var(--gold);
+      background: var(--cream-3);
+    }
+
+    .audience-item-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .audience-item-icon svg { width: 16px; height: 16px; }
+
+    .audience-item h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+
+    .audience-item p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════════
        FAQ
     ══════════════════════════════════════════════════ */
-.faq-inner {
+    #faq {
+      padding: 8rem 5%;
+      background: var(--cream-2);
+    }
+
+    .faq-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -777,16 +1351,19 @@ ul { list-style: none; }
       gap: 8%;
       align-items: start;
     }
-.faq-list {
+
+    .faq-list {
       display: flex;
       flex-direction: column;
       gap: 0;
       border-top: 1px solid var(--stone);
     }
-.faq-item {
+
+    .faq-item {
       border-bottom: 1px solid var(--stone);
     }
-.faq-question {
+
+    .faq-question {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -804,9 +1381,11 @@ ul { list-style: none; }
       border: none;
       font-family: inherit;
     }
-.faq-question > span:first-child { flex: 1; }
-.faq-question:hover { color: var(--gold); }
-.faq-icon {
+    .faq-question > span:first-child { flex: 1; }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-icon {
       width: 20px;
       height: 20px;
       border: 1px solid var(--stone);
@@ -818,14 +1397,17 @@ ul { list-style: none; }
       transition: background 0.25s, border-color 0.25s, transform 0.3s;
       color: var(--muted);
     }
-.faq-item.open .faq-icon {
+
+    .faq-item.open .faq-icon {
       background: var(--gold);
       border-color: var(--gold);
       color: var(--cream);
       transform: rotate(45deg);
     }
-.faq-icon svg { width: 10px; height: 10px; }
-.faq-answer {
+
+    .faq-icon svg { width: 10px; height: 10px; }
+
+    .faq-answer {
       display: none;
       padding-bottom: 1.5rem;
       font-size: 0.88rem;
@@ -833,41 +1415,48 @@ ul { list-style: none; }
       line-height: 1.8;
       font-weight: 300;
     }
-.faq-item.open .faq-answer { display: block; }
-/* ═══════════════════════════════════════════════
+
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ═══════════════════════════════════════════════
        CONTACT / CTA
     ══════════════════════════════════════════════════ */
     #contact {
-      padding: 5.5rem 0;
+      padding: 8rem 5%;
       background: var(--cream);
     }
-.contact-inner {
-      max-width: 1160px;
+
+    .contact-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 3.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8%;
     }
-.contact-info .section-title { margin-bottom: 1.5rem; }
-.contact-info p {
+
+    .contact-info .section-title { margin-bottom: 1.5rem; }
+
+    .contact-info p {
       font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.8;
       font-weight: 300;
       margin-bottom: 2.5rem;
     }
-.contact-details {
+
+    .contact-details {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
     }
-.contact-line {
+
+    .contact-line {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-.contact-line-icon {
+
+    .contact-line-icon {
       width: 36px;
       height: 36px;
       border: 1px solid var(--stone);
@@ -877,8 +1466,10 @@ ul { list-style: none; }
       color: var(--gold);
       flex-shrink: 0;
     }
-.contact-line-icon svg { width: 15px; height: 15px; }
-.contact-line-label {
+
+    .contact-line-icon svg { width: 15px; height: 15px; }
+
+    .contact-line-label {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.14em;
@@ -886,27 +1477,33 @@ ul { list-style: none; }
       color: var(--muted-2);
       margin-bottom: 0.15rem;
     }
-.contact-line-val {
+
+    .contact-line-val {
       font-size: 0.9rem;
       color: var(--charcoal);
       font-weight: 400;
     }
-/* Form */
+
+    /* Form */
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 1.2rem;
     }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-.form-label {
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .form-label {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
     }
-.form-input, .form-select, .form-textarea {
+
+    .form-input, .form-select, .form-textarea {
       background: var(--cream-2);
       border: 1px solid var(--stone);
       padding: 0.85rem 1rem;
@@ -920,12 +1517,15 @@ ul { list-style: none; }
       appearance: none;
       width: 100%;
     }
-.form-input:focus, .form-select:focus, .form-textarea:focus {
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: var(--gold);
       background: var(--cream);
     }
-.form-textarea { resize: vertical; min-height: 110px; }
-.form-submit {
+
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -940,21 +1540,83 @@ ul { list-style: none; }
       transition: background 0.3s, transform 0.2s;
       align-self: flex-start;
     }
-.form-submit:hover {
+
+    .form-submit:hover {
       background: var(--gold);
       transform: translateY(-2px);
     }
-.form-submit svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.form-submit:hover svg { transform: translateX(3px); }
-.form-note {
+
+    .form-submit svg { width: 14px; height: 14px; transition: transform 0.25s; }
+    .form-submit:hover svg { transform: translateX(3px); }
+
+    .form-note {
       font-size: 0.75rem;
       color: var(--muted-2);
       line-height: 1.5;
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        CTA BANNER
     ══════════════════════════════════════════════════ */
-.btn-gold {
+    #cta-banner {
+      padding: 7rem 5%;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,145,58,0.08) 0%, transparent 70%);
+    }
+
+    .cta-banner-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    #cta-banner .section-label {
+      color: var(--gold-light);
+      justify-content: center;
+    }
+
+    #cta-banner .section-label::before { display: none; }
+
+    #cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    #cta-banner h2 em { font-style: italic; color: var(--gold-light); }
+
+    #cta-banner p {
+      font-size: 1rem;
+      color: rgba(250,247,242,0.55);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -967,39 +1629,45 @@ ul { list-style: none; }
       text-transform: uppercase;
       transition: background 0.3s, transform 0.2s;
     }
-.btn-gold:hover {
+
+    .btn-gold:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
     }
-.btn-ghost-light {
+
+    .btn-ghost-light {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: rgba(250,248,243,0.6);
+      color: rgba(250,247,242,0.6);
       font-size: 0.82rem;
       font-weight: 400;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      border-bottom: 1px solid rgba(250,248,243,0.2);
+      border-bottom: 1px solid rgba(250,247,242,0.2);
       padding-bottom: 3px;
       transition: color 0.25s, border-color 0.25s;
     }
-.btn-ghost-light:hover {
+
+    .btn-ghost-light:hover {
       color: var(--gold-light);
       border-color: var(--gold-light);
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        FOOTER
     ══════════════════════════════════════════════════ */
     #footer {
       background: var(--charcoal-2);
       padding: 5rem 5% 3rem;
     }
-.footer-inner {
+
+    .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
-.footer-top {
+
+    .footer-top {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 4rem;
@@ -1007,114 +1675,134 @@ ul { list-style: none; }
       padding-bottom: 4rem;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-.footer-brand .nav-logo {
+
+    .footer-brand .nav-logo {
       color: var(--cream);
       font-size: 1.6rem;
       margin-bottom: 1.2rem;
       display: block;
     }
-.footer-brand p {
+
+    .footer-brand p {
       font-size: 0.85rem;
-      color: rgba(250,248,243,0.45);
+      color: rgba(250,247,242,0.45);
       line-height: 1.7;
       font-weight: 300;
       max-width: 240px;
     }
-.footer-social {
+
+    .footer-social {
       display: flex;
       gap: 0.8rem;
       margin-top: 1.5rem;
     }
-.social-link {
+
+    .social-link {
       width: 36px;
       height: 36px;
       border: 1px solid rgba(255,255,255,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(250,248,243,0.4);
+      color: rgba(250,247,242,0.4);
       transition: border-color 0.25s, color 0.25s;
     }
-.social-link:hover {
+
+    .social-link:hover {
       border-color: var(--gold);
       color: var(--gold);
     }
-.social-link svg { width: 14px; height: 14px; }
-.footer-col h4 {
+
+    .social-link svg { width: 14px; height: 14px; }
+
+    .footer-col h4 {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(250,248,243,0.3);
+      color: rgba(250,247,242,0.3);
       margin-bottom: 1.5rem;
     }
-.footer-links {
+
+    .footer-links {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
-.footer-links a {
+
+    .footer-links a {
       font-size: 0.85rem;
-      color: rgba(250,248,243,0.55);
+      color: rgba(250,247,242,0.55);
       font-weight: 300;
       transition: color 0.25s;
     }
-.footer-links a:hover { color: var(--gold-light); }
-.footer-bottom {
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
-.footer-bottom p {
+
+    .footer-bottom p {
       font-size: 0.78rem;
-      color: rgba(250,248,243,0.25);
+      color: rgba(250,247,242,0.25);
     }
-.footer-bottom a {
-      color: rgba(250,248,243,0.25);
+
+    .footer-bottom a {
+      color: rgba(250,247,242,0.25);
       font-size: 0.78rem;
       transition: color 0.25s;
     }
-.footer-bottom a:hover { color: var(--gold-light); }
-/* ═══════════════════════════════════════════════
+
+    .footer-bottom a:hover { color: var(--gold-light); }
+
+    /* ═══════════════════════════════════════════════
        BLOG TEASER — dark section above footer
     ══════════════════════════════════════════════════ */
     #blog {
       background: var(--charcoal);
-      padding: 5.5rem 0;
+      padding: 7rem 5% 6rem;
       position: relative;
       overflow: hidden;
     }
-/* Faint gold hairline top border to lead the eye into the section */
+
+    /* Faint gold hairline top border to lead the eye into the section */
     #blog::before {
       content: '';
       position: absolute;
       top: 0; left: 5%; right: 5%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184,146,74,0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(196,145,58,0.4), transparent);
     }
-.blog-inner {
-      max-width: 1160px;
+
+    .blog-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 3.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-.blog-header {
+
+    .blog-header {
       max-width: 540px;
     }
-#blog .section-label { color: var(--gold-light); }
-#blog .section-label::before { background: var(--gold-light); }
-#blog .section-title { color: var(--cream); margin-bottom: 1.4rem; }
-#blog .section-intro {
-      color: rgba(250,248,243,0.62);
+
+    #blog .section-label { color: var(--gold-light); }
+    #blog .section-label::before { background: var(--gold-light); }
+    #blog .section-title { color: var(--cream); margin-bottom: 1.4rem; }
+
+    #blog .section-intro {
+      color: rgba(250,247,242,0.62);
       max-width: 500px;
       margin-bottom: 2rem;
     }
-/* CTA card — sits opposite the header text, holds the "Read our thinking" link */
+
+    /* CTA card — sits opposite the header text, holds the "Read our thinking" link */
     .blog-cta-card {
       background: var(--charcoal-2);
       border: 1px solid rgba(255,255,255,0.08);
@@ -1123,8 +1811,9 @@ ul { list-style: none; }
       transition: border-color 0.3s var(--ease-out);
       position: relative;
     }
-.blog-cta-card:hover { border-color: rgba(184,146,74,0.4); }
-.blog-cta-eyebrow {
+    .blog-cta-card:hover { border-color: rgba(196,145,58,0.4); }
+
+    .blog-cta-eyebrow {
       font-size: 0.75rem;
       font-weight: 500;
       letter-spacing: 0.16em;
@@ -1132,7 +1821,8 @@ ul { list-style: none; }
       color: var(--gold-light);
       margin-bottom: 1.5rem;
     }
-.blog-cta-headline {
+
+    .blog-cta-headline {
       font-family: var(--font-display);
       font-size: 1.85rem;
       font-weight: 500;
@@ -1141,13 +1831,15 @@ ul { list-style: none; }
       margin-bottom: 1rem;
       letter-spacing: -0.005em;
     }
-.blog-cta-headline em { color: var(--gold); font-style: italic; }
-.blog-cta-body {
-      color: rgba(250,248,243,0.6);
+    .blog-cta-headline em { color: var(--gold); font-style: italic; }
+
+    .blog-cta-body {
+      color: rgba(250,247,242,0.6);
       font-size: 0.95rem;
       margin-bottom: 2rem;
     }
-.blog-cta-link {
+
+    .blog-cta-link {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -1159,9 +1851,10 @@ ul { list-style: none; }
       transition: color 0.2s, gap 0.25s var(--ease-out);
       text-decoration: none;
     }
-.blog-cta-link:hover { color: var(--gold-light); gap: 0.9rem; }
-.blog-cta-link svg { width: 18px; height: 18px; }
-/* ═══════════════════════════════════════════════
+    .blog-cta-link:hover { color: var(--gold-light); gap: 0.9rem; }
+    .blog-cta-link svg { width: 18px; height: 18px; }
+
+    /* ═══════════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
@@ -1169,16 +1862,20 @@ ul { list-style: none; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-@media (max-width: 768px) {
-.nav-links { display: none; }
-.nav-hamburger { display: flex; }
-#hero { padding: 9rem 5% 5rem; }
-.hero-amp { display: none; }
-.hero-stats {
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      #hero { padding: 9rem 5% 5rem; }
+      .hero-amp { display: none; }
+
+      .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
       }
-.hero-stat {
+
+      .hero-stat {
         border-right: none;
         border-bottom: 1px solid var(--stone-2);
         padding-right: 0;
@@ -1186,19 +1883,39 @@ ul { list-style: none; }
         margin-right: 0;
         margin-bottom: 0;
       }
-.hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-.opportunity-inner,
+
+      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+      .opportunity-inner,
       .audience-inner,
       .contact-inner,
       .faq-inner,
       .why-header { grid-template-columns: 1fr; }
-.footer-top { grid-template-columns: 1fr; gap: 2rem; }
-.footer-bottom { flex-direction: column; align-items: flex-start; }
-}
-@media (max-width: 480px) {
-.form-row { grid-template-columns: 1fr; }
-}
-/* Mobile nav open */
+
+      .opportunity-stats { grid-template-columns: 1fr 1fr; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .journey-steps { grid-template-columns: 1fr 1fr; }
+      .journey-steps::before { display: none; }
+      .journey-step { padding: 1.5rem; }
+
+      .why-grid { grid-template-columns: 1fr 1fr; }
+
+      .services-header { flex-direction: column; align-items: flex-start; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .journey-steps { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .opportunity-stats { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile nav open */
     body.nav-open .nav-links {
       display: flex;
       flex-direction: column;
@@ -1210,10 +1927,12 @@ ul { list-style: none; }
       gap: 2rem;
       z-index: 999;
     }
-body.nav-open .nav-links a {
+
+    body.nav-open .nav-links a {
       font-size: 1.1rem;
     }
-/* ═══════════════════════════════════════════════
+
+    /* ═══════════════════════════════════════════════
        SUCCESS STATE
     ══════════════════════════════════════════════════ */
     .form-success {
@@ -1223,242 +1942,391 @@ body.nav-open .nav-links a {
       background: var(--cream-2);
       border: 1px solid var(--stone-2);
     }
-.form-success.visible { display: block; }
-.form-success svg {
+
+    .form-success.visible { display: block; }
+
+    .form-success svg {
       width: 48px;
       height: 48px;
       color: var(--gold);
       margin: 0 auto 1rem;
     }
-.form-success h3 {
+
+    .form-success h3 {
       font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 400;
       color: var(--charcoal);
       margin-bottom: 0.5rem;
     }
-.form-success p {
+
+    .form-success p {
       font-size: 0.88rem;
       color: var(--muted);
     }
-/* ═══════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════
        ENGAGEMENT (stacked card feature)
     ══════════════════════════════════════════════════ */
-.eng-inner .section-label { margin-bottom: 1.6rem; }
-/* ═══════════════════════════════════════════════
+    #engagement {
+      padding: 8rem 5%;
+      background: var(--cream);
+    }
+    .eng-inner { max-width: 1120px; margin: 0 auto; }
+    .eng-inner .section-label { margin-bottom: 1.6rem; }
+
+    .eng-stack { position: relative; }
+    .eng-stack__back {
+      position: absolute; inset: 0;
+      background: var(--gold);
+      border-radius: 30px;
+    }
+    .eng-stack__front {
+      position: relative;
+      margin: 42px 26px 0 26px;
+      background: var(--charcoal);
+      border-radius: 26px;
+      padding: 4rem 3.75rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .eng-stack__amp {
+      position: absolute; right: -1.5rem; bottom: -5.5rem;
+      font-family: var(--font-display); font-weight: 500;
+      font-size: 21rem; line-height: 1; color: var(--gold);
+      opacity: 0.12; pointer-events: none; user-select: none;
+    }
+    .eng-stack__title {
+      position: relative;
+      font-family: var(--font-display); font-weight: 500;
+      color: var(--cream);
+      font-size: clamp(2.4rem, 4vw, 3.6rem); line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .eng-stack__title em { font-style: italic; color: var(--gold-light); }
+    .eng-stack__lead { position: relative; }
+    .eng-stack__kicker {
+      font-weight: 600; font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.9rem;
+    }
+    .eng-stack__lead p {
+      color: var(--cream-3); font-size: 1.05rem; line-height: 1.7; font-weight: 300;
+    }
+    .eng-stack__lead p b { color: var(--cream); font-weight: 500; }
+
+    .eng-tiers {
+      margin-top: 3.5rem;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem;
+    }
+    .eng-tier {
+      background: var(--cream); border: 1px solid var(--stone-2);
+      border-radius: 16px; padding: 1.75rem 1.6rem 2rem;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+    }
+    .eng-tier:hover {
+      transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold);
+    }
+    .eng-tier__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.25rem; }
+    .eng-tier__num {
+      width: 38px; height: 38px; flex: 0 0 38px;
+      background: var(--gold); color: var(--cream); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 600; font-size: 1.35rem;
+    }
+    .eng-tier__band {
+      font-weight: 600; font-size: 0.66rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .eng-tier__name {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: 1.45rem; line-height: 1.12; color: var(--charcoal);
+      margin-bottom: 0.9rem; min-height: 3.3rem;
+    }
+    .eng-tier__dur {
+      align-self: flex-start; background: var(--cream-3);
+      border: 1px solid var(--stone-2); color: var(--charcoal);
+      font-weight: 500; font-size: 0.78rem;
+      padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1rem;
+    }
+    .eng-tier__fit { color: var(--muted); font-size: 0.86rem; line-height: 1.6; font-weight: 300; margin-top: auto; }
+
+    .eng-partner {
+      margin-top: 1.6rem;
+      background: var(--cream-2); border-left: 4px solid var(--gold);
+      border-radius: 0 16px 16px 0; padding: 2.4rem 2.75rem;
+      display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.5rem; align-items: center;
+    }
+    .eng-partner__kicker {
+      font-weight: 600; font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem;
+    }
+    .eng-partner__title { font-family: var(--font-display); font-weight: 600; font-size: 2.1rem; line-height: 1.05; color: var(--charcoal); }
+    .eng-partner__body p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; font-weight: 300; }
+    .eng-partner__body p b { color: var(--charcoal); font-weight: 500; }
+
+    @media (max-width: 920px) {
+      .eng-tiers { grid-template-columns: repeat(2, 1fr); }
+      .eng-stack__front { grid-template-columns: 1fr; gap: 1.75rem; padding: 3rem 2.5rem; align-items: start; }
+      .eng-stack__amp { font-size: 15rem; bottom: -3.5rem; right: -1rem; }
+      .eng-partner { grid-template-columns: 1fr; gap: 1.1rem; padding: 2rem 1.9rem; }
+      .eng-tier__name { min-height: 0; }
+    }
+    @media (max-width: 560px) {
+      .eng-tiers { grid-template-columns: 1fr; }
+      .eng-stack__front { margin: 30px 12px 0 12px; padding: 2rem 1.6rem; border-radius: 20px; }
+      .eng-stack__back { border-radius: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .eng-tier { transition: none; } }
+
+    /* ═══════════════════════════════════════════════
        PAIN
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #pain { padding: 8rem 5%; background: var(--charcoal); position: relative; }
+    .pain-inner { max-width: 1200px; margin: 0 auto; }
+    .pain-header { max-width: 760px; margin-bottom: 3.5rem; }
+    #pain .section-label { color: var(--gold-light); }
+    #pain .section-label::before { background: var(--gold-light); }
+    .pain-title { font-family: var(--font-display); font-weight: 400; color: var(--cream);
+      font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -0.01em; }
+    .pain-title em { font-style: italic; color: var(--gold-light); }
+    .pain-intro { color: var(--muted-2); font-size: 1.05rem; line-height: 1.7; margin-top: 1.25rem; font-weight: 300; }
+    .pain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+    .pain-card { background: var(--charcoal); padding: 2.5rem 1.9rem; transition: background 0.35s; }
+    .pain-card:hover { background: var(--charcoal-2); }
+    .pain-card__num { display: block; font-weight: 600; font-size: 0.72rem; letter-spacing: 0.16em; color: var(--gold-light); margin-bottom: 1.5rem; }
+    .pain-card__heading { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 0.6rem; }
+    .pain-card__copy { color: var(--cream-3); font-size: 0.88rem; line-height: 1.65; font-weight: 300; }
+    @media (max-width: 980px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pain-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════════
        CREDIBILITY
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #credibility { padding: 8rem 5%; background: var(--cream); }
+    .cred-inner { max-width: 1200px; margin: 0 auto; }
+    .cred-header { max-width: 820px; margin-bottom: 3.5rem; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .cred-founder { background: var(--cream); border: 1px solid var(--stone-2); border-radius: 16px; padding: 2.25rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .cred-photo { width: 86px; height: 86px; flex: 0 0 86px; border-radius: 12px; background: var(--cream-3);
+      border: 1px solid var(--stone); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.9rem; color: var(--gold); font-weight: 600; overflow: hidden; }
+    .cred-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .cred-founder h3 { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; color: var(--charcoal); line-height: 1.1; }
+    .cred-role { font-weight: 600; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0.35rem 0 0.8rem; }
+    .cred-bio { color: var(--muted); font-size: 0.9rem; line-height: 1.65; font-weight: 300; }
+    .cred-li { display: inline-block; margin-top: 0.75rem; font-size: 0.78rem; color: var(--gold); border-bottom: 1px solid var(--gold-pale); padding-bottom: 1px; }
+    .cred-assets { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; border-top: 1px solid var(--stone-2); padding-top: 2.5rem; }
+    .cred-asset h4 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.4rem; }
+    .cred-asset p { color: var(--muted); font-size: 0.84rem; line-height: 1.6; font-weight: 300; }
+
+    /* ═══════════════════════════════════════════════
        WHEEL
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #wheel { padding: 8rem 5%; background: var(--cream-2); }
+    .wheel-inner { max-width: 1200px; margin: 0 auto; }
+    .wheel-header { max-width: 800px; margin-bottom: 3.5rem; }
+    .wheel-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4rem; align-items: center; }
+    .wheel-svg-wrap { display: flex; justify-content: center; }
+    .wheel-svg { width: 100%; max-width: 380px; height: auto; }
+    .wheel-segment { transition: filter 0.25s var(--ease-out), transform 0.25s var(--ease-out); transform-origin: 160px 160px; cursor: pointer; }
+    .wheel-segment:hover { filter: brightness(1.12) saturate(1.1); transform: scale(1.015); }
+    .wheel-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .wheel-item { display: flex; gap: 1.1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--stone-2); }
+    .wheel-item:last-child { border-bottom: none; }
+    .wheel-num { width: 30px; height: 30px; flex: 0 0 30px; border-radius: 7px; background: var(--charcoal); color: var(--cream);
+      display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; font-size: 1rem; }
+    .wheel-item h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); line-height: 1.15; margin-bottom: 0.2rem; }
+    .wheel-item p { color: var(--muted); font-size: 0.9rem; line-height: 1.55; font-weight: 300; }
+
+    /* ═══════════════════════════════════════════════
        USE CASES
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
+    #usecases { padding: 8rem 5%; background: var(--cream); }
+    .uc-inner { max-width: 1200px; margin: 0 auto; }
+    .uc-header { max-width: 760px; margin-bottom: 3.5rem; }
+    .uc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .uc-card { background: var(--cream); border: 1px solid var(--stone-2); border-radius: 16px; padding: 2.25rem 2rem; transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out); }
+    .uc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+    .uc-sector { font-weight: 600; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .uc-card p { color: var(--charcoal-3); font-size: 0.98rem; line-height: 1.65; font-weight: 300; }
+    .uc-note { margin-top: 2rem; font-style: italic; color: var(--muted-2); font-size: 0.86rem; }
+
+    /* ═══════════════════════════════════════════════
        ASSURANCE
     ══════════════════════════════════════════════════ */
-/* ── Hero trust strip ── */
+    #assurance { padding: 8rem 5%; background: var(--charcoal); }
+    .as-inner { max-width: 1200px; margin: 0 auto; }
+    .as-header { max-width: 760px; margin-bottom: 3.5rem; }
+    #assurance .section-label { color: var(--gold-light); }
+    #assurance .section-label::before { background: var(--gold-light); }
+    .as-title { font-family: var(--font-display); font-weight: 400; color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; }
+    .as-title em { font-style: italic; color: var(--gold-light); }
+    .as-intro { color: var(--muted-2); font-size: 1.05rem; line-height: 1.7; margin-top: 1.25rem; font-weight: 300; }
+    .as-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+    .as-item { background: var(--charcoal); padding: 2.25rem 1.9rem; transition: background 0.35s; }
+    .as-item:hover { background: var(--charcoal-2); }
+    .as-item h4 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--cream); margin-bottom: 0.5rem; }
+    .as-item p { color: var(--cream-3); font-size: 0.88rem; line-height: 1.6; font-weight: 300; }
+
+    /* ── Methodology (journey 5-step override) ── */
+    #journey .journey-steps { grid-template-columns: repeat(5, 1fr); }
+    @media (max-width: 1000px){ #journey .journey-steps { grid-template-columns: repeat(2, 1fr); } #journey .journey-steps::before { display: none; } }
+    @media (max-width: 560px){ #journey .journey-steps { grid-template-columns: 1fr; } }
+
+    /* ── Hero trust strip ── */
     .hero-trust { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; margin-top: 2.75rem; color: var(--muted); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.02em; }
-.hero-trust span { display: inline-flex; align-items: center; gap: 0.5rem; }
-.hero-trust .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); display: inline-block; }
-/* ── Micro-promise above form ── */
+    .hero-trust span { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .hero-trust .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+    /* ── Micro-promise above form ── */
     .form-promise { background: var(--cream-2); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; margin-bottom: 1.75rem; color: var(--charcoal-2); font-size: 0.92rem; line-height: 1.6; }
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-/* ── Cookie consent ── */
+    .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* ── Cookie consent ── */
     .consent { position: fixed; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1200; max-width: 720px; margin: 0 auto;
       background: var(--charcoal); color: var(--cream); border-radius: 14px; box-shadow: var(--shadow-lg);
       padding: 1.35rem 1.5rem; display: none; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-.consent.visible { display: flex; }
-.consent p { font-size: 0.86rem; line-height: 1.6; color: var(--cream-3); font-weight: 300; flex: 1 1 320px; }
-.consent p a { color: var(--gold-light); border-bottom: 1px solid rgba(217,170,90,0.4); }
-.consent-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
-.consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
-.consent-accept { background: var(--gold); color: var(--cream); }
-.consent-accept:hover { background: var(--gold-light); }
-.consent-decline { background: transparent; color: var(--cream); border-color: rgba(255,255,255,0.35); }
-.consent-decline:hover { border-color: var(--cream); }
-/* ═══════════════════════════════════════════════
+    .consent.visible { display: flex; }
+    .consent p { font-size: 0.86rem; line-height: 1.6; color: var(--cream-3); font-weight: 300; flex: 1 1 320px; }
+    .consent p a { color: var(--gold-light); border-bottom: 1px solid rgba(217,170,90,0.4); }
+    .consent-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
+    .consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
+    .consent-accept { background: var(--gold); color: var(--cream); }
+    .consent-accept:hover { background: var(--gold-light); }
+    .consent-decline { background: transparent; color: var(--cream); border-color: rgba(255,255,255,0.35); }
+    .consent-decline:hover { border-color: var(--cream); }
+
+    @media (max-width: 920px){
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-grid { grid-template-columns: 1fr; }
+      .cred-assets { grid-template-columns: repeat(2, 1fr); }
+      .wheel-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .uc-grid { grid-template-columns: 1fr; }
+      .as-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px){
+      .pain-grid { grid-template-columns: 1fr; }
+      .cred-assets { grid-template-columns: 1fr; }
+      .cred-founder { flex-direction: column; }
+    }
+
+    /* ═══════════════════════════════════════════════
        PAIN  (scroll-stacking panels — compact)
        Tokens scoped to #pain so they don't touch the rest of the page.
     ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       V3 HOMEPAGE — approved mockup sections
-       All classes namespaced nb- to avoid cascade
-       collisions with the pre-existing component CSS.
+    #pain{
+      --u-cream:#F0EADD; --u-muted:#9A9385; --u-gold:#C2A24E; --u-gold-line:rgba(194,162,78,.55);
+      --u-display:"Fraunces",Georgia,serif; --u-body:"Inter",system-ui,sans-serif;
+      --panel-h:32vh; --lip:16px; --top-base:96px;  /* clears the fixed nav */
+      background:#100E09; color:var(--u-cream); font-family:var(--u-body); padding:0;
+    }
+    #pain .wrap{ width:min(1180px,92vw); margin:0 auto; }
+    #pain .intro{ padding:clamp(5rem,14vh,11rem) 0 clamp(3rem,8vh,6rem); }
+    #pain .intro__eyebrow{ display:flex; align-items:center; gap:.85rem; color:var(--u-gold);
+      font-size:.74rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.5rem; }
+    #pain .intro__eyebrow::before{ content:""; width:24px; height:1px; background:var(--u-gold); }
+    #pain .intro__title{ font-family:var(--u-display); font-weight:400; font-size:clamp(2rem,5.2vw,3.2rem);
+      line-height:1.16; letter-spacing:-.01em; margin-bottom:1.4rem; max-width:18ch; color:var(--u-cream); }
+    #pain .intro__title em{ font-style:italic; color:var(--u-gold); }
+    #pain .intro__text{ color:var(--u-muted); font-size:1.05rem; line-height:1.6; max-width:54ch; }
+    #pain .stack{ padding-bottom:10vh; }
+    #pain .panel{ position:sticky; top:calc(var(--top-base) + var(--i) * var(--lip)); min-height:var(--panel-h);
+      border-radius:20px; border-top:1px solid var(--u-gold-line); padding:clamp(1.5rem,3.2vw,2.75rem);
+      display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(1.5rem,3.5vw,3rem); align-content:center;
+      box-shadow:0 -12px 34px rgba(0,0,0,.4); overflow:hidden; }
+    #pain .panel--1{ background:#18140D; }
+    #pain .panel--2{ background:#201B12; }
+    #pain .panel--3{ background:#282216; }
+    #pain .panel--4{ background:#322817; }
+    #pain .panel__index{ font-family:var(--u-body); font-weight:600; font-size:.74rem; letter-spacing:.18em;
+      color:var(--u-gold); margin-bottom:.8rem; }
+    #pain .panel__heading{ font-family:var(--u-display); font-weight:400; line-height:1.02; letter-spacing:-.01em;
+      font-size:clamp(2rem,4.4vw,3.1rem); color:var(--u-cream); }
+    #pain .panel__lead{ font-weight:600; font-size:1.08rem; line-height:1.3; color:var(--u-gold); margin-bottom:.7rem; }
+    #pain .panel__text{ font-size:.97rem; line-height:1.55; color:var(--u-cream); opacity:.85; max-width:44ch; }
+    #pain .panel__aside{ align-self:center; }
+    @media (max-width:760px){
+      #pain .panel{ grid-template-columns:1fr; gap:1rem; min-height:auto; padding:1.6rem 1.4rem; }
+      #pain{ --panel-h:auto; --lip:12px; --top-base:84px; }
+    }
+    @media (prefers-reduced-motion:reduce){
+      #pain .panel{ position:static; min-height:auto; margin-bottom:12px; box-shadow:none; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       HOW WE WORK  (uploaded: roles slider)
+       Tokens scoped to #journey; sits as a dark card on a cream band.
     ══════════════════════════════════════════════════ */
-    .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
-.nb-sec { padding: 5.5rem 0; }
-.footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-2); letter-spacing: 0.01em; }
-.nb-sec--mid  { background: var(--cream-3); }
-.nb-sec--dark { background: var(--charcoal); }
-.nb-sec--dark .nb-h2            { color: var(--cream); }
-.nb-sec--dark .nb-h2 em         { color: var(--gold-light); }
-.nb-sec--dark .nb-eyebrow       { color: var(--gold-light); }
-.nb-sec--dark .nb-lede          { color: rgba(250,248,243,0.72); }
-.nb-sec--dark .nb-qlist li      { color: rgba(250,248,243,0.86); border-bottom-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-qlist li:first-child { border-top-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-tick          { color: var(--gold-light); }
-.nb-sec--dark .nb-qside         { background: var(--cream); border-left-color: var(--gold); }
-.nb-sec--dark .nb-qside h4      { color: var(--charcoal); }
-.nb-sec--dark .nb-qside p       { color: var(--ink); }
-.nb-eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold-deep); font-weight: 600; margin-bottom: 1rem;
+    #journey{
+      --u-charcoal:#211E19; --u-charcoal-2:#2C2924; --u-cream:#F4EFE4; --u-gold:#C2A24E;
+      --u-line:rgba(244,239,228,.14); --u-display:"Fraunces",Georgia,serif; --u-body:"Inter",system-ui,sans-serif;
+      --u-ease:cubic-bezier(.22,.61,.36,1);
+      background:var(--cream); padding:clamp(4rem,9vh,7rem) 5%; display:flex; justify-content:center;
     }
-.nb-h2 {
-      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.45rem);
-      font-weight: 600; color: var(--charcoal); max-width: 44rem;
-      margin-bottom: 1.1rem; line-height: 1.18;
+    #journey .slider{ width:min(1180px,100%);
+      background:radial-gradient(120% 120% at 100% 0%, rgba(194,162,78,.05), transparent 55%), var(--u-charcoal);
+      border:1px solid var(--u-line); border-radius:24px; padding:clamp(1.5rem,4vw,3.5rem); overflow:hidden; }
+    #journey .slider__eyebrow{ font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--u-gold);
+      font-weight:600; margin-bottom:clamp(1.5rem,3vw,2.5rem); display:flex; align-items:center; gap:.85rem; }
+    #journey .slider__eyebrow::after{ content:""; height:1px; flex:1; background:var(--u-line); }
+    #journey .slider__inner{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(1.75rem,4vw,3.5rem); align-items:center; }
+    #journey .slider__titles{ display:flex; flex-direction:column; gap:.15rem; margin-bottom:1.75rem; }
+    #journey .slider__title{ appearance:none; background:none; border:0; cursor:pointer; text-align:left;
+      font-family:var(--u-display); font-weight:500; line-height:1.02; font-size:clamp(2rem,5.4vw,3.6rem);
+      color:var(--u-cream); opacity:.32; padding:.12em 0;
+      transition:opacity .4s var(--u-ease), transform .4s var(--u-ease); position:relative; width:max-content; max-width:100%; }
+    #journey .slider__title:hover{ opacity:.6; }
+    #journey .slider__title.is-active{ opacity:1; transform:translateX(.55em); }
+    #journey .slider__title::before{ content:""; position:absolute; left:-.55em; top:50%; width:.32em; height:.32em;
+      border-radius:50%; background:var(--u-gold); transform:translateY(-50%) scale(0); transition:transform .4s var(--u-ease); }
+    #journey .slider__title.is-active::before{ transform:translateY(-50%) scale(1); }
+    #journey .slider__title:focus-visible{ outline:2px solid var(--u-gold); outline-offset:6px; border-radius:4px; }
+    #journey .slider__texts{ position:relative; margin-bottom:2rem; min-height:7.5em; }
+    #journey .slider__text{ position:absolute; inset:0; font-size:1.02rem; line-height:1.6; color:var(--u-cream);
+      opacity:0; transform:translateY(10px); transition:opacity .5s var(--u-ease), transform .5s var(--u-ease);
+      pointer-events:none; max-width:46ch; }
+    #journey .slider__text.is-active{ opacity:.82; transform:translateY(0); pointer-events:auto; }
+    #journey .slider__controls{ display:flex; align-items:center; gap:.9rem; }
+    #journey .slider__num{ appearance:none; cursor:pointer; font-family:var(--u-body); font-weight:600; font-size:.82rem;
+      letter-spacing:.05em; color:var(--u-cream); background:transparent; border:1px solid var(--u-line); border-radius:999px;
+      width:3rem; height:3rem; display:grid; place-items:center;
+      transition:border-color .35s var(--u-ease), color .35s var(--u-ease), background .35s var(--u-ease); flex:0 0 auto; }
+    #journey .slider__num:hover{ border-color:var(--u-gold); }
+    #journey .slider__num.is-active{ color:var(--u-charcoal); background:var(--u-gold); border-color:var(--u-gold); }
+    #journey .slider__num:focus-visible{ outline:2px solid var(--u-gold); outline-offset:3px; }
+    #journey .slider__progress{ flex:1; height:2px; background:var(--u-line); border-radius:2px; overflow:hidden; margin-left:.4rem; }
+    #journey .slider__progress-bar{ display:block; height:100%; background:var(--u-gold); transform:scaleX(0); transform-origin:left center; }
+    #journey .slider__stage{ position:relative; aspect-ratio:4 / 5; border-radius:20px; overflow:hidden;
+      background:var(--u-charcoal-2); border:1px solid var(--u-line); }
+    #journey .slider__slide{ position:absolute; inset:0; opacity:0; transform:scale(1.06);
+      transition:opacity .7s var(--u-ease), transform 1.1s var(--u-ease); }
+    #journey .slider__slide.is-active{ opacity:1; transform:scale(1); z-index:1; }
+    #journey .slider__slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+    #journey .slider__placeholder{ width:100%; height:100%; display:flex; flex-direction:column;
+      justify-content:space-between; padding:1.75rem; color:var(--u-cream); position:relative; }
+    #journey .slider__placeholder--1{ background:linear-gradient(150deg,#332E26,#1C1914); }
+    #journey .slider__placeholder--2{ background:linear-gradient(150deg,#3A3220,#211E19); }
+    #journey .slider__placeholder--3{ background:linear-gradient(150deg,#2A2A24,#1A1813); }
+    #journey .slider__placeholder::before{ content:""; position:absolute; inset:0;
+      background-image:radial-gradient(var(--u-line) 1px, transparent 1px); background-size:26px 26px; opacity:.4; pointer-events:none; }
+    #journey .slider__ghost-num{ font-family:var(--u-display); font-size:clamp(4rem,14vw,7rem); line-height:1; color:var(--u-gold); opacity:.85; position:relative; }
+    #journey .slider__ghost-label{ font-size:.95rem; letter-spacing:.02em; color:var(--u-cream); opacity:.7; max-width:18ch; position:relative; }
+    @media (max-width:820px){
+      #journey .slider__inner{ grid-template-columns:1fr; gap:2rem; }
+      #journey .slider__col--media{ order:-1; }
+      #journey .slider__stage{ aspect-ratio:16 / 10; }
+      #journey .slider__texts{ min-height:9em; }
     }
-.nb-h2 em { color: var(--gold-deep); font-style: italic; }
-.nb-lede { font-size: 1.02rem; color: var(--ink); max-width: 46rem; margin-bottom: 2.6rem; }
-/* ── Proof strip ───────────────────────────── */
-    .nb-proof { background: var(--charcoal); }
-.nb-proof-inner {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      max-width: 1160px; margin: 0 auto;
+    @media (prefers-reduced-motion:reduce){
+      #journey .slider__slide, #journey .slider__text, #journey .slider__title, #journey .slider__num{ transition-duration:.01ms !important; }
+      #journey .slider__progress{ display:none; }
     }
-.nb-proof-card { padding: 2.4rem 2.5rem; color: var(--cream-2); }
-.nb-proof-card + .nb-proof-card { border-left: 1px dashed #565349; }
-.nb-proof-card .nb-kicker {
-      font-size: 0.69rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); font-weight: 600; margin-bottom: 0.9rem;
-    }
-.nb-shift {
-      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
-      margin-bottom: 0.6rem; display: flex; align-items: baseline; gap: 0.65rem;
-    }
-.nb-shift .nb-from { color: #9c9989; text-decoration: line-through; font-size: 1.18rem; }
-.nb-shift .nb-to { color: var(--gold); }
-.nb-proof-card p { font-size: 0.84rem; color: #c9c5b6; }
-/* ── Is this you ───────────────────────────── */
-    .nb-qualify { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
-.nb-qlist { list-style: none; }
-.nb-qlist li {
-      display: flex; gap: 0.9rem; padding: 1.05rem 0;
-      border-bottom: 1px dashed var(--line); font-size: 0.95rem;
-    }
-.nb-qlist li:first-child { border-top: 1px dashed var(--line); }
-.nb-qlist .nb-tick { color: var(--gold-deep); font-weight: 700; flex-shrink: 0; }
-.nb-qside { background: var(--charcoal); color: var(--cream-2); padding: 2rem; border-left: 3px solid var(--gold); }
-.nb-qside h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--cream); }
-.nb-qside p { font-size: 0.9rem; color: #c9c5b6; margin-bottom: 1.5rem; }
-/* ── Problem rows ──────────────────────────── */
-    .nb-problems { display: flex; flex-direction: column; }
-.nb-problem {
-      display: grid; grid-template-columns: 15rem 1fr; gap: 2.5rem;
-      padding: 1.6rem 0; border-top: 1px solid var(--line);
-    }
-.nb-problem:last-child { border-bottom: 1px solid var(--line); }
-.nb-problem .nb-ptitle { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); }
-.nb-problem p { font-size: 0.94rem; color: var(--ink); }
-/* ── Stats ─────────────────────────────────── */
-    .nb-stats { display: flex; gap: 4rem; margin-bottom: 1.2rem; }
-.nb-stat .nb-num { font-family: var(--font-display); font-size: 3.6rem; font-weight: 600; color: var(--gold-deep); line-height: 1; }
-.nb-stat p { font-size: 0.9rem; color: var(--ink); margin-top: 0.4rem; }
-.nb-source { font-size: 0.78rem; color: var(--muted); }
-/* ── Card grids ────────────────────────────── */
-    .nb-cards { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-cards--4 { grid-template-columns: repeat(4, 1fr); }
-.nb-cards--5 { grid-template-columns: repeat(5, 1fr); }
-.nb-cards--6 { grid-template-columns: repeat(3, 1fr); }
-.nb-card { background: var(--cream); padding: 1.7rem 1.5rem; }
-.nb-sec--mid .nb-card { background: var(--cream-2); }
-.nb-card h4 { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.55rem; }
-.nb-card p { font-size: 0.88rem; color: var(--ink); }
-/* ── Services ──────────────────────────────── */
-    .nb-service {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      padding: 2.4rem 0; border-top: 1px solid var(--line); align-items: start;
-    }
-.nb-service:last-of-type { border-bottom: 1px solid var(--line); }
-.nb-service .nb-slabel { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-service h3 { font-family: var(--font-display); font-size: 1.65rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.7rem; }
-.nb-service > div > p { font-size: 0.94rem; color: var(--ink); }
-.nb-example { background: var(--cream-2); padding: 1.5rem 1.6rem; border-left: 2px solid var(--gold); }
-.nb-sec--mid .nb-example { background: var(--cream); }
-.nb-chip {
-      display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-      background: var(--charcoal); color: var(--cream-2); padding: 0.25rem 0.6rem; margin-bottom: 0.8rem;
-    }
-.nb-taglabel { font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 0.5rem; }
-.nb-example p { font-size: 0.87rem; color: var(--ink); }
-/* ── Tiers ─────────────────────────────────── */
-    .nb-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-tier { background: var(--cream); padding: 1.8rem 1.5rem; display: flex; flex-direction: column; }
-.nb-tier .nb-len { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.7rem; }
-.nb-tier h4 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
-.nb-tier p { font-size: 0.87rem; color: var(--ink); flex-grow: 1; }
-.nb-tier .nb-fit { font-size: 0.78rem; color: var(--muted); margin-top: 1.1rem; padding-top: 0.8rem; border-top: 1px dashed var(--line); }
-/* ── Sector examples ───────────────────────── */
-    .nb-examples { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.nb-ex { background: var(--cream); border: 1px solid var(--line); padding: 1.8rem; }
-.nb-sec--mid .nb-ex { background: var(--cream-2); }
-.nb-ex .nb-sector { font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-ex h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--charcoal); margin: 0.5rem 0 0.6rem; }
-.nb-ex > p { font-size: 0.89rem; color: var(--ink); margin-bottom: 1.2rem; }
-.nb-ba { display: grid; gap: 0.6rem; padding-top: 1rem; border-top: 1px dashed var(--line); }
-.nb-ba div { font-size: 0.85rem; color: var(--ink); }
-.nb-ba .nb-balabel { display: inline-block; min-width: 3.8rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.nb-illustrative { margin-top: 1.8rem; font-size: 0.83rem; color: var(--muted); font-style: italic; max-width: 52rem; }
-/* ── Partners ticker ───────────────────────── */
-    .nb-pgroup { margin-bottom: 1.6rem; }
-.nb-ticker {
-      overflow: hidden; border: 1px solid var(--line); background: var(--cream);
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-              mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-    }
-.nb-sec--mid .nb-ticker { background: var(--cream-2); }
-.nb-track { display: flex; width: max-content; align-items: center; animation: nb-scroll 34s linear infinite; }
-.nb-ticker:hover .nb-track, .nb-ticker:focus-within .nb-track { animation-play-state: paused; }
-.nb-logo { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 1.5rem 3rem; }
-.nb-logo img { display: block; width: auto; max-width: none; }
-.nb-logo--lovable              { height: 22px; }
-.nb-logo--anthropic            { height: 20px; }
-.nb-logo--openai               { height: 25px; }
-.nb-logo--google               { height: 26px; }
-.nb-logo--grok                 { height: 25px; }
-.nb-logo--n8n                  { height: 24px; }
-.nb-logo--promanchester        { height: 32px; }
-.nb-logo--manchesterdigital    { height: 34px; }
-@keyframes nb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-.nb-track { animation: none; }
-.nb-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-}
-.nb-pnote { font-size: 0.85rem; color: var(--muted); font-style: italic; max-width: 44rem; margin-top: 0.5rem; }
-/* ── FAQ ───────────────────────────────────── */
-    /* ── Final CTA ─────────────────────────────── */
-    .nb-cta-card { background: var(--cream); border: 1px solid var(--gold); padding: 3.5rem 3rem; text-align: center; max-width: 52rem; margin: 0 auto; }
-.nb-cta-card .nb-eyebrow, .nb-cta-card .nb-h2, .nb-cta-card .nb-lede { margin-left: auto; margin-right: auto; }
-.nb-cta-card .nb-lede { margin-bottom: 1.8rem; }
-.nb-leave { display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center; margin-bottom: 2rem; font-size: 0.85rem; color: var(--ink); }
-.nb-leave span::before { content: "✓"; color: var(--gold-deep); font-weight: 700; margin-right: 0.45rem; }
-.nb-cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
-/* ── Responsive ────────────────────────────── */
-    @media (max-width: 1000px) {
-      .nb-cards--4, .nb-cards--5, .nb-tiers { grid-template-columns: repeat(2, 1fr); }
-      .nb-cards--6 { grid-template-columns: repeat(2, 1fr); }
-      .nb-qualify, .nb-service { grid-template-columns: 1fr; gap: 2rem; }
-      .nb-proof-inner { grid-template-columns: 1fr; }
-      .nb-proof-card + .nb-proof-card { border-left: none; border-top: 1px dashed #565349; }
-      .nb-problem { grid-template-columns: 1fr; gap: 0.5rem; }
-    }
-@media (max-width: 680px) {
-.nb-wrap { padding: 0 1.5rem; }
-.nb-sec { padding: 3.5rem 0; }
-.nb-cards--4, .nb-cards--5, .nb-cards--6, .nb-tiers, .nb-examples { grid-template-columns: 1fr; }
-.nb-stats { gap: 2rem; }
-.nb-cta-card { padding: 2.2rem 1.5rem; }
-.nb-logo { padding: 1.2rem 2rem; }
-}
 
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -1467,19 +2335,18 @@ body.nav-open .nav-links a {
      NAVIGATION
 ══════════════════════════════════════════════════ -->
 <header>
-
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <a href="#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
       Nielsen <span class="amp">&amp;</span> Brown
     </a>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="#wheel">How it works</a></li>
-      <li><a href="#audience">Who it is for</a></li>
-      <li><a href="#services">What we do</a></li>
-      <li><a href="#usecases">Examples</a></li>
+      <li><a href="#wheel">The Wheel</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#journey">How We Work</a></li>
+      <li><a href="#engagement">Engagement</a></li>
       <li><a href="#faq">FAQs</a></li>
-      <li><a href="#contact" class="nav-cta">Book a discovery call</a></li>
+      <li><a href="#contact" class="nav-cta">Book a Call</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1493,7 +2360,6 @@ body.nav-open .nav-links a {
 <!-- ═══════════════════════════════════════════════
      HERO
 ══════════════════════════════════════════════════ -->
-
 <main>
 
 <section id="hero" aria-labelledby="hero-heading">
@@ -1502,29 +2368,30 @@ body.nav-open .nav-links a {
   <div class="hero-amp" aria-hidden="true">&amp;</div>
 
   <div class="hero-inner">
-    <p class="hero-eyebrow">Built for UK businesses with 50 to 250 people</p>
+    <p class="hero-eyebrow">AI Consultancy for UK SMBs</p>
 
     <h1 class="hero-headline" id="hero-heading">
-      AI that earns <em>its place</em><br/>
-      in your business.
+      AI that saves time,<br/>
+      reduces risk, and<br/>
+      <em>actually gets used.</em>
     </h1>
 
     <p class="hero-sub">
-      We help mid-sized UK businesses find the one or two AI projects that will actually pay back, then build them, train the team, and keep everything safe. No enterprise contract, no jargon, no twelve-week deck before anything gets built.
+      Practical AI strategy, training, automation and governance for UK SMBs that want measurable results, not another abstract workshop.
     </p>
 
     <div class="hero-actions">
       <a href="#contact" class="btn-primary" data-ga="cta_hero_primary">
-        Book your free discovery call
+        Book a Free AI Opportunity Call
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#wheel" class="btn-outline" data-ga="cta_hero_secondary">See how it works</a>
+      <a href="#journey" class="btn-outline" data-ga="cta_hero_secondary">See How We Work</a>
     </div>
 
     <div class="hero-trust" aria-label="At a glance">
-      <span><span class="dot"></span> Built for teams of 50 to 250 people</span>
-      <span><span class="dot"></span> Manchester based, working across the UK</span>
-      <span><span class="dot"></span> Independent: we recommend what fits, never what pays us commission</span>
+      <span><span class="dot"></span> UK SMB specialists</span>
+      <span><span class="dot"></span> Governance led: safe, documented, accountable AI</span>
+      <span><span class="dot"></span> Vendor independent: we recommend what fits, not what pays</span>
     </div>
   </div>
 </section>
@@ -1547,332 +2414,606 @@ body.nav-open .nav-links a {
   </div>
 </div>
 
-<div id="proof" class="nb-proof">
-  <div class="nb-proof-inner">
-    <div class="nb-proof-card">
-      <div class="nb-kicker">Report preparation</div>
-      <div class="nb-shift"><span class="nb-from">2 days</span><span class="nb-to">&rarr; 3 hours</span></div>
-      <p>Illustrative example. A mid-sized professional services firm, cutting the time spent pulling numbers into client reports each month.</p>
+<section id="pain" aria-labelledby="pain-heading">
+  <div class="wrap">
+    <div class="intro">
+      <p class="intro__eyebrow">Where most SMBs get stuck</p>
+      <h2 class="intro__title" id="pain-heading">You know AI matters. The hard part is <em>knowing what to do first.</em></h2>
+      <p class="intro__text">Most owners are not short on AI ideas. They are short on a clear, safe and costed way to act on them. This is usually where the wheels come off.</p>
     </div>
-    <div class="nb-proof-card">
-      <div class="nb-kicker">Customer replies</div>
-      <div class="nb-shift"><span class="nb-from">24 hrs</span><span class="nb-to">&rarr; minutes</span></div>
-      <p>Illustrative example. A retail team, first response time on routine order queries during busy periods.</p>
-    </div>
-    <div class="nb-proof-card">
-      <div class="nb-kicker">Account chasing</div>
-      <div class="nb-shift"><span class="nb-from">Manual</span><span class="nb-to">&rarr; drafted</span></div>
-      <p>Illustrative example. A wholesale distributor, credit control letters drafted automatically from existing systems.</p>
+
+    <div class="stack" aria-label="The four places SMBs get stuck">
+      <article class="panel panel--1" style="--i:0">
+        <div>
+          <p class="panel__index">01</p>
+          <h3 class="panel__heading">Too much noise.</h3>
+        </div>
+        <div class="panel__aside">
+          <p class="panel__lead">More options won't help</p>
+          <p class="panel__text">Every tool promises transformation. Very few fit the way your business actually works. You don't need more choices, you need the right ones.</p>
+        </div>
+      </article>
+
+      <article class="panel panel--2" style="--i:1">
+        <div>
+          <p class="panel__index">02</p>
+          <h3 class="panel__heading">No internal owner.</h3>
+        </div>
+        <div class="panel__aside">
+          <p class="panel__lead">Curiosity isn't ownership</p>
+          <p class="panel__text">Your team is curious, but nobody owns AI strategy, risk, or delivery. Without a clear owner, momentum stalls and good ideas quietly die.</p>
+        </div>
+      </article>
+
+      <article class="panel panel--3" style="--i:2">
+        <div>
+          <p class="panel__index">03</p>
+          <h3 class="panel__heading">Governance worry.</h3>
+        </div>
+        <div class="panel__aside">
+          <p class="panel__lead">Gains without the exposure</p>
+          <p class="panel__text">You want the productivity gains without creating data, compliance, or reputational risk. The right guardrails let you move fast and stay safe.</p>
+        </div>
+      </article>
+
+      <article class="panel panel--4" style="--i:3">
+        <div>
+          <p class="panel__index">04</p>
+          <h3 class="panel__heading">No clear ROI.</h3>
+        </div>
+        <div class="panel__aside">
+          <p class="panel__lead">Results you can measure</p>
+          <p class="panel__text">You need practical use cases that save time, improve service, or cut cost, and soon. We start where the return is clearest, not where the hype is loudest.</p>
+        </div>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
-<section id="audience" class="nb-sec nb-sec--dark" aria-labelledby="audience-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Is this you</div>
-    <h2 class="nb-h2" id="audience-heading">Built for one kind of business, <em>not every business.</em></h2>
-    <p class="nb-lede">We turn down work that is not a fit, on purpose. Here is who we are built for.</p>
-    <div class="nb-qualify">
-      <ul class="nb-qlist">
-        <li><span class="nb-tick" aria-hidden="true">&#10003;</span><span>Somewhere around 50 to 250 people on the payroll, not a two-person outfit and not a listed enterprise</span></li>
-        <li><span class="nb-tick" aria-hidden="true">&#10003;</span><span>Someone on the leadership team is curious about AI, but nobody currently owns getting it done</span></li>
-        <li><span class="nb-tick" aria-hidden="true">&#10003;</span><span>You want a clear, sized-down return before committing real budget</span></li>
-        <li><span class="nb-tick" aria-hidden="true">&#10003;</span><span>Data, compliance, or client trust means you cannot just let staff loose on any AI tool</span></li>
-        <li><span class="nb-tick" aria-hidden="true">&#10003;</span><span>You want a working tool and a trained team, not a slide deck and an invoice</span></li>
-      </ul>
-      <div class="nb-qside">
-        <h4>Not a big-consultancy budget</h4>
-        <p>Enterprise AI consultancies price for enterprise clients. We are built and priced for a business with 50 to 250 people, not a FTSE 250 one. If three or more of these sound like you, the next step is a short call, not a proposal.</p>
-        <a href="#contact" class="btn-gold" data-ga="cta_qualify">Book your free discovery call</a>
+<section id="opportunity" aria-labelledby="opp-heading">
+  <div class="opportunity-inner">
+    <div class="opportunity-text reveal-left">
+      <p class="section-label">Why Now</p>
+      <h2 class="section-title" id="opp-heading">
+        The opportunity is real.<br/>So is the <em>gap.</em>
+      </h2>
+      <p>The UK has over 5.6 million small businesses, yet AI adoption among smaller firms remains uneven. Most are dabbling with tools. Very few are deploying AI strategically, with governance and a measurable return.</p>
+      <p>That gap, between surface level tool use and real, governed value, is exactly where we work.</p>
+      <a href="#contact" class="btn-primary" data-ga="cta_opportunity">
+        Find My Best AI Opportunity <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="opportunity-stats reveal-right">
+      <div class="opp-stat">
+        <div class="opp-stat-num">5.6<sup>M</sup></div>
+        <div class="opp-stat-desc">UK small businesses (<a class="opp-stat-src" href="https://www.gov.uk/government/statistics/business-population-estimates-2025" target="_blank" rel="noopener noreferrer">GOV.UK Business Population Estimates, 2025</a>)</div>
+      </div>
+      <div class="opp-stat">
+        <div class="opp-stat-num">54<sup>%</sup></div>
+        <div class="opp-stat-desc">of UK firms report using AI in some form (<a class="opp-stat-src" href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce, 2026</a>)</div>
+      </div>
+      <div class="opp-stat" style="grid-column:1 / -1;">
+        <div class="opp-stat-num">11<sup>%</sup></div>
+        <div class="opp-stat-desc">use AI extensively to automate operations, despite the 54% above (<a class="opp-stat-src" href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce, 2026</a>)</div>
+      </div>
+      <p class="opp-stat-sources">Sources: <a href="https://www.gov.uk/government/statistics/business-population-estimates-2025" target="_blank" rel="noopener noreferrer">GOV.UK Business Population Estimates 2025</a> &middot; <a href="https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/" target="_blank" rel="noopener noreferrer">British Chambers of Commerce / Atos, March 2026</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="credibility" aria-labelledby="cred-heading">
+  <div class="cred-inner">
+    <div class="cred-header reveal">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title" id="cred-heading">Strategy, commercial, and technical delivery <em>under one roof.</em></h2>
+      <p class="section-intro" style="margin-top:1.25rem;max-width:780px;">Our founding team brings strategy, commercial and technical delivery together, so you do not need three separate suppliers to get from idea to something that works. One team scopes the opportunity, designs the solution, builds it and helps your people adopt it, which keeps the work joined up and removes the handovers where most projects quietly stall. We are independent of any single platform, which means our advice and our builds are shaped by what fits your operation, not by what we are paid to recommend. And because governance sits inside every engagement rather than being added at the end, you capture the productivity gains without quietly taking on data, compliance or reputational risk along the way.</p>
+    </div>
+    <div class="cred-assets">
+      <div class="cred-asset reveal"><h4>Independent</h4><p>Vendor neutral advice and builds, shaped by fit, not commission.</p></div>
+      <div class="cred-asset reveal"><h4>Implementation led</h4><p>You leave with something working, not just a report.</p></div>
+      <div class="cred-asset reveal"><h4>Governance first</h4><p>Risk, policy and accountability built in from day one.</p></div>
+      <div class="cred-asset reveal"><h4>SMB only</h4><p>Built for businesses your size, not enterprise repackaged.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="wheel" aria-labelledby="wheel-heading">
+  <div class="wheel-inner">
+    <div class="wheel-header reveal">
+      <p class="section-label">Our Framework</p>
+      <h2 class="section-title" id="wheel-heading">The Nielsen &amp; Brown<br/><em>AI Business Strategy Wheel.</em></h2>
+      <p class="section-intro" style="margin-top:1.25rem;">Every engagement runs on one framework. It gives your leadership team a shared language for AI decisions, and gives delivery a structure that holds from diagnostic through to optimisation. Five dimensions, asked as five plain questions.</p>
+    </div>
+    <div class="wheel-layout">
+      <div class="wheel-svg-wrap reveal-left">
+    <svg class="wheel-svg" viewBox="0 0 320 320" role="img" aria-label="The AI Business Strategy Wheel: five dimensions">
+      <path class="wheel-segment" d="M 165.5 18.1 A 142.0 142.0 0 0 1 293.3 111.0 L 237.0 131.7 A 82.0 82.0 0 0 0 163.1 78.1 Z" fill="#C4913A"><title>1 — Playing Fields</title></path>
+      <text x="225.8" y="69.4" text-anchor="middle" dominant-baseline="central" font-family="Cormorant, serif" font-size="20" font-weight="600" fill="#FAF7F2" pointer-events="none">1</text>
+      <path class="wheel-segment" d="M 296.6 121.3 A 142.0 142.0 0 0 1 247.8 271.6 L 210.7 224.4 A 82.0 82.0 0 0 0 238.9 137.7 Z" fill="#D9AA5A"><title>2 — Business Value</title></path>
+      <text x="266.5" y="194.6" text-anchor="middle" dominant-baseline="central" font-family="Cormorant, serif" font-size="20" font-weight="600" fill="#FAF7F2" pointer-events="none">2</text>
+      <path class="wheel-segment" d="M 239.0 278.0 A 142.0 142.0 0 0 1 81.0 278.0 L 114.4 228.1 A 82.0 82.0 0 0 0 205.6 228.1 Z" fill="#B07F2E"><title>3 — Financial Impact</title></path>
+      <text x="160.0" y="272.0" text-anchor="middle" dominant-baseline="central" font-family="Cormorant, serif" font-size="20" font-weight="600" fill="#FAF7F2" pointer-events="none">3</text>
+      <path class="wheel-segment" d="M 72.2 271.6 A 142.0 142.0 0 0 1 23.4 121.3 L 81.1 137.7 A 82.0 82.0 0 0 0 109.3 224.4 Z" fill="#CFA052"><title>4 — Implementation</title></path>
+      <text x="53.5" y="194.6" text-anchor="middle" dominant-baseline="central" font-family="Cormorant, serif" font-size="20" font-weight="600" fill="#FAF7F2" pointer-events="none">4</text>
+      <path class="wheel-segment" d="M 26.7 111.0 A 142.0 142.0 0 0 1 154.5 18.1 L 156.9 78.1 A 82.0 82.0 0 0 0 83.0 131.7 Z" fill="#9C7A38"><title>5 — Dynamics</title></path>
+      <text x="94.2" y="69.4" text-anchor="middle" dominant-baseline="central" font-family="Cormorant, serif" font-size="20" font-weight="600" fill="#FAF7F2" pointer-events="none">5</text>
+      <circle cx="160" cy="160" r="68" fill="#1C1A17"/>
+      <text x="160" y="150" text-anchor="middle" font-family="Cormorant, serif" font-size="17" font-weight="600" fill="#FAF7F2">The AI Business</text>
+      <text x="160" y="172" text-anchor="middle" font-family="Cormorant, serif" font-size="17" font-weight="600" fill="#C4913A">Strategy Wheel</text>
+    </svg>
+      </div>
+      <div class="wheel-list reveal-right">
+      <div class="wheel-item reveal">
+        <div class="wheel-num">1</div>
+        <div><h3>Playing Fields</h3><p>Where could AI realistically apply across your business?</p></div>
+      </div>
+      <div class="wheel-item reveal">
+        <div class="wheel-num">2</div>
+        <div><h3>Business Value</h3><p>Where does it create real value, in time, quality, service or risk?</p></div>
+      </div>
+      <div class="wheel-item reveal">
+        <div class="wheel-num">3</div>
+        <div><h3>Financial Impact</h3><p>What is the measurable return that justifies the investment?</p></div>
+      </div>
+      <div class="wheel-item reveal">
+        <div class="wheel-num">4</div>
+        <div><h3>Implementation</h3><p>Are the data, systems, people and processes ready to deliver it?</p></div>
+      </div>
+      <div class="wheel-item reveal">
+        <div class="wheel-num">5</div>
+        <div><h3>Dynamics</h3><p>How does the advantage compound, and what governance keeps it safe?</p></div>
+      </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="pain" class="nb-sec" aria-labelledby="pain-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Where teams like yours get stuck</div>
-    <h2 class="nb-h2" id="pain-heading">You already know AI could help. The hard part is <em>knowing what to do first.</em></h2>
-    <p class="nb-lede">Most leadership teams are not short of AI ideas. They are short of time to work out which idea is worth doing first, and how to do it without creating a mess to clean up later.</p>
-    <div class="nb-problems">
-      <div class="nb-problem"><div class="nb-ptitle">Too many tools</div><p>Every AI tool claims it will change your business. Most will not fit how your team actually works. You do not need more options, you need the right one, chosen quickly.</p></div>
-      <div class="nb-problem"><div class="nb-ptitle">No clear owner</div><p>Your leadership team is interested in AI, but everyone already has a full-time job running the business. Without someone driving it, good ideas quietly go nowhere.</p></div>
-      <div class="nb-problem"><div class="nb-ptitle">Risk you cannot see</div><p>You want the time savings, not a data leak, an angry client, or a mistake nobody caught before it went out. The right basics let you move quickly and stay safe.</p></div>
-      <div class="nb-problem"><div class="nb-ptitle">Unproven return</div><p>You need something that saves real time or real money, and soon, not a strategy document. We start with the project most likely to pay for itself first.</p></div>
+<section id="services" aria-labelledby="services-heading">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="reveal-left">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title" id="services-heading">
+          Four practice areas,<br/><em>built around outcomes.</em>
+        </h2>
+      </div>
+      <p class="section-intro reveal-right">You don't buy AI consultancy. You buy clarity, speed, safety, and something that actually works. Each practice area maps to a result, not a capability.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="24" cy="24" r="20"/>
+          <path d="M16 24h16M24 16v16"/>
+          <circle cx="24" cy="24" r="6"/>
+        </svg>
+        <h3>AI Strategy &amp; Roadmap</h3>
+        <p>Find the three to five AI use cases most likely to create value in your business, then turn them into a practical roadmap your team can execute from day one.</p>
+        <div class="service-tags">
+          <span class="tag">Readiness Assessment</span>
+          <span class="tag">Use case Prioritisation</span>
+          <span class="tag">Roadmap Design</span>
+        </div>
+        <span class="service-model">Continuous Advisory</span>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="8" y="12" width="32" height="24" rx="2"/>
+          <path d="M16 20l4 4-4 4M24 28h8"/>
+        </svg>
+        <h3>Team Training &amp; Adoption</h3>
+        <p>Give your people the confidence to use AI safely and productively in their real daily work, not in theory. Role based programmes for leaders, managers and frontline teams.</p>
+        <div class="service-tags">
+          <span class="tag">Group Workshops</span>
+          <span class="tag">Role based Training</span>
+          <span class="tag">Train the trainer</span>
+        </div>
+        <span class="service-model">Per Engagement</span>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="6" y="16" width="16" height="16" rx="2"/>
+          <rect x="26" y="16" width="16" height="16" rx="2"/>
+          <path d="M22 24h4M14 12v4M34 12v4M14 32v4M34 32v4"/>
+        </svg>
+        <h3>Workflow Automation &amp; Custom Tools</h3>
+        <p>Build practical AI tools that remove repetitive work, improve response times, and fit the systems your team already uses. We build where off the shelf does not fit.</p>
+        <div class="service-tags">
+          <span class="tag">Automation</span>
+          <span class="tag">System Integration</span>
+          <span class="tag">Custom built Tools</span>
+        </div>
+        <span class="service-model">Project Based</span>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-num">04</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M24 6l4 8h8l-6.5 5.5 2.5 9-8-5.5-8 5.5 2.5-9L12 14h8z"/>
+          <path d="M10 36l4 4M38 36l-4 4M24 34v6"/>
+        </svg>
+        <h3>AI Governance &amp; Compliance</h3>
+        <p>Put the policies, documentation, risk controls and accountability in place to use AI responsibly, protect your data, and stay ready for regulation as it develops.</p>
+        <div class="service-tags">
+          <span class="tag">Readiness Audit</span>
+          <span class="tag">Policy &amp; Risk Register</span>
+          <span class="tag">Ongoing Support</span>
+        </div>
+        <span class="service-model">Project + Advisory</span>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section id="opportunity" class="nb-sec nb-sec--mid" aria-labelledby="opp-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Why now</div>
-    <h2 class="nb-h2" id="opp-heading">Plenty of mid-sized businesses are trying AI. Not many are using it <em>properly.</em></h2>
-    <p class="nb-lede">There are over 5.6 million small and medium businesses in the UK. Most are experimenting with the odd AI tool here and there. Only a small minority are using it in a planned, safe way with a measurable return, and that gap is where we work.</p>
-    <div class="nb-stats">
-      <div class="nb-stat"><div class="nb-num">5.6M</div><p>UK small and medium businesses</p></div>
+<section id="journey" aria-labelledby="journey-heading">
+  <section class="slider" aria-label="How we work">
+    <h2 class="slider__eyebrow" id="journey-heading">How we work</h2>
+
+    <div class="slider__inner">
+      <!-- LEFT -->
+      <div class="slider__col slider__col--content">
+
+        <div class="slider__titles" role="tablist" aria-label="Engagement stages">
+          <button class="slider__title is-active" role="tab" aria-selected="true"  data-index="0">Diagnostic Assessment</button>
+          <button class="slider__title"           role="tab" aria-selected="false" data-index="1">Solution Design</button>
+          <button class="slider__title"           role="tab" aria-selected="false" data-index="2">Implementation</button>
+        </div>
+
+        <div class="slider__texts">
+          <p class="slider__text is-active" data-index="0">We start by finding where AI actually moves the needle for your business, mapping processes, surfacing the highest value opportunities, and separating what to automate from what to augment. No tooling decisions until we know what's worth solving.</p>
+          <p class="slider__text" data-index="1">Next we design the right solution for the opportunity, not the trend. We prototype, pressure test, and shape a practical approach around your data, your team, and the governance you need to deploy with confidence.</p>
+          <p class="slider__text" data-index="2">Then we put it to work. We build, integrate, and train your people to run it, closing the gap between knowing what AI can do and getting measurable results from it in the day to day.</p>
+        </div>
+
+        <div class="slider__controls">
+          <button class="slider__num is-active" data-index="0" aria-label="Go to stage 1">01</button>
+          <button class="slider__num"           data-index="1" aria-label="Go to stage 2">02</button>
+          <button class="slider__num"           data-index="2" aria-label="Go to stage 3">03</button>
+          <div class="slider__progress" aria-hidden="true"><span class="slider__progress-bar"></span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT (media) -->
+      <div class="slider__col slider__col--media">
+        <div class="slider__stage">
+          <figure class="slider__slide is-active" data-index="0">
+            <div class="slider__placeholder slider__placeholder--1">
+              <span class="slider__ghost-num">01</span>
+              <span class="slider__ghost-label">Where AI moves the needle</span>
+            </div>
+          </figure>
+          <figure class="slider__slide" data-index="1">
+            <div class="slider__placeholder slider__placeholder--2">
+              <span class="slider__ghost-num">02</span>
+              <span class="slider__ghost-label">The right solution, not the trend</span>
+            </div>
+          </figure>
+          <figure class="slider__slide" data-index="2">
+            <div class="slider__placeholder slider__placeholder--3">
+              <span class="slider__ghost-num">03</span>
+              <span class="slider__ghost-label">Built, deployed, owned by your team</span>
+            </div>
+          </figure>
+        </div>
+      </div>
     </div>
-    <p class="nb-source">Source: GOV.UK Business Population Estimates 2025.</p>
-  </div>
+  </section>
 </section>
 
-<section id="credibility" class="nb-sec" aria-labelledby="cred-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Who we are</div>
-    <h2 class="nb-h2" id="cred-heading">One small team. Not three different suppliers.</h2>
-    <p class="nb-lede">We handle the thinking and the building ourselves: strategy, training, and the tools we make for you. One point of contact from the first call to the finished tool, and no gap between the plan and what actually gets delivered.</p>
-    <div class="nb-cards nb-cards--4">
-      <div class="nb-card"><h4>Independent</h4><p>Not paid by any software company, so we recommend what fits your business, not what earns a commission.</p></div>
-      <div class="nb-card"><h4>Hands-on</h4><p>You end up with a working tool your team actually uses, not a report left in a folder.</p></div>
-      <div class="nb-card"><h4>Safe by default</h4><p>The basic safety checks are built in from day one, not added after something has gone wrong.</p></div>
-      <div class="nb-card"><h4>Built for your size</h4><p>We work best with businesses of roughly 50 to 250 people. Not repackaged enterprise consulting, not a solo freelancer.</p></div>
-    </div>
-  </div>
-</section>
+<section id="engagement" aria-labelledby="engagement-heading">
+  <div class="eng-inner">
+    <p class="section-label reveal">How We Engage</p>
 
-<section id="wheel" class="nb-sec nb-sec--mid" aria-labelledby="wheel-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">How we think about it</div>
-    <h2 class="nb-h2" id="wheel-heading">Five plain questions we ask about every business</h2>
-    <p class="nb-lede">We call this the AI Business Strategy Wheel internally. To you, it is five straightforward questions, worked through together, so every decision has a clear reason behind it rather than a guess.</p>
-    <div class="nb-cards nb-cards--5">
-      <div class="nb-card"><h4>1. Where could it help</h4><p>Which parts of the business could AI realistically make faster or easier.</p></div>
-      <div class="nb-card"><h4>2. Where is the real value</h4><p>Which of those would actually save time, improve service, or cut risk.</p></div>
-      <div class="nb-card"><h4>3. Does it pay off</h4><p>What would it save or earn back, and is that worth the investment.</p></div>
-      <div class="nb-card"><h4>4. Are we ready</h4><p>Do the systems, data, and people support it, or does something need fixing first.</p></div>
-      <div class="nb-card"><h4>5. Staying safe</h4><p>How it keeps improving, and stays under control as it grows.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="nb-sec" aria-labelledby="services-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">What we do</div>
-    <h2 class="nb-h2" id="services-heading">Four things we help with, each proven on a business your size</h2>
-    <p class="nb-lede">You are not buying an AI consultancy engagement. You are buying a plan you can act on, a team that knows how to use it, a tool that works, and the confidence that it is being done safely.</p>
-
-    <div class="nb-service">
-      <div>
-        <div class="nb-slabel">Finding the right first project</div>
-        <h3>AI strategy and roadmap</h3>
-        <p>We look across the business and find the three to five places AI is most likely to help, then turn the strongest one into a simple plan the team can start on straight away.</p>
-      </div>
-      <div class="nb-example">
-        <div class="nb-chip">~90 people</div>
-        <div class="nb-taglabel">What this looked like</div>
-        <p>A professional services firm was losing whole days each month to partners pulling numbers into client reports by hand. We shortlisted three AI projects and started with that one, because it had the fastest, clearest payback. Illustrative example.</p>
-      </div>
-    </div>
-
-    <div class="nb-service">
-      <div>
-        <div class="nb-slabel">Getting the team using it properly</div>
-        <h3>Team training and adoption</h3>
-        <p>We show the team how to use AI safely and well in their actual day-to-day work, not in the abstract. Sessions are built around your business, whether that is leaders, managers, or frontline staff.</p>
-      </div>
-      <div class="nb-example">
-        <div class="nb-chip">~120 people</div>
-        <div class="nb-taglabel">What this looked like</div>
-        <p>A retail head office ran two half-day sessions built entirely around its own product descriptions and customer emails, not generic examples, so staff left knowing exactly what to do differently the following Monday. Illustrative example.</p>
-      </div>
-    </div>
-
-    <div class="nb-service">
-      <div>
-        <div class="nb-slabel">Building what off-the-shelf will not do</div>
-        <h3>Workflow automation and custom tools</h3>
-        <p>Where an off-the-shelf tool does not quite fit, we build something custom-built that plugs into the systems the team already uses, so nobody has to change how they work to get the benefit.</p>
-      </div>
-      <div class="nb-example">
-        <div class="nb-chip">~200 people</div>
-        <div class="nb-taglabel">What this looked like</div>
-        <p>A wholesale distributor had a credit control team manually chasing overdue accounts. We built a tool that drafts the chase letters automatically from the existing accounting system, freeing up real hours in the team every week. Illustrative example.</p>
-      </div>
-    </div>
-
-    <div class="nb-service">
-      <div>
-        <div class="nb-slabel">Keeping it above board</div>
-        <h3>Governance and compliance</h3>
-        <p>We put simple, practical safeguards in place: a plain-English usage policy, a risk register, and clear ownership, so the team can use AI with confidence and the business can show it has been done properly.</p>
-      </div>
-      <div class="nb-example">
-        <div class="nb-chip">~150 people</div>
-        <div class="nb-taglabel">What this looked like</div>
-        <p>A healthcare business handling patient enquiries needed staff to know exactly what could and could not go into an AI tool. We wrote a one-page usage policy and a short risk register the team could actually follow. Illustrative example.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="engagement" class="nb-sec" aria-labelledby="engagement-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">How we work together</div>
-    <h2 class="nb-h2" id="engagement-heading">Four ways to start, sized to where you are</h2>
-    <p class="nb-lede">Whether you want to test one idea or roll AI out across the business, every option runs on the same five questions above, so progress builds rather than starting over each time.</p>
-    <div class="nb-tiers">
-      <div class="nb-tier"><div class="nb-len">2 to 4 weeks</div><h4>Quick look</h4><p>For a business just exploring. A shortlist of the best three ideas, a rough return for each, and a basic safety checklist.</p><div class="nb-fit">Best for: testing the idea first</div></div>
-      <div class="nb-tier"><div class="nb-len">6 to 8 weeks</div><h4>Prove it on one thing</h4><p>Ready to prove it works. One tool built or configured, connected, the team trained, and support for 30 days afterwards.</p><div class="nb-fit">Best for: most 50 to 250 person businesses</div></div>
-      <div class="nb-tier"><div class="nb-len">10 to 12 weeks</div><h4>Roll it out properly</h4><p>Scaling AI across a department. Two or three projects, a full safety pack, trained trainers, and 60 days of support.</p><div class="nb-fit">Best for: businesses toward 250 people</div></div>
-      <div class="nb-tier"><div class="nb-len">6 months</div><h4>Whole-business programme</h4><p>For businesses changing how several teams work at once, with leadership backing and one of us embedded alongside the team.</p><div class="nb-fit">Best for: multi-site or multi-department</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="usecases" class="nb-sec nb-sec--mid" aria-labelledby="uc-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">What this looks like</div>
-    <h2 class="nb-h2" id="uc-heading">Real, practical examples by sector</h2>
-    <p class="nb-lede">The same five-question approach, applied to the everyday jobs that quietly eat up time in businesses your size.</p>
-    <div class="nb-examples">
-      <div class="nb-ex">
-        <div class="nb-sector">Professional services</div>
-        <div class="nb-chip">~90 people</div>
-        <h4>Cutting document review time</h4>
-        <p>An AI tool does the first pass on contracts and reports, so fee earners spend time on judgement calls, not retyping.</p>
-        <div class="nb-ba"><div><span class="nb-balabel">Before</span>Hours spent on first drafts and manual checks</div><div><span class="nb-balabel">After</span>First draft ready in minutes, reviewed by a person</div></div>
-      </div>
-      <div class="nb-ex">
-        <div class="nb-sector">Retail and ecommerce</div>
-        <div class="nb-chip">~120 people</div>
-        <h4>Answering customers faster</h4>
-        <p>An AI assistant sorts and answers routine questions like order status, so busy periods do not mean a slower reply for everyone.</p>
-        <div class="nb-ba"><div><span class="nb-balabel">Before</span>Replies can take a full day during busy spells</div><div><span class="nb-balabel">After</span>Routine questions answered in minutes</div></div>
-      </div>
-      <div class="nb-ex">
-        <div class="nb-sector">Wholesale and foodservice</div>
-        <div class="nb-chip">~200 people</div>
-        <h4>Speeding up order handling</h4>
-        <p>Routine back-office tasks like order processing and account chasing get faster, freeing the team for work that needs a person.</p>
-        <div class="nb-ba"><div><span class="nb-balabel">Before</span>Staff spend hours a week on repetitive admin</div><div><span class="nb-balabel">After</span>Admin runs in the background, staff check the exceptions</div></div>
-      </div>
-      <div class="nb-ex">
-        <div class="nb-sector">Regulated businesses</div>
-        <div class="nb-chip">~150 people</div>
-        <h4>Using AI with confidence, not guesswork</h4>
-        <p>A short usage policy, a simple risk register, and basic staff training, so the team knows exactly what it can and cannot do.</p>
-        <div class="nb-ba"><div><span class="nb-balabel">Before</span>Staff using AI tools with no guidance at all</div><div><span class="nb-balabel">After</span>Clear rules everyone actually understands</div></div>
-      </div>
-    </div>
-    <p class="nb-illustrative">These are examples of the kind of practical AI projects we design, build, and keep safe for UK businesses with 50 to 250 people. Named case studies will be published as current projects complete.</p>
-  </div>
-</section>
-
-<section id="assurance" class="nb-sec" aria-labelledby="as-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Staying safe</div>
-    <h2 class="nb-h2" id="as-heading">The time savings, without the worry</h2>
-    <p class="nb-lede">AI should not come with a quiet build-up of data risk, compliance risk, or a mistake in front of a client. The safeguards are part of the work itself, not bolted on afterwards.</p>
-    <div class="nb-cards nb-cards--6">
-      <div class="nb-card"><h4>Data rules set first</h4><p>What data can be used, and where, is agreed before anything is built.</p></div>
-      <div class="nb-card"><h4>No lock-in</h4><p>Not tied to any single software company, so options stay open.</p></div>
-      <div class="nb-card"><h4>A person stays in the loop</h4><p>Anything customer-facing or higher risk always has a person checking it.</p></div>
-      <div class="nb-card"><h4>Everything written down</h4><p>A simple policy, a risk register, and a clear record of how AI is used.</p></div>
-      <div class="nb-card"><h4>UK data rules in mind</h4><p>Built to keep the business on the right side of UK data protection.</p></div>
-      <div class="nb-card"><h4>Clear ownership</h4><p>It is always clear who signed off on an AI decision, and why.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="partners" class="nb-sec" aria-labelledby="partners-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Who we build with</div>
-    <h2 class="nb-h2" id="partners-heading">Trusted partners and tools we use</h2>
-    <p class="nb-lede">We stay independent of any single vendor, so this is not a paid partnership list. It is simply the tools behind the work we build, and the Manchester networks we are part of.</p>
-
-    <div class="nb-pgroup">
-      <div class="nb-ticker" role="group" aria-label="Tools and networks we work with">
-        <div class="nb-track">
-          <div class="nb-logo"><img src="assets/partners/anthropic.svg" alt="Anthropic" class="nb-logo-img nb-logo--anthropic" width="178" height="20" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/lovable.png" alt="Lovable" class="nb-logo-img nb-logo--lovable" width="129" height="22" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/openai.svg" alt="OpenAI" class="nb-logo-img nb-logo--openai" width="93" height="25" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/n8n.svg" alt="n8n" class="nb-logo-img nb-logo--n8n" width="87" height="24" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/google.svg" alt="Google" class="nb-logo-img nb-logo--google" width="79" height="26" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/grok.svg" alt="Grok" class="nb-logo-img nb-logo--grok" width="90" height="25" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/promanchester.svg" alt="pro-manchester" class="nb-logo-img nb-logo--promanchester" width="89" height="32" decoding="async"/></div>
-          <div class="nb-logo"><img src="assets/partners/manchesterdigital.png" alt="Manchester Digital" class="nb-logo-img nb-logo--manchesterdigital" width="54" height="34" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/anthropic.svg" alt="" class="nb-logo-img nb-logo--anthropic" width="178" height="20" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/lovable.png" alt="" class="nb-logo-img nb-logo--lovable" width="129" height="22" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/openai.svg" alt="" class="nb-logo-img nb-logo--openai" width="93" height="25" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/n8n.svg" alt="" class="nb-logo-img nb-logo--n8n" width="87" height="24" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/google.svg" alt="" class="nb-logo-img nb-logo--google" width="79" height="26" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/grok.svg" alt="" class="nb-logo-img nb-logo--grok" width="90" height="25" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/promanchester.svg" alt="" class="nb-logo-img nb-logo--promanchester" width="89" height="32" decoding="async"/></div>
-          <div class="nb-logo" aria-hidden="true"><img src="assets/partners/manchesterdigital.png" alt="" class="nb-logo-img nb-logo--manchesterdigital" width="54" height="34" decoding="async"/></div>
+    <div class="eng-stack reveal">
+      <div class="eng-stack__back" aria-hidden="true"></div>
+      <div class="eng-stack__front">
+        <span class="eng-stack__amp" aria-hidden="true">&amp;</span>
+        <h2 class="eng-stack__title" id="engagement-heading">Four ways to engage,<br/><em>sized to where you are.</em></h2>
+        <div class="eng-stack__lead">
+          <p class="eng-stack__kicker">One framework, four entry points</p>
+          <p>Whether you are testing the idea, proving value on a single use case, or running a programme across the business, <b>every engagement runs on the AI Business Strategy Wheel</b>, so progress compounds rather than restarts.</p>
         </div>
       </div>
     </div>
 
-    <p class="nb-pnote">We are not paid by any of these companies. We choose the tool that fits the job, not the tool that pays us.</p>
-  </div>
-</section>
+    <div class="eng-tiers">
+      <article class="eng-tier reveal">
+        <div class="eng-tier__head"><span class="eng-tier__num">1</span><span class="eng-tier__band">Light</span></div>
+        <h3 class="eng-tier__name">Insight Sprint</h3>
+        <span class="eng-tier__dur">2 to 4 weeks</span>
+        <p class="eng-tier__fit">Any SMB exploring where AI could add value. Wheel diagnostic, top three use case shortlist, ROI estimate and governance baseline.</p>
+      </article>
 
-<section id="faq" class="nb-sec nb-sec--mid" aria-labelledby="faq-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Questions people ask</div>
-    <h2 class="nb-h2" id="faq-heading">A few common questions</h2>
-    <div class="faq-list" role="list">
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>Will this feel like a big consultancy engagement</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">No. There is no lengthy sales process, no room full of junior analysts, and no report that sits unread. It is the two co-owners, a short diagnostic, a working tool, and a trained team. Most first projects are live within six to eight weeks.</div>
+      <article class="eng-tier reveal">
+        <div class="eng-tier__head"><span class="eng-tier__num">2</span><span class="eng-tier__band">Standard</span></div>
+        <h3 class="eng-tier__name">AI Pilot</h3>
+        <span class="eng-tier__dur">6 to 8 weeks</span>
+        <p class="eng-tier__fit">Ready to prove value on one use case. Diagnostic, design, build or configure, integration, training and 30-day support.</p>
+      </article>
+
+      <article class="eng-tier reveal">
+        <div class="eng-tier__head"><span class="eng-tier__num">3</span><span class="eng-tier__band">Premium</span></div>
+        <h3 class="eng-tier__name">AI Implementation</h3>
+        <span class="eng-tier__dur">10 to 12 weeks</span>
+        <p class="eng-tier__fit">Scaling AI across a department. Two to three use cases, full governance pack, train the trainer, 60-day support.</p>
+      </article>
+
+      <article class="eng-tier reveal">
+        <div class="eng-tier__head"><span class="eng-tier__num">4</span><span class="eng-tier__band">Advanced</span></div>
+        <h3 class="eng-tier__name">AI Transformation Programme</h3>
+        <span class="eng-tier__dur">6 months</span>
+        <p class="eng-tier__fit">C-suite sponsorship. Cross departmental programme, governance committee, change management, embedded N&amp;B presence.</p>
+      </article>
+    </div>
+
+    <div class="eng-partner reveal">
+      <div>
+        <p class="eng-partner__kicker">Continuing Work</p>
+        <h3 class="eng-partner__title">Ongoing Partnership</h3>
       </div>
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>What does Nielsen &amp; Brown actually do</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">We help UK businesses with 50 to 250 people use AI in a practical way: finding where it can help, training the team to use it, building tools where nothing off the shelf fits, and putting basic safety measures in place.</div>
-      </div>
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>Is this only for big companies</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">No, the opposite. We work specifically with businesses of roughly 50 to 250 people. Most AI consultancies are built for much larger companies, and freelancers usually cannot cover strategy, training, and building all at once. We sit in between, priced and scoped for a business your size.</div>
-      </div>
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>What is the best first project for a business our size</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">Usually something small, repetitive, and done often: handling documents, answering routine customer questions, or preparing reports. A short session finds the one with the clearest payback and proves it works before anything bigger is committed.</div>
-      </div>
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>How much does it cost</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">It depends on scope. There is a short, low-cost way to test the idea first, then larger options once it is clear the idea is worth doing. The first call is always free, with no obligation.</div>
-      </div>
-      <div class="faq-item" role="listitem">
-        <button type="button" class="faq-question" aria-expanded="false">
-          <span>How do we keep our data safe</span>
-          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
-        </button>
-        <div class="faq-answer">Through a bit of planning, not guesswork. We agree what data can be used and where, choose tools that fit the business risk profile, keep a person checking anything sensitive, and write it all down so the business can show how AI is used.</div>
+      <div class="eng-partner__body">
+        <p>AI does not sit still. Tools shift, capabilities expand, and the noise keeps climbing. That is why many clients move from a delivery engagement into a continuing <b>partnership model</b> with us: a steady cadence of strategy reviews, governance check ins and capability development, plus direct access to our team as new opportunities surface. Shape and scope are built around your business, not a fixed package.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="cta-banner" class="nb-sec nb-sec--mid" aria-labelledby="cta-heading">
-  <div class="nb-wrap">
-    <div class="nb-cta-card">
-      <div class="nb-eyebrow">Ready to start</div>
-      <h2 class="nb-h2" id="cta-heading">Let us find one real AI project worth doing</h2>
-      <p class="nb-lede">No jargon, no generic slides, no enterprise sales process. In 30 minutes we will help identify one realistic AI project, one risk worth avoiding, and the sensible next step for a business your size.</p>
-      <div class="nb-leave">
-        <span>One realistic AI project</span>
-        <span>One risk to avoid</span>
-        <span>A clear next step</span>
+<section id="audience" aria-labelledby="audience-heading">
+  <div class="audience-inner">
+
+    <div class="audience-visual reveal-left">
+      <div class="audience-card-main">
+        <h3>Built for<br/><em>UK SMBs</em></h3>
+        <p>UK based small and medium sized businesses. Sector agnostic: professional services, retail, hospitality, manufacturing and beyond.</p>
       </div>
-      <div class="nb-cta-actions">
-        <a href="#contact" class="btn-gold" data-ga="cta_banner_primary">Book my free discovery call</a>
-        <a href="#engagement" class="btn-outline" data-ga="cta_banner_secondary">See how we work</a>
+      <div class="audience-card-float">
+        <p>Enterprise AI consultancies ignore SMBs.<br/>We're built specifically for them.</p>
       </div>
+    </div>
+
+    <div class="reveal-right">
+      <p class="section-label">Who We Serve</p>
+      <h2 class="section-title" id="audience-heading" style="margin-bottom:2.5rem;">
+        Our <em>sweet spot.</em>
+      </h2>
+
+      <div class="audience-list">
+        <div class="audience-item">
+          <div class="audience-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <h4>Underserved by the market</h4>
+            <p>Enterprise AI consultancies ignore businesses your size. Solo freelancers lack the structure. We fill the gap with credibility and capability.</p>
+          </div>
+        </div>
+        <div class="audience-item">
+          <div class="audience-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <h4>Urgent regulatory and competitive pressure</h4>
+            <p>Regulation, client expectations, and competitive pressure are forcing SMBs to act now. We help you move with confidence, not panic.</p>
+          </div>
+        </div>
+        <div class="audience-item">
+          <div class="audience-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <h4>Ready to act, not just curious</h4>
+            <p>We work with leaders who want results: working AI tools, trained teams, and a clear compliance posture. Not slide decks and webinars.</p>
+          </div>
+        </div>
+        <div class="audience-item">
+          <div class="audience-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
+          </div>
+          <div>
+            <h4>High volume, high value market</h4>
+            <p>5.5 million UK SMBs. Even a tiny share of that market is a significant revenue base, and first movers win the referral flywheel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usecases" aria-labelledby="uc-heading">
+  <div class="uc-inner">
+    <div class="uc-header reveal">
+      <p class="section-label">What This Looks Like</p>
+      <h2 class="section-title" id="uc-heading">Practical AI, <em>by sector.</em></h2>
+      <p class="section-intro" style="margin-top:1.25rem;">The same framework, applied to the everyday problems that quietly cost SMBs time and money.</p>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card reveal"><p class="uc-sector">Professional services</p><p>Cutting the time spent on manual document review and first draft preparation, so fee earners focus on judgement, not admin.</p></div>
+      <div class="uc-card reveal"><p class="uc-sector">Retail &amp; ecommerce</p><p>An AI assistant that triages customer enquiries and speeds up response times through busy periods.</p></div>
+      <div class="uc-card reveal"><p class="uc-sector">Wholesale &amp; foodservice</p><p>Streamlining order handling and routine back office tasks that quietly drain the working day.</p></div>
+      <div class="uc-card reveal"><p class="uc-sector">Regulated SMB</p><p>An AI usage policy, risk register and staff training that lets the team adopt AI with confidence.</p></div>
+    </div>
+    <p class="uc-note">Examples of practical AI projects we can design, pilot, and govern for UK SMBs. Named case studies will be published as current programmes complete.</p>
+  </div>
+</section>
+
+<section id="assurance" aria-labelledby="as-heading">
+  <div class="as-inner">
+    <div class="as-header reveal">
+      <p class="section-label">Risk &amp; Assurance</p>
+      <h2 class="as-title" id="as-heading">Productivity, <em>without the exposure.</em></h2>
+      <p class="as-intro">The benefits of AI should not come with a quiet build up of data, compliance or reputational risk. We make the safeguards part of the work, not an afterthought.</p>
+    </div>
+    <div class="as-grid">
+      <div class="as-item reveal"><h4>Privacy first by design</h4><p>What data can be used, and where, is decided before anything is built.</p></div>
+      <div class="as-item reveal"><h4>No vendor lock in</h4><p>Independent of any single platform, so you keep your options open.</p></div>
+      <div class="as-item reveal"><h4>Human oversight</h4><p>People stay in the loop on anything customer facing or high risk.</p></div>
+      <div class="as-item reveal"><h4>Documented controls</h4><p>Policies, a risk register, and a clear record of how AI is used.</p></div>
+      <div class="as-item reveal"><h4>UK GDPR aware</h4><p>Built to keep you on the right side of UK data and AI regulation.</p></div>
+      <div class="as-item reveal"><h4>Clear accountability</h4><p>Defined ownership for AI decisions, with an audit trail behind them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="faq-inner">
+    <div class="reveal-left">
+      <p class="section-label">FAQs</p>
+      <h2 class="section-title" id="faq-heading">
+        Common<br/><em>questions.</em>
+      </h2>
+      <p class="section-intro" style="margin-top:1.5rem;">
+        Everything you need to know about working with Nielsen &amp; Brown. Can't find the answer you're looking for? <a href="#contact" style="color:var(--gold); border-bottom:1px solid var(--gold-pale);">Get in touch.</a>
+      </p>
+    </div>
+
+    <div class="faq-list reveal-right" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>What exactly does Nielsen &amp; Brown do?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          We help UK small and medium sized businesses adopt AI practically, confidently, and accessibly. That means assessing where AI can genuinely help, training your team to use it, building custom built tools where off the shelf doesn't fit, and putting the right governance and compliance in place so your AI use is documented, accountable, and ready for regulation.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Who is Nielsen &amp; Brown for?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          We work with UK SMBs across all sectors. Our sweet spot is leadership teams who know AI is important but don't have the internal expertise to know where to start or how to do it safely.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How do you handle governance and compliance?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          We build a governance baseline into every engagement: how your AI use is documented, who is accountable, where the risks sit, and what controls keep you on the right side of UK regulation as it develops. Getting this right early avoids expensive scrambles later and gives clients and staff confidence in how you use AI.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>What does a typical engagement look like?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          We start with a diagnostic assessment, mapping your business and identifying where AI creates real value. From there, we design and test a solution, implement it alongside your team, and then move into a continuing partnership model to keep you ahead as things evolve. Most clients move through all four stages; some start with a specific need like training or governance.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How is Nielsen &amp; Brown different from freelance AI consultants?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          A freelancer gives you one person with one specialism. Nielsen &amp; Brown gives you a structured, multidisciplinary team covering strategy, training, and software, so you don't need to coordinate multiple suppliers or worry about the handoffs between them. We also bring formal processes, training, and governance and compliance expertise that individual contractors typically can't offer.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Where are you based and do you work nationwide?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          We are based in Manchester at Bartle House, Oxford Court, and we work with SMBs across the whole of the UK. We operate remote first, so geography is never a barrier. Where on site work is needed, for example in person training workshops, we can travel.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>What is the best first AI project for a UK small business?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          Usually a contained, high frequency task that costs time every day, such as document handling, customer enquiry triage, or report preparation. We run a short diagnostic to find the one with the strongest return and the clearest path to delivery, then prove it in a pilot before you commit further.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How much does AI consultancy cost for an SMB?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          It depends on scope. We offer a light two to four week Insight Sprint to test the idea, a six to eight week Pilot to prove value on one use case, and larger implementation and partnership options for scaling across the business. We scope and price each engagement to the work involved, and the first call is always free.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How do we use AI without exposing confidential data?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          Through governance, not guesswork. We set out what data can be used where, choose tools and models that fit your risk profile, keep human oversight in the loop on anything sensitive, and document the controls so your AI use is accountable and UK GDPR aware.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>Should we buy AI software or build a custom tool?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          Buy where a good off the shelf tool fits your workflow. Build where it does not. We stay independent of any single vendor, so the recommendation is based on what fits your operation, not on what we are paid to sell.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>What AI governance does a UK SMB actually need?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          At a minimum: an AI usage policy, a simple risk register, clear accountability for decisions, human oversight on anything customer facing or high risk, and records that show how AI is used. We build this baseline into every engagement rather than bolting it on later.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span>How long does an AI pilot take?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          Our standard AI Pilot runs six to eight weeks, from diagnostic through design, build or configure, integration and training, with 30 days of support afterwards. A lighter Insight Sprint takes two to four weeks if you want to test the idea first.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="cta-banner" aria-labelledby="cta-heading">
+  <div class="cta-banner-inner">
+    <p class="section-label">Ready to Start?</p>
+    <h2 id="cta-heading">
+      Let's find one real<br/><em>AI opportunity.</em>
+    </h2>
+    <p>
+      No jargon. No generic slides. In 30 minutes we'll help you identify one realistic AI opportunity, one avoidable risk, and the best next step for your business.
+    </p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-gold" data-ga="cta_banner_primary">
+        Book My Free AI Opportunity Call
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#journey" class="btn-ghost-light" data-ga="cta_banner_secondary">See How We Work</a>
     </div>
   </div>
 </section>
@@ -1885,7 +3026,7 @@ body.nav-open .nav-links a {
       <h2 class="section-title" id="contact-heading">
         Start a<br/><em>conversation.</em>
       </h2>
-      <p>Whether you have a defined challenge or are simply exploring how AI might help your business, we would love to hear from you. First calls are always free and without obligation.</p>
+      <p>Whether you have a defined challenge or are simply exploring how AI might help your business, we'd love to hear from you. First calls are always free and without obligation.</p>
 
       <div class="contact-details">
         <div class="contact-line">
@@ -1903,14 +3044,14 @@ body.nav-open .nav-links a {
           </div>
           <div>
             <div class="contact-line-label">LinkedIn</div>
-            <div class="contact-line-val"><a href="https://www.linkedin.com/company/nielsenandbrown" target="_blank" rel="noopener noreferrer" style="color:inherit;">linkedin.com/company/nielsenandbrown</a></div>
+            <div class="contact-line-val"><a href="https://www.linkedin.com/company/nielsen-brown" target="_blank" rel="noopener noreferrer" style="color:inherit;">linkedin.com/company/nielsen-brown</a></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="reveal-right">
-      <p class="form-promise">In 30 minutes, we will help you identify one realistic AI opportunity, one avoidable risk, and the best next step for your business.</p>
+      <p class="form-promise">In 30 minutes, we'll help you identify one realistic AI opportunity, one avoidable risk, and the best next step for your business.</p>
       <form class="contact-form" id="contact-form" novalidate aria-label="Enquiry form">
         <div class="form-group">
           <label class="form-label" for="name">Name *</label>
@@ -1945,7 +3086,7 @@ body.nav-open .nav-links a {
       <div class="form-success" id="form-success" role="alert" aria-live="polite">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         <h3>Thank you for getting in touch.</h3>
-        <p id="success-msg">We will respond within one business day. Check your inbox, we will reply to the address you provided.</p>
+        <p id="success-msg">We'll respond within one business day. Check your inbox, we'll reply to the address you provided.</p>
       </div>
     </div>
 
@@ -1954,6 +3095,9 @@ body.nav-open .nav-links a {
 
 </main>
 
+<!-- ═══════════════════════════════════════════════
+     BLOG (Soro embed)
+══════════════════════════════════════════════════ -->
 <section id="blog" aria-label="Insights from Nielsen & Brown">
   <div class="blog-inner">
     <div class="blog-header">
@@ -1964,7 +3108,7 @@ body.nav-open .nav-links a {
 
     <a href="/blog" class="blog-cta-card" data-ga="cta_blog_teaser">
       <p class="blog-cta-eyebrow">Read our thinking</p>
-      <p class="blog-cta-headline">The full <em>blog</em>: all articles, one place.</p>
+      <p class="blog-cta-headline">The full <em>blog</em> — all articles, one place.</p>
       <p class="blog-cta-body">Case notes, opinion pieces, and practical guidance. Updated regularly. No lead-magnets, no gates, no fluff.</p>
       <span class="blog-cta-link">
         Read the blog
@@ -1977,7 +3121,6 @@ body.nav-open .nav-links a {
 <!-- ═══════════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════════════ -->
-
 <footer id="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-top">
@@ -1986,41 +3129,41 @@ body.nav-open .nav-links a {
         <a href="#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
           Nielsen <span class="amp">&amp;</span> Brown
         </a>
-        <p>Helping UK businesses with 50 to 250 people use AI in a practical, safe, and properly sized way.</p>
+        <p>Helping UK small and medium sized businesses adopt AI practically, confidently, and accessibly. AI strategy, training, software, and governance and compliance.</p>
         <div class="footer-social">
-          <span class="footer-li-url">linkedin.com/company/nielsenandbrown</span>
-          <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
+          <a href="https://www.linkedin.com/company/nielsen-brown" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h4>What we do</h4>
+        <h4>Services</h4>
         <ul class="footer-links">
-          <li><a href="#services">Strategy and roadmap</a></li>
-          <li><a href="#services">Team training</a></li>
-          <li><a href="#services">Custom-built tools</a></li>
-          <li><a href="#services">Governance and compliance</a></li>
+          <li><a href="#services">AI Strategy &amp; Roadmap</a></li>
+          <li><a href="#services">Team Training &amp; Adoption</a></li>
+          <li><a href="#services">Workflow Automation &amp; Custom Tools</a></li>
+          <li><a href="#services">AI Governance &amp; Compliance</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Company</h4>
         <ul class="footer-links">
-          <li><a href="#credibility">Who we are</a></li>
-          <li><a href="#engagement">How we work</a></li>
-          <li><a href="#audience">Who it is for</a></li>
+          <li><a href="#credibility">Who We Are</a></li>
+          <li><a href="#wheel">The Strategy Wheel</a></li>
+          <li><a href="#journey">Our Approach</a></li>
+          <li><a href="#audience">Who We Serve</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="#faq">FAQs</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Get started</h4>
+        <h4>Get Started</h4>
         <ul class="footer-links">
-          <li><a href="#contact">Book a free call</a></li>
-          <li><a href="#contact">Contact form</a></li>
+          <li><a href="#contact">Book a Free Call</a></li>
+          <li><a href="#contact">Contact Form</a></li>
           <li><a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </div>
@@ -2028,7 +3171,7 @@ body.nav-open .nav-links a {
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved. Bartle House, Oxford Court, Manchester M2 3WQ.</p>
+      <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.</p>
       <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/cookie-policy">Cookie Policy</a>
@@ -2230,7 +3373,7 @@ body.nav-open .nav-links a {
     const msgEl = document.getElementById('success-msg');
     if (msgEl && submittedEmail) {
       // Build with text nodes so the submitted email can never inject markup.
-      msgEl.textContent = "We will respond within one business day to ";
+      msgEl.textContent = "We'll respond within one business day to ";
       const strong = document.createElement('strong');
       strong.textContent = submittedEmail;
       msgEl.appendChild(strong);
@@ -2335,7 +3478,7 @@ body.nav-open .nav-links a {
       if (typeof gtag === 'function') { gtag('event', name, params || {}); }
     }
 
-    // CTA clicks: pass the link's destination (e.g. "contact", "engagement")
+    // CTA clicks — pass the link's destination (e.g. "contact", "journey")
     // so reports show what the user was reaching for, not just the button label.
     document.querySelectorAll('[data-ga]').forEach(function (el) {
       el.addEventListener('click', function () {
@@ -2378,7 +3521,7 @@ body.nav-open .nav-links a {
     // enters the viewport. Lets us see how far through the page visitors actually
     // get, which on a single-page site is the only meaningful depth metric.
     if ('IntersectionObserver' in window) {
-      var sectionIds = ['proof','audience','pain','opportunity','credibility','wheel','services','engagement','usecases','assurance','partners','faq','cta-banner','contact'];
+      var sectionIds = ['pain','opportunity','credibility','wheel','services','journey','engagement','audience','usecases','assurance','faq','cta-banner','contact'];
       var seen = {};
       var sectionObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -2396,6 +3539,53 @@ body.nav-open .nav-links a {
       });
     }
   })();
+</script>
+<script>
+/* Roles slider — How we work */
+(function(){
+  const root = document.querySelector('#journey .slider');
+  if(!root) return;
+  const titles = [...root.querySelectorAll('.slider__title')];
+  const texts  = [...root.querySelectorAll('.slider__text')];
+  const nums   = [...root.querySelectorAll('.slider__num')];
+  const slides = [...root.querySelectorAll('.slider__slide')];
+  const bar    = root.querySelector('.slider__progress-bar');
+  const DURATION = 6000;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0, timer = null, paused = false;
+
+  function render(i){
+    titles.forEach((el,idx)=>{ const a=idx===i; el.classList.toggle('is-active',a); el.setAttribute('aria-selected',a); });
+    texts.forEach((el,idx)=> el.classList.toggle('is-active', idx===i));
+    nums.forEach((el,idx)=>  el.classList.toggle('is-active', idx===i));
+    slides.forEach((el,idx)=>el.classList.toggle('is-active', idx===i));
+  }
+  function runProgress(){
+    if(reduce || !bar) return;
+    bar.style.transition='none'; bar.style.transform='scaleX(0)';
+    void bar.offsetWidth;
+    bar.style.transition='transform '+DURATION+'ms linear'; bar.style.transform='scaleX(1)';
+  }
+  function schedule(){
+    clearTimeout(timer);
+    if(reduce || paused) return;
+    runProgress();
+    timer = setTimeout(()=> go((current + 1) % titles.length), DURATION);
+  }
+  function go(i){ current=i; render(i); schedule(); }
+  [...titles, ...nums].forEach(el=> el.addEventListener('click', ()=> go(+el.dataset.index)));
+  root.querySelector('.slider__titles').addEventListener('keydown', e=>{
+    if(e.key!=='ArrowRight' && e.key!=='ArrowLeft') return;
+    e.preventDefault();
+    const dir = e.key==='ArrowRight' ? 1 : -1;
+    const next = (current + dir + titles.length) % titles.length;
+    go(next); titles[next].focus();
+  });
+  root.addEventListener('pointerenter', ()=>{ paused=true; clearTimeout(timer);
+    if(bar){ const w=getComputedStyle(bar).transform; bar.style.transition='none'; bar.style.transform=w; } });
+  root.addEventListener('pointerleave', ()=>{ paused=false; schedule(); });
+  render(0); schedule();
+})();
 </script>
 </body>
 </html>
