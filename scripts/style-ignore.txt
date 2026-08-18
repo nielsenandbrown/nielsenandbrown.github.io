@@ -1,0 +1,13 @@
+# Deliberate exceptions to STYLE.md, one substring per line.
+# Add a comment above each explaining why. Lines starting with # are ignored.
+
+# "GOV.UK Business Population Estimates" — proper noun, source citation.
+GOV.UK Business Population Estimates
+
+# Proper nouns. Only relevant when running --all over the legal pages, where
+# naming an institution or a third party is unavoidable and correct.
+Information Commissioner's Office
+Google's privacy policy
+Google's Consent Mode
+GitHub's privacy statement
+the UK's adequacy decisions
