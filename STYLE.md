@@ -66,6 +66,11 @@ the "Who we are" section. It was removed by later instruction and the FAQ
 reference changed to "the two co-owners". The ticket's acceptance criteria no
 longer match the build.
 
+**How we work.** NAB-101 lists a "How we work: three steps" section. It was
+removed as duplicating "How we work together", which covers the same ground.
+Links that pointed at it now go to "How we think about it" (the five-question
+method) or "How we work together" (the four engagement options).
+
 ---
 
 ## Deliberate exceptions
