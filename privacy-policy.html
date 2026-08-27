@@ -160,7 +160,8 @@
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
     .footer a { color: var(--cream-3); border-bottom: 1px solid rgba(255,255,255,0.15); }
     .footer a:hover { color: var(--cream); }
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-legal { display: inline-block; margin-top: 0.5rem; opacity: 0.75; line-height: 1.6; font-size: 0.78rem; }
+      .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
     @media (max-width: 600px) {
       .footer-inner { justify-content: center; text-align: center; }
@@ -247,7 +248,7 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.</p>
+    <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.<br/><span class="footer-legal">Nielsen &amp; Brown Ltd. Registered in England and Wales, company number 15318367. VAT number 525 7236 88. Registered office: Bartle House, Oxford Court, Manchester M2 3WQ.</span></p>
     <div class="footer-links">
       <a href="/privacy-policy">Privacy Policy</a>
       <a href="/cookie-policy">Cookie Policy</a>

@@ -11,3 +11,9 @@ Google's privacy policy
 Google's Consent Mode
 GitHub's privacy statement
 the UK's adequacy decisions
+
+# The homepage pricing bridge deliberately shows price bands as the hook into
+# pricing.html. Narrow exception: these three bands only, so the no-pricing rule
+# still catches any accidental figure elsewhere on the homepage.
+£1,500 to £2,950
+£3,500 and above

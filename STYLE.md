@@ -26,6 +26,9 @@ they are not checked unless you ask.
 | 2 | No em dashes | a comma, or a colon | text — like this |
 | 3 | No contractions | do not, we will, it is | don't, we'll, it's |
 | 4 | No pricing figures | "a short, low-cost way to test" | "£4,500" |
+
+**Exception:** `pricing.html` exists to publish fixed prices, so the checker skips this
+rule on that file only. Every other page still fails on a price.
 | 5 | British spelling | organisation, programme, licence | organization, program, license |
 | 6 | Sentence case headings | Four ways to start | Four Ways To Start |
 | 7 | No banned terms | see list below | — |
@@ -70,6 +73,23 @@ longer match the build.
 removed as duplicating "How we work together", which covers the same ground.
 Links that pointed at it now go to "How we think about it" (the five-question
 method) or "How we work together" (the four engagement options).
+
+**Size range.** NAB-101 specifies 50 to 250 people throughout. Changed to
+**30 to 300** across all nine references on Allan's instruction.
+
+**Illustrative labels.** NAB-101 requires "illustrative examples remain clearly
+labelled as illustrative". All seven labels were removed on instruction, and the
+sector section carrying the remaining disclaimer was deleted. The service boxes
+now carry specific measured outcomes with no qualifier. Raised twice before
+building; the decision stands and is recorded here rather than argued again.
+
+**Sector examples.** NAB-101 lists "Real, practical examples by sector: four
+sector cards". Deleted as duplicating the service boxes, which cover the same
+four scenarios at the same four headcounts.
+
+**Pricing.** NAB-101 says "no pricing figures anywhere on the page". There is now
+a public pricing page, and the homepage bridge shows three price bands as the
+hook into it. See the exception note above.
 
 ---
 

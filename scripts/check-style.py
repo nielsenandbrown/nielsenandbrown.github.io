@@ -31,7 +31,8 @@ RULES = [
     ("contraction", r"\b\w+['’](t|s|re|ve|ll|d|m)\b",
      "spell it out: do not, we will, it is"),
     ("pricing figure", r"[£$€]\s?[\d,]+(?:\.\d+)?",
-     "no pricing anywhere on the site"),
+     "no pricing anywhere on the site",
+     {"pricing.html"}),   # the pricing page is the deliberate exception
     ("non-British spelling",
      r"(?i)\b(organiz\w*|analyz\w*|optimiz\w*|specializ\w*|recogniz\w*|"
      r"colou?r(?<!colour)\w*|cent(?:er|ers)\b|program(?!me)s?\b|license[ds]?\b)",
@@ -78,7 +79,12 @@ def check(path, ignores):
     text = visible_text(src)
     found = []
 
-    for name, pattern, hint in RULES:
+    base = os.path.basename(path)
+    for rule in RULES:
+        name, pattern, hint = rule[0], rule[1], rule[2]
+        exempt = rule[3] if len(rule) > 3 else ()
+        if base in exempt:
+            continue
         for m in re.finditer(pattern, text):
             snippet = re.sub(r"\s+", " ", text[max(0, m.start() - 55):m.end() + 55]).strip()
             if any(ig in snippet or ig in m.group(0) for ig in ignores):
