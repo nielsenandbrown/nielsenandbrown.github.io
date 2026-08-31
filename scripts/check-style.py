@@ -32,7 +32,7 @@ RULES = [
      "spell it out: do not, we will, it is"),
     ("pricing figure", r"[£$€]\s?[\d,]+(?:\.\d+)?",
      "no pricing anywhere on the site",
-     {"pricing.html"}),   # the pricing page is the deliberate exception
+     {"pricing.html", "test.html"}),  # both publish the engagement prices deliberately
     ("non-British spelling",
      r"(?i)\b(organiz\w*|analyz\w*|optimiz\w*|specializ\w*|recogniz\w*|"
      r"colou?r(?<!colour)\w*|cent(?:er|ers)\b|program(?!me)s?\b|license[ds]?\b)",

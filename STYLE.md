@@ -26,13 +26,14 @@ they are not checked unless you ask.
 | 2 | No em dashes | a comma, or a colon | text — like this |
 | 3 | No contractions | do not, we will, it is | don't, we'll, it's |
 | 4 | No pricing figures | "a short, low-cost way to test" | "£4,500" |
-
-**Exception:** `pricing.html` exists to publish fixed prices, so the checker skips this
-rule on that file only. Every other page still fails on a price.
 | 5 | British spelling | organisation, programme, licence | organization, program, license |
 | 6 | Sentence case headings | Four ways to start | Four Ways To Start |
 | 7 | No banned terms | see list below | — |
 | 8 | Company name takes the ampersand | Nielsen &amp; Brown | Nielsen and Brown |
+
+**Rule 4 exception:** the engagement selector publishes fixed prices, and it now
+appears on both the homepage and `pricing.html`, so the checker skips that rule on
+those two files. Every other page still fails on a price.
 
 ### Banned terms
 
@@ -90,6 +91,19 @@ four scenarios at the same four headcounts.
 **Pricing.** NAB-101 says "no pricing figures anywhere on the page". There is now
 a public pricing page, and the homepage bridge shows three price bands as the
 hook into it. See the exception note above.
+
+**Engagement section.** NAB-101 lists "How we work together: four engagement options
+with duration and best-for line". That section was removed and replaced by the full
+priced engagement selector, moved high up the page, directly after "Is this you".
+
+**CTA colour.** NAB-101 sets the brand palette. Booking CTAs now use burnt terracotta
+`#A64B2A`, deliberately outside it, on the board's instruction. It also fixes a
+contrast failure: cream on gold was 2.73:1, below WCAG AA. Cream on terracotta is
+5.40:1.
+
+**Type scale.** Body copy and micro-labels increased by roughly 2px and 1px
+respectively, driven by `--fs-*` tokens in `:root`. Cormorant headings, the hero
+headline, the before/after figures and the nav are deliberately unchanged.
 
 ---
 

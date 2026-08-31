@@ -18,7 +18,9 @@
 
   <title>Pricing and engagement | Nielsen &amp; Brown</title>
   <meta name="description" content="Fixed scope, fixed price AI engagements for UK businesses with 30 to 300 people. Start with a free AI Readiness Score, or pick the question you are actually asking."/>
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+  <!-- The engagement selector now lives on the homepage. This page is kept for
+       direct sends only, so it is excluded from search to avoid duplicate content. -->
+  <meta name="robots" content="noindex, follow"/>
   <link rel="canonical" href="https://www.nielsenandbrown.com/pricing"/>
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
@@ -60,6 +62,8 @@
       --gold:         #B8924A;
       --gold-light:   #C9A867;
       --gold-pale:    #E9DCC0;
+      --action:       #A64B2A;
+      --action-dark:  #8E3F23;
       --gold-deep:    #9C7936;
       --ink:          #403D34;
       --line:         #DCD3BF;
@@ -1231,7 +1235,29 @@ body.nav-open .nav-links a {
 
 
 
-  </style>
+  
+    /* Booking CTAs sit outside the brand palette deliberately, so they read as
+       actions rather than decoration. Also fixes a contrast failure: cream on
+       gold was 2.73:1, cream on terracotta is 5.40:1. See STYLE.md. */
+    .btn-book {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--action); color: #FFFFFF;
+      white-space: nowrap;
+      padding: 1rem 2rem; font-size: var(--fs-button); font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; border: none;
+      transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .btn-book:hover, .btn-book:focus-visible { background: var(--action-dark); transform: translateY(-1px); }
+    .btn-book svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s; }
+    .btn-book:hover svg { transform: translateX(3px); }
+    .btn-book span { flex-shrink: 0; }
+    .nav-cta.btn-book {
+      padding: 0.65rem 1.5rem;
+      background: var(--action) !important;   /* beats .nav-cta's own !important */
+      color: #FFFFFF !important;
+    }
+    .nav-cta.btn-book:hover { background: var(--action-dark) !important; }
+</style>
   <style>
 
 :root{
@@ -1359,7 +1385,39 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-  </style>
+  
+    /* Tabs must read as tabs at rest: Allan reviews on an iPad, where there is
+       no hover at all, so hover is an enhancement and not the affordance. */
+    .rung {
+      border: 1px solid var(--line) !important;
+      background: var(--surface-2, #F2EDE6) !important;
+      padding: 1rem 1.15rem !important;
+      min-height: 56px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, box-shadow .2s;
+    }
+    .rung + .rung { margin-top: 0.5rem; }
+    .rung .bar { display: none !important; }
+    .rung.on {
+      background: var(--charcoal) !important;
+      border-color: var(--charcoal) !important;
+      box-shadow: inset 3px 0 0 var(--action);
+    }
+    .rung.on .q { color: var(--cream) !important; }
+    .rung.on .band { color: var(--gold-light) !important; }
+    .rung:hover:not(.on) { border-color: var(--gold); background: var(--cream) !important; }
+    .rung:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+
+    /* .btn from the ported pricing CSS is more specific than .btn-book once
+       scoped under #engagement, so re-assert the booking colour above it. */
+    #engagement .btn.btn-book, .sheet .btn.btn-book, .btn.btn-book {
+      background: var(--action);
+      color: #FFFFFF;
+    }
+    #engagement .btn.btn-book:hover, .sheet .btn.btn-book:hover, .btn.btn-book:hover {
+      background: var(--action-dark);
+    }
+</style>
 </head>
 <body>
 
@@ -1376,7 +1434,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
       <li><a href="/#services">What we do</a></li>
       <li><a href="pricing.html" aria-current="page">Pricing</a></li>
       <li><a href="/#faq">FAQs</a></li>
-      <li><a href="/#contact" class="nav-cta">Book a discovery call</a></li>
+      <li><a href="/#contact" class="nav-cta btn-book">Book a discovery call</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1400,13 +1458,13 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
 
   <div class="ladder">
     <div class="rail" role="tablist" aria-label="Choose where you are">
-      <button class="rung on" data-step="1" data-hash="start" role="tab" aria-selected="true" aria-controls="p1" id="t1">
+      <button class="rung on" data-step="1" data-hash="start" role="tab" aria-selected="true" aria-controls="start" id="t1">
         <span class="bar"></span><span class="q">Where do we start?</span><span class="band">No cost</span>
       </button>
-      <button class="rung" data-step="2" data-hash="next" role="tab" aria-selected="false" aria-controls="p2" id="t2">
+      <button class="rung" data-step="2" data-hash="next" role="tab" aria-selected="false" aria-controls="next" id="t2">
         <span class="bar"></span><span class="q">What next?</span><span class="band">£1,500 to £2,950</span>
       </button>
-      <button class="rung" data-step="3" data-hash="accelerate" role="tab" aria-selected="false" aria-controls="p3" id="t3">
+      <button class="rung" data-step="3" data-hash="accelerate" role="tab" aria-selected="false" aria-controls="accelerate" id="t3">
         <span class="bar"></span><span class="q">How do we accelerate?</span><span class="band">£3,500 and above</span>
       </button>
     </div>
@@ -1432,7 +1490,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
             <li>A verdict on whether you are ready to invest yet</li>
             <li>One immediate action worth taking this week</li>
           </ul>
-          <a class="btn" href="#">Take the AI Readiness Score <span>&rarr;</span></a>
+          <a class="btn btn-book" href="https://score.nielsenandbrown.com" data-ga="readiness_score_start">Take the AI Readiness Score <span>&rarr;</span></a>
           <p class="note">No payment details. No call booked. The report is yours whether or not we ever speak.</p>
         </div>
       </section>
@@ -1494,7 +1552,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
   <section class="close">
     <h2>Not sure which question you are asking yet?</h2>
     <p>That is the usual position, and it is a reasonable one. A short diagnostic conversation is the sensible next step.</p>
-    <a class="btn" href="#">Arrange a conversation <span>&rarr;</span></a>
+    <a class="btn btn-book" href="/#contact">Arrange a conversation <span>&rarr;</span></a>
   </section>
   
 </div>
@@ -1690,7 +1748,7 @@ function sheetHTML(p){
   + '<h3>What you get</h3>'
   + '<ul class="items">'+p.items.map(function(i){return '<li><b>'+esc(i[0])+'</b><p>'+esc(i[1])+'</p></li>';}).join('')+'</ul>'
   + '<div class="thenwhat"><span>And then?</span><p>'+esc(p.then)+'</p></div>'
-  + '<a class="btn" href="#">Arrange a conversation <span>&rarr;</span></a>'
+  + '<a class="btn btn-book" href="/#contact">Arrange a conversation <span>&rarr;</span></a>'
   + '</div>';
 }
 function openSheet(id,push){
@@ -1937,106 +1995,7 @@ document.addEventListener('keydown',function(e){
   if (window.emailjs) { nbInitEmailJS(); }
   else { window.addEventListener('DOMContentLoaded', nbInitEmailJS); }
 
-  // ── Form submission ───────────────────────────
-  const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Honeypot: hidden field should stay empty. If a bot fills it, stop silently
-    // (no success state, no generate_lead event, so bot hits never pollute GA4).
-    const hp = document.getElementById('company_url');
-    if (hp && hp.value) { return; }
-
-    const btn     = form.querySelector('.form-submit');
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const phone   = document.getElementById('phone').value.trim();
-    const msg     = document.getElementById('message').value.trim();
-
-    // Basic client-side validation — name, email, company, message are required
-    if (!name || !email || !company || !msg) {
-      showFormError('Please complete the required fields (marked *) before sending.');
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showFormError('Please enter a valid email address.');
-      return;
-    }
-
-    clearFormError();
-
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = 'Sending&hellip;';
-    btn.disabled  = true;
-
-    // Build the template parameters — these map to {{variables}} in your EmailJS template
-    const templateParams = {
-      from_name : name,
-      from_email: email,
-      company   : company,
-      phone     : phone || 'Not provided',
-      message   : msg,
-      reply_to  : email,
-    };
-
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      showSuccess(templateParams);
-
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      btn.innerHTML = originalHTML;
-      btn.disabled  = false;
-      showFormError('Something went wrong, please try again in a moment.');
-    }
-  });
-
-  function showSuccess(params) {
-    // Fire generate_lead. Only non-PII signals are sent to GA4 — never name,
-    // email, company name, phone, or message (UK GDPR: that would be personal
-    // data going to a third party beyond what the consent banner covers).
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        value: 1,
-        currency: 'GBP',
-        has_phone: !!(params && params.phone && params.phone !== 'Not provided'),
-      });
-    }
-    const submittedEmail = document.getElementById('email').value.trim();
-    const msgEl = document.getElementById('success-msg');
-    if (msgEl && submittedEmail) {
-      // Build with text nodes so the submitted email can never inject markup.
-      msgEl.textContent = "We will respond within one business day to ";
-      const strong = document.createElement('strong');
-      strong.textContent = submittedEmail;
-      msgEl.appendChild(strong);
-      msgEl.appendChild(document.createTextNode('.'));
-    }
-    form.style.display = 'none';
-    success.classList.add('visible');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function showFormError(msg) {
-    let errEl = document.getElementById('form-error');
-    if (!errEl) {
-      errEl = document.createElement('p');
-      errEl.id = 'form-error';
-      errEl.style.cssText = 'color:#c0392b; font-size:0.82rem; margin-bottom:0.5rem; padding:0.75rem 1rem; background:#fdf0ee; border-left:3px solid #c0392b;';
-      form.querySelector('.form-submit').before(errEl);
-    }
-    errEl.textContent = msg;
-    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function clearFormError() {
-    const errEl = document.getElementById('form-error');
-    if (errEl) errEl.remove();
-  }
+  // Form submission and EmailJS live on the homepage only; this page has no form.
 
   // ── Active nav link ───────────────────────────
   const sections = document.querySelectorAll('section[id]');
@@ -2059,6 +2018,39 @@ document.addEventListener('keydown',function(e){
 </script>
 
 <script>
+  // ── Campaign attribution ──────────────────────────────────
+  // Captured first-touch per session so a hop to another page does not lose it.
+  // sessionStorage only, cleared when the tab closes, used to tell you where an
+  // enquiry came from. Not analytics, so it is not gated on consent.
+  window.nbAttribution = (function () {
+    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','account_id'];
+    var STORE = 'nb-attrib';
+    var data = null;
+    try { var st = sessionStorage.getItem(STORE); if (st) data = JSON.parse(st); } catch (e) {}
+    var p = new URLSearchParams(window.location.search), incoming = {}, any = false;
+    KEYS.forEach(function (k) { var v = p.get(k); if (v) { incoming[k] = v.slice(0,200); any = true; } });
+    if (any && !data) {
+      data = incoming;
+      try { sessionStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+    }
+    function d() { return data || {}; }
+    return {
+      get: d,
+      summary:  function () { return d().utm_source ? [d().utm_source, d().utm_medium].filter(Boolean).join(' / ') : 'Direct or organic'; },
+      campaign: function () { return [d().utm_campaign, d().utm_term, d().utm_content].filter(Boolean).join(' \u2014 ') || 'Not set'; },
+      account:  function () { return d().account_id || 'Not set'; },
+      appendTo: function (url) {
+        var k = Object.keys(d()); if (!k.length) return url;
+        return url + (url.indexOf('?') === -1 ? '?' : '&') +
+          k.map(function (x) { return x + '=' + encodeURIComponent(d()[x]); }).join('&');
+      }
+    };
+  })();
+
+  document.querySelectorAll('a[href^="https://score.nielsenandbrown.com"]').forEach(function (el) {
+    el.setAttribute('href', window.nbAttribution.appendTo(el.getAttribute('href')));
+  });
+
   // ── Cookie consent + GA4 Consent Mode ─────────────────────
   (function () {
     var banner = document.getElementById('cookie-consent');
@@ -2074,17 +2066,42 @@ document.addEventListener('keydown',function(e){
         gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
       }
     }
-    var stored = null;
-    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    // Cookie, not localStorage: localStorage is per-subdomain, so the score app
+    // could not read the decision and would ask a second time.
+    function readCookie() {
+      var m = document.cookie.match(/(?:^|;\s*)nb-consent=(granted|denied)/);
+      return m ? m[1] : null;
+    }
+    // The domain attribute is only valid on the real host. Setting it anywhere
+    // else (localhost, a preview URL) makes the browser reject the cookie
+    // silently, so scope it only when we are actually on the live domain.
+    function cookieDomain() {
+      return /(^|\.)nielsenandbrown\.com$/.test(location.hostname)
+        ? ';domain=.nielsenandbrown.com' : '';
+    }
+    function writeCookie(v) {
+      document.cookie = 'nb-consent=' + v + cookieDomain() +
+        ';path=/;max-age=31536000;SameSite=Lax' +
+        (location.protocol === 'https:' ? ';Secure' : '');
+    }
+    var stored = readCookie();
+    if (!stored) {
+      try {
+        var legacy = localStorage.getItem(KEY);
+        if (legacy === 'granted' || legacy === 'denied') {
+          stored = legacy; writeCookie(legacy); localStorage.removeItem(KEY);
+        }
+      } catch (e) {}
+    }
     if (stored === 'granted') { grant(); }
     else if (stored !== 'denied') { banner.classList.add('visible'); }
 
     document.getElementById('consent-accept').addEventListener('click', function () {
-      try { localStorage.setItem(KEY, 'granted'); } catch (e) {}
+      writeCookie('granted');
       grant(); banner.classList.remove('visible');
     });
     document.getElementById('consent-decline').addEventListener('click', function () {
-      try { localStorage.setItem(KEY, 'denied'); } catch (e) {}
+      writeCookie('denied');
       // Revoke immediately, so analytics stop even if the user had accepted earlier this session.
       revoke(); banner.classList.remove('visible');
     });
@@ -2169,252 +2186,6 @@ document.addEventListener('keydown',function(e){
   })();
 </script>
 
-<script>
-var P = {
-'fractional-advisory-day':{tier:'Entry engagement',name:'Fractional Advisory Day',price:'£1,950',
- dur:'Half a day on site',who:'Leadership teams who need to know where to look first',next:'Automation Starter, or the Diagnostic Assessment',
- blurb:'A working session with your leadership team, structured around where the business loses time and money rather than around what AI can do.',
- sum:'A working session with your leadership team, structured around where the business loses time and money rather than around what AI can do. You have the written summary the following morning.',
- items:[['A working session with your leadership team','Half a day on site, built around your operations rather than a generic agenda.'],
- ['A live opportunity map','Every candidate use case surfaced in the session, captured and sorted by value and feasibility while the team watches it happen.'],
- ['A same day written summary','Delivered within twenty four hours, not two weeks. Three to five pages, no filler.'],
- ['A go and no go list','The opportunities worth pursuing, and the ones that will waste money, with the reason stated for each.'],
- ['A governance flag list','Anything currently exposing the business, identified and named.'],
- ['One immediate action','The single move to make this week, with the owner named.']],
- then:'Most clients leave the day with one opportunity they want proved. That is the Automation Starter. If the picture is broader than one process, the Diagnostic Assessment is the right next step.'},
 
-'ai-foundations-day':{tier:'Entry engagement',name:'AI Foundations Day',price:'£2,500',
- req:'Follows the AI Readiness Score or a diagnostic finding',
- dur:'One full day on site',who:'Teams already using AI without agreed ground rules',next:'Shadow AI Audit, or the Diagnostic Assessment',
- blurb:'A full day for up to fifteen people. The morning covers risk, reward and the ground rules. The afternoon is hands on, working on their own real tasks.',
- sum:'A full day for up to fifteen people. The morning covers risk and reward and the ground rules. The afternoon is hands on, working on their own real tasks. Nobody leaves with a handout they will never open again.',
- items:[['A pre-session readiness read','Attendees complete the free AI Readiness Score first, so the day is shaped by this business rather than a generic curriculum.'],
- ['A full day on site for up to fifteen people','Morning on risk and reward. Afternoon on doing the work. No slides after lunch.'],
- ['A one page set of ground rules','The dos and the do nots, written in your language, ready to put on the wall or in the handbook.'],
- ['A red lines list','What must never be entered into a public AI tool, named specifically for your data and your client obligations.'],
- ['A prompt library built from your own tasks','Fifteen to twenty working prompts your team writes in the room, on their real work, tested before they leave.'],
- ['A named internal owner and a thirty day practice plan','Who keeps this alive, what they do weekly, and how you will know it is working.'],
- ['One immediate action','The single change to make on Monday morning.']],
- then:'A team that has just written its own red lines list usually asks what else is exposed. That question is answered by the Shadow AI Audit or, if it runs deeper, the Diagnostic Assessment.'},
-
-'automation-starter':{tier:'Entry engagement',name:'Automation Starter',price:'£2,950',
- dur:'Two to three weeks',who:'Businesses that want proof rather than paper',next:'Automation Sprint',
- blurb:'One process, scoped with your team, built in the systems you already pay for, measured before and after, and handed over.',
- sum:'Every other engagement at this price produces a document. This one produces a working thing. One process, scoped with your team, built in the systems you already pay for, measured before and after, and handed over.',
- items:[['A scoped process','One workflow chosen with the team, with the time it currently takes and the errors it currently produces written down before anything is built.'],
- ['A working automation','Built in the tools the business already pays for, running on live work, with the exception paths handled rather than ignored.'],
- ['A before and after measure','Hours, handoffs and errors counted at the start and again at handover, so the return is a number rather than a claim.'],
- ['A handover pack and a named owner','How it works, how to change it, how to switch it off, and the person inside the business who runs it without us.'],
- ['The next two candidates, ranked','The following processes worth automating, in order, with the reason each one is next.']],
- then:'Once one process is running and measured, the next two are already ranked. The Automation Sprint takes on two or three connected processes with the controls to run them safely.'},
-
-'shadow-ai-audit':{tier:'Entry engagement',name:'Shadow AI Audit',price:'£1,500',
- dur:'One to two weeks',who:'Any business where staff are already using AI unsupervised',next:'Diagnostic Assessment',
- blurb:'Which people are using which AI tools, on what work, with what data, and what to do about it.',
- sum:'Most businesses of sixty to a hundred and fifty people have staff putting client information into consumer AI tools right now. This establishes which people, which tools, which data, and what to do about it.',
- items:[['A full picture of current AI use','Which tools, which teams, on what work. Gathered by structured staff survey and systems review.'],
- ['A data exposure assessment','What information is leaving the business, and where that creates client, contractual or regulatory risk.'],
- ['A licence and spend reconciliation','What is paid for, what is used, and the gap in both directions.'],
- ['A risk register','Every exposure rated, with a named owner and a mitigation.'],
- ['A remediation sequence','What to stop this week, what to control this month, and what to formalise this quarter.']],
- then:'The audit tells you what is exposed. If the underlying issue is that nobody agreed the rules, the Foundations Day fixes it. If it runs broader than governance, the Diagnostic Assessment is the next step.'},
-
-'second-opinion':{tier:'Entry engagement',name:'Second Opinion',price:'£1,950',
- dur:'One week',who:'Anyone holding a vendor proposal they are unsure about',next:'Whatever the evidence supports',
- blurb:'A vendor proposal reviewed line by line before you sign it. We sell no software, so we have nothing to gain from the answer.',
- sum:'A vendor proposal reviewed line by line before you sign it. We sell no software and take no vendor commission, so we have nothing to gain from the answer either way.',
- items:[['A line by line proposal review','What is being sold, what is actually included, and what is not.'],
- ['A commercial assessment','Whether the pricing is defensible against the market, and where the contract carries risk on lock in, data ownership or exit.'],
- ['A capability check','Whether the vendor can genuinely deliver what is described, and what evidence would confirm it.'],
- ['A question list','The specific questions to put to the vendor before signing, written so they can be sent as they are.'],
- ['A clear recommendation','Proceed, renegotiate on named terms, or decline.']],
- then:'If the recommendation is to proceed, we can review the delivery plan. If it is to decline, the Diagnostic Assessment establishes what the business actually needs before anyone sells to it again.'},
-
-'board-briefing':{tier:'Entry engagement',name:'Board and Leadership Briefing',price:'£1,500',
- dur:'Half a day',who:'Boards and senior teams forming a position on AI',next:'Diagnostic Assessment',
- blurb:'Half a day of orientation for directors. What is genuinely happening in businesses like yours, and the questions to put to your executive team.',
- sum:'Half a day of orientation for directors. Not a course. What is genuinely happening in businesses like yours, what directors are accountable for, and the questions to put to your executive team.',
- items:[['A briefing built on your sector','What is genuinely happening in businesses like yours, and what is noise.'],
- ['The governance position a board needs to hold','What directors are accountable for, and what reasonable steps looks like in practice.'],
- ['A competitive read','What comparable businesses in your market are doing, and where that creates exposure or opportunity.'],
- ['Five questions to ask your executive team','Written down, ready to use at the next board meeting.'],
- ['A board ready one page summary','Suitable for circulation and for the minutes.']],
- then:'Boards that want evidence rather than orientation move to the Diagnostic Assessment, which produces a scored baseline the board can hold management against.'},
-
-'automation-sprint':{tier:'Acceleration engagement',name:'Automation Sprint',price:'£4,500',
- dur:'Four to six weeks',who:'Businesses ready to move beyond one proven process',next:'Strategy & Roadmap',
- blurb:'Two or three connected processes mapped, automated, measured and handed over, with the controls needed to run them safely.',
- sum:'Two or three connected processes mapped, automated, measured and handed over, with the controls needed to run them safely. A deck is a promise. A running process is a receipt.',
- items:[['A process map of the target area','Two or three connected workflows mapped end to end, with the time and cost of every step recorded.'],
- ['Two to three automations built and running','In your own systems, on live work, with exception handling and a fallback for when the tool is wrong.'],
- ['A measured baseline and result','Hours, handoffs and error rates before and after, so the payback is evidence rather than an estimate.'],
- ['A control and governance wrapper','Who can change what, what is logged, and what a human must still sign before it goes out.'],
- ['A handover pack and a named internal owner','Documentation, an escalation route, and a person inside the business who can run it after we leave.'],
- ['The next wave, ranked','What to automate next, in order, with the dependency each one carries.'],
- ['One immediate action','The single move to make before the next process is touched.']],
- then:'A business with three processes running and a measured return needs a plan for the rest of them. That is the Strategy & Roadmap.'},
-
-'data-readiness-check':{tier:'Acceleration engagement',name:'Data Readiness Check',price:'£3,500',
- dur:'Two to three weeks',who:'Businesses about to invest in AI that depends on their own data',next:'Diagnostic Assessment',
- blurb:'Most AI programmes fail on data rather than on models. This establishes what your data can actually support before you spend.',
- sum:'Most AI programmes fail on data rather than on models. This establishes what your data can actually support before you spend money finding out the hard way.',
- items:[['A data inventory','What the business holds, where it sits, and what condition it is in.'],
- ['A quality and completeness assessment','Scored per system, with the specific gaps that would break a use case named.'],
- ['An integration read','What connects to what today, and what would need to be built.'],
- ['A permissions and lawful basis review','What the business is permitted to use, and for what purpose.'],
- ['A readiness verdict per use case','Which use cases your current data can support, which need work first, and how much work.']],
- then:'Sometimes the honest answer is that the business is not ready yet, and we will say so. Where the data holds up, the Diagnostic Assessment turns it into a prioritised plan.'},
-
-'diagnostic-assessment':{tier:'Engagement four, stage two',stage:'Stage two',feat:true,name:'Diagnostic Assessment',price:'£4,500',
- dur:'Three to four weeks',who:'Businesses committing real budget and needing evidence first',next:'Strategy & Roadmap',
- blurb:'Evidence based, not self reported. The foundation everything after it is built on.',
- sum:'We gather the evidence ourselves rather than taking a self assessment at face value. Interviews, a systems review and a working session on site, assessed against the same five dimension framework, so nothing is wasted moving to the next stage.',
- items:[['Findings gathered first hand','Interviews, a systems review and a working session, rather than a questionnaire filled in by one person.'],
- ['Results broken down by function, team and process','Not one blended score, because the blended picture almost always hides where the problem actually sits.'],
- ['The single constraint holding the business back most','Named plainly, with what it costs you annually.'],
- ['Three prioritised opportunities, costed','Each with an outline of what it depends on before it can work.'],
- ['One immediate action','The single move worth making before the roadmap is written.']],
- then:'The Diagnostic establishes what is true. The Strategy & Roadmap turns it into a plan the leadership team can run. They are priced and bought separately, so you can stop here if the evidence says you should.'},
-
-'strategy-roadmap':{tier:'Engagement four, stage three',stage:'Stage three',feat:true,name:'Strategy & Roadmap',price:'£5,500',
- dur:'Three to four weeks',who:'Businesses with the evidence, needing the plan',next:'Delivery',
- blurb:'Turns the diagnostic into a plan the leadership team can actually run.',
- sum:'The findings turned into a phased twelve month plan with owners, decision points, a governance position sized to the business, and an agreed way to tell whether it is working.',
- items:[['A phased roadmap covering the next twelve months','What happens when, in what order, with named owners and decision points between phases.'],
- ['Prioritisation based on your real KPIs','Use cases ranked against the measures the business already runs on, not against a generic scoring model.'],
- ['A business case per use case','Cost, value at stake and payback, so each one can be approved or declined on its own merits.'],
- ['A governance position sized to the business','Proportionate controls. What needs signing, what needs logging, and what does not need either.'],
- ['A way to measure whether the plan is working','Agreed before it starts, measured against the baseline from the Diagnostic.']],
- then:'From here the work is delivery. We build the first priority use case, or your team does with our support. Either way the roadmap is yours to keep.'},
-
-'pilot-delivery-sprint':{tier:'Engagement five, stage four',stage:'Stage four',name:'Pilot Delivery Sprint',price:'£10,000 to £15,000',
- dur:'Six to eight weeks',who:'Clients with a roadmap and a first use case to build',next:'Continuing Partnership',
- blurb:'Where the roadmap gets built, not just written. The first priority use case, running on live work.',
- sum:'A fixed scope build of the first priority use case from your roadmap, with a defined success measure agreed at the outset and a checkpoint partway through, so spend stays controlled.',
- items:[['The first priority use case built and running','Scoped and priced before anything starts, then built in your own systems on live work.'],
- ['A defined success measure','Agreed at the outset, so nobody argues afterwards about whether it worked.'],
- ['A clear checkpoint partway through','A genuine stop point, so spend stays controlled. If the evidence does not support continuing, we say so.'],
- ['A full handover once the use case is proven','Documentation, an escalation route, and people inside the business who can run it without us.']],
- then:'Delivered work needs to keep working. The Continuing Partnership keeps the governance current and re scores you against your original baseline.'},
-
-'ai-champions-programme':{tier:'Engagement five, capability',stage:'Capability',name:'AI Champions Programme',price:'£6,500',
- dur:'Ten to twelve weeks',who:'Businesses whose capability must survive after we leave',next:'Continuing Partnership',
- blurb:'An internal cohort equipped and supported so the capability stays inside the business. Sequenced after the roadmap, never before it.',
- sum:'An internal cohort equipped and supported so the capability stays inside the business. Sequenced after the roadmap, never before it, so the cohort works on real priorities rather than hypotheticals.',
- items:[['A selected internal cohort','Chosen with you, on the basis of who actually influences how work gets done.'],
- ['A working programme built on your roadmap','The cohort works on the priorities already agreed, not on generic exercises.'],
- ['Supported practice over ten to twelve weeks','Regular sessions with real work in between, rather than a single day that fades.'],
- ['A shared internal playbook','Written by the cohort, owned by the business, and kept current after we leave.'],
- ['A capability handover','Named owners, an escalation route, and a plan for bringing on the next cohort without us.']],
- then:'Once capability sits inside the business, the Continuing Partnership keeps it current as tools, regulation and priorities change.'},
-
-'continuing-partnership':{tier:'Engagement five, stage five',stage:'Stage five',name:'Continuing Partnership',price:'Monthly',
- dur:'Rolling, cancellable',who:'Clients past the roadmap who need the work to keep working',next:'Reviewed each quarter',
- blurb:'Ongoing, shaped around the business rather than a fixed package.',
- sum:'A steady cadence of strategy and governance check ins, direct access as new questions and tools come up, and a periodic re score against your original baseline so progress stays visible.',
- items:[['A steady cadence of strategy and governance check ins','Regular sessions on what has moved, what has stalled, and what to reprioritise.'],
- ['Direct access to the team','Not an account manager. The people who did the work, available as new questions or tools come up.'],
- ['A periodic re score against the original baseline','The same instrument, re run, so progress is measured rather than claimed.'],
- ['Ongoing enablement to keep capability current','Your people supported as tools, regulation and priorities change.'],
- ['A quarterly business review and executive update','Written for the board, not for us.']],
- then:'Reviewed every quarter. If the value is not there, you stop. We would rather you left than stayed out of habit.'}
-};
-
-var NEXT  = ['fractional-advisory-day','ai-foundations-day','automation-starter','shadow-ai-audit','second-opinion','board-briefing'];
-var ACCEL = ['automation-sprint','data-readiness-check'];
-var CORE  = ['diagnostic-assessment','strategy-roadmap'];
-var AFTER = ['pilot-delivery-sprint','ai-champions-programme','continuing-partnership'];
-
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
-
-function cardHTML(id){
-  var p = P[id];
-  return '<button class="card'+(p.feat?' feat':'')+'" data-open="'+id+'">'
-    + (p.stage ? '<span class="stage">'+esc(p.stage)+'</span>' : '')
-    + '<span class="top"><h3>'+esc(p.name)+'</h3><span class="price">'+p.price+'</span></span>'
-    + '<span class="dur">'+esc(p.dur)+'</span>'
-    + '<p>'+esc(p.blurb)+'</p>'
-    + (p.req ? '<span class="req">'+esc(p.req)+'</span>' : '')
-    + '<span class="more">See what you get <i>&rarr;</i></span></button>';
-}
-function fill(elId,list){var el=document.getElementById(elId); if(el) el.innerHTML=list.map(cardHTML).join('');}
-fill('grid-next',NEXT); fill('grid-accel',ACCEL); fill('grid-core',CORE); fill('grid-after',AFTER);
-
-var sheet=document.getElementById('sheet'), scrim=document.getElementById('scrim'), lastFocus=null;
-
-function sheetHTML(p){
-  return '<div class="sheetin">'
-  + '<div class="sheetbar"><span class="eyebrow">'+esc(p.tier)+'&nbsp; |&nbsp; '+p.price+'</span>'
-  + '<button class="closebtn" data-close>Close</button></div>'
-  + '<h2 id="sheet-title">'+esc(p.name)+'</h2>'
-  + '<p class="sum">'+esc(p.sum)+'</p>'
-  + (p.req ? '<div class="reqnote"><span>Before this runs</span><p>'+esc(p.req)+'. The day is built from what that surfaces, so the content is yours rather than a fixed syllabus.</p></div>' : '')
-  + '<div class="meta">'
-    + '<div><span>How long</span><b>'+esc(p.dur)+'</b></div>'
-    + '<div><span>Best for</span><b>'+esc(p.who)+'</b></div>'
-    + '<div><span>Usually leads to</span><b>'+esc(p.next)+'</b></div>'
-  + '</div>'
-  + '<h3>What you get</h3>'
-  + '<ul class="items">'+p.items.map(function(i){return '<li><b>'+esc(i[0])+'</b><p>'+esc(i[1])+'</p></li>';}).join('')+'</ul>'
-  + '<div class="thenwhat"><span>And then?</span><p>'+esc(p.then)+'</p></div>'
-  + '<a class="btn" href="#">Arrange a conversation <span>&rarr;</span></a>'
-  + '</div>';
-}
-function openSheet(id,push){
-  var p=P[id]; if(!p) return;
-  lastFocus=document.activeElement;
-  sheet.innerHTML=sheetHTML(p);
-  sheet.classList.add('on'); scrim.classList.add('on');
-  document.body.classList.add('locked');
-  sheet.scrollTop=0; sheet.focus();
-  if(push&&history.replaceState) history.replaceState(null,'','#'+id);
-}
-function closeSheet(){
-  sheet.classList.remove('on'); scrim.classList.remove('on');
-  document.body.classList.remove('locked');
-  if(history.replaceState) history.replaceState(null,'',location.pathname);
-  if(lastFocus&&lastFocus.focus) lastFocus.focus();
-}
-document.addEventListener('click',function(e){
-  var o=e.target.closest('[data-open]');
-  if(o){openSheet(o.getAttribute('data-open'),true); return;}
-  if(e.target.closest('[data-close]')||e.target===scrim) closeSheet();
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&sheet.classList.contains('on')) closeSheet();
-});
-
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.rung')),
-      panels=[].slice.call(document.querySelectorAll('.panel'));
-  function show(i,push){
-    tabs.forEach(function(t,n){t.classList.toggle('on',n===i);t.setAttribute('aria-selected',n===i?'true':'false');});
-    panels.forEach(function(p,n){p.classList.toggle('on',n===i);});
-    if(push&&history.replaceState) history.replaceState(null,'','#'+tabs[i].getAttribute('data-hash'));
-  }
-  function panelFor(id){
-    if(NEXT.indexOf(id)>-1) return 1;
-    return 2;
-  }
-  function fromHash(){
-    var h=(location.hash||'').replace('#',''); if(!h) return;
-    var qi=-1;
-    tabs.forEach(function(t,i){ if(t.getAttribute('data-hash')===h) qi=i; });
-    if(qi>-1){ show(qi,false); return; }
-    if(P[h]){ show(panelFor(h),false); openSheet(h,false); }
-  }
-  fromHash();
-  window.addEventListener('hashchange',fromHash);
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){show(i,true);});
-    t.addEventListener('keydown',function(e){
-      var n=null;
-      if(e.key==='ArrowDown'||e.key==='ArrowRight') n=(i+1)%tabs.length;
-      if(e.key==='ArrowUp'||e.key==='ArrowLeft') n=(i-1+tabs.length)%tabs.length;
-      if(n!==null){e.preventDefault();tabs[n].focus();show(n,true);}
-    });
-  });
-})();
-</script>
 </body>
 </html>

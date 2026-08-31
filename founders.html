@@ -72,6 +72,8 @@
       --gold:         #B8924A;
       --gold-light:   #C9A867;
       --gold-pale:    #E9DCC0;
+      --action:       #A64B2A;
+      --action-dark:  #8E3F23;
       --gold-deep:    #9C7936;
       --ink:          #403D34;
       --line:         #DCD3BF;
@@ -1256,7 +1258,29 @@ body.nav-open .nav-links a {
     .nb-signoff span { display: block; font-family: var(--font-body); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
     @media (max-width: 900px) { .nb-founder { grid-template-columns: 1fr; gap: 2rem; } .nb-founder-photo { max-width: 20rem; } }
 
-  </style>
+  
+    /* Booking CTAs sit outside the brand palette deliberately, so they read as
+       actions rather than decoration. Also fixes a contrast failure: cream on
+       gold was 2.73:1, cream on terracotta is 5.40:1. See STYLE.md. */
+    .btn-book {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--action); color: #FFFFFF;
+      white-space: nowrap;
+      padding: 1rem 2rem; font-size: var(--fs-button); font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase; border: none;
+      transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .btn-book:hover, .btn-book:focus-visible { background: var(--action-dark); transform: translateY(-1px); }
+    .btn-book svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s; }
+    .btn-book:hover svg { transform: translateX(3px); }
+    .btn-book span { flex-shrink: 0; }
+    .nav-cta.btn-book {
+      padding: 0.65rem 1.5rem;
+      background: var(--action) !important;   /* beats .nav-cta's own !important */
+      color: #FFFFFF !important;
+    }
+    .nav-cta.btn-book:hover { background: var(--action-dark) !important; }
+</style>
 </head>
 <body>
 
@@ -1271,9 +1295,9 @@ body.nav-open .nav-links a {
       <li><a href="/#wheel">How it works</a></li>
       <li><a href="/#audience">Who it is for</a></li>
       <li><a href="/#services">What we do</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="/#engagement">Pricing</a></li>
       <li><a href="/#faq">FAQs</a></li>
-      <li><a href="/#contact" class="nav-cta">Book a discovery call</a></li>
+      <li><a href="/#contact" class="nav-cta btn-book">Book a discovery call</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1329,8 +1353,8 @@ body.nav-open .nav-links a {
       <h2 class="nb-h2" id="founders-cta">Let us find one real AI project worth doing</h2>
       <p class="nb-lede">No jargon, no generic slides, no enterprise sales process. In 30 minutes we will help identify one realistic AI project, one risk worth avoiding, and the sensible next step for a business your size.</p>
       <div class="nb-cta-actions">
-        <a href="/#contact" class="btn-gold" data-ga="cta_founders">Book a free discovery call</a>
-        <a href="pricing.html" class="btn-outline" data-ga="cta_founders_pricing">See pricing and engagement</a>
+        <a href="/#contact" class="btn-book" data-ga="cta_founders">Book a free discovery call</a>
+        <a href="/#engagement" class="btn-outline" data-ga="cta_founders_pricing">See pricing and engagement</a>
       </div>
     </div>
   </div>
@@ -1524,106 +1548,7 @@ body.nav-open .nav-links a {
   if (window.emailjs) { nbInitEmailJS(); }
   else { window.addEventListener('DOMContentLoaded', nbInitEmailJS); }
 
-  // ── Form submission ───────────────────────────
-  const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Honeypot: hidden field should stay empty. If a bot fills it, stop silently
-    // (no success state, no generate_lead event, so bot hits never pollute GA4).
-    const hp = document.getElementById('company_url');
-    if (hp && hp.value) { return; }
-
-    const btn     = form.querySelector('.form-submit');
-    const name    = document.getElementById('name').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const phone   = document.getElementById('phone').value.trim();
-    const msg     = document.getElementById('message').value.trim();
-
-    // Basic client-side validation — name, email, company, message are required
-    if (!name || !email || !company || !msg) {
-      showFormError('Please complete the required fields (marked *) before sending.');
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showFormError('Please enter a valid email address.');
-      return;
-    }
-
-    clearFormError();
-
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = 'Sending&hellip;';
-    btn.disabled  = true;
-
-    // Build the template parameters — these map to {{variables}} in your EmailJS template
-    const templateParams = {
-      from_name : name,
-      from_email: email,
-      company   : company,
-      phone     : phone || 'Not provided',
-      message   : msg,
-      reply_to  : email,
-    };
-
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-      showSuccess(templateParams);
-
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      btn.innerHTML = originalHTML;
-      btn.disabled  = false;
-      showFormError('Something went wrong, please try again in a moment.');
-    }
-  });
-
-  function showSuccess(params) {
-    // Fire generate_lead. Only non-PII signals are sent to GA4 — never name,
-    // email, company name, phone, or message (UK GDPR: that would be personal
-    // data going to a third party beyond what the consent banner covers).
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        value: 1,
-        currency: 'GBP',
-        has_phone: !!(params && params.phone && params.phone !== 'Not provided'),
-      });
-    }
-    const submittedEmail = document.getElementById('email').value.trim();
-    const msgEl = document.getElementById('success-msg');
-    if (msgEl && submittedEmail) {
-      // Build with text nodes so the submitted email can never inject markup.
-      msgEl.textContent = "We will respond within one business day to ";
-      const strong = document.createElement('strong');
-      strong.textContent = submittedEmail;
-      msgEl.appendChild(strong);
-      msgEl.appendChild(document.createTextNode('.'));
-    }
-    form.style.display = 'none';
-    success.classList.add('visible');
-    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function showFormError(msg) {
-    let errEl = document.getElementById('form-error');
-    if (!errEl) {
-      errEl = document.createElement('p');
-      errEl.id = 'form-error';
-      errEl.style.cssText = 'color:#c0392b; font-size:0.82rem; margin-bottom:0.5rem; padding:0.75rem 1rem; background:#fdf0ee; border-left:3px solid #c0392b;';
-      form.querySelector('.form-submit').before(errEl);
-    }
-    errEl.textContent = msg;
-    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function clearFormError() {
-    const errEl = document.getElementById('form-error');
-    if (errEl) errEl.remove();
-  }
+  // Form submission and EmailJS live on the homepage only; this page has no form.
 
   // ── Active nav link ───────────────────────────
   const sections = document.querySelectorAll('section[id]');
@@ -1646,6 +1571,39 @@ body.nav-open .nav-links a {
 </script>
 
 <script>
+  // ── Campaign attribution ──────────────────────────────────
+  // Captured first-touch per session so a hop to another page does not lose it.
+  // sessionStorage only, cleared when the tab closes, used to tell you where an
+  // enquiry came from. Not analytics, so it is not gated on consent.
+  window.nbAttribution = (function () {
+    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','account_id'];
+    var STORE = 'nb-attrib';
+    var data = null;
+    try { var st = sessionStorage.getItem(STORE); if (st) data = JSON.parse(st); } catch (e) {}
+    var p = new URLSearchParams(window.location.search), incoming = {}, any = false;
+    KEYS.forEach(function (k) { var v = p.get(k); if (v) { incoming[k] = v.slice(0,200); any = true; } });
+    if (any && !data) {
+      data = incoming;
+      try { sessionStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+    }
+    function d() { return data || {}; }
+    return {
+      get: d,
+      summary:  function () { return d().utm_source ? [d().utm_source, d().utm_medium].filter(Boolean).join(' / ') : 'Direct or organic'; },
+      campaign: function () { return [d().utm_campaign, d().utm_term, d().utm_content].filter(Boolean).join(' \u2014 ') || 'Not set'; },
+      account:  function () { return d().account_id || 'Not set'; },
+      appendTo: function (url) {
+        var k = Object.keys(d()); if (!k.length) return url;
+        return url + (url.indexOf('?') === -1 ? '?' : '&') +
+          k.map(function (x) { return x + '=' + encodeURIComponent(d()[x]); }).join('&');
+      }
+    };
+  })();
+
+  document.querySelectorAll('a[href^="https://score.nielsenandbrown.com"]').forEach(function (el) {
+    el.setAttribute('href', window.nbAttribution.appendTo(el.getAttribute('href')));
+  });
+
   // ── Cookie consent + GA4 Consent Mode ─────────────────────
   (function () {
     var banner = document.getElementById('cookie-consent');
@@ -1661,17 +1619,42 @@ body.nav-open .nav-links a {
         gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
       }
     }
-    var stored = null;
-    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    // Cookie, not localStorage: localStorage is per-subdomain, so the score app
+    // could not read the decision and would ask a second time.
+    function readCookie() {
+      var m = document.cookie.match(/(?:^|;\s*)nb-consent=(granted|denied)/);
+      return m ? m[1] : null;
+    }
+    // The domain attribute is only valid on the real host. Setting it anywhere
+    // else (localhost, a preview URL) makes the browser reject the cookie
+    // silently, so scope it only when we are actually on the live domain.
+    function cookieDomain() {
+      return /(^|\.)nielsenandbrown\.com$/.test(location.hostname)
+        ? ';domain=.nielsenandbrown.com' : '';
+    }
+    function writeCookie(v) {
+      document.cookie = 'nb-consent=' + v + cookieDomain() +
+        ';path=/;max-age=31536000;SameSite=Lax' +
+        (location.protocol === 'https:' ? ';Secure' : '');
+    }
+    var stored = readCookie();
+    if (!stored) {
+      try {
+        var legacy = localStorage.getItem(KEY);
+        if (legacy === 'granted' || legacy === 'denied') {
+          stored = legacy; writeCookie(legacy); localStorage.removeItem(KEY);
+        }
+      } catch (e) {}
+    }
     if (stored === 'granted') { grant(); }
     else if (stored !== 'denied') { banner.classList.add('visible'); }
 
     document.getElementById('consent-accept').addEventListener('click', function () {
-      try { localStorage.setItem(KEY, 'granted'); } catch (e) {}
+      writeCookie('granted');
       grant(); banner.classList.remove('visible');
     });
     document.getElementById('consent-decline').addEventListener('click', function () {
-      try { localStorage.setItem(KEY, 'denied'); } catch (e) {}
+      writeCookie('denied');
       // Revoke immediately, so analytics stop even if the user had accepted earlier this session.
       revoke(); banner.classList.remove('visible');
     });
