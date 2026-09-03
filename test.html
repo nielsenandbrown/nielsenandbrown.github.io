@@ -1549,10 +1549,10 @@ body {margin:0;background:var(--paper);color:var(--char);font-family:'Jost',syst
 #engagement .panel.on {display:block;animation:rise .45s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 #engagement .lede {font-size:18.5px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
-#engagement .feature {background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
-#engagement .feature .tag {font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
-#engagement .feature h2 {font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
-#engagement .feature .sub {font-size:17.5px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
+#engagement .feature, .sheet .feature {background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
+#engagement .feature .tag, .sheet .feature .tag {font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+#engagement .feature h2, .sheet .feature h2 {font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
+#engagement .feature .sub, .sheet .feature .sub {font-size:17.5px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
 #engagement .metrics {display:flex;gap:52px;flex-wrap:wrap;padding:26px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
 #engagement .metric b {display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);line-height:1}
 #engagement .metric span {display:block;margin-top:6px;font-size:14px;color:var(--cream);opacity:.75}
@@ -1565,7 +1565,7 @@ body {margin:0;background:var(--paper);color:var(--char);font-family:'Jost',syst
 #engagement .note {margin:16px 0 0;font-size:13.5px;color:var(--cream);opacity:.6;font-weight:300}
 #engagement .slab {background:var(--char);border-radius:4px;padding:38px;box-shadow:var(--shadow)}
 #engagement .slabhead {display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid rgba(242,237,230,.16)}
-#engagement .slabhead .tag {font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+#engagement .slabhead .tag, .sheet .slabhead .tag {font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 #engagement .slabhead .count {font-size:13px;color:rgba(242,237,230,.6);font-weight:300}
 #engagement .grid {display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 #engagement .card {background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:26px 26px 22px;display:flex;flex-direction:column;text-align:left;cursor:pointer;font-family:inherit;color:inherit;width:100%;transition:border-color .25s,transform .25s}
@@ -1587,36 +1587,36 @@ body {margin:0;background:var(--paper);color:var(--char);font-family:'Jost',syst
 #engagement .gnote {font-size:13px;color:rgba(242,237,230,.6);font-weight:300;order:3;flex:1 1 100%}
 #engagement .gband {margin-left:auto;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;white-space:nowrap;flex:0 0 auto;order:2}
 #engagement .card.feat {border-color:var(--gold)}
-#engagement .card .req {display:block;font-size:11.5px;line-height:1.45;color:var(--gold);font-weight:500;margin:-8px 0 16px;padding-left:13px;border-left:2px solid rgba(184,146,74,.45)}
-#engagement .reqnote {background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:18px 20px;margin:0 0 28px}
-#engagement .reqnote span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
-#engagement .reqnote p {margin:0;font-size:14px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
+#engagement .card .req, .sheet .card .req {display:block;font-size:11.5px;line-height:1.45;color:var(--gold);font-weight:500;margin:-8px 0 16px;padding-left:13px;border-left:2px solid rgba(184,146,74,.45)}
+#engagement .reqnote, .sheet .reqnote {background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:18px 20px;margin:0 0 28px}
+#engagement .reqnote span, .sheet .reqnote span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
+#engagement .reqnote p, .sheet .reqnote p {margin:0;font-size:14px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
 #engagement .card .stage {display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:9px}
-body .nb-scrim, #engagement .scrim {position:fixed;inset:0;background:rgba(28,28,26,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
-body .nb-scrim, #engagement .scrim.on {opacity:1;pointer-events:auto}
-body .nb-sheet, #engagement .sheet {position:fixed;top:0;right:0;height:100%;width:min(720px,100%);background:var(--char);z-index:50;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.28)}
-body .nb-sheet, #engagement .sheet.on {transform:none}
-body .nb-sheet, #engagement .sheetin {padding:40px 48px 60px}
-body .nb-sheet, #engagement .sheetbar {display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px}
-#engagement .closebtn {appearance:none;background:none;border:1px solid rgba(242,237,230,.3);color:var(--cream);border-radius:3px;padding:9px 16px;font-family:inherit;font-size:13px;cursor:pointer;transition:border-color .25s,color .25s}
-#engagement .closebtn:hover {border-color:var(--gold);color:var(--gold)}
-#engagement .closebtn:focus-visible {outline:2px solid var(--gold);outline-offset:2px}
-body .nb-sheet, #engagement .sheet .eyebrow {font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
-body .nb-sheet, #engagement .sheet h2 {font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.4vw,44px);font-weight:600;color:#fff;margin:12px 0 14px;line-height:1.06}
-body .nb-sheet, #engagement .sheet .sum {font-size:16px;line-height:1.65;color:rgba(242,237,230,.8);font-weight:300;margin:0 0 30px}
-#engagement .meta {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
-#engagement .meta div span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
-#engagement .meta div b {display:block;font-size:14px;line-height:1.45;color:var(--cream);font-weight:400}
-body .nb-sheet, #engagement .sheet h3 {font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;margin:0 0 20px}
-#engagement .items {list-style:none;margin:0 0 32px;padding:0;counter-reset:it}
-#engagement .items li {counter-increment:it;position:relative;padding:0 0 20px 48px;margin-bottom:20px;border-bottom:1px solid rgba(242,237,230,.1)}
-#engagement .items li:last-child {border-bottom:0;margin-bottom:0}
-#engagement .items li::before {content:counter(it,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);width:32px;height:32px;border:1px solid rgba(184,146,74,.5);border-radius:50%;display:flex;align-items:center;justify-content:center}
-#engagement .items b {display:block;font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.35}
-#engagement .items p {margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.72);font-weight:300}
-#engagement .thenwhat {background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:22px 24px;margin-bottom:28px}
-#engagement .thenwhat span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
-#engagement .thenwhat p {margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
+.scrim {position:fixed;inset:0;background:rgba(28,28,26,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.scrim.on {opacity:1;pointer-events:auto}
+.sheet {position:fixed;top:0;right:0;height:100%;width:min(720px,100%);background:var(--char);z-index:50;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.28)}
+.sheet.on {transform:none}
+.sheetin {padding:40px 48px 60px}
+.sheetbar {display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px}
+#engagement .closebtn, .sheet .closebtn {appearance:none;background:none;border:1px solid rgba(242,237,230,.3);color:var(--cream);border-radius:3px;padding:9px 16px;font-family:inherit;font-size:13px;cursor:pointer;transition:border-color .25s,color .25s}
+#engagement .closebtn:hover, .sheet .closebtn:hover {border-color:var(--gold);color:var(--gold)}
+#engagement .closebtn:focus-visible, .sheet .closebtn:focus-visible {outline:2px solid var(--gold);outline-offset:2px}
+.sheet .eyebrow {font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.sheet h2 {font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.4vw,44px);font-weight:600;color:#fff;margin:12px 0 14px;line-height:1.06}
+.sheet .sum {font-size:16px;line-height:1.65;color:rgba(242,237,230,.8);font-weight:300;margin:0 0 30px}
+#engagement .meta, .sheet .meta {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
+#engagement .meta div span, .sheet .meta div span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
+#engagement .meta div b, .sheet .meta div b {display:block;font-size:14px;line-height:1.45;color:var(--cream);font-weight:400}
+.sheet h3 {font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;margin:0 0 20px}
+#engagement .items, .sheet .items {list-style:none;margin:0 0 32px;padding:0;counter-reset:it}
+#engagement .items li, .sheet .items li {counter-increment:it;position:relative;padding:0 0 20px 48px;margin-bottom:20px;border-bottom:1px solid rgba(242,237,230,.1)}
+#engagement .items li:last-child, .sheet .items li:last-child {border-bottom:0;margin-bottom:0}
+#engagement .items li::before, .sheet .items li::before {content:counter(it,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);width:32px;height:32px;border:1px solid rgba(184,146,74,.5);border-radius:50%;display:flex;align-items:center;justify-content:center}
+#engagement .items b, .sheet .items b {display:block;font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.35}
+#engagement .items p, .sheet .items p {margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.72);font-weight:300}
+#engagement .thenwhat, .sheet .thenwhat {background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:22px 24px;margin-bottom:28px}
+#engagement .thenwhat span, .sheet .thenwhat span {display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
+#engagement .thenwhat p, .sheet .thenwhat p {margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
 #engagement .close {border-top:1px solid var(--rule);padding:70px 0 90px;text-align:center}
 #engagement .close h2 {font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.14;margin:0 auto 22px;max-width:760px}
 #engagement .close p {max-width:560px;margin:0 auto 32px;color:var(--muted);font-weight:300;font-size:16.5px;line-height:1.65}
@@ -1627,10 +1627,10 @@ body .nb-sheet, #engagement .sheet h3 {font-family:'Cormorant Garamond',serif;fo
 #engagement .rail {position:static}
 #engagement .rung {padding:20px 0 18px}
 #engagement .getlist, #engagement .grid {grid-template-columns:1fr}
-#engagement .feature {padding:34px 26px}
+#engagement .feature, .sheet .feature {padding:34px 26px}
 #engagement .slab {padding:24px 20px}
-body .nb-sheet, #engagement .sheetin {padding:28px 24px 50px}
-#engagement .meta {grid-template-columns:1fr;gap:16px}
+.sheetin {padding:28px 24px 50px}
+#engagement .meta, .sheet .meta {grid-template-columns:1fr;gap:16px}
 #engagement .navlinks {display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -1663,7 +1663,7 @@ html {scroll-behavior:auto}}
 
     /* Tabs must read as tabs at rest: Allan reviews on an iPad, where there is
        no hover at all, so hover is an enhancement and not the affordance. */
-    #engagement .rung {
+#engagement .rung {
       border: 1px solid var(--line) !important;
       background: var(--surface-2, #F2EDE6) !important;
       padding: 1rem 1.15rem !important;
@@ -1671,25 +1671,25 @@ html {scroll-behavior:auto}}
       cursor: pointer;
       transition: border-color .2s, background .2s, box-shadow .2s;
     }
-    #engagement .rung + .rung { margin-top: 0.5rem; }
-    #engagement .rung .bar { display: none !important; }
-    #engagement .rung.on {
+#engagement .rung + .rung { margin-top: 0.5rem; }
+#engagement .rung .bar { display: none !important; }
+#engagement .rung.on {
       background: var(--charcoal) !important;
       border-color: var(--charcoal) !important;
       box-shadow: inset 3px 0 0 var(--action);
     }
-    #engagement .rung.on .q { color: var(--cream) !important; }
-    #engagement .rung.on .band { color: var(--gold-light) !important; }
-    #engagement .rung:hover:not(.on) { border-color: var(--gold); background: var(--cream) !important; }
-    #engagement .rung:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+#engagement .rung.on .q { color: var(--cream) !important; }
+#engagement .rung.on .band { color: var(--gold-light) !important; }
+#engagement .rung:hover:not(.on) { border-color: var(--gold); background: var(--cream) !important; }
+#engagement .rung:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
 
     /* .btn from the ported pricing CSS is more specific than .btn-book once
        scoped under #engagement, so re-assert the booking colour above it. */
-    #engagement .btn.btn-book, .sheet .btn.btn-book, .btn.btn-book {
+#engagement .btn.btn-book, .sheet .btn.btn-book, .btn.btn-book {
       background: var(--action);
       color: #FFFFFF;
     }
-    #engagement .btn.btn-book:hover, .sheet .btn.btn-book:hover, .btn.btn-book:hover {
+#engagement .btn.btn-book:hover, .sheet .btn.btn-book:hover, .btn.btn-book:hover {
       background: var(--action-dark);
     }
 </style>
