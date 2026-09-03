@@ -68,7 +68,8 @@
       --ink:          #403D34;
       --line:         #DCD3BF;
       --muted:        #7D7968;
-      --muted-2:      #9C9989;
+      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
+      --muted-2:      #6E6A5A;   /* darkened: was #9C9989 at 2.46:1, now 4.66:1 */
       --stone:        #DCD3BF;
       --stone-2:      #E9E1D2;
 
@@ -924,16 +925,20 @@ ul { list-style: none; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-@media (max-width: 768px) {
-.nav-links { display: none; }
-.nav-hamburger { display: flex; }
-#hero { padding: 9rem 5% 5rem; }
-.hero-amp { display: none; }
-.hero-stats {
+/* The desktop nav only fits six items above ~1240px, so it collapses
+   to the hamburger below that. Everything else stays at 768px. */
+@media (max-width: 1240px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      #hero { padding: 9rem 5% 5rem; }
+      .hero-amp { display: none; }
+      .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
       }
-.hero-stat {
+      .hero-stat {
         border-right: none;
         border-bottom: 1px solid var(--stone-2);
         padding-right: 0;
@@ -941,15 +946,15 @@ ul { list-style: none; }
         margin-right: 0;
         margin-bottom: 0;
       }
-.hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-.opportunity-inner,
+      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .opportunity-inner,
       .audience-inner,
       .contact-inner,
       .faq-inner,
       .why-header { grid-template-columns: 1fr; }
-.footer-top { grid-template-columns: 1fr; gap: 2rem; }
-.footer-bottom { flex-direction: column; align-items: flex-start; }
-}
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
 @media (max-width: 480px) {
 .form-row { grid-template-columns: 1fr; }
 }
@@ -1047,7 +1052,7 @@ body.nav-open .nav-links a {
     .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
 .nb-sec { padding: 5.5rem 0; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-2); letter-spacing: 0.01em; }
+.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
 .nb-sec--mid  { background: var(--cream-3); }
 .nb-sec--dark { background: var(--charcoal); }
 .nb-sec--dark .nb-h2            { color: var(--cream); }
@@ -1277,7 +1282,7 @@ body.locked{overflow:hidden}
 .navlinks a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent}
 .navlinks a:hover{color:var(--char)}
 .navlinks a.here{color:var(--char);border-bottom-color:var(--gold)}
-.kicker{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
 .pagehead{padding:74px 0 46px}
 .pagehead h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em}
 .pagehead p{max-width:680px;margin:0;font-size:17px;line-height:1.65;color:var(--muted);font-weight:300}
@@ -1293,23 +1298,23 @@ body.locked{overflow:hidden}
 .rung.on .bar{background:var(--gold)}
 .rung .q{font-family:'Cormorant Garamond',serif;font-size:clamp(25px,2.4vw,31px);line-height:1.14;font-weight:600;color:var(--muted);transition:color .3s;display:block}
 .rung.on .q{color:var(--char)}
-.rung .band{display:block;margin-top:9px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.rung .band{display:block;margin-top:9px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .rung.on .band{color:var(--gold)}
 .panel{display:none}
 .panel.on{display:block;animation:rise .45s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.lede{font-size:17px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
+.lede{font-size:18.5px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
 .feature{background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
-.feature .tag{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.feature .tag{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .feature h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
-.feature .sub{font-size:16px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
+.feature .sub{font-size:17.5px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
 .metrics{display:flex;gap:52px;flex-wrap:wrap;padding:26px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
 .metric b{display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);line-height:1}
-.metric span{display:block;margin-top:6px;font-size:12.5px;color:var(--cream);opacity:.75}
+.metric span{display:block;margin-top:6px;font-size:14px;color:var(--cream);opacity:.75}
 .getlist{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
-.getlist li{position:relative;padding-left:22px;font-size:15px;line-height:1.55;font-weight:300;color:var(--cream);opacity:.92}
+.getlist li{position:relative;padding-left:22px;font-size:16.5px;line-height:1.55;font-weight:300;color:var(--cream);opacity:.92}
 .getlist li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;padding:15px 30px;border-radius:3px;font-size:14.5px;letter-spacing:.04em;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;padding:15px 30px;border-radius:3px;font-size:16px;letter-spacing:.04em;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
 .btn:hover{background:var(--gold-deep)}
 .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .note{margin:16px 0 0;font-size:13.5px;color:var(--cream);opacity:.6;font-weight:300}
@@ -1434,7 +1439,8 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
       <li><a href="/#services">What we do</a></li>
       <li><a href="pricing.html" aria-current="page">Pricing</a></li>
       <li><a href="/#faq">FAQs</a></li>
-      <li><a href="/#contact" class="nav-cta btn-book">Book a discovery call</a></li>
+      <li><a href="founders.html">Founders</a></li>
+      <li><a href="/#contact" class="nav-cta btn-book">Start your AI journey</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1471,7 +1477,6 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
 
     <div>
       <section class="panel on" id="start" role="tabpanel" aria-labelledby="t1">
-        <p class="lede">Start with a straight answer about where the business actually stands. It takes about twelve minutes, it costs nothing, and nobody rings you afterwards unless you ask.</p>
         <div class="feature">
           <span class="tag">Engagement one&nbsp; |&nbsp; free, self serve</span>
           <h2>AI Readiness Score</h2>
@@ -1552,7 +1557,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
   <section class="close">
     <h2>Not sure which question you are asking yet?</h2>
     <p>That is the usual position, and it is a reasonable one. A short diagnostic conversation is the sensible next step.</p>
-    <a class="btn btn-book" href="/#contact">Arrange a conversation <span>&rarr;</span></a>
+    <a class="btn btn-book" href="/#contact">Talk to a human <span>&rarr;</span></a>
   </section>
   
 </div>
@@ -1748,7 +1753,7 @@ function sheetHTML(p){
   + '<h3>What you get</h3>'
   + '<ul class="items">'+p.items.map(function(i){return '<li><b>'+esc(i[0])+'</b><p>'+esc(i[1])+'</p></li>';}).join('')+'</ul>'
   + '<div class="thenwhat"><span>And then?</span><p>'+esc(p.then)+'</p></div>'
-  + '<a class="btn btn-book" href="/#contact">Arrange a conversation <span>&rarr;</span></a>'
+  + '<a class="btn btn-book" href="/#contact">Talk to a human <span>&rarr;</span></a>'
   + '</div>';
 }
 function openSheet(id,push){

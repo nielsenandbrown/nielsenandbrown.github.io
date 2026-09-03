@@ -105,6 +105,20 @@ contrast failure: cream on gold was 2.73:1, below WCAG AA. Cream on terracotta i
 respectively, driven by `--fs-*` tokens in `:root`. Cormorant headings, the hero
 headline, the before/after figures and the nav are deliberately unchanged.
 
+**Type scale, revised.** Ticket 1 was reissued at +1.5px, superseding the earlier
++2px version. Applied from the original baseline, so nine elements are 0.5px
+smaller than the +2px build. The nav is excluded; the before/after figures and the
+budget card heading are included despite being Cormorant, because the reissued
+ticket lists them explicitly.
+
+**Nav breakpoint.** Raised from 768px to 1240px. The five-item nav already wrapped
+between roughly 769 and 1090px, which included iPad landscape at 1024px. Adding a
+sixth item made that worse, so the desktop nav now only shows where it fits.
+
+**Muted grey.** `--muted-2` darkened from #9C9989 (2.46:1, failing) to #6E6A5A
+(4.66:1). A companion `--muted-on-dark` #B5B1A0 covers the same role on charcoal,
+where darkening would have made things worse.
+
 ---
 
 ## Deliberate exceptions

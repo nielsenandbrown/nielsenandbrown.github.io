@@ -316,23 +316,27 @@
       --ink:          #403D34;
       --line:         #DCD3BF;
       --muted:        #7D7968;
-      --muted-2:      #9C9989;
+      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
+      --muted-2:      #6E6A5A;   /* darkened: was #9C9989 at 2.46:1, now 4.66:1 */
       --stone:        #DCD3BF;
       --stone-2:      #E9E1D2;
 
 
-      /* Type scale. Body and micro-labels only; Cormorant headings and the
-         nav are deliberately excluded (see STYLE.md, change 7). */
-      --fs-hero-sub:   1.175rem;   /* 18.8px, was 16.8 */
-      --fs-lede:       1.145rem;   /* 18.3px, was 16.3 */
-      --fs-body:       1.025rem;   /* 16.4px, was 14.4 */
-      --fs-list:       1.075rem;   /* 17.2px, was 15.2 */
-      --fs-small:      0.965rem;   /* 15.4px, was 13.4 */
-      --fs-trust:      0.975rem;   /* 15.6px, was 13.6 */
-      --fs-eyebrow:    0.78rem;    /* 12.5px, was 11.5 */
-      --fs-eyebrow-lg: 0.845rem;   /* 13.5px, was 12.5 */
-      --fs-kicker:     0.75rem;    /* 12.0px, was 11.0 */
-      --fs-button:     0.88rem;    /* 14.1px, was 13.1 */
+      /* Type scale, ticket 1 (revised): every listed element +1.5px from its
+         original value. Nav, Cormorant headings other than the two listed,
+         the hero headline and the gold stat figures are excluded. */
+      --fs-hero-sub:     1.14375rem;   /* 18.30px, was 16.8px, hero sub-paragraph */
+      --fs-lede:         1.11375rem;   /* 17.82px, was 16.32px, section intro paragraphs */
+      --fs-body:         0.99375rem;   /* 15.90px, was 14.4px, budget card body */
+      --fs-list:         1.04375rem;   /* 16.70px, was 15.2px, checklist items */
+      --fs-small:        0.93375rem;   /* 14.94px, was 13.44px, proof card descriptions */
+      --fs-trust:        0.94375rem;   /* 15.10px, was 13.6px, trust bullets */
+      --fs-eyebrow:      0.81375rem;   /* 13.02px, was 11.52px, hero eyebrow */
+      --fs-eyebrow-lg:   0.87375rem;   /* 13.98px, was 12.48px, section labels */
+      --fs-kicker:       0.78375rem;   /* 12.54px, was 11.04px, proof card labels */
+      --fs-button:       0.91375rem;   /* 14.62px, was 13.12px, button and secondary link labels */
+      --fs-figure:       1.69375rem;   /* 27.10px, was 25.6px, before/after figures (Cormorant) */
+      --fs-budget-h:     1.44375rem;   /* 23.10px, was 21.6px, budget card heading (Cormorant) */
       --font-display: 'Cormorant Garamond', Cormorant, Georgia, serif;
       --font-body:    'Jost', 'Calibri', sans-serif;
 
@@ -1185,16 +1189,20 @@ ul { list-style: none; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-@media (max-width: 768px) {
-.nav-links { display: none; }
-.nav-hamburger { display: flex; }
-#hero { padding: 9rem 5% 5rem; }
-.hero-amp { display: none; }
-.hero-stats {
+/* The desktop nav only fits six items above ~1240px, so it collapses
+   to the hamburger below that. Everything else stays at 768px. */
+@media (max-width: 1240px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      #hero { padding: 9rem 5% 5rem; }
+      .hero-amp { display: none; }
+      .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
       }
-.hero-stat {
+      .hero-stat {
         border-right: none;
         border-bottom: 1px solid var(--stone-2);
         padding-right: 0;
@@ -1202,15 +1210,15 @@ ul { list-style: none; }
         margin-right: 0;
         margin-bottom: 0;
       }
-.hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-.opportunity-inner,
+      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .opportunity-inner,
       .audience-inner,
       .contact-inner,
       .faq-inner,
       .why-header { grid-template-columns: 1fr; }
-.footer-top { grid-template-columns: 1fr; gap: 2rem; }
-.footer-bottom { flex-direction: column; align-items: flex-start; }
-}
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
 @media (max-width: 480px) {
 .form-row { grid-template-columns: 1fr; }
 }
@@ -1308,7 +1316,7 @@ body.nav-open .nav-links a {
     .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
 .nb-sec { padding: 5.5rem 0; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-2); letter-spacing: 0.01em; }
+.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
 .nb-sec--tight { padding-top: 2.5rem; }
 .nb-sec--mid  { background: var(--cream-3); }
 .nb-sec--dark { background: var(--charcoal); }
@@ -1346,10 +1354,10 @@ body.nav-open .nav-links a {
       color: var(--gold); font-weight: 600; margin-bottom: 0.9rem;
     }
 .nb-shift {
-      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+      font-family: var(--font-display); font-size: var(--fs-figure); font-weight: 600;
       margin-bottom: 0.6rem; display: flex; align-items: baseline; gap: 0.65rem;
     }
-.nb-shift .nb-from { color: #9c9989; text-decoration: line-through; font-size: 1.18rem; }
+.nb-shift .nb-from { color: var(--muted-on-dark); font-size: 1.18rem; }   /* strikethrough removed: hard to read, and the arrow carries the meaning */
 .nb-shift .nb-to { color: var(--gold); }
 .nb-proof-card p { font-size: var(--fs-small); color: #c9c5b6; }
 /* ── Is this you ───────────────────────────── */
@@ -1362,7 +1370,7 @@ body.nav-open .nav-links a {
 .nb-qlist li:first-child { border-top: 1px dashed var(--line); }
 .nb-qlist .nb-tick { color: var(--gold-deep); font-weight: 700; flex-shrink: 0; }
 .nb-qside { background: var(--charcoal); color: var(--cream-2); padding: 2rem; border-left: 3px solid var(--gold); }
-.nb-qside h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--cream); }
+.nb-qside h4 { font-family: var(--font-display); font-size: var(--fs-budget-h); font-weight: 600; margin-bottom: 0.8rem; color: var(--cream); }
 .nb-qside p { font-size: var(--fs-body); color: #c9c5b6; margin-bottom: 1.5rem; }
 /* ── Problem rows ──────────────────────────── */
     .nb-problems { display: flex; flex-direction: column; }
@@ -1380,6 +1388,7 @@ body.nav-open .nav-links a {
 .nb-source { font-size: 0.78rem; color: var(--muted); }
 /* ── Card grids ────────────────────────────── */
     .nb-founder-cta { margin-top: 1.6rem; margin-bottom: 2.6rem; }
+.nb-founder-cta .btn-outline { font-weight: 700; }
 .nb-founder-link a { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 1px solid var(--stone); padding-bottom: 3px; }
 .nb-cards { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .nb-cards--4 { grid-template-columns: repeat(4, 1fr); }
@@ -1518,7 +1527,7 @@ body {margin:0;background:var(--paper);color:var(--char);font-family:'Jost',syst
 #engagement .navlinks a {color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent}
 #engagement .navlinks a:hover {color:var(--char)}
 #engagement .navlinks a.here {color:var(--char);border-bottom-color:var(--gold)}
-#engagement .kicker {font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
+#engagement .kicker {font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
 #engagement .pagehead {padding:74px 0 46px}
 #engagement .pagehead h1 {font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em}
 #engagement .pagehead p {max-width:680px;margin:0;font-size:17px;line-height:1.65;color:var(--muted);font-weight:300}
@@ -1534,23 +1543,23 @@ body {margin:0;background:var(--paper);color:var(--char);font-family:'Jost',syst
 #engagement .rung.on .bar {background:var(--gold)}
 #engagement .rung .q {font-family:'Cormorant Garamond',serif;font-size:clamp(25px,2.4vw,31px);line-height:1.14;font-weight:600;color:var(--muted);transition:color .3s;display:block}
 #engagement .rung.on .q {color:var(--char)}
-#engagement .rung .band {display:block;margin-top:9px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
+#engagement .rung .band {display:block;margin-top:9px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
 #engagement .rung.on .band {color:var(--gold)}
 #engagement .panel {display:none}
 #engagement .panel.on {display:block;animation:rise .45s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-#engagement .lede {font-size:17px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
+#engagement .lede {font-size:18.5px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
 #engagement .feature {background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
-#engagement .feature .tag {font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+#engagement .feature .tag {font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 #engagement .feature h2 {font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
-#engagement .feature .sub {font-size:16px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
+#engagement .feature .sub {font-size:17.5px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
 #engagement .metrics {display:flex;gap:52px;flex-wrap:wrap;padding:26px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
 #engagement .metric b {display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);line-height:1}
-#engagement .metric span {display:block;margin-top:6px;font-size:12.5px;color:var(--cream);opacity:.75}
+#engagement .metric span {display:block;margin-top:6px;font-size:14px;color:var(--cream);opacity:.75}
 #engagement .getlist {list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
-#engagement .getlist li {position:relative;padding-left:22px;font-size:15px;line-height:1.55;font-weight:300;color:var(--cream);opacity:.92}
+#engagement .getlist li {position:relative;padding-left:22px;font-size:16.5px;line-height:1.55;font-weight:300;color:var(--cream);opacity:.92}
 #engagement .getlist li::before {content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-#engagement .btn {display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;padding:15px 30px;border-radius:3px;font-size:14.5px;letter-spacing:.04em;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
+#engagement .btn {display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;padding:15px 30px;border-radius:3px;font-size:16px;letter-spacing:.04em;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
 #engagement .btn:hover {background:var(--gold-deep)}
 #engagement .btn:focus-visible {outline:2px solid #fff;outline-offset:3px}
 #engagement .note {margin:16px 0 0;font-size:13.5px;color:var(--cream);opacity:.6;font-weight:300}
@@ -1704,7 +1713,8 @@ html {scroll-behavior:auto}}
       <li><a href="#services">What we do</a></li>
       <li><a href="#engagement">Pricing</a></li>
       <li><a href="#faq">FAQs</a></li>
-      <li><a href="#contact" class="nav-cta btn-book">Book a discovery call</a></li>
+      <li><a href="founders.html">Founders</a></li>
+      <li><a href="#contact" class="nav-cta btn-book">Start your AI journey</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1852,7 +1862,6 @@ html {scroll-behavior:auto}}
 
     <div>
       <section class="panel on" id="start" role="tabpanel" aria-labelledby="t1">
-        <p class="lede">Start with a straight answer about where the business actually stands. It takes about twelve minutes, it costs nothing, and nobody rings you afterwards unless you ask.</p>
         <div class="feature">
           <span class="tag">Engagement one&nbsp; |&nbsp; free, self serve</span>
           <h2>AI Readiness Score</h2>
@@ -1933,7 +1942,7 @@ html {scroll-behavior:auto}}
   <section class="close">
     <h2>Not sure which question you are asking yet?</h2>
     <p>That is the usual position, and it is a reasonable one. A short diagnostic conversation is the sensible next step.</p>
-    <a class="btn btn-book" href="#contact">Arrange a conversation <span>&rarr;</span></a>
+    <a class="btn btn-book" href="#contact">Talk to a human <span>&rarr;</span></a>
   </section>
   </div>
 </section>
@@ -2146,7 +2155,7 @@ html {scroll-behavior:auto}}
         <span>A clear next step</span>
       </div>
       <div class="nb-cta-actions">
-        <a href="#contact" class="btn-book" data-ga="cta_banner_primary">Book my free discovery call</a>
+        <a href="#contact" class="btn-book" data-ga="cta_banner_primary">Book your free AI review</a>
         <a href="#engagement" class="btn-outline" data-ga="cta_banner_secondary">See how we work</a>
       </div>
     </div>
@@ -2527,6 +2536,9 @@ html {scroll-behavior:auto}}
         gtag('event', 'generate_lead', {
           value: 1,
           currency: 'GBP',
+          // Separates contact-form leads from score.nielsenandbrown.com, which
+          // fires the same event into the same property as 'readiness_score'.
+          lead_source: 'contact_form',
           has_phone: !!(params && params.phone && params.phone !== 'Not provided'),
           // utm_* are native to GA4. account_id needs registering as a custom
           // dimension in GA4 admin before it becomes reportable.
@@ -2952,7 +2964,7 @@ function sheetHTML(p){
   + '<h3>What you get</h3>'
   + '<ul class="items">'+p.items.map(function(i){return '<li><b>'+esc(i[0])+'</b><p>'+esc(i[1])+'</p></li>';}).join('')+'</ul>'
   + '<div class="thenwhat"><span>And then?</span><p>'+esc(p.then)+'</p></div>'
-  + '<a class="btn btn-book" href="#contact">Arrange a conversation <span>&rarr;</span></a>'
+  + '<a class="btn btn-book" href="#contact">Talk to a human <span>&rarr;</span></a>'
   + '</div>';
 }
 function openSheet(id,push){

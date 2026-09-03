@@ -3366,6 +3366,9 @@
       gtag('event', 'generate_lead', {
         value: 1,
         currency: 'GBP',
+        // Separates contact-form leads from score.nielsenandbrown.com, which
+        // fires the same event into the same property as 'readiness_score'.
+        lead_source: 'contact_form',
         has_phone: !!(params && params.phone && params.phone !== 'Not provided'),
       });
     }

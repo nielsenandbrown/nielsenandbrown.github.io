@@ -35,6 +35,7 @@
       --ink:          #403D34;
       --line:         #DCD3BF;
       --muted:        #5C584C;
+      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
       --muted-2:      #7D7968;
       --stone:        #DCD3BF;
       --stone-2:      #E9E1D2;
@@ -207,6 +208,18 @@
     @media (max-width: 600px) {
       .footer-inner { justify-content: center; text-align: center; }
     }
+  
+    /* ── Cookie consent ── */
+    .consent { position: fixed; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1200; max-width: 720px; margin: 0 auto;
+      background: var(--charcoal); color: var(--cream); border-radius: 14px; box-shadow: var(--shadow-lg);
+      padding: 1.35rem 1.5rem; display: none; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
+.consent.visible { display: flex; }
+.consent p { font-size: 0.86rem; line-height: 1.6; color: var(--cream-3); font-weight: 300; flex: 1 1 320px; }
+.consent p a { color: var(--gold-light); border-bottom: 1px solid rgba(217,170,90,0.4); }
+.consent-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
+.consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
+.consent-accept { background: var(--gold); color: var(--cream); }
+.consent-accept:hover { background: var(--gold-light); }
   </style>
 </head>
 <body>
@@ -330,9 +343,156 @@
       <a href="/cookie-policy">Cookie Policy</a>
       <a href="/">Home</a>
       <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="#" id="cookie-settings-link" role="button">Cookie Settings</a>
     </div>
   </div>
 </footer>
+
+
+<!-- Cookie consent -->
+<div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p>We use essential cookies to run this site, and analytics cookies to understand how it is used. Analytics stay off until you accept. See our <a href="/cookie-policy">Cookie Policy</a>.</p>
+  <div class="consent-actions">
+    <button class="consent-btn consent-decline" id="consent-decline" type="button">Decline</button>
+    <button class="consent-btn consent-accept" id="consent-accept" type="button">Accept</button>
+  </div>
+</div>
+
+<script>
+  // ── Cookie consent + GA4 Consent Mode ─────────────────────
+  (function () {
+    var banner = document.getElementById('cookie-consent');
+    var KEY = 'nb-consent';
+    function grant() {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('config', 'G-V9Q0XLTP7Q');
+      }
+    }
+    function revoke() {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+      }
+    }
+    // Cookie, not localStorage: localStorage is per-subdomain, so the score app
+    // could not read the decision and would ask a second time.
+    function readCookie() {
+      var m = document.cookie.match(/(?:^|;\s*)nb-consent=(granted|denied)/);
+      return m ? m[1] : null;
+    }
+    // The domain attribute is only valid on the real host. Setting it anywhere
+    // else (localhost, a preview URL) makes the browser reject the cookie
+    // silently, so scope it only when we are actually on the live domain.
+    function cookieDomain() {
+      return /(^|\.)nielsenandbrown\.com$/.test(location.hostname)
+        ? ';domain=.nielsenandbrown.com' : '';
+    }
+    function writeCookie(v) {
+      document.cookie = 'nb-consent=' + v + cookieDomain() +
+        ';path=/;max-age=31536000;SameSite=Lax' +
+        (location.protocol === 'https:' ? ';Secure' : '');
+    }
+    var stored = readCookie();
+    if (!stored) {
+      try {
+        var legacy = localStorage.getItem(KEY);
+        if (legacy === 'granted' || legacy === 'denied') {
+          stored = legacy; writeCookie(legacy); localStorage.removeItem(KEY);
+        }
+      } catch (e) {}
+    }
+    if (stored === 'granted') { grant(); }
+    else if (stored !== 'denied') { banner.classList.add('visible'); }
+
+    document.getElementById('consent-accept').addEventListener('click', function () {
+      writeCookie('granted');
+      grant(); banner.classList.remove('visible');
+    });
+    document.getElementById('consent-decline').addEventListener('click', function () {
+      writeCookie('denied');
+      // Revoke immediately, so analytics stop even if the user had accepted earlier this session.
+      revoke(); banner.classList.remove('visible');
+    });
+
+    // "Cookie Settings" footer link — lets users reopen the banner and change their choice.
+    var settingsLink = document.getElementById('cookie-settings-link');
+    if (settingsLink) {
+      settingsLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        banner.classList.add('visible');
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+  })();
+
+  // ── GA4 interaction events (no-op until consent grants) ───
+  (function () {
+    function track(name, params) {
+      if (typeof gtag === 'function') { gtag('event', name, params || {}); }
+    }
+
+    // CTA clicks: pass the link's destination (e.g. "contact", "engagement")
+    // so reports show what the user was reaching for, not just the button label.
+    document.querySelectorAll('[data-ga]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var name = el.getAttribute('data-ga');
+        var href = el.getAttribute('href') || '';
+        var destination = href.indexOf('#') === 0 ? href.slice(1) : '';
+        track(name, destination ? { destination: destination } : {});
+      });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+      el.addEventListener('click', function () { track('email_click'); });
+    });
+    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function (el) {
+      el.addEventListener('click', function () { track('linkedin_click'); });
+    });
+
+    // Outbound link tracking — external (non-mailto, non-anchor) links,
+    // captured by hostname so it's easy to read in GA.
+    document.querySelectorAll('a[href^="http"]').forEach(function (el) {
+      var href = el.getAttribute('href') || '';
+      if (href.indexOf('nielsenandbrown.com') !== -1) return;       // skip our own domain
+      if (href.indexOf('linkedin.com') !== -1) return;              // already tracked above
+      el.addEventListener('click', function () {
+        var hostname = '';
+        try { hostname = new URL(href).hostname.replace(/^www\./, ''); } catch (e) {}
+        track('outbound_click', { link_url: href, link_domain: hostname });
+      });
+    });
+
+    var form = document.getElementById('contact-form');
+    if (form) {
+      var started = false;
+      form.addEventListener('focusin', function () {
+        if (!started) { started = true; track('form_start'); }
+      });
+    }
+
+    // Section-view tracking — fire once per session when a major section first
+    // enters the viewport. Lets us see how far through the page visitors actually
+    // get, which on a single-page site is the only meaningful depth metric.
+    if ('IntersectionObserver' in window) {
+      var sectionIds = ['proof','audience','pain','opportunity','credibility','wheel','services','engagement','assurance','partners','faq','cta-banner','contact'];
+      var seen = {};
+      var sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !seen[entry.target.id]) {
+            seen[entry.target.id] = true;
+            track('section_view', { section_id: entry.target.id });
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });  // section is 40% in view before counting
+
+      sectionIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>

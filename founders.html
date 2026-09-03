@@ -78,7 +78,8 @@
       --ink:          #403D34;
       --line:         #DCD3BF;
       --muted:        #7D7968;
-      --muted-2:      #9C9989;
+      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
+      --muted-2:      #6E6A5A;   /* darkened: was #9C9989 at 2.46:1, now 4.66:1 */
       --stone:        #DCD3BF;
       --stone-2:      #E9E1D2;
 
@@ -934,16 +935,20 @@ ul { list-style: none; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
-@media (max-width: 768px) {
-.nav-links { display: none; }
-.nav-hamburger { display: flex; }
-#hero { padding: 9rem 5% 5rem; }
-.hero-amp { display: none; }
-.hero-stats {
+/* The desktop nav only fits six items above ~1240px, so it collapses
+   to the hamburger below that. Everything else stays at 768px. */
+@media (max-width: 1240px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
+      #hero { padding: 9rem 5% 5rem; }
+      .hero-amp { display: none; }
+      .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
       }
-.hero-stat {
+      .hero-stat {
         border-right: none;
         border-bottom: 1px solid var(--stone-2);
         padding-right: 0;
@@ -951,15 +956,15 @@ ul { list-style: none; }
         margin-right: 0;
         margin-bottom: 0;
       }
-.hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-.opportunity-inner,
+      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .opportunity-inner,
       .audience-inner,
       .contact-inner,
       .faq-inner,
       .why-header { grid-template-columns: 1fr; }
-.footer-top { grid-template-columns: 1fr; gap: 2rem; }
-.footer-bottom { flex-direction: column; align-items: flex-start; }
-}
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
 @media (max-width: 480px) {
 .form-row { grid-template-columns: 1fr; }
 }
@@ -1057,7 +1062,7 @@ body.nav-open .nav-links a {
     .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
 .nb-sec { padding: 5.5rem 0; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-2); letter-spacing: 0.01em; }
+.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
 .nb-sec--mid  { background: var(--cream-3); }
 .nb-sec--dark { background: var(--charcoal); }
 .nb-sec--dark .nb-h2            { color: var(--cream); }
@@ -1297,7 +1302,8 @@ body.nav-open .nav-links a {
       <li><a href="/#services">What we do</a></li>
       <li><a href="/#engagement">Pricing</a></li>
       <li><a href="/#faq">FAQs</a></li>
-      <li><a href="/#contact" class="nav-cta btn-book">Book a discovery call</a></li>
+      <li><a href="#allan-heading">Founders</a></li>
+      <li><a href="/#contact" class="nav-cta btn-book">Start your AI journey</a></li>
     </ul>
 
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
