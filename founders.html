@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Meet the founders | Nielsen &amp; Brown</title>
-  <meta name="description" content="Meet Allan Nielsen, Co-founder of Nielsen &amp; Brown. Why we built an AI consultancy for UK businesses with 30 to 300 people."/>
+  <meta name="description" content="Meet Allan Nielsen, Co-founder of Nielsen &amp; Brown. Why we built an AI consultancy for UK businesses with 10 to 300 people."/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
   <link rel="canonical" href="https://www.nielsenandbrown.com/founders"/>
   <!-- Favicons -->
@@ -30,7 +30,7 @@
   <meta property="og:url" content="https://www.nielsenandbrown.com/founders"/>
   <meta property="og:site_name" content="Nielsen &amp; Brown"/>
   <meta property="og:title" content="Meet the founders | Nielsen &amp; Brown"/>
-  <meta property="og:description" content="Why we built an AI consultancy for UK businesses with 30 to 300 people."/>
+  <meta property="og:description" content="Why we built an AI consultancy for UK businesses with 10 to 300 people."/>
   <meta property="og:image" content="https://www.nielsenandbrown.com/assets/people/allan-nielsen.jpg"/>
   <meta property="og:locale" content="en_GB"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -1285,6 +1285,10 @@ body.nav-open .nav-links a {
       color: #FFFFFF !important;
     }
     .nav-cta.btn-book:hover { background: var(--action-dark) !important; }
+
+    /* Anchored sections must clear the sticky nav, or the eyebrow and heading
+       land underneath it. */
+    section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
 </style>
 </head>
 <body>
@@ -1375,7 +1379,7 @@ body.nav-open .nav-links a {
         <a href="/#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
           Nielsen <span class="amp">&amp;</span> Brown
         </a>
-        <p>Helping UK businesses with 30 to 300 people use AI in a practical, safe, and properly sized way.</p>
+        <p>Helping UK businesses with 10 to 300 people use AI in a practical, safe, and properly sized way.</p>
         <div class="footer-social">
           <span class="footer-li-url">linkedin.com/company/nielsenandbrown</span>
           <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
@@ -1439,6 +1443,26 @@ body.nav-open .nav-links a {
 
 
 <script>
+  // ── Anchor position after webfonts load ──────────────────
+  // Cormorant Garamond arriving reflows the page by ~1000px, and the browser
+  // has already scrolled to the hash using the fallback-font layout. Re-apply
+  // the scroll once fonts have settled, unless the visitor has moved since.
+  (function () {
+    if (!location.hash || location.hash.length < 2) return;
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target || !document.fonts || !document.fonts.ready) return;
+    // A panel id (#start, #next, #accelerate) belongs to the engagement
+    // selector; scroll to the section so its heading is visible, not to the
+    // panel, which the tab script is also positioning.
+    var section = target.closest && target.closest('#engagement');
+    if (section && target !== section) target = section;
+    var startY = window.scrollY;
+    document.fonts.ready.then(function () {
+      if (Math.abs(window.scrollY - startY) > 40) return;   // they scrolled, leave it
+      target.scrollIntoView();
+    });
+  })();
+
   // ── Nav scroll behaviour ──────────────────────
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {

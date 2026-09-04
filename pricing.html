@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Pricing and engagement | Nielsen &amp; Brown</title>
-  <meta name="description" content="Fixed scope, fixed price AI engagements for UK businesses with 30 to 300 people. Start with a free AI Readiness Score, or pick the question you are actually asking."/>
+  <meta name="description" content="Fixed scope, fixed price AI engagements for UK businesses with 10 to 300 people. Start with a free AI Readiness Score, or pick the question you are actually asking."/>
   <!-- The engagement selector now lives on the homepage. This page is kept for
        direct sends only, so it is excluded from search to avoid duplicate content. -->
   <meta name="robots" content="noindex, follow"/>
@@ -1347,9 +1347,9 @@ body.locked{overflow:hidden}
 .reqnote span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
 .reqnote p{margin:0;font-size:14px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
 .card .stage{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:9px}
-.scrim{position:fixed;inset:0;background:rgba(28,28,26,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.scrim{position:fixed;inset:0;background:rgba(28,28,26,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:1100}
 .scrim.on{opacity:1;pointer-events:auto}
-.sheet{position:fixed;top:0;right:0;height:100%;width:min(720px,100%);background:var(--char);z-index:50;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.28)}
+.sheet{position:fixed;top:0;right:0;height:100%;width:min(720px,100%);background:var(--char);z-index:1110;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.28)}
 .sheet.on{transform:none}
 .sheetin{padding:40px 48px 60px}
 .sheetbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px}
@@ -1422,6 +1422,10 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
     #engagement .btn.btn-book:hover, .sheet .btn.btn-book:hover, .btn.btn-book:hover {
       background: var(--action-dark);
     }
+
+    /* Anchored sections must clear the sticky nav, or the eyebrow and heading
+       land underneath it. */
+    section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
 </style>
 </head>
 <body>
@@ -1480,23 +1484,23 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
         <div class="feature">
           <span class="tag">Engagement one&nbsp; |&nbsp; free, self serve</span>
           <h2>AI Readiness Score</h2>
-          <p class="sub">Thirty two questions across the five dimensions we assess every client on. You get a scored report the moment you finish.</p>
+          <p class="sub">The same two frameworks every Nielsen &amp; Brown engagement runs on, applied to the business you run. The Readiness Framework tells you what state you are in. The AI Business Strategy Wheel tells you where to act. About twenty minutes, and no call to book first.</p>
           <div class="metrics">
             <div class="metric"><b>32</b><span>questions</span></div>
-            <div class="metric"><b>5</b><span>dimensions</span></div>
-            <div class="metric"><b>160</b><span>points available</span></div>
-            <div class="metric"><b>12</b><span>minutes</span></div>
+            <div class="metric"><b>2</b><span>frameworks</span></div>
+            <div class="metric"><b>11</b><span>dimensions</span></div>
+            <div class="metric"><b>20</b><span>minutes</span></div>
           </div>
           <ul class="getlist">
-            <li>Your score out of 160, with the breakdown behind it</li>
-            <li>Where the business is strongest and where it is weakest</li>
-            <li>How you compare to businesses of similar size and sector</li>
-            <li>Your three lowest scoring areas, named specifically</li>
-            <li>A verdict on whether you are ready to invest yet</li>
-            <li>One immediate action worth taking this week</li>
+            <li>Your readiness index out of 5, and the six dimensions behind it</li>
+            <li>Where to act first, scored across the five Strategy Wheel dimensions</li>
+            <li>A plain verdict: ready to invest, foundations first, or already exposed</li>
+            <li>The three things most worth addressing first, named specifically</li>
+            <li>One action worth taking this week, at no cost, whatever you decide next</li>
+            <li>What a questionnaire cannot tell you, said plainly</li>
           </ul>
           <a class="btn btn-book" href="https://score.nielsenandbrown.com" data-ga="readiness_score_start">Take the AI Readiness Score <span>&rarr;</span></a>
-          <p class="note">No payment details. No call booked. The report is yours whether or not we ever speak.</p>
+          <p class="note">No payment details. No call booked. Allan reads every set of answers himself and emails the report to you personally. It is yours whether or not we ever speak.</p>
         </div>
       </section>
 
@@ -1821,7 +1825,7 @@ document.addEventListener('keydown',function(e){
         <a href="/#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
           Nielsen <span class="amp">&amp;</span> Brown
         </a>
-        <p>Helping UK businesses with 30 to 300 people use AI in a practical, safe, and properly sized way.</p>
+        <p>Helping UK businesses with 10 to 300 people use AI in a practical, safe, and properly sized way.</p>
         <div class="footer-social">
           <span class="footer-li-url">linkedin.com/company/nielsenandbrown</span>
           <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
@@ -1885,6 +1889,26 @@ document.addEventListener('keydown',function(e){
 
 
 <script>
+  // ── Anchor position after webfonts load ──────────────────
+  // Cormorant Garamond arriving reflows the page by ~1000px, and the browser
+  // has already scrolled to the hash using the fallback-font layout. Re-apply
+  // the scroll once fonts have settled, unless the visitor has moved since.
+  (function () {
+    if (!location.hash || location.hash.length < 2) return;
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target || !document.fonts || !document.fonts.ready) return;
+    // A panel id (#start, #next, #accelerate) belongs to the engagement
+    // selector; scroll to the section so its heading is visible, not to the
+    // panel, which the tab script is also positioning.
+    var section = target.closest && target.closest('#engagement');
+    if (section && target !== section) target = section;
+    var startY = window.scrollY;
+    document.fonts.ready.then(function () {
+      if (Math.abs(window.scrollY - startY) > 40) return;   // they scrolled, leave it
+      target.scrollIntoView();
+    });
+  })();
+
   // ── Nav scroll behaviour ──────────────────────
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
