@@ -75,14 +75,29 @@ removed as duplicating "How we work together", which covers the same ground.
 Links that pointed at it now go to "How we think about it" (the five-question
 method) or "How we work together" (the four engagement options).
 
-**Size range.** NAB-101 specifies 50 to 250 people throughout. Changed to
-**30 to 300** across all nine references on Allan's instruction.
+**Size range.** NAB-101 specifies 50 to 250 people throughout. Changed first to
+30 to 300, then to **10 to 300**, across all 13 references on all three pages.
 
 **Illustrative labels.** NAB-101 requires "illustrative examples remain clearly
 labelled as illustrative". All seven labels were removed on instruction, and the
 sector section carrying the remaining disclaimer was deleted. The service boxes
 now carry specific measured outcomes with no qualifier. Raised twice before
 building; the decision stands and is recorded here rather than argued again.
+
+**Headcount chips.** NAB-101 requires each service example to carry "an approximate
+headcount chip". All four were removed on instruction. The section heading still
+reads "each proven on a business your size", which the chips were what evidenced.
+
+**Why now percentages.** The "also required" note above, from NAB-105, says no
+percentage statistics in this section, and the section was rewritten to strip two.
+A 76% Gartner figure has since been added back by instruction, so the section now
+carries one. NAB-105 no longer matches the build.
+
+**Why now sources.** The section is three columns: the GOV.UK 5.6M, the Gartner
+76%, and a DSIT block. A McKinsey EBIT figure was supplied and then withdrawn.
+The DSIT wording is as supplied and has not been checked against the report; it
+was queried as possibly describing skills as a barrier rather than readiness, and
+confirmed for use as written.
 
 **Sector examples.** NAB-101 lists "Real, practical examples by sector: four
 sector cards". Deleted as duplicating the service boxes, which cover the same
@@ -91,6 +106,37 @@ four scenarios at the same four headcounts.
 **Pricing.** NAB-101 says "no pricing figures anywhere on the page". There is now
 a public pricing page, and the homepage bridge shows three price bands as the
 hook into it. See the exception note above.
+
+**Engagement lineup.** Rebuilt from `nb-pricing-engagement-larger-type (4).html`.
+Second Opinion (£1,950) and Board and Leadership Briefing (£1,500) retired; AI
+Starting Point (£995) and AI in Practice (£1,250) added; AI Foundations Day
+repriced £2,500 to £2,195. The entry band is now £995 to £2,950. AI in Practice
+carries a bundle price, £995 when booked within thirty days of an AI Starting
+Point session, which is a new field the card and detail templates were extended
+to support.
+
+**Readiness panel.** Layout and copy both come from the pricing mockup, with the
+lede, the six bullets and the closing line supplied directly. Two notes for
+whoever picks this up next:
+
+- The score is stated as **out of 120**, not 160. Tech spec M-3: 24 of the 32
+  questions are scored, 120 raw maximum. The 160 in the original mockup was
+  wrong and has been corrected on instruction.
+- The mockup's *"How you compare to businesses of similar size and sector"* is
+  deliberately **not** on the page. `copy.v1.ts` states benchmarking is out of
+  scope and G-2 forbids the report from inventing a peer comparison, so the
+  bullet would have promised something the report does not contain. Replaced
+  with the Strategy Wheel line, which also explains the second of the two
+  frameworks the stat row advertises. Revisit if the app ever gains
+  benchmarking.
+
+The report illustration is kept. The report exists and is emailed; the app
+config only forbids promising one **on screen**.
+
+The CTA reads "Get your free AI readiness report", which diverges from the
+`cta` string in `copy.v1.ts` ("Take the AI Readiness Score"). Deliberate, on
+instruction. If the score app's own landing page is meant to match, that string
+needs changing there too.
 
 **Engagement section.** NAB-101 lists "How we work together: four engagement options
 with duration and best-for line". That section was removed and replaced by the full

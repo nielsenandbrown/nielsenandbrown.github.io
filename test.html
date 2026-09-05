@@ -1382,7 +1382,12 @@ body.nav-open .nav-links a {
 .nb-problem .nb-ptitle { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); }
 .nb-problem p { font-size: 0.94rem; color: var(--ink); }
 /* ── Stats ─────────────────────────────────── */
-    .nb-stats { display: flex; gap: 4rem; margin-bottom: 1.2rem; }
+    .nb-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6rem; margin-bottom: 0; align-items: start; }
+.nb-stat .nb-num { min-height: 3.6rem; display: flex; align-items: flex-end; }
+.nb-num--text { font-size: 1.5rem !important; line-height: 1.2; text-wrap: balance; }
+.nb-stat .nb-source { margin-top: 0.6rem; }
+.nb-source a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--gold); }
+.nb-source a:hover { color: var(--gold-deep); }
 .nb-stat .nb-num { font-family: var(--font-display); font-size: 3.6rem; font-weight: 600; color: var(--gold-deep); line-height: 1; }
 .nb-stat p { font-size: 0.9rem; color: var(--ink); margin-top: 0.4rem; }
 .nb-source { font-size: 0.78rem; color: var(--muted); }
@@ -1409,10 +1414,6 @@ body.nav-open .nav-links a {
 .nb-service > div > p { font-size: 0.94rem; color: var(--ink); }
 .nb-example { background: var(--cream-2); padding: 1.5rem 1.6rem; border-left: 2px solid var(--gold); }
 .nb-sec--mid .nb-example { background: var(--cream); }
-.nb-chip {
-      display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-      background: var(--charcoal); color: var(--cream-2); padding: 0.25rem 0.6rem; margin-bottom: 0.8rem;
-    }
 .nb-psr { display: grid; gap: 0.85rem; }
 .nb-psr div { font-size: 0.87rem; color: var(--ink); line-height: 1.55; }
 .nb-psr-label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.2rem; }
@@ -1501,7 +1502,8 @@ body.nav-open .nav-links a {
 .nb-wrap { padding: 0 1.5rem; }
 .nb-sec { padding: 3.5rem 0; }
 .nb-cards--4, .nb-cards--5, .nb-cards--6, .nb-tiers, .nb-examples { grid-template-columns: 1fr; }
-.nb-stats { gap: 2rem; }
+.nb-stats { grid-template-columns: 1fr; gap: 2rem; }
+  .nb-stat .nb-num { min-height: 0; }
 .nb-cta-card { padding: 2.2rem 1.5rem; }
 .nb-logo { padding: 1.2rem 2rem; }
 }
@@ -1696,6 +1698,43 @@ html {scroll-behavior:auto}}
     /* Anchored sections must clear the sticky nav, or the eyebrow and heading
        land underneath it. */
     section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
+
+/* Readiness panel, ported from the pricing mockup. The report is an
+   illustration of what Allan emails, not something the app renders on
+   screen: the score app spec is explicit that there is no on-screen report. */
+#engagement .herotop h2 {font-size:clamp(30px,3.1vw,42px);letter-spacing:-.01em;line-height:1.06;margin:14px 0 0}
+#engagement .herotop {display:grid;grid-template-columns:1.1fr 340px;gap:34px;align-items:center}
+#engagement .feature .rule {width:110px;height:2px;background:var(--gold);margin:24px 0 22px}
+#engagement .statlist {list-style:none;margin:0 0 32px;padding:0;border-top:1px solid rgba(242,237,230,.14)}
+#engagement .statlist li {display:flex;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid rgba(242,237,230,.14)}
+#engagement .statlist b {font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);line-height:1;min-width:46px;text-align:right;flex:0 0 auto}
+#engagement .statlist span {font-size:16px;color:rgba(242,237,230,.86);font-weight:300}
+#engagement .reportwrap {perspective:1400px;display:flex;justify-content:center;align-items:center;min-height:520px}
+#engagement .reportstack {position:relative;transform-style:preserve-3d;transform:rotateY(-15deg) rotateX(4deg) rotateZ(-3deg);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+#engagement .reportwrap:hover .reportstack {transform:rotateY(-9deg) rotateX(2deg) rotateZ(-1.5deg)}
+#engagement .sheetback2 {position:absolute;inset:0;background:#CFC7B8;border-radius:2px;transform:translate3d(24px,26px,-60px)}
+#engagement .sheetback {position:absolute;inset:0;background:var(--cream);border-radius:2px;transform:translate3d(14px,14px,-30px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+#engagement .report {position:relative;width:305px;height:424px;background:var(--ink);border-radius:2px;padding:0 30px 26px;display:flex;flex-direction:column;box-shadow:0 34px 70px rgba(0,0,0,.5)}
+#engagement .report::before {content:"";position:absolute;left:0;right:0;top:0;height:9px;background:var(--gold);border-radius:2px 2px 0 0}
+#engagement .report::after {content:"";position:absolute;left:0;top:9px;bottom:0;width:5px;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent)}
+#engagement .report .rtag {margin-top:34px;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+#engagement .report h3 {font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1.08;font-weight:600;color:var(--cream);margin:12px 0 0}
+#engagement .report .rrule {width:100%;height:1px;background:rgba(242,237,230,.22);margin:18px 0 20px}
+#engagement .report .dial {align-self:flex-start;margin-bottom:20px}
+#engagement .rlines {display:flex;flex-direction:column;gap:9px;margin-top:auto;padding-bottom:6px}
+#engagement .rlines i {display:block;height:5px;border-radius:3px;background:rgba(242,237,230,.16)}
+#engagement .rmark {font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,237,230,.4);font-weight:500;padding-top:14px;border-top:1px solid rgba(242,237,230,.14)}
+#engagement .herobullets {display:grid;grid-template-columns:repeat(3,1fr);gap:12px 32px;margin:34px 0 24px;padding:30px 0 0;border-top:1px solid rgba(242,237,230,.16);list-style:none}
+#engagement .herobullets li {position:relative;padding-left:22px;font-size:16px;line-height:1.55;font-weight:300;color:rgba(242,237,230,.88)}
+#engagement .herobullets li::before {content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--gold);border-radius:50%}
+@media (prefers-reduced-motion: reduce) {
+  #engagement .reportstack {transition:none}
+}
+@media (max-width:1000px) {
+  #engagement .herotop {grid-template-columns:1fr;gap:34px}
+  #engagement .reportwrap {min-height:430px}
+  #engagement .herobullets {grid-template-columns:1fr;margin-top:32px}
+}
 </style>
 </head>
 
@@ -1857,7 +1896,7 @@ html {scroll-behavior:auto}}
         <span class="bar"></span><span class="q">Where do we start?</span><span class="band">No cost</span>
       </button>
       <button class="rung" data-step="2" data-hash="next" role="tab" aria-selected="false" aria-controls="next" id="t2">
-        <span class="bar"></span><span class="q">What next?</span><span class="band">£1,500 to £2,950</span>
+        <span class="bar"></span><span class="q">What next?</span><span class="band">£995 to £2,950</span>
       </button>
       <button class="rung" data-step="3" data-hash="accelerate" role="tab" aria-selected="false" aria-controls="accelerate" id="t3">
         <span class="bar"></span><span class="q">How do we accelerate?</span><span class="band">£3,500 and above</span>
@@ -1866,26 +1905,61 @@ html {scroll-behavior:auto}}
 
     <div>
       <section class="panel on" id="start" role="tabpanel" aria-labelledby="t1">
+        <p class="lede">Start with a straight answer about where the business actually stands. It takes about twenty minutes, it costs nothing, and nobody rings you afterwards unless you ask.</p>
         <div class="feature">
-          <span class="tag">Engagement one&nbsp; |&nbsp; free, self serve</span>
-          <h2>AI Readiness Score</h2>
-          <p class="sub">The same two frameworks every Nielsen &amp; Brown engagement runs on, applied to the business you run. The Readiness Framework tells you what state you are in. The AI Business Strategy Wheel tells you where to act. About twenty minutes, and no call to book first.</p>
-          <div class="metrics">
-            <div class="metric"><b>32</b><span>questions</span></div>
-            <div class="metric"><b>2</b><span>frameworks</span></div>
-            <div class="metric"><b>11</b><span>dimensions</span></div>
-            <div class="metric"><b>20</b><span>minutes</span></div>
+          <div class="herotop">
+            <div>
+              <span class="tag">Free, self serve</span>
+              <h2>Know where you stand<br>before you invest</h2>
+              <div class="rule"></div>
+              <p class="sub">Where AI earns its place in your business, and just as usefully, where it does not.</p>
+              <ul class="statlist">
+                <li><b>32</b><span>questions</span></li>
+                <li><b>2</b><span>frameworks</span></li>
+                <li><b>11</b><span>dimensions</span></li>
+                <li><b>20</b><span>minutes of your time</span></li>
+                <li><b>1</b><span>action for this week</span></li>
+              </ul>
+              <a class="btn btn-book" href="https://score.nielsenandbrown.com" data-ga="readiness_score_start">Get your free AI readiness report <span>&rarr;</span></a>
+            </div>
+          <div class="reportwrap" aria-hidden="true">
+            <div class="reportstack">
+              <div class="sheetback2"></div>
+              <div class="sheetback"></div>
+              <div class="report">
+                <span class="rtag">AI Readiness Score</span>
+                <h3>Where to act first,<br>and why</h3>
+                <div class="rrule"></div>
+                <svg class="dial" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Dimension profile">
+                  <circle cx="64" cy="64" r="46" fill="none" stroke="#3A3630" stroke-width="30"/>
+                  <circle cx="64" cy="64" r="46" fill="none" stroke="#B8924A" stroke-width="30"
+                          stroke-dasharray="72 217" transform="rotate(-90 64 64)"/>
+                  <circle cx="64" cy="64" r="46" fill="none" stroke="#D8B978" stroke-width="30"
+                          stroke-dasharray="52 237" transform="rotate(15 64 64)"/>
+                  <circle cx="64" cy="64" r="46" fill="none" stroke="#8E6F35" stroke-width="30"
+                          stroke-dasharray="46 243" transform="rotate(72 64 64)"/>
+                  <circle cx="64" cy="64" r="46" fill="none" stroke="#E8D6AF" stroke-width="30"
+                          stroke-dasharray="38 251" transform="rotate(140 64 64)"/>
+                  <circle cx="64" cy="64" r="31" fill="#1C1C1A"/>
+                </svg>
+                <div class="rlines">
+                  <i style="width:100%"></i><i style="width:92%"></i><i style="width:97%"></i>
+                  <i style="width:64%"></i><i style="width:88%"></i><i style="width:46%"></i>
+                </div>
+                <div class="rmark">Nielsen &amp; Brown</div>
+              </div>
+            </div>
           </div>
-          <ul class="getlist">
-            <li>Your readiness index out of 5, and the six dimensions behind it</li>
+          </div>
+          <ul class="herobullets">
+            <li>Your score out of 120, with the breakdown behind it</li>
+            <li>Where the business is strongest, and where it is weakest</li>
             <li>Where to act first, scored across the five Strategy Wheel dimensions</li>
-            <li>A plain verdict: ready to invest, foundations first, or already exposed</li>
-            <li>The three things most worth addressing first, named specifically</li>
-            <li>One action worth taking this week, at no cost, whatever you decide next</li>
-            <li>What a questionnaire cannot tell you, said plainly</li>
+            <li>Your three lowest scoring areas, named specifically</li>
+            <li>A verdict on whether you are ready to invest yet</li>
+            <li>One immediate action worth taking this week</li>
           </ul>
-          <a class="btn btn-book" href="https://score.nielsenandbrown.com" data-ga="readiness_score_start">Take the AI Readiness Score <span>&rarr;</span></a>
-          <p class="note">No payment details. No call booked. Allan reads every set of answers himself and emails the report to you personally. It is yours whether or not we ever speak.</p>
+          <p class="note">No payment details. No call booked. The report is yours whether or not we ever speak.</p>
         </div>
       </section>
 
@@ -1897,7 +1971,7 @@ html {scroll-behavior:auto}}
               <span class="gnum">2</span>
               <span class="gname">A first working step</span>
               <span class="gnote">Six ways in. Most clients take one and stop there if it is not working.</span>
-              <span class="gband">£1,500 to £2,950</span>
+              <span class="gband">£995 to £2,950</span>
             </div>
             <div class="grid" id="grid-next"></div>
           </div>
@@ -1971,9 +2045,22 @@ html {scroll-behavior:auto}}
     <h2 class="nb-h2" id="opp-heading">Plenty of mid-sized businesses are trying AI. Not many are using it <em>properly.</em></h2>
     <p class="nb-lede">There are over 5.6 million small and medium businesses in the UK. Most are experimenting with the odd AI tool here and there. Only a small minority are using it in a planned, safe way with a measurable return, and that gap is where we work.</p>
     <div class="nb-stats">
-      <div class="nb-stat"><div class="nb-num">5.6M</div><p>UK small and medium businesses</p></div>
+      <div class="nb-stat">
+        <div class="nb-num">5.6M</div>
+        <p>UK small and medium businesses.</p>
+        <p class="nb-source">Source: GOV.UK Business Population Estimates 2025.</p>
+      </div>
+      <div class="nb-stat">
+        <div class="nb-num">76%</div>
+        <p>of CEOs expect AI to have the greatest impact on their industries within the next three years.</p>
+        <p class="nb-source">Source: <a href="https://www.gartner.com/en/articles/ai-talent-risks" target="_blank" rel="noopener">Gartner, 2026</a>.</p>
+      </div>
+      <div class="nb-stat">
+        <div class="nb-num nb-num--text">Scaling AI is difficult.<br>Starting is harder.</div>
+        <p>Just over half of UK businesses already using AI say they feel ready to scale it up. Only a third of those planning to adopt feel ready to implement. The gap between those two numbers is skills and expertise, and it is why most AI plans stall before they produce anything.</p>
+        <p class="nb-source">Source: DSIT AI Adoption Research 2025.</p>
+      </div>
     </div>
-    <p class="nb-source">Source: GOV.UK Business Population Estimates 2025.</p>
   </div>
 </section>
 
@@ -2020,7 +2107,6 @@ html {scroll-behavior:auto}}
         <p>We look across the business and find the three to five places AI is most likely to help, then turn the strongest one into a simple plan the team can start on straight away.</p>
       </div>
       <div class="nb-example">
-        <div class="nb-chip">~90 people</div>
         <div class="nb-psr">
           <div><span class="nb-psr-label">Problem</span>Senior partners lost 15+ hours monthly compiling manual client performance reports.</div>
           <div><span class="nb-psr-label">Solution</span>Identified 3 priority AI use cases and built an implementation plan around automated data extraction.</div>
@@ -2036,7 +2122,6 @@ html {scroll-behavior:auto}}
         <p>We show the team how to use AI safely and well in their actual day-to-day work, not in the abstract. Sessions are built around your business, whether that is leaders, managers, or frontline staff.</p>
       </div>
       <div class="nb-example">
-        <div class="nb-chip">~120 people</div>
         <div class="nb-psr">
           <div><span class="nb-psr-label">Problem</span>A retail head office bought AI licences, but staff lacked confidence and posted inconsistent results.</div>
           <div><span class="nb-psr-label">Solution</span>Ran workshops built around real product descriptions and customer support tickets.</div>
@@ -2052,7 +2137,6 @@ html {scroll-behavior:auto}}
         <p>Where an off-the-shelf tool does not quite fit, we build something custom-built that plugs into the systems the team already uses, so nobody has to change how they work to get the benefit.</p>
       </div>
       <div class="nb-example">
-        <div class="nb-chip">~200 people</div>
         <div class="nb-psr">
           <div><span class="nb-psr-label">Problem</span>Credit control staff spent dozens of manual hours every week tracking overdue accounts and drafting chase notices.</div>
           <div><span class="nb-psr-label">Solution</span>Developed a targeted integration that automatically drafts follow-ups directly inside their accounting software.</div>
@@ -2068,11 +2152,10 @@ html {scroll-behavior:auto}}
         <p>We put simple, practical safeguards in place: a plain-English usage policy, a risk register, and clear ownership, so the team can use AI with confidence and the business can show it has been done properly.</p>
       </div>
       <div class="nb-example">
-        <div class="nb-chip">~150 people</div>
         <div class="nb-psr">
           <div><span class="nb-psr-label">Problem</span>Frontline team lacked clear rules on handling confidential patient enquiries, raising data privacy and compliance risks.</div>
           <div><span class="nb-psr-label">Solution</span>Implemented a concise, practical one-page AI usage policy alongside an accessible risk register for daily operations.</div>
-          <div><span class="nb-psr-label">Result</span>Achieved 100% compliance oversight and enabled safe, confident AI use across the team.</div>
+          <div><span class="nb-psr-label">Result</span>Achieved full oversight and enabled safe, compliant, confident AI use across the team.</div>
         </div>
       </div>
     </div>
@@ -2814,10 +2897,10 @@ var P = {
  ['One immediate action','The single move to make this week, with the owner named.']],
  then:'Most clients leave the day with one opportunity they want proved. That is the Automation Starter. If the picture is broader than one process, the Diagnostic Assessment is the right next step.'},
 
-'ai-foundations-day':{tier:'Entry engagement',name:'AI Foundations Day',price:'£2,500',
+'ai-foundations-day':{tier:'Entry engagement',name:'AI Foundations Day',price:'£2,195',
  req:'Follows the AI Readiness Score or a diagnostic finding',
  dur:'One full day on site',who:'Teams already using AI without agreed ground rules',next:'Shadow AI Audit, or the Diagnostic Assessment',
- blurb:'A full day for up to fifteen people. The morning covers risk, reward and the ground rules. The afternoon is hands on, working on their own real tasks.',
+ blurb:'The full day version. Direction in the morning, working practice in the afternoon, for teams that would rather do it in one visit.',
  sum:'A full day for up to fifteen people. The morning covers risk and reward and the ground rules. The afternoon is hands on, working on their own real tasks. Nobody leaves with a handout they will never open again.',
  items:[['A pre-session readiness read','Attendees complete the free AI Readiness Score first, so the day is shaped by this business rather than a generic curriculum.'],
  ['A full day on site for up to fifteen people','Morning on risk and reward. Afternoon on doing the work. No slides after lunch.'],
@@ -2850,27 +2933,31 @@ var P = {
  ['A remediation sequence','What to stop this week, what to control this month, and what to formalise this quarter.']],
  then:'The audit tells you what is exposed. If the underlying issue is that nobody agreed the rules, the Foundations Day fixes it. If it runs broader than governance, the Diagnostic Assessment is the next step.'},
 
-'second-opinion':{tier:'Entry engagement',name:'Second Opinion',price:'£1,950',
- dur:'One week',who:'Anyone holding a vendor proposal they are unsure about',next:'Whatever the evidence supports',
- blurb:'A vendor proposal reviewed line by line before you sign it. We sell no software, so we have nothing to gain from the answer.',
- sum:'A vendor proposal reviewed line by line before you sign it. We sell no software and take no vendor commission, so we have nothing to gain from the answer either way.',
- items:[['A line by line proposal review','What is being sold, what is actually included, and what is not.'],
- ['A commercial assessment','Whether the pricing is defensible against the market, and where the contract carries risk on lock in, data ownership or exit.'],
- ['A capability check','Whether the vendor can genuinely deliver what is described, and what evidence would confirm it.'],
- ['A question list','The specific questions to put to the vendor before signing, written so they can be sent as they are.'],
- ['A clear recommendation','Proceed, renegotiate on named terms, or decline.']],
- then:'If the recommendation is to proceed, we can review the delivery plan. If it is to decline, the Diagnostic Assessment establishes what the business actually needs before anyone sells to it again.'},
+'ai-starting-point':{tier:'Entry engagement',name:'AI Starting Point',price:'£995',
+ dur:'Half a day on site',who:'Owners and leadership deciding where AI belongs',next:'AI in Practice, or Automation Starter',
+ blurb:'A half day that answers where AI belongs in this business, and just as usefully, where it does not.',
+ sum:'For a business still working out whether any of this applies to them. Half a day with the people who decide, ending in a shortlist of three opportunities with a rough return against each, rather than a list of tools to go and look at.',
+ items:[['A short pre-session read','Your AI Readiness Score reviewed before we arrive, so the session starts from your position rather than from first principles.'],
+ ['A half day working session','With the owner and whoever else makes the call, built around where the business loses time and money.'],
+ ['A shortlist of the three strongest opportunities','Named specifically, in your operation, not drawn from a sector case study.'],
+ ['A rough return against each','What it is plausibly worth in a year, and what it depends on being true.'],
+ ['A basic safety checklist','What to put in place before anyone starts, sized to a business of your kind.'],
+ ['One immediate action','The single move to make this week, with the owner named.']],
+ then:'Knowing where AI belongs is not the same as your people knowing how to use it. AI in Practice is the follow through, and it is £995 when booked within thirty days of this session.'},
 
-'board-briefing':{tier:'Entry engagement',name:'Board and Leadership Briefing',price:'£1,500',
- dur:'Half a day',who:'Boards and senior teams forming a position on AI',next:'Diagnostic Assessment',
- blurb:'Half a day of orientation for directors. What is genuinely happening in businesses like yours, and the questions to put to your executive team.',
- sum:'Half a day of orientation for directors. Not a course. What is genuinely happening in businesses like yours, what directors are accountable for, and the questions to put to your executive team.',
- items:[['A briefing built on your sector','What is genuinely happening in businesses like yours, and what is noise.'],
- ['The governance position a board needs to hold','What directors are accountable for, and what reasonable steps looks like in practice.'],
- ['A competitive read','What comparable businesses in your market are doing, and where that creates exposure or opportunity.'],
- ['Five questions to ask your executive team','Written down, ready to use at the next board meeting.'],
- ['A board ready one page summary','Suitable for circulation and for the minutes.']],
- then:'Boards that want evidence rather than orientation move to the Diagnostic Assessment, which produces a scored baseline the board can hold management against.'},
+'ai-in-practice':{tier:'Entry engagement',name:'AI in Practice',price:'£1,250',
+ bundle:'£995 when booked within thirty days of an AI Starting Point session',
+ dur:'Half a day on site, up to twelve people',who:'Working teams rather than leadership',next:'Automation Starter',
+ blurb:'Half a day with a working team, on their own tasks, in their own tools. Everyone leaves with at least one thing that works on Monday.',
+ sum:'A working session for the people who do the work, not the people who decide. Their laptops, their real tasks, their actual tools. Generic examples are what makes this kind of session forgettable, so the material comes from the team itself.',
+ items:[['Pre-work built from real tasks','Each attendee submits two things from their actual week that they suspect could be faster. Those become the material.'],
+ ['What these tools are and are not','Twenty minutes in plain terms, and no theory beyond that.'],
+ ['Safe use, covered first','What must never be pasted into a public tool, what counts as client data, and who to ask. Early in the session, not as a closing caveat.'],
+ ['Working patterns by role','Three or four role groups, each building against the tasks they submitted.'],
+ ['A live build','Everyone leaves with at least one working thing they can use immediately.'],
+ ['Where it stops','The limits named out loud, so nobody later trusts an output they should not have.'],
+ ['A working patterns library within five working days','Specific to their roles, with a one page acceptable use summary and a named internal point of contact agreed in the room.']],
+ then:'A team using AI well on its own tasks starts noticing the processes that should not need a person at all. That is the Automation Starter.'},
 
 'automation-sprint':{tier:'Acceleration engagement',name:'Automation Sprint',price:'£4,500',
  dur:'Four to six weeks',who:'Businesses ready to move beyond one proven process',next:'Strategy & Roadmap',
@@ -2899,7 +2986,7 @@ var P = {
 'diagnostic-assessment':{tier:'Engagement four, stage two',stage:'Stage two',feat:true,name:'Diagnostic Assessment',price:'£4,500',
  dur:'Three to four weeks',who:'Businesses committing real budget and needing evidence first',next:'Strategy & Roadmap',
  blurb:'Evidence based, not self reported. The foundation everything after it is built on.',
- sum:'We gather the evidence ourselves rather than taking a self assessment at face value. Interviews, a systems review and a working session on site, assessed against the same five dimension framework, so nothing is wasted moving to the next stage.',
+ sum:'We gather the evidence ourselves rather than taking a self assessment at face value. Interviews, a systems review and a working session on site, assessed against the same underlying framework, so nothing is wasted moving to the next stage.',
  items:[['Findings gathered first hand','Interviews, a systems review and a working session, rather than a questionnaire filled in by one person.'],
  ['Results broken down by function, team and process','Not one blended score, because the blended picture almost always hides where the problem actually sits.'],
  ['The single constraint holding the business back most','Named plainly, with what it costs you annually.'],
@@ -2951,7 +3038,7 @@ var P = {
  then:'Reviewed every quarter. If the value is not there, you stop. We would rather you left than stayed out of habit.'}
 };
 
-var NEXT  = ['fractional-advisory-day','ai-foundations-day','automation-starter','shadow-ai-audit','second-opinion','board-briefing'];
+var NEXT  = ['ai-starting-point','ai-in-practice','shadow-ai-audit','fractional-advisory-day','ai-foundations-day','automation-starter'];
 var ACCEL = ['automation-sprint','data-readiness-check'];
 var CORE  = ['diagnostic-assessment','strategy-roadmap'];
 var AFTER = ['pilot-delivery-sprint','ai-champions-programme','continuing-partnership'];
@@ -2966,6 +3053,7 @@ function cardHTML(id){
     + '<span class="dur">'+esc(p.dur)+'</span>'
     + '<p>'+esc(p.blurb)+'</p>'
     + (p.req ? '<span class="req">'+esc(p.req)+'</span>' : '')
+    + (p.bundle ? '<span class="req">'+esc(p.bundle)+'</span>' : '')
     + '<span class="more">See what you get <i>&rarr;</i></span></button>';
 }
 function fill(elId,list){var el=document.getElementById(elId); if(el) el.innerHTML=list.map(cardHTML).join('');}
@@ -2980,6 +3068,7 @@ function sheetHTML(p){
   + '<h2 id="sheet-title">'+esc(p.name)+'</h2>'
   + '<p class="sum">'+esc(p.sum)+'</p>'
   + (p.req ? '<div class="reqnote"><span>Before this runs</span><p>'+esc(p.req)+'. The day is built from what that surfaces, so the content is yours rather than a fixed syllabus.</p></div>' : '')
+  + (p.bundle ? '<div class="reqnote"><span>Bought as a pair</span><p>'+esc(p.bundle)+'. The two are sequential rather than alternative: the first decides where AI belongs, the second gets your people using it.</p></div>' : '')
   + '<div class="meta">'
     + '<div><span>How long</span><b>'+esc(p.dur)+'</b></div>'
     + '<div><span>Best for</span><b>'+esc(p.who)+'</b></div>'
