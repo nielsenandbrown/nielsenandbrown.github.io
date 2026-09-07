@@ -1289,6 +1289,40 @@ body.nav-open .nav-links a {
     /* Anchored sections must clear the sticky nav, or the eyebrow and heading
        land underneath it. */
     section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
+
+/* 5. Flex text next to a fixed-size icon needs permission to
+      shrink, and long unbroken values (emails, URLs) need a
+      break opportunity, or they set the floor instead. */
+.contact-line > div:not(.contact-line-icon) { min-width: 0; }
+.contact-line-val, .contact-line-val a { overflow-wrap: anywhere; }
+
+/* Long CTA labels must wrap rather than set a min-content
+   floor that the enclosing grid adopts and overflows. */
+.btn-book, .btn { white-space: normal; }
+.nav-cta.btn-book { white-space: nowrap; }
+
+/* The hamburger icon is 24px, which left a 32x24 tap target,
+   under the 44px minimum. Grow the hit area, not the icon,
+   and pull the extra padding back out of the layout so the
+   nav does not shift. */
+.nav-hamburger {
+  padding: 12px;
+  margin: -12px -12px -12px 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Wrapped CTAs read better centred; at desktop widths the
+   button is sized to its content so this changes nothing. */
+.btn-book, .btn { justify-content: center; text-align: center; }
+
+/* When a trust item wraps to two lines, align-items:center
+   floated its dot to the middle of the block instead of the
+   first line. */
+.hero-trust span { align-items: flex-start; }
+.hero-trust .dot { margin-top: 0.55em; flex: 0 0 auto; }
 </style>
 </head>
 <body>

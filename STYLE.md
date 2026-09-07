@@ -157,6 +157,49 @@ smaller than the +2px build. The nav is excluded; the before/after figures and t
 budget card heading are included despite being Cormorant, because the reissued
 ticket lists them explicitly.
 
+**Page width.** `test.html` uses a **1320px** wrap; `index.html` and the current
+live pages still use 1160px. The two files are otherwise identical copies, so
+this is the only divergence, and it is deliberate pending sign-off.
+
+The width is not cosmetic. The engagement module is the densest thing on the
+page: a 330px rail, then a panel that wants a 340px illustration beside its text.
+At 1160px that panel gets 662px and the pair cannot fit, so it stacks. At 1320px
+it gets 822px and sits side by side, which is what the mockup shows. Narrowing
+the wrap will make the panel stack again.
+
+All four section wrappers (`.nb-wrap`, `.contact-inner`, `.blog-inner`,
+`.nb-proof-inner`) carry the same value; changing one alone makes that section
+visibly narrower than its neighbours.
+
+**Responsive pass.** The page scrolled sideways on phones, which shifted every
+section and cut content off. `body { overflow-x: hidden }` was masking it, and
+iOS Safari does not reliably honour that, which is why it showed on a real phone
+and not in review. Root causes, all the same shape, a child setting a min-content
+floor wider than the space available:
+
+- `white-space: nowrap` on `.btn-book`. "Book your free discovery call" has a
+  411px min-content, which the enclosing grid column adopted. CTAs now wrap;
+  only the nav CTA keeps nowrap.
+- `1fr` grid tracks. `1fr` means `minmax(auto, 1fr)` and `auto` floors at
+  min-content, so tracks could not shrink. Now `minmax(0, 1fr)`.
+- Form controls have an intrinsic size and will not shrink without
+  `min-width: 0`.
+- The report illustration is a fixed 305px. A transform shrinks it visually but
+  not in layout, so its real width is reduced on small screens instead.
+- Wide tables on the cookie policy now scroll inside their own container.
+
+Two panel grids were switched from fixed column counts to
+`repeat(auto-fit, minmax(min(Npx, 100%), 1fr))`. Their width is set by the
+ladder and the wrap, not the viewport: on the homepage the panel is 662px at
+every desktop size, so a viewport breakpoint cannot see when the columns stop
+fitting. The `min()` is load-bearing, without it the floor becomes the new
+overflow.
+
+The hamburger tap target was 32x24, under the 44px minimum, and is now 48x48
+with the icon unchanged.
+
+Verified clean at 320, 360, 390, 414, 768, 834, 1024 and 1180 on all six pages.
+
 **Nav breakpoint.** Raised from 768px to 1240px. The five-item nav already wrapped
 between roughly 769 and 1090px, which included iPad landscape at 1024px. Adding a
 sixth item made that worse, so the desktop nav now only shows where it fits.

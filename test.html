@@ -861,7 +861,7 @@ ul { list-style: none; }
       background: var(--cream);
     }
 .contact-inner {
-      max-width: 1160px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 3.5rem;
       display: grid;
@@ -1115,7 +1115,7 @@ ul { list-style: none; }
       background: linear-gradient(90deg, transparent, rgba(184,146,74,0.4), transparent);
     }
 .blog-inner {
-      max-width: 1160px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 0 3.5rem;
       display: grid;
@@ -1313,7 +1313,7 @@ body.nav-open .nav-links a {
        All classes namespaced nb- to avoid cascade
        collisions with the pre-existing component CSS.
     ══════════════════════════════════════════════════ */
-    .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
+    .nb-wrap { max-width: 1320px; margin: 0 auto; padding: 0 3.5rem; }
 .nb-sec { padding: 5.5rem 0; }
 .footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
 .footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
@@ -1345,7 +1345,7 @@ body.nav-open .nav-links a {
     .nb-proof { background: var(--charcoal); }
 .nb-proof-inner {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      max-width: 1160px; margin: 0 auto;
+      max-width: 1320px; margin: 0 auto;
     }
 .nb-proof-card { padding: 2.4rem 2.5rem; color: var(--cream-2); }
 .nb-proof-card + .nb-proof-card { border-left: 1px dashed #565349; }
@@ -1702,7 +1702,10 @@ html {scroll-behavior:auto}}
 /* Readiness panel, ported from the pricing mockup. The report is an
    illustration of what Allan emails, not something the app renders on
    screen: the score app spec is explicit that there is no on-screen report. */
-#engagement .herotop h2 {font-size:clamp(30px,3.1vw,42px);letter-spacing:-.01em;line-height:1.06;margin:14px 0 0}
+/* The heading carries an explicit line break after "stand". In a
+   362px column a 42px setting pushes "stand" onto its own third
+   line, so cap the scale where the two intended lines still fit. */
+#engagement .feature .herotop h2 {font-size:clamp(28px,2.5vw,36px);letter-spacing:-.01em;line-height:1.08;margin:14px 0 0}
 #engagement .herotop {display:grid;grid-template-columns:1.1fr 340px;gap:34px;align-items:center}
 #engagement .feature .rule {width:110px;height:2px;background:var(--gold);margin:24px 0 22px}
 #engagement .statlist {list-style:none;margin:0 0 32px;padding:0;border-top:1px solid rgba(242,237,230,.14)}
@@ -1735,6 +1738,108 @@ html {scroll-behavior:auto}}
   #engagement .reportwrap {min-height:430px}
   #engagement .herobullets {grid-template-columns:1fr;margin-top:32px}
 }
+
+/* ── Responsive hardening ──────────────────────────────
+   Three narrow-viewport bugs, all the same shape: a child
+   with a min-content floor wider than the space available,
+   which grid honours and then overflows the page.        */
+
+/* 1. Long CTA labels. white-space:nowrap set a min-content
+      floor (411px for "Book your free discovery call"),
+      which the enclosing grid column adopted, pushing the
+      whole document wider than the phone. Let them wrap
+      where there is no room; they still fit on one line at
+      the widths where nowrap mattered. */
+.btn-book, .btn { white-space: normal; }        /* wrap rather than set a min-content floor */
+.nav-cta.btn-book { white-space: nowrap; }      /* except in the nav, which has room and must stay on one line */
+
+/* The report illustration is a fixed 305px plus a 24px offset
+   on the back sheet, so it exceeds the content box on the
+   narrowest phones. Scale the whole stack instead of letting
+   it push the page wide. */
+/* The report is a fixed 305px. A transform would shrink it on
+   screen but not in layout, so the 305px floor would still push
+   the page wide. Reduce the real width instead, keeping the
+   305:424 proportion. */
+@media (max-width: 430px) {
+  #engagement .report { width: 244px; height: 339px; padding: 0 24px 20px; }
+  #engagement .reportwrap { min-height: 400px; }
+}
+@media (max-width: 360px) {
+  #engagement .report { width: 205px; height: 285px; padding: 0 18px 16px; }
+  #engagement .reportwrap { min-height: 340px; }
+  #engagement .report h3 { font-size: 21px; }
+}
+
+/* 2. Grid tracks must be allowed to shrink. 1fr means
+      minmax(auto,1fr), and auto floors at min-content. */
+.contact-inner, .opportunity-inner, .audience-inner,
+.faq-inner, .why-header, .footer-top, .form-row {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+@media (max-width: 768px) {
+  .contact-inner, .opportunity-inner, .audience-inner,
+  .faq-inner, .why-header, .footer-top { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* 3. Form controls carry an intrinsic size and will not
+      shrink on their own. */
+.form-input, .form-select, .form-textarea {
+  width: 100%; min-width: 0; max-width: 100%;
+}
+
+/* 4. The readiness panel sits in the right-hand column of a
+      two-column ladder, so its usable width is much narrower
+      than the viewport. Between roughly 1000 and 1250px that
+      column cannot hold a 340px illustration beside the text,
+      so the pair stacks earlier than the viewport alone would
+      suggest. */
+/* The panel sits in the right column of the ladder, so its width
+   is set by the wrap, not the viewport: on the homepage it is
+   662px at every desktop size. Let the track count follow the
+   space actually available rather than a viewport breakpoint,
+   which cannot see it. */
+#engagement .herotop { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
+
+/* 5. Flex text next to a fixed-size icon needs permission to
+      shrink, and long unbroken values (emails, URLs) need a
+      break opportunity, or they set the floor instead. */
+.contact-line > div:not(.contact-line-icon) { min-width: 0; }
+.contact-line-val, .contact-line-val a { overflow-wrap: anywhere; }
+
+/* The hamburger icon is 24px, which left a 32x24 tap target,
+   under the 44px minimum. Grow the hit area, not the icon,
+   and pull the extra padding back out of the layout so the
+   nav does not shift. */
+.nav-hamburger {
+  padding: 12px;
+  margin: -12px -12px -12px 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Wrapped CTAs read better centred; at desktop widths the
+   button is sized to its content so this changes nothing. */
+.btn-book, .btn { justify-content: center; text-align: center; }
+
+/* When a trust item wraps to two lines, align-items:center
+   floated its dot to the middle of the block instead of the
+   first line. */
+.hero-trust span { align-items: flex-start; }
+.hero-trust .dot { margin-top: 0.55em; flex: 0 0 auto; }
+
+/* Same reasoning as .herotop: three fixed columns become
+   unreadable in a 566px panel. Let the count follow the room. */
+#engagement .herobullets { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+
+#engagement .ladder { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1001px) { #engagement .ladder { grid-template-columns: 330px minmax(0, 1fr); } }
+
 </style>
 </head>
 

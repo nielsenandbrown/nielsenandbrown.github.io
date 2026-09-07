@@ -220,7 +220,12 @@
 .consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
 .consent-accept { background: var(--gold); color: var(--cream); }
 .consent-accept:hover { background: var(--gold-light); }
-  </style>
+  
+/* Wide tables scroll inside their own container so the page
+   body never scrolls sideways on a phone. */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll > .cookie-table { min-width: 30rem; }
+</style>
 </head>
 <body>
 
@@ -252,7 +257,7 @@
   <h3>Essential cookies</h3>
   <p>These cookies are necessary for the site to function properly and do not require your consent.</p>
 
-  <table class="cookie-table">
+  <div class="table-scroll"><table class="cookie-table">
     <thead>
       <tr>
         <th>Cookie</th>
@@ -272,12 +277,12 @@
               <td>Session (cleared when you close the tab)</td>
             </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <h3>Analytics cookies (only set if you accept)</h3>
   <p>These cookies help us understand how visitors use our site in aggregate. They are only set after you click "Accept" on the cookie banner.</p>
 
-  <table class="cookie-table">
+  <div class="table-scroll"><table class="cookie-table">
     <thead>
       <tr>
         <th>Cookie</th>
@@ -300,7 +305,7 @@
         <td>Google Analytics</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 
   <p>We retain analytics data in Google Analytics for 14 months, after which it is automatically deleted.</p>
   <p>We do <strong>not</strong> use marketing, advertising, or social media tracking cookies.</p>
