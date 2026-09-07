@@ -386,7 +386,8 @@ ul { list-style: none; }
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-      .reveal, .reveal-left, .reveal-right {
+      .reveal, .reveal-left, .reveal-right,
+      .hero-eyebrow, .hero-headline, .hero-sub, .hero-actions, .hero-stats {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -561,8 +562,7 @@ ul { list-style: none; }
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: heroFadeUp 0.9s 0.2s var(--ease-out) forwards;
+      animation: heroFadeUp 0.9s 0.2s var(--ease-out) both;
     }
 .hero-eyebrow::before {
       content: '';
@@ -580,8 +580,7 @@ ul { list-style: none; }
       color: var(--charcoal);
       margin-bottom: 2.5rem;
       max-width: 900px;
-      opacity: 0;
-      animation: heroFadeUp 0.9s 0.4s var(--ease-out) forwards;
+      animation: heroFadeUp 0.9s 0.4s var(--ease-out) both;
     }
 .hero-headline em {
       font-style: italic;
@@ -594,16 +593,14 @@ ul { list-style: none; }
       line-height: 1.75;
       max-width: 520px;
       margin-bottom: 3.5rem;
-      opacity: 0;
-      animation: heroFadeUp 0.9s 0.6s var(--ease-out) forwards;
+      animation: heroFadeUp 0.9s 0.6s var(--ease-out) both;
     }
 .hero-actions {
       display: flex;
       align-items: center;
       gap: 1.5rem;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: heroFadeUp 0.9s 0.8s var(--ease-out) forwards;
+      animation: heroFadeUp 0.9s 0.8s var(--ease-out) both;
     }
 .btn-primary {
       display: inline-flex;
@@ -648,8 +645,7 @@ ul { list-style: none; }
       margin-top: 5rem;
       border-top: 1px solid var(--stone-2);
       padding-top: 3rem;
-      opacity: 0;
-      animation: heroFadeUp 0.9s 1s var(--ease-out) forwards;
+      animation: heroFadeUp 0.9s 1s var(--ease-out) both;
     }
 .hero-stat {
       flex: 1;
@@ -677,7 +673,13 @@ ul { list-style: none; }
       letter-spacing: 0.04em;
       line-height: 1.4;
     }
-@keyframes heroFadeUp {
+/* Fill mode is "both", and the rules above deliberately carry no
+   opacity: 0. Reduce Motion forces animation-duration to 0, and a
+   zero-duration animation applies no fill at all, so a base
+   opacity: 0 would leave the whole hero invisible permanently
+   rather than merely unanimated. "both" supplies the start state
+   while the animation runs and nothing when it does not. */
+    @keyframes heroFadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }

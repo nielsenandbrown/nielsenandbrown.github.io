@@ -171,6 +171,25 @@ All four section wrappers (`.nb-wrap`, `.contact-inner`, `.blog-inner`,
 `.nb-proof-inner`) carry the same value; changing one alone makes that section
 visibly narrower than its neighbours.
 
+**Hero visibility, and Reduce Motion.** The five hero rules used to pair
+`opacity: 0` with `animation: heroFadeUp ... forwards`. The reduced-motion block
+sets `animation-duration: 0.001ms !important`, which computes to `0s`, and a
+zero-duration animation applies **no fill at all**, so `forwards` never ran and
+the base `opacity: 0` stood permanently. Anyone with Reduce Motion enabled in
+iOS accessibility settings saw a blank hero: eyebrow, headline, standfirst and
+both buttons. The trust bullets below still showed, because they are not
+animated.
+
+Fixed by deleting the base `opacity: 0` and switching the fill mode to `both`.
+The animation now supplies its own start state while it runs, and supplies
+nothing when it does not, so the content is visible by default in every failure
+mode rather than invisible. The reduced-motion block also names the hero
+selectors explicitly now, so reintroducing `opacity: 0` cannot resurrect this.
+
+**Do not make content visibility depend on an animation completing.** That is the
+general rule this came from, and it applies to `.reveal` too: those are safe only
+because the reduced-motion block forces them to `opacity: 1 !important`.
+
 **Responsive pass.** The page scrolled sideways on phones, which shifted every
 section and cut content off. `body { overflow-x: hidden }` was masking it, and
 iOS Safari does not reliably honour that, which is why it showed on a real phone
