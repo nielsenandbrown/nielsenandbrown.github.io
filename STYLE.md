@@ -157,6 +157,64 @@ smaller than the +2px build. The nav is excluded; the before/after figures and t
 budget card heading are included despite being Cormorant, because the reissued
 ticket lists them explicitly.
 
+**Round 6 on test.html.** Fourth proof card (Tender responses), grid 4 / 2 by 2 /
+1 with dividers drawn per card and clipped on the first row and column, so they
+stay right at every column count. "Why now" replaced with the three-column
+evidence version on site tokens: gold text uses `--gold-deep` and titles are
+24px, because no gold passes 4.5:1 on that ground and 24px counts as large text.
+The Gartner 76% is used as written on Allan's confirmation, although the file it
+came from carried this note: "76% could not be traced to a public Gartner
+source. Published Gartner figures are 74% (December 2025) and 77% (CEO and CFO
+survey). Confirm before this goes live." The DSIT 54% and 34% were checked
+against the GOV.UK report (updated 13 February 2026) and match. The intro
+paragraph at the top of each engagement tab was removed on test.html and
+pricing.html.
+
+**Footer grid regression, fixed.** The responsive pass set every grid in one
+rule to two columns, which collapsed the four-column footer at desktop width on
+test, index and pricing. Each live grid now carries its own column count.
+
+**Restructure preview.** `preview.html` plus eight new routes implement
+`nb-landing-page-restructure-spec.md`, deliberately kept apart from test.html.
+Built by scripts, not by hand, so they can be rerun after test.html changes:
+see `scripts/preview/README.md`. Decisions
+taken where the spec was silent or clashed:
+
+- Hero proof strip carries four stats, not the spec's three, to keep Tender
+  responses.
+- Tab one of the engagement module is a short pointer to `#score`, so the two
+  do not repeat each other. Tab three keeps only the Acceleration group;
+  groups four and five live on `/how-we-work`. Product deep links such as
+  `/preview.html#diagnostic-assessment` still open the detail panel.
+- `/faq` carries eleven questions: the six from the home page plus five
+  rewritten in house style from the old FAQ structured data. Three old ones
+  were dropped because they describe products that no longer exist (Insight
+  Sprint, AI Pilot, a four-stage model).
+- `/governance` includes drafted copy on UK GDPR Articles 22A to 22D (in force
+  5 February 2026, checked against legislation.gov.uk) and ISO/IEC 42001. It is
+  general information and needs Allan to read it before it goes live.
+- The anchor correction script used to give up whenever the page had scrolled,
+  which the browser does itself on a smooth hash jump, so on a slow font load
+  `#services` landed 153px late. It now waits for real input (wheel, touch,
+  key, mouse) before deciding the visitor has moved.
+
+**Preview height.** 6.9 viewport heights at 1440x900 against the spec target of
+5. Hero through FAQ is 4.9; the contact form, blog strip and footer add 1.9.
+Reaching 5 overall means shortening the form or footer, which the spec keeps.
+
+**Rollout checklist for the preview, when signed off.**
+1. In the eight new pages, replace `/preview.html` with `/` in every link
+   (set `HOME = '/'` in `scripts/preview/build_pages.py` and rerun it).
+2. Copy `preview.html` over `index.html`, and restore
+   `index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`
+   as its robots directive.
+3. Remove `noindex` from the eight new pages.
+4. Create `sitemap.xml` with the home page, the eight routes, founders and the
+   blog, and reference it from `robots.txt`.
+5. Repoint `/#services`, `/#wheel` links in `founders.html` and `pricing.html`
+   footers to the new routes; the old anchors still resolve, so this is tidy-up.
+6. Delete `preview.html`.
+
 **Page width.** `test.html` uses a **1320px** wrap; `index.html` and the current
 live pages still use 1160px. The two files are otherwise identical copies, so
 this is the only divergence, and it is deliberate pending sign-off.

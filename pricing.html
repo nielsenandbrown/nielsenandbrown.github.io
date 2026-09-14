@@ -1338,17 +1338,17 @@ body.nav-open .nav-links a {
 }
 
 /* 2. Grid tracks must be allowed to shrink. 1fr means
-      minmax(auto,1fr), and auto floors at min-content. */
-.contact-inner, .opportunity-inner, .audience-inner,
-.faq-inner, .why-header, .footer-top, .form-row {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      minmax(auto,1fr), and auto floors at min-content.
+   Each live grid keeps its own column count. An earlier version of this
+   rule set every one of them to two columns, which collapsed the
+   four-column footer at desktop width. */
+.contact-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.footer-top { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
-  .contact-inner, .opportunity-inner, .audience-inner,
-  .faq-inner, .why-header, .footer-top { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 480px) {
-  .form-row { grid-template-columns: minmax(0, 1fr); }
+  .contact-inner, .footer-top { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* 3. Form controls carry an intrinsic size and will not
@@ -1446,7 +1446,6 @@ body.locked{overflow:hidden}
 .panel{display:none}
 .panel.on{display:block;animation:rise .45s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.lede{font-size:18.5px;line-height:1.65;color:var(--muted);font-weight:300;max-width:680px;margin:0 0 30px}
 .feature{background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
 .feature .tag{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .feature h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
@@ -1624,7 +1623,6 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
 
     <div>
       <section class="panel on" id="start" role="tabpanel" aria-labelledby="t1">
-        <p class="lede">Start with a straight answer about where the business actually stands. It takes about twenty minutes, it costs nothing, and nobody rings you afterwards unless you ask.</p>
         <div class="feature">
           <div class="herotop">
             <div>
@@ -1683,7 +1681,6 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
       </section>
 
       <section class="panel" id="next" role="tabpanel" aria-labelledby="t2">
-        <p class="lede">You have a score and a rough idea where the gaps are. The next step is small, fixed and specific. Select any one below to see exactly what you receive.</p>
         <div class="slab">
           <div class="group">
             <div class="grouphead">
@@ -1698,7 +1695,6 @@ footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(
       </section>
 
       <section class="panel" id="accelerate" role="tabpanel" aria-labelledby="t3">
-        <p class="lede">This is where AI stops being an experiment and starts showing up in the numbers. Work here is evidence led, measured, and built by the people who wrote the plan.</p>
         <div class="slab">
           <div class="group">
             <div class="grouphead">

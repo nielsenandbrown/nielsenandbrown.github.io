@@ -1774,17 +1774,17 @@ html {scroll-behavior:auto}}
 }
 
 /* 2. Grid tracks must be allowed to shrink. 1fr means
-      minmax(auto,1fr), and auto floors at min-content. */
-.contact-inner, .opportunity-inner, .audience-inner,
-.faq-inner, .why-header, .footer-top, .form-row {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      minmax(auto,1fr), and auto floors at min-content.
+   Each live grid keeps its own column count. An earlier version of this
+   rule set every one of them to two columns, which collapsed the
+   four-column footer at desktop width. */
+.contact-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.footer-top { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 768px) {
-  .contact-inner, .opportunity-inner, .audience-inner,
-  .faq-inner, .why-header, .footer-top { grid-template-columns: minmax(0, 1fr); }
-}
-@media (max-width: 480px) {
-  .form-row { grid-template-columns: minmax(0, 1fr); }
+  .contact-inner, .footer-top { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* 3. Form controls carry an intrinsic size and will not

@@ -32,7 +32,7 @@ RULES = [
      "spell it out: do not, we will, it is"),
     ("pricing figure", r"[£$€]\s?[\d,]+(?:\.\d+)?",
      "no pricing anywhere on the site",
-     {"pricing.html", "test.html"}),  # both publish the engagement prices deliberately
+     {"pricing.html", "test.html", "index.html", "preview.html", "how-we-work.html"}),  # these publish the engagement prices deliberately
     ("non-British spelling",
      r"(?i)\b(organiz\w*|analyz\w*|optimiz\w*|specializ\w*|recogniz\w*|"
      r"colou?r(?<!colour)\w*|cent(?:er|ers)\b|program(?!me)s?\b|license[ds]?\b)",
@@ -109,7 +109,7 @@ def main():
     if args:
         files = args
     elif "--all" in sys.argv:
-        files = sorted(glob.glob(os.path.join(ROOT, "*.html")))
+        files = sorted(glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "services", "*.html")))
     else:
         files = [os.path.join(ROOT, "index.html")]
     ignores = load_ignores()
