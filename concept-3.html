@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Concept 3, Think + build | Nielsen &amp; Brown</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF8F3; --paper:#F2EDE6; --sand:#E9DCC0; --line:#DCD3BF;
+    --charcoal:#2C2C29; --char-2:#36352F; --ink:#3A382F; --muted:#6B6759; --muted-dark:#B5B1A0;
+    --gold:#B8924A; --gold-text:#85652A; --action:#A64B2A; --action-dark:#8E3F23;
+    --wrap:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 'Jost','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{color:var(--charcoal);font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0}
+  h1{font-size:clamp(40px,5.6vw,66px)}
+  h2{font-size:clamp(30px,4vw,44px)}
+  h3{font-size:21px;letter-spacing:-.01em;line-height:1.25}
+  p{margin:0}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;border:2px solid transparent;transition:background .15s,color .15s}
+  .btn-primary{background:var(--action);color:#fff}
+  .btn-primary:hover{background:var(--action-dark)}
+  .btn-ghost{border-color:var(--charcoal);color:var(--charcoal)}
+  .btn-ghost:hover{background:var(--charcoal);color:var(--cream)}
+  .sec{padding:96px 0}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .sec-head p{margin-top:14px;font-size:19px;color:var(--muted)}
+
+  .concept-bar{background:var(--charcoal);color:var(--muted-dark);font-size:13px;text-align:center;padding:8px 16px}
+  .concept-bar a{color:var(--cream);margin:0 6px;text-decoration:none;padding:2px 8px;border-radius:4px;white-space:nowrap}
+  .concept-bar a[aria-current]{background:var(--gold);color:var(--charcoal);font-weight:600}
+
+  .nav{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+  .nav-logo{display:block;position:relative;width:180px;height:42px;overflow:hidden}
+  .nav-logo img{position:absolute;width:276px;max-width:none;height:auto;left:-48px;top:-16px}
+  .nav-links{display:flex;align-items:center;gap:28px;font-weight:500;font-size:15px}
+  .nav-links a{text-decoration:none}
+  .nav-links a:not(.btn):hover{color:var(--action)}
+  .nav-links .btn{padding:10px 18px;font-size:15px}
+  @media (max-width:860px){.nav-links a:not(.btn){display:none}}
+
+  /* hero */
+  .hero{padding:64px 0 80px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .hero-sub{font-size:20px;color:var(--muted);margin:22px 0 30px;max-width:540px}
+  .hero-sub b{color:var(--charcoal);font-weight:600}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .byline{display:flex;align-items:center;gap:16px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+  .avatars{display:flex;flex:none}
+  .avatars > *{width:56px;height:56px;border-radius:50%;border:3px solid var(--cream);object-fit:cover;background:var(--sand)}
+  .byline p{font-size:15px;color:var(--muted);line-height:1.45}
+  .byline b{color:var(--charcoal)}
+  @media (max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:44px}}
+
+  /* demo window */
+  .demo{background:var(--charcoal);border-radius:16px;padding:14px;box-shadow:0 30px 60px -24px rgba(44,44,41,.55)}
+  .demo-tabs{display:flex;gap:6px;padding:4px 4px 12px;flex-wrap:wrap}
+  .demo-tabs button{font:inherit;font-size:13px;font-weight:500;border:1px solid #4A493F;background:none;color:var(--muted-dark);padding:6px 12px;border-radius:999px;cursor:pointer}
+  .demo-tabs button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:var(--charcoal);font-weight:600}
+  .win{background:#fff;border-radius:10px;overflow:hidden}
+  .win-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #ECE7DC;font-size:14px;font-weight:600;color:var(--charcoal)}
+  .win-bar .dot{width:9px;height:9px;border-radius:50%;background:#5BAA6A}
+  .win-bar small{margin-left:auto;font-weight:500;color:var(--muted)}
+  .chat{height:380px;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 28px);mask-image:linear-gradient(transparent,#000 28px);font-size:15px;line-height:1.45}
+  .msg{display:flex;gap:10px;align-items:flex-start;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+  .msg.in{opacity:1;transform:none}
+  .msg .av{flex:none;width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;background:#7A8B9A}
+  .msg.bot .av{background:var(--gold);color:var(--charcoal)}
+  .msg .who{font-size:12px;font-weight:600;color:var(--muted)}
+  .msg .body{color:var(--ink)}
+  .card{margin-top:8px;border:1px solid #ECE7DC;border-left:3px solid var(--gold);border-radius:6px;padding:10px 12px;background:var(--cream);font-size:14px}
+  .card .row{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+  .card .flag{color:var(--action);font-weight:600}
+  .card .acts{display:flex;gap:8px;margin-top:8px}
+  .card .acts span{font-size:13px;font-weight:600;padding:5px 10px;border-radius:5px;border:1px solid var(--line)}
+  .card .acts span.go{background:var(--charcoal);color:var(--cream);border-color:var(--charcoal)}
+  .typing{display:inline-flex;gap:4px;padding:6px 0}
+  .typing i{width:6px;height:6px;border-radius:50%;background:var(--muted-dark);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+  .demo-cap{color:var(--muted-dark);font-size:13px;padding:12px 6px 2px;display:flex;gap:8px;align-items:baseline}
+  .demo-cap b{color:var(--gold);font-weight:600}
+  @media (max-width:480px){.chat{height:400px;font-size:14px}}
+
+  .logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+  .logos .wrap{display:flex;align-items:center;gap:20px 44px;flex-wrap:wrap;justify-content:center}
+  .logos span{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .logos img{height:22px;width:auto;filter:grayscale(1);opacity:.65}
+
+  /* role tabs */
+  .roles{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+  .roles button{font:inherit;font-weight:600;font-size:16px;padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--charcoal);cursor:pointer}
+  .roles button:hover{border-color:var(--charcoal)}
+  .roles button[aria-selected="true"]{background:var(--charcoal);border-color:var(--charcoal);color:var(--cream)}
+  .role-panel{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+  .role-panel[hidden]{display:none}
+  .jobs{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+  .jobs h3{margin-bottom:8px}
+  .jobs ul{list-style:none;padding:0;margin:0}
+  .jobs li{padding:14px 0 14px 34px;border-top:1px solid var(--paper);position:relative}
+  .jobs li:first-child{border-top:0}
+  .jobs li::before{content:"→";position:absolute;left:4px;color:var(--gold);font-weight:700}
+  .jobs li b{display:block;color:var(--charcoal);font-weight:600}
+  .jobs li span{color:var(--muted);font-size:15px}
+  .start{background:var(--charcoal);color:#D9D5C8;border-radius:12px;padding:28px;display:flex;flex-direction:column}
+  .start .eyebrow{color:var(--gold)}
+  .start h3{color:var(--cream);font-size:26px;margin:10px 0 4px}
+  .start .price{font-size:40px;font-weight:700;color:var(--cream);letter-spacing:-.02em;line-height:1.1;margin:10px 0}
+  .start .price small{font-size:15px;font-weight:500;color:var(--muted-dark);letter-spacing:0}
+  .start p{color:var(--muted-dark);flex:1;margin-bottom:22px}
+  .role-quote{grid-column:1/-1;margin:0;position:relative;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:20px 24px}
+  .role-quote blockquote{margin:0;font-size:18px;color:var(--charcoal);line-height:1.5}
+  .role-quote figcaption{margin-top:8px;font-size:14px;color:var(--muted)}
+  .role-quote figcaption b{color:var(--charcoal);font-weight:600}
+  .pending{position:absolute;top:-11px;right:18px;background:var(--sand);color:var(--gold-text);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:4px}
+  @media (max-width:860px){.role-panel{grid-template-columns:1fr}}
+
+  /* think build keep */
+  .tbk{background:var(--paper)}
+  .stages{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .stage{padding:32px 28px;border-left:1px solid var(--line);position:relative}
+  .stage:first-child{border-left:0}
+  .stage .num{font-size:14px;font-weight:700;color:var(--gold-text);letter-spacing:.06em;text-transform:uppercase}
+  .stage h3{font-size:30px;margin:8px 0 6px}
+  .stage > p{color:var(--muted);margin-bottom:18px}
+  .stage .item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--paper);font-size:15px}
+  .stage .item b{font-weight:600;color:var(--charcoal)}
+  .stage .item .p{font-weight:700;color:var(--charcoal);white-space:nowrap}
+  .stage.mid{background:var(--charcoal);color:#D9D5C8}
+  .stage.mid h3,.stage.mid .item b,.stage.mid .item .p{color:var(--cream)}
+  .stage.mid > p{color:var(--muted-dark)}
+  .stage.mid .num{color:var(--gold)}
+  .stage.mid .item{border-color:#45443E}
+  .free-line{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--cream);border:1px dashed var(--gold);border-radius:12px;padding:20px 24px}
+  .free-line p{font-size:18px;color:var(--charcoal)}
+  .free-line p b{color:var(--action)}
+  @media (max-width:900px){.stages{grid-template-columns:1fr}.stage{border-left:0;border-top:1px solid var(--line)}.stage:first-child{border-top:0}}
+
+  /* safety */
+  .safe{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+  .safe-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px}
+  .safe-grid div{border-top:2px solid var(--charcoal);padding-top:14px}
+  .safe-grid b{display:block;color:var(--charcoal);font-weight:600;font-size:18px}
+  .safe-grid span{color:var(--muted);font-size:15px}
+  .safe a{color:var(--action);font-weight:600;text-decoration:none;display:inline-block;margin-top:18px}
+  @media (max-width:860px){.safe{grid-template-columns:1fr;gap:32px}}
+  @media (max-width:520px){.safe-grid{grid-template-columns:1fr}}
+
+  /* people */
+  .people{background:var(--charcoal);color:#D9D5C8}
+  .people .wrap{display:grid;grid-template-columns:minmax(0,380px) 1fr;gap:64px;align-items:center}
+  .faces{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .face{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:3/4;background:var(--char-2);position:relative}
+  .face img{width:100%;height:100%;object-fit:cover}
+  .face.ph{display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:600;font-size:14px;border:2px dashed var(--gold)}
+  .face figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;background:linear-gradient(transparent,rgba(30,30,28,.9));color:var(--cream);font-size:14px}
+  .face figcaption b{display:block;font-size:16px}
+  .people h2{color:var(--cream)}
+  .people .eyebrow{color:var(--gold)}
+  .people p.lead{font-size:19px;margin-top:16px;color:#CFCBBE}
+  .quote{margin:32px 0 0;padding:24px 0 0;border-top:1px solid #45443E}
+  .quote p{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:28px;line-height:1.3;color:var(--cream)}
+  .quote cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--muted-dark)}
+  .people a.link{display:inline-block;margin-top:24px;color:var(--gold);font-weight:600;text-decoration:none}
+  .members{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;margin-top:28px;padding-top:20px;border-top:1px solid #45443E;font-size:13px;color:var(--muted-dark)}
+  .members > span:first-child{font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .members .badge{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 14px;border-radius:8px;background:#fff;font-size:14px;font-weight:600;color:var(--charcoal)}
+  .members .badge img{height:34px;width:auto}
+  @media (max-width:900px){.people .wrap{grid-template-columns:1fr;gap:40px}.people .face{max-width:340px}}
+
+  /* contact */
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .promise{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+  .promise li{display:flex;gap:12px;font-size:18px;color:var(--charcoal)}
+  .promise li::before{content:"✓";color:var(--gold);font-weight:700}
+  .contact .score-alt{margin-top:28px;font-size:16px;color:var(--muted)}
+  .contact .score-alt a{color:var(--action);font-weight:600}
+  form{display:grid;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+  label{font-size:14px;font-weight:500;color:var(--muted);display:grid;gap:6px}
+  input,select{font:inherit;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:var(--cream);color:var(--charcoal)}
+  input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .form-note{font-size:13px;color:var(--muted)}
+  @media (max-width:900px){.contact .wrap{grid-template-columns:1fr;gap:36px}}
+
+  footer{padding:36px 0;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer nav{display:flex;gap:20px;flex-wrap:wrap}
+  footer a{text-decoration:none}
+
+  @media (max-width:600px){
+    body{font-size:16px}
+    .sec{padding:64px 0}
+    .wrap{padding:0 16px}
+    .hero{padding:40px 0 56px}
+    .hero-sub{font-size:18px}
+    .ctas .btn{width:100%}
+    .roles button{font-size:15px;padding:10px 16px}
+    .quote p{font-size:24px}
+  }
+  @media (prefers-reduced-motion:reduce){.msg{transition:none}.typing i{animation:none;opacity:.6}}
+</style>
+</head>
+<body>
+
+<div class="concept-bar">Homepage concept mockup:
+  <a href="concept-1.html">1. The menu</a>
+  <a href="concept-2.html">2. Pick your problem</a>
+  <a href="concept-3.html" aria-current="page">3. Think + build</a>
+  <a href="concept-4.html">4. First 90 days</a>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="Nielsen &amp; Brown home"><img src="assets/brand/NB_Wordmark_Charcoal.svg" alt="Nielsen &amp; Brown" width="141" height="34"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#fix">What we fix</a>
+      <a href="#how">How it works</a>
+      <a href="#how">Prices</a>
+      <a href="#people">Who we are</a>
+      <a class="btn btn-primary" href="#contact">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">AI strategy and build for UK businesses with 10 to 300 people</p>
+        <h1 style="margin-top:18px">We work out where AI fits. Then we build it.</h1>
+        <p class="hero-sub">Most firms hand you a plan or sell you a tool. We do both, get your team using it, and keep it safe. <b>Fixed prices from £995.</b></p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contact">Book a 30 minute call</a>
+          <a class="btn btn-ghost" href="https://score.nielsenandbrown.com">Free AI readiness score</a>
+        </div>
+        <div class="byline">
+          <div class="avatars">
+            <img src="assets/people/allan-nielsen@450.jpg" alt="Allan Nielsen" width="56" height="56">
+          </div>
+          <p><b>You deal with us directly.</b><br>No account managers, no hand-off to a delivery partner.</p>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-tabs" role="tablist" aria-label="Example tools">
+          <button role="tab" aria-selected="true" data-s="0">Credit control</button>
+          <button role="tab" aria-selected="false" data-s="1">Customer replies</button>
+          <button role="tab" aria-selected="false" data-s="2">Tender drafts</button>
+        </div>
+        <div class="win">
+          <div class="win-bar"><span class="dot"></span><span id="winTitle">Finance assistant</span><small>in Microsoft Teams</small></div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+        </div>
+        <p class="demo-cap"><b>Demo</b> The kind of tool we build. It does the legwork, a person approves.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="logos" aria-label="Tools we build with">
+    <div class="wrap">
+      <span>We build with</span>
+      <img src="assets/partners/anthropic.svg" alt="Anthropic" width="178" height="20">
+      <img src="assets/partners/openai.svg" alt="OpenAI" width="93" height="25">
+      <img src="assets/partners/google.svg" alt="Google" width="79" height="26">
+      <img src="assets/partners/n8n.svg" alt="n8n" width="87" height="24">
+      <img src="assets/partners/lovable.png" alt="Lovable" width="129" height="22">
+      <img src="assets/partners/grok.svg" alt="Grok" width="90" height="25">
+    </div>
+  </div>
+
+  <section class="sec" id="fix">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What are you trying to fix?</p>
+        <h2 style="margin-top:12px">Pick your patch. See where we'd start.</h2>
+      </div>
+
+      <div class="roles" role="tablist" aria-label="Your area">
+        <button role="tab" id="t-ops" aria-controls="p-ops" aria-selected="true">Operations</button>
+        <button role="tab" id="t-fin" aria-controls="p-fin" aria-selected="false" tabindex="-1">Finance</button>
+        <button role="tab" id="t-tech" aria-controls="p-tech" aria-selected="false" tabindex="-1">Tech &amp; IT</button>
+        <button role="tab" id="t-mkt" aria-controls="p-mkt" aria-selected="false" tabindex="-1">Commercial &amp; marketing</button>
+        <button role="tab" id="t-lead" aria-controls="p-lead" aria-selected="false" tabindex="-1">Leadership</button>
+      </div>
+
+      <div class="role-panel" role="tabpanel" id="p-ops" aria-labelledby="t-ops">
+        <div class="jobs"><h3>Jobs we typically take off your plate</h3><ul>
+          <li><b>Routine customer queries</b><span>Answered from your own systems, with anything tricky handed to a person.</span></li>
+          <li><b>Reports nobody enjoys compiling</b><span>Pulled together from the systems you already use, ready to check and send.</span></li>
+          <li><b>Inboxes that need sorting</b><span>Orders, supplier emails and requests read, tagged and routed to the right person.</span></li>
+        </ul></div>
+        <div class="start"><span class="eyebrow">Where we'd start</span><h3>Automation Starter</h3><div class="price">£2,950 <small>2 to 3 weeks</small></div><p>One process built in the tools you already pay for, measured before and after, and handed over with a named owner.</p><a class="btn btn-primary" href="#contact">Talk about a build</a></div>
+        <figure class="role-quote"><span class="pending">Pending approval</span><blockquote>"The discussions were constructive and well informed, with a strong focus on the practical drivers of operational performance."</blockquote><figcaption><b>Tom Curtin</b>, Operations Director, Dunsters Farm</figcaption></figure>
+      </div>
+
+      <div class="role-panel" role="tabpanel" id="p-fin" aria-labelledby="t-fin" hidden>
+        <div class="jobs"><h3>Jobs we typically take off your plate</h3><ul>
+          <li><b>Chasing overdue accounts</b><span>Letters drafted from your accounting system, sent once someone approves them.</span></li>
+          <li><b>Month-end packs</b><span>Numbers pulled into your reporting template, with anything odd flagged.</span></li>
+          <li><b>Invoices and receipts</b><span>Details read and keyed in for you, so nobody retypes them.</span></li>
+        </ul></div>
+        <div class="start"><span class="eyebrow">Where we'd start</span><h3>Automation Starter</h3><div class="price">£2,950 <small>2 to 3 weeks</small></div><p>Pick the process that eats the most hours. We build it, measure it and hand it over.</p><a class="btn btn-primary" href="#contact">Talk about a build</a></div>
+      </div>
+
+      <div class="role-panel" role="tabpanel" id="p-tech" aria-labelledby="t-tech" hidden>
+        <div class="jobs"><h3>Jobs we typically take off your plate</h3><ul>
+          <li><b>Finding the AI you don't know about</b><span>Which tools staff already use, on what work, and what data goes into them.</span></li>
+          <li><b>Rules people will actually follow</b><span>A one-page usage policy and a red lines list, written for your data.</span></li>
+          <li><b>Connecting AI to your systems safely</b><span>What your data can support before anyone builds on it.</span></li>
+        </ul></div>
+        <div class="start"><span class="eyebrow">Where we'd start</span><h3>Shadow AI Audit</h3><div class="price">£1,500 <small>1 to 2 weeks</small></div><p>A full picture of current AI use, a risk register with owners, and what to stop this week.</p><a class="btn btn-primary" href="#contact">Book an audit call</a></div>
+        <figure class="role-quote"><span class="pending">Pending approval</span><blockquote>"Allan and the team brought a broad range of experience and an objective perspective to the process."</blockquote><figcaption><b>Dean Smalley</b>, Head of IT &amp; Systems, Dunsters Farm</figcaption></figure>
+      </div>
+
+      <div class="role-panel" role="tabpanel" id="p-mkt" aria-labelledby="t-mkt" hidden>
+        <div class="jobs"><h3>Jobs we typically take off your plate</h3><ul>
+          <li><b>Tenders and proposals</b><span>First drafts built from your past bids and project records.</span></li>
+          <li><b>Content in your voice</b><span>Drafts that sound like you, with a person checking before anything goes out.</span></li>
+          <li><b>A team that uses AI properly</b><span>Working sessions on their own tasks, not generic examples.</span></li>
+        </ul></div>
+        <div class="start"><span class="eyebrow">Where we'd start</span><h3>AI in Practice</h3><div class="price">£1,250 <small>half a day, up to 12 people</small></div><p>Your team, their laptops, their real work. Everyone leaves with something that works on Monday.</p><a class="btn btn-primary" href="#contact">Book a session</a></div>
+        <figure class="role-quote"><blockquote>"I was impressed by how quickly they developed an understanding of our business and operating environment."</blockquote><figcaption><b>Thomas Mathew</b>, Commercial Director, Dunsters Farm</figcaption></figure>
+      </div>
+
+      <div class="role-panel" role="tabpanel" id="p-lead" aria-labelledby="t-lead" hidden>
+        <div class="jobs"><h3>What you get out of it</h3><ul>
+          <li><b>Where AI belongs, and where it doesn't</b><span>Built around where the business loses time and money.</span></li>
+          <li><b>A rough return on each idea</b><span>What it is plausibly worth in a year, and what that depends on.</span></li>
+          <li><b>A plan the team can start on</b><span>One action this week, with an owner named.</span></li>
+        </ul></div>
+        <div class="start"><span class="eyebrow">Where we'd start</span><h3>AI Starting Point</h3><div class="price">£995 <small>half a day</small></div><p>A half day with the people who decide, ending in a shortlist of your three strongest opportunities.</p><a class="btn btn-primary" href="#contact">Book a Starting Point</a></div>
+        <figure class="role-quote"><span class="pending">Pending approval</span><blockquote>"What stood out was the team's ability to understand the business in a relatively short space of time and distil complex information into clear, structured observations."</blockquote><figcaption><b>Hannah Barlow</b>, Managing Director, Dunsters Farm</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tbk" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How it works, and what it costs</p>
+        <h2 style="margin-top:12px">Think. Build. Keep it working.</h2>
+        <p>One team through all three. Every step is fixed scope and fixed price, and you can stop after any of them.</p>
+      </div>
+      <div class="stages">
+        <div class="stage">
+          <span class="num">1 · Think</span><h3>Find what's worth doing</h3><p>Where AI pays back in your business, and a plan to get there.</p>
+          <div class="item"><b>AI Starting Point</b><span class="p">£995</span></div>
+          <div class="item"><b>Diagnostic Assessment</b><span class="p">£4,500</span></div>
+          <div class="item"><b>Strategy &amp; Roadmap</b><span class="p">£5,500</span></div>
+        </div>
+        <div class="stage mid">
+          <span class="num">2 · Build</span><h3>Make it real</h3><p>Working tools in your own systems, measured before and after.</p>
+          <div class="item"><b>Automation Starter</b><span class="p">£2,950</span></div>
+          <div class="item"><b>Automation Sprint</b><span class="p">£4,500</span></div>
+          <div class="item"><b>Pilot Delivery Sprint</b><span class="p">£10k to £15k</span></div>
+        </div>
+        <div class="stage">
+          <span class="num">3 · Keep it working</span><h3>Make it stick</h3><p>Your people using it well, long after we've gone.</p>
+          <div class="item"><b>AI in Practice</b><span class="p">£1,250</span></div>
+          <div class="item"><b>AI Champions Programme</b><span class="p">£6,500</span></div>
+          <div class="item"><b>Continuing Partnership</b><span class="p">Monthly</span></div>
+        </div>
+      </div>
+      <div class="free-line">
+        <p>Not ready to talk? Start with the <b>free</b> AI Readiness Score. 20 minutes, no call booked.</p>
+        <a class="btn btn-ghost" href="https://score.nielsenandbrown.com">Take the score</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap safe">
+      <div>
+        <p class="eyebrow">Safe by default</p>
+        <h2 style="margin-top:12px">The time savings, without the data scare.</h2>
+        <a href="governance.html">How we keep AI use safe →</a>
+      </div>
+      <div class="safe-grid">
+        <div><b>Data rules first</b><span>What can be used, and where, is agreed before anything is built.</span></div>
+        <div><b>A person approves</b><span>Anything customer-facing or sensitive gets checked by someone on your team.</span></div>
+        <div><b>Written down</b><span>A plain-English policy and a risk register you can show a client or auditor.</span></div>
+        <div><b>No lock-in</b><span>Not tied to any software company, so your options stay open.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec people" id="people">
+    <div class="wrap">
+      <figure class="face"><img src="assets/people/allan-nielsen@450.jpg" alt="Allan Nielsen" width="450" height="600" loading="lazy"><figcaption><b>Allan Nielsen</b>Co-founder</figcaption></figure>
+      <div>
+        <p class="eyebrow">Who you work with</p>
+        <h2 style="margin-top:12px">One team, start to finish.</h2>
+        <p class="lead">We plan it with you, build it, and train your people ourselves. Based in Manchester, working UK wide.</p>
+        <blockquote class="quote">
+          <p>"Given the limited time Allan and the team had with us, I was impressed by how quickly they developed an understanding of our business and operating environment."</p>
+          <cite>Thomas Mathew, Commercial Director, Dunsters Farm</cite>
+        </blockquote>
+        <a class="link" href="founders.html">More about us →</a>
+        <div class="members" aria-label="Memberships">
+          <span>Members of</span>
+          <span class="badge"><img src="assets/partners/promanchester.svg" alt="pro-manchester" width="100" height="36" loading="lazy"></span>
+          <span class="badge"><img src="assets/partners/manchesterdigital.png" alt="" width="54" height="34" loading="lazy">Manchester Digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Start with a call</p>
+        <h2 style="margin-top:12px">30 minutes. No pitch deck.</h2>
+        <p style="margin-top:14px;font-size:19px;color:var(--muted)">Tell us what's eating your team's time. You'll leave with:</p>
+        <ul class="promise">
+          <li>One realistic AI opportunity</li>
+          <li>One risk worth avoiding</li>
+          <li>The next step, and what it costs</li>
+        </ul>
+        <p class="score-alt">Not ready to talk? <a href="https://score.nielsenandbrown.com">Take the free readiness score</a> instead.</p>
+      </div>
+      <form onsubmit="event.preventDefault();this.querySelector('.form-note').textContent='Mockup only: this form does not send.'">
+        <label>Name<input name="name" autocomplete="name" required></label>
+        <label>Work email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Company<input name="company" autocomplete="organization" required></label>
+        <label>Your area
+          <select name="area"><option>Operations</option><option>Finance</option><option>Tech &amp; IT</option><option>Commercial &amp; marketing</option><option>Leadership</option></select>
+        </label>
+        <button class="btn btn-primary" type="submit" style="border:0;cursor:pointer">Book my free call</button>
+        <p class="form-note">We reply within one business day.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nielsen &amp; Brown Ltd. Manchester.</span>
+    <nav aria-label="Footer"><a href="how-we-work.html">How we work</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQs</a><a href="blog.html">Blog</a><a href="privacy-policy.html">Privacy</a></nav>
+  </div>
+</footer>
+
+<script>
+/* Role tabs */
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.roles [role=tab]'));
+  function select(t, focus){
+    tabs.forEach(function(x){
+      var on = x === t;
+      x.setAttribute('aria-selected', on);
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
+
+/* Hero micro-demo. Fictional demo data, not client results. */
+(function(){
+  var S = [
+    {title:'Finance assistant', msgs:[
+      {u:'Jo', who:'Jo, Finance', t:'Which accounts are over 60 days?'},
+      {bot:1, t:'Four accounts are over 60 days. Want me to draft chase letters?'},
+      {u:'Jo', who:'Jo, Finance', t:'Yes please. Firm but friendly.'},
+      {bot:1, t:'Done. Drafted from Xero, ready for you to check.', card:
+        '<div class="row"><span>Harper Supplies</span><span>Drafted</span></div>'+
+        '<div class="row"><span>Kestrel Joinery</span><span>Drafted</span></div>'+
+        '<div class="row"><span>Moss &amp; Co</span><span>Drafted</span></div>'+
+        '<div class="row"><span>Northgate Ltd</span><span class="flag">In dispute, left for you</span></div>'+
+        '<div class="acts"><span>Review</span><span class="go">Approve 3</span></div>'}
+    ]},
+    {title:'Customer service assistant', msgs:[
+      {u:'CS', who:'Customer email', t:'Hi, where is order 4471? It was due Tuesday.'},
+      {bot:1, t:'Order found. The courier shows it out for delivery today. Reply drafted:', card:
+        '<div>"Hi Sarah, your order left us on Monday and is out for delivery today. Here is the tracking link…"</div>'+
+        '<div class="acts"><span>Edit</span><span class="go">Send</span></div>'},
+      {u:'Ab', who:'Abi, Customer service', t:'Sent. Anything else waiting?'},
+      {bot:1, t:'Two more routine ones drafted. One complaint needs a person, so I have left it for you.'}
+    ]},
+    {title:'Bids assistant', msgs:[
+      {u:'Mk', who:'Mark, Bids', t:'New tender in for a school refurb. Can you start a first draft?'},
+      {bot:1, t:'Reading the tender pack. Pulling from your three closest past bids and project records.'},
+      {bot:1, t:'First draft ready. Sections still needing you:', card:
+        '<div class="row"><span>Method statement</span><span>Drafted</span></div>'+
+        '<div class="row"><span>Case studies</span><span>Drafted</span></div>'+
+        '<div class="row"><span>Pricing schedule</span><span class="flag">Needs you</span></div>'+
+        '<div class="acts"><span>Open draft</span></div>'},
+      {u:'Mk', who:'Mark, Bids', t:'Great, I will take it from here.'}
+    ]}
+  ];
+  var chat = document.getElementById('chat'), title = document.getElementById('winTitle');
+  var tabs = document.querySelectorAll('.demo-tabs button');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = 0, timer = null, run = 0;
+
+  function bubble(m){
+    var d = document.createElement('div');
+    d.className = 'msg' + (m.bot ? ' bot' : '');
+    d.innerHTML = '<span class="av">' + (m.bot ? 'AI' : m.u) + '</span><div><div class="who">' + (m.bot ? 'Assistant' : m.who) + '</div><div class="body">' + m.t + (m.card ? '<div class="card">' + m.card + '</div>' : '') + '</div></div>';
+    return d;
+  }
+  function typing(){
+    var d = document.createElement('div');
+    d.className = 'msg bot in';
+    d.innerHTML = '<span class="av">AI</span><div class="typing"><i></i><i></i><i></i></div>';
+    return d;
+  }
+  function play(i){
+    clearTimeout(timer); run++;
+    var my = run; cur = i;
+    tabs.forEach(function(b, j){ b.setAttribute('aria-selected', j === i); });
+    title.textContent = S[i].title;
+    chat.innerHTML = '';
+    if (reduce) { S[i].msgs.forEach(function(m){ var b = bubble(m); b.classList.add('in'); chat.appendChild(b); }); return; }
+    var k = 0;
+    (function next(){
+      if (my !== run) return;
+      if (k >= S[i].msgs.length) { timer = setTimeout(function(){ play((i + 1) % S.length); }, 4200); return; }
+      var m = S[i].msgs[k++];
+      function show(){ var b = bubble(m); chat.appendChild(b); requestAnimationFrame(function(){ b.classList.add('in'); }); timer = setTimeout(next, m.card ? 2400 : 1500); }
+      if (m.bot) { var ty = typing(); chat.appendChild(ty); timer = setTimeout(function(){ if (my !== run) return; ty.remove(); show(); }, 1100); }
+      else show();
+    })();
+  }
+  tabs.forEach(function(b){ b.addEventListener('click', function(){ play(+b.dataset.s); }); });
+
+  // Start when visible, pause when off screen
+  var demo = document.querySelector('.demo'), started = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){
+      if (e[0].isIntersecting) { if (!started) { started = true; play(cur); } }
+    }, {threshold:.2}).observe(demo);
+  } else play(0);
+})();
+</script>
+</body>
+</html>
