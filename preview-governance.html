@@ -82,6 +82,23 @@
   .next{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:24px}
   @media (max-width:900px){.law-grid{grid-template-columns:1fr;gap:32px}.side{position:static}}
   @media (max-width:600px){.head-ctas .btn{width:100%}}
+
+  /* phones */
+  @media (max-width:700px){
+    .head-ctas{gap:10px;margin-top:24px}
+    .safe .cards{gap:0!important;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .safe .card{display:grid;grid-template-columns:34px 1fr;column-gap:10px;padding:16px 18px 17px;border:0;border-radius:0}
+    .safe .card + .card{border-top:1px solid var(--line)}
+    .safe .num{grid-row:1/3;margin:3px 0 0;font-size:13px}
+    .safe .card h3{grid-column:2;font-size:18px;margin-bottom:3px}
+    .safe .card p:not(.num){grid-column:2;font-size:15px;line-height:1.5}
+    .law .prose ul{margin:12px 0 16px;padding:14px 16px 14px 36px;background:var(--paper);border-radius:10px}
+    .law .prose li{margin-bottom:4px}
+    .side{padding:20px}
+    .next{flex-direction:column;gap:0;margin-top:20px;border-top:1px solid var(--line)}
+    .next .link{display:flex;align-items:center;min-height:50px;border-bottom:1px solid var(--line)}
+    .cta-band .ctas{flex-direction:column}
+  }
 </style>
 </head>
 <body>
@@ -246,6 +263,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>

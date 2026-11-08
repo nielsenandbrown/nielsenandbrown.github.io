@@ -259,6 +259,65 @@
     .problems{padding:48px 0 56px}
     .offer-price{font-size:38px}
   }
+
+  /* phones */
+  @media (max-width:700px){
+    .hero{padding:28px 0 48px}
+    .hero h1{font-size:clamp(34px,9.6vw,42px)}
+    .hero-sub{margin:16px 0 22px}
+    .hero .wrap{gap:32px}
+    .byline{margin-top:24px;padding-top:20px}
+    .demo{padding:10px;border-radius:14px}
+    .demo-tabs{padding:2px 2px 10px;margin:0 -10px;padding-left:10px}
+    .chat{height:300px;padding:12px;font-size:14px}
+    .demo-cap{font-size:12px}
+    .logos{padding:22px 0}
+    .logos .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 12px;justify-items:center}
+    .logos p{grid-column:1/-1}
+    .logos img{height:18px;max-width:100%}
+    .problems{padding:44px 0 48px}
+    .p-head{margin-bottom:16px}
+    .picker{gap:8px}
+    .picker button{font-size:15px;padding:13px 14px 13px 42px}
+    .picker button::before{left:14px;top:15px}
+    .answer{margin:0 0 6px;border-radius:10px;box-shadow:0 10px 24px -18px rgba(44,44,41,.5)}
+    .ans-main{padding:18px}
+    .ans-main h3{font-size:19px}
+    .ans-main .how{font-size:15px;margin:6px 0 10px}
+    .ans-main li{font-size:14px;padding:5px 0 5px 24px}
+    .ans-main li::before{top:11px}
+    .ans-price{padding:18px}
+    .ans-price .p{font-size:32px}
+    .table-scroll{overflow:visible}
+    table.compare{min-width:0}
+    .compare .us{background:none}
+    .compare tr > td.us{background:#45443A;box-shadow:inset 0 0 0 1.5px var(--gold)}
+    .compare.m-table thead{display:block;position:sticky;top:76px;z-index:2;background:var(--charcoal);padding:8px 0}
+    .compare.m-table thead tr{padding:0;border:0}
+    .compare.m-table thead th:first-child{display:none}
+    .compare.m-table thead th{padding:0!important;border:0;background:none!important;box-shadow:none!important;font-size:11px;letter-spacing:.06em;text-align:center}
+    .compare.m-table thead th.us{border:0;color:var(--gold)}
+    .compare.m-table tr{padding:12px 0}
+    .compare.m-table td{padding:7px 4px!important}
+    .compare.m-table td::before{display:none}
+    .yes{font-size:18px}
+    .offer{padding:22px 20px}
+    .offer-price{font-size:36px}
+    .offer .ticks{margin:14px 0 18px}
+    .offers-foot{flex-direction:column;align-items:flex-start;margin-top:18px}
+    .intro{gap:24px}
+    .intro .lead{font-size:17px}
+    .said{margin-top:48px;padding-top:40px}
+    .said-top{display:flex;flex-direction:column;gap:16px}
+    .said-top .q.big{order:-1}
+    .said-top .video{width:62%;max-width:240px;align-self:center}
+    .q{padding:20px}
+    .q.big{padding:22px}
+    .q.big blockquote{font-size:20px}
+    .q blockquote{font-size:16px}
+    .contact .wrap{gap:24px}
+    .contact-form{padding:20px}
+  }
   @media (prefers-reduced-motion:reduce){.msg{transition:none}.typing i{animation:none;opacity:.6}}
 </style>
 </head>
@@ -302,7 +361,7 @@
       </div>
 
       <div class="demo">
-        <div class="demo-tabs" role="tablist" aria-label="Example tools">
+        <div class="demo-tabs m-chips" role="tablist" aria-label="Example tools">
           <button role="tab" aria-selected="true" data-s="0">Credit control</button>
           <button role="tab" aria-selected="false" data-s="1">Customer replies</button>
           <button role="tab" aria-selected="false" data-s="2">Tender drafts</button>
@@ -347,18 +406,18 @@
         <p>Consultancies hand you a plan and leave. Agencies build what you ask for, right thing or not. We do the thinking and the building.</p>
       </div>
       <div class="table-scroll">
-        <table class="compare">
+        <table class="compare m-table">
           <caption class="sr-only">How Nielsen &amp; Brown compares with a typical AI consultancy and a typical automation agency</caption>
           <thead>
-            <tr><th scope="col"><span class="sr-only">What you get</span></th><th scope="col">Typical AI consultancy</th><th scope="col">Typical automation agency</th><th scope="col" class="us">Nielsen &amp; Brown</th></tr>
+            <tr><th scope="col"><span class="sr-only">What you get</span></th><th scope="col"><span class="m-hide">Typical AI consultancy</span><span class="m-only">Consultancy</span></th><th scope="col"><span class="m-hide">Typical automation agency</span><span class="m-only">Agency</span></th><th scope="col" class="us"><span class="m-hide">Nielsen &amp; Brown</span><span class="m-only">Us</span></th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">Works out what is worth doing first</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="no" aria-label="No">✕</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
-            <tr><th scope="row">Builds the working tool</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
-            <tr><th scope="row">Gets your team using it</th><td><span class="some">Sometimes</span></td><td><span class="no" aria-label="No">✕</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
-            <tr><th scope="row">Policy and data safety included</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="no" aria-label="No">✕</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
-            <tr><th scope="row">Fixed prices, published</th><td><span class="no" aria-label="No">✕</span></td><td><span class="some">Sometimes</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
-            <tr><th scope="row">Priced for 10 to 300 people</th><td><span class="no" aria-label="No">✕</span></td><td><span class="some">Sometimes</span></td><td class="us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Works out what is worth doing first</th><td data-label="Consultancy"><span class="yes" aria-label="Yes">✓</span></td><td data-label="Agency"><span class="no" aria-label="No">✕</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Builds the working tool</th><td data-label="Consultancy"><span class="no" aria-label="No">✕</span></td><td data-label="Agency"><span class="yes" aria-label="Yes">✓</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Gets your team using it</th><td data-label="Consultancy"><span class="some">Sometimes</span></td><td data-label="Agency"><span class="no" aria-label="No">✕</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Policy and data safety included</th><td data-label="Consultancy"><span class="yes" aria-label="Yes">✓</span></td><td data-label="Agency"><span class="no" aria-label="No">✕</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Fixed prices, published</th><td data-label="Consultancy"><span class="no" aria-label="No">✕</span></td><td data-label="Agency"><span class="some">Sometimes</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
+            <tr><th scope="row">Priced for 10 to 300 people</th><td data-label="Consultancy"><span class="no" aria-label="No">✕</span></td><td data-label="Agency"><span class="some">Sometimes</span></td><td class="us" data-label="Us"><span class="yes" aria-label="Yes">✓</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -373,7 +432,7 @@
         <p>Start small, see the work, then decide. If a step doesn't earn the next one, you stop there.</p>
       </div>
 
-      <div class="offers">
+      <div class="offers m-swipe" aria-label="Starting points">
         <article class="offer feature">
           <span class="kind">Plan</span>
           <div class="offer-price">£995</div>
@@ -460,7 +519,7 @@
             <figcaption><img src="assets/people/tom-mathew-dunsters-farm.jpg" alt="Tom Mathew" width="72" height="88" loading="lazy"><span><b>Tom Mathew</b>Commercial Director, Dunsters Farm</span></figcaption>
           </figure>
         </div>
-        <div class="said-grid">
+        <div class="said-grid m-swipe" aria-label="Testimonials">
           <figure class="q">
             <blockquote>“What stood out was the team's ability to understand the business in a relatively short space of time and distil complex information into clear, structured observations.”</blockquote>
             <figcaption><img src="assets/people/hannah-barlow-dunsters-farm.jpg" alt="Hannah Barlow" width="52" height="64" loading="lazy"><span><b>Hannah Barlow</b>Managing Director, Dunsters Farm</span></figcaption>
@@ -557,6 +616,11 @@
   </div>
 </footer>
 
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
+
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>
   <div class="consent-actions">
@@ -570,37 +634,37 @@
 <script>
 /* Problem picker */
 var PROBLEMS = [
-  {id:'where', q:'We know AI could help. We just don\'t know where.',
+  {id:'where', q:'We know AI could help. We just don\'t know where.', short:'Not sure where AI fits',
    kind:'Advice', title:'Start with the business, not the tools.',
    how:'Half a day with the people who decide, built around where the business loses time and money.',
    get:['Your three strongest opportunities','A rough return on each one','A basic safety checklist','One action to take this week'],
    prod:'AI Starting Point', price:'£995', dur:'Half a day, on site',
    then:'<b>If one is worth building,</b> we build it too.'},
-  {id:'shadow', q:'Staff are using AI, and we don\'t know what with.',
+  {id:'shadow', q:'Staff are using AI, and we don\'t know what with.', short:'Staff using AI unchecked',
    kind:'Advice', title:'Find out what\'s really going on.',
    how:'A staff survey and systems review: who uses which tools, on what work, with what data.',
    get:['A full picture of current AI use','What data is leaving the business','A risk register with owners','What to stop this week'],
    prod:'Shadow AI Audit', price:'£1,500', dur:'1 to 2 weeks',
    then:'<b>Then we fix the rules</b> with a day for your team.'},
-  {id:'licences', q:'We pay for AI licences. Hardly anyone uses them.',
+  {id:'licences', q:'We pay for AI licences. Hardly anyone uses them.', short:'Licences nobody uses',
    kind:'Training', title:'Get people using it on their real work.',
    how:'Half a day with a working team, on their own tasks, in their own tools.',
    get:['Built from tasks they submit','What never goes into a public tool','Something that works on Monday','A patterns library within five days'],
    prod:'AI in Practice', price:'£1,250', dur:'Half a day, up to 12 people',
    then:'<b>£995 instead</b> within 30 days of an AI Starting Point.'},
-  {id:'plan', q:'The board wants an AI plan, and it\'s landed on my desk.',
+  {id:'plan', q:'The board wants an AI plan, and it\'s landed on my desk.', short:'The board wants an AI plan',
    kind:'Strategy', title:'Get the evidence before you write the plan.',
    how:'Interviews, a systems review and time on site, so the plan is built on what is really happening.',
    get:['Findings by team and process','The biggest constraint, costed','Three opportunities, costed','One action to take first'],
    prod:'Diagnostic Assessment', price:'£4,500', dur:'3 to 4 weeks',
    then:'<b>Bought on its own.</b> If the evidence says stop, you stop there.'},
-  {id:'job', q:'One job eats hours every week, and I want it gone.',
+  {id:'job', q:'One job eats hours every week, and I want it gone.', short:'One job eats hours',
    kind:'Build', title:'Check it\'s the right job. Then build it.',
    how:'We time the job today, build the fix in systems you already pay for, then measure it again.',
    get:['The process scoped and timed','A working tool on live work','Before and after measures','A named owner at handover'],
    prod:'Automation Starter', price:'£2,950', dur:'2 to 3 weeks',
    then:'<b>Once it works,</b> we rank the next two jobs worth doing.'},
-  {id:'stalled', q:'We\'ve started with AI, but it isn\'t adding up.',
+  {id:'stalled', q:'We\'ve started with AI, but it isn\'t adding up.', short:'AI isn\'t adding up yet',
    kind:'Advice', title:'An outside view on what\'s working.',
    how:'A session with your leadership team on what\'s paying off, what\'s wasting money, and what\'s exposing you.',
    get:['A go and no-go list','Anything exposing the business','A written summary next morning','One action, with an owner'],
@@ -610,7 +674,7 @@ var PROBLEMS = [
 
 (function(){
   var picker = document.getElementById('picker'), answer = document.getElementById('answer'), sel = document.getElementById('problemSelect');
-  var tabs = [];
+  var tabs = [], phone = window.matchMedia('(max-width: 700px)');
   PROBLEMS.forEach(function(p, i){
     var b = document.createElement('button');
     b.type = 'button';
@@ -622,7 +686,7 @@ var PROBLEMS = [
       if (d) { e.preventDefault(); show((i + d + PROBLEMS.length) % PROBLEMS.length, true); }
     });
     picker.appendChild(b); tabs.push(b);
-    var o = document.createElement('option'); o.value = p.id; o.textContent = p.q; sel.appendChild(o);
+    var o = document.createElement('option'); o.value = p.id; o.textContent = p.short; sel.appendChild(o);
   });
   var o = document.createElement('option'); o.value = 'other'; o.textContent = 'Something else'; sel.appendChild(o);
 
@@ -636,10 +700,12 @@ var PROBLEMS = [
       '<div class="ans-price"><span class="eyebrow">' + p.kind + '</span><h3>' + p.prod + '</h3><div class="p">' + p.price + '</div><span class="d">' + p.dur + ', fixed price</span>' +
       '<p class="then">' + p.then + '</p><a class="btn btn-primary" href="#contact" data-pick="' + p.id + '">Book a call about this</a></div>';
     sel.value = p.id;
+    if (phone.matches) tabs[i].after(answer); else picker.after(answer);
     if (focus) tabs[i].focus();
-    if (scroll && window.innerWidth < 900) answer.scrollIntoView({behavior:'smooth', block:'start'});
+    if (scroll && phone.matches) tabs[i].scrollIntoView({behavior:'smooth', block:'start'});
   }
   show(0);
+  phone.addEventListener('change', function(){ show(tabs.findIndex(function(t){ return t.getAttribute('aria-selected') === 'true'; })); });
 
   // Any "book" button tied to a problem preselects it in the form.
   document.addEventListener('click', function(e){

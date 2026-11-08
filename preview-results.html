@@ -97,6 +97,28 @@
   .ex dd{margin:2px 0 0;color:var(--muted)}
   .examples{grid-template-columns:repeat(2,1fr)}
   @media (max-width:800px){.examples{grid-template-columns:1fr}}
+
+  /* phones */
+  @media (max-width:700px){
+    .client{gap:18px;margin-bottom:32px}
+    .client dl{gap:12px;padding:16px 18px;border:1px solid var(--char-line);border-radius:12px}
+    .client dt{font-size:12px}
+    .client dd{font-size:16px}
+    .said-top{display:flex;flex-direction:column;gap:16px;margin-bottom:16px}
+    .said-top .q.big{order:-1}
+    .said-top .video{width:62%;max-width:240px;align-self:center}
+    .q{padding:20px;gap:16px}
+    .q.big{padding:22px}
+    .q.big blockquote{font-size:20px}
+    .q blockquote{font-size:16px}
+    .q figcaption{padding-top:14px}
+    .said-note{margin-top:20px}
+    .ex{padding:20px}
+    .ex .label{margin-bottom:10px}
+    .ex h3{font-size:19px}
+    .ex dt{margin-top:10px}
+    .ex dd{font-size:15px}
+  }
 </style>
 </head>
 <body>
@@ -156,7 +178,7 @@
           <figcaption><img src="assets/people/tom-mathew-dunsters-farm.jpg" alt="Tom Mathew" width="72" height="88" loading="lazy"><span><b>Tom Mathew</b>Commercial Director, Dunsters Farm</span></figcaption>
         </figure>
       </div>
-      <div class="said-grid">
+      <div class="said-grid m-swipe" aria-label="More from the Dunsters Farm leadership team">
         <figure class="q">
           <blockquote>“What stood out was the team's ability to understand the business in a relatively short space of time and distil complex information into clear, structured observations.”</blockquote>
           <figcaption><img src="assets/people/hannah-barlow-dunsters-farm.jpg" alt="Hannah Barlow" width="52" height="64" loading="lazy"><span><b>Hannah Barlow</b>Managing Director, Dunsters Farm</span></figcaption>
@@ -181,7 +203,7 @@
         <h2>Four common problems, and how we tackle them.</h2>
         <p>One for each thing we help with. These are typical examples, not results from a named client.</p>
       </div>
-      <div class="cards examples">
+      <div class="cards examples m-swipe" aria-label="Example problems and how we tackle them">
         <article class="card ex">
           <span class="label">Example</span>
           <p class="kind">Strategy and roadmap</p>
@@ -289,6 +311,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>

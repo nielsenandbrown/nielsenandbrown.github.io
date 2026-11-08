@@ -208,3 +208,91 @@ window.nbTrack = function (name, params) {
     });
   });
 })();
+
+// ── Mobile patterns (see the matching block in site.css) ──
+(function () {
+  var phone = window.matchMedia('(max-width: 700px)');
+
+  // .m-swipe: dots under each swipe row, kept in step with scrolling.
+  document.querySelectorAll('.m-swipe').forEach(function (row, n) {
+    var items = Array.prototype.slice.call(row.children);
+    if (items.length < 2) return;
+    var dots = document.createElement('div');
+    dots.className = 'm-dots';
+    var label = row.getAttribute('aria-label') || 'Cards';
+    if (row.hasAttribute('aria-label')) row.setAttribute('role', 'region');
+    items.forEach(function (item, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', label + ': ' + (i + 1) + ' of ' + items.length);
+      b.addEventListener('click', function () { row.scrollTo({ left: item.offsetLeft - row.offsetLeft - 16, behavior: 'smooth' }); });
+      dots.appendChild(b);
+    });
+    row.after(dots);
+    function update() {
+      var x = row.scrollLeft, best = 0, bestD = Infinity;
+      items.forEach(function (item, i) { var d = Math.abs(item.offsetLeft - row.offsetLeft - 16 - x); if (d < bestD) { bestD = d; best = i; } });
+      Array.prototype.forEach.call(dots.children, function (d, i) { d.setAttribute('aria-current', i === best); });
+    }
+    row.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    update();
+  });
+
+  // .m-collapse: fold a card's tick list behind a toggle on phones.
+  document.querySelectorAll('.m-collapse').forEach(function (card) {
+    var list = card.querySelector('.ticks');
+    if (!list) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'm-toggle';
+    b.setAttribute('aria-expanded', 'false');
+    b.textContent = card.getAttribute('data-toggle') || ('What you get (' + list.children.length + ')');
+    if (!list.id) list.id = 'ticks-' + Math.random().toString(36).slice(2, 8);
+    b.setAttribute('aria-controls', list.id);
+    b.addEventListener('click', function () {
+      var open = card.classList.toggle('open');
+      b.setAttribute('aria-expanded', open);
+    });
+    list.before(b);
+  });
+  // A card someone has linked to (#slug) opens, on arrival or on an in-page jump.
+  function openTarget() {
+    if (location.hash.length < 2) return;
+    var t = document.getElementById(location.hash.slice(1));
+    if (t && t.classList.contains('m-collapse')) { t.classList.add('open'); var tb = t.querySelector('.m-toggle'); if (tb) tb.setAttribute('aria-expanded', 'true'); }
+  }
+  openTarget();
+  window.addEventListener('hashchange', openTarget);
+
+  // Sticky call to action: appears once the visitor has scrolled past the
+  // first screen, and gets out of the way of the contact form, the footer and
+  // the cookie banner.
+  var bar = document.getElementById('m-cta');
+  if (bar) {
+    document.body.classList.add('has-m-cta');
+    var blockers = Array.prototype.slice.call(document.querySelectorAll('#contact, footer'));
+    var inView = {};
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { inView[blockers.indexOf(e.target)] = e.isIntersecting; });
+        place();
+      });
+      blockers.forEach(function (el) { io.observe(el); });
+    }
+    var consent = document.getElementById('cookie-consent');
+    function place() {
+      var blocked = Object.keys(inView).some(function (k) { return inView[k]; });
+      var bannerUp = consent && consent.classList.contains('visible');
+      bar.classList.toggle('show', phone.matches && window.scrollY > 520 && !blocked && !bannerUp);
+    }
+    window.addEventListener('scroll', place, { passive: true });
+    document.addEventListener('click', function () { setTimeout(place, 0); });
+    place();
+  }
+
+  // Lock page scroll while the mobile menu is open.
+  var menuBtn = document.getElementById('menu-btn');
+  if (menuBtn) new MutationObserver(function () {
+    document.body.classList.toggle('menu-open', menuBtn.getAttribute('aria-expanded') === 'true');
+  }).observe(menuBtn, { attributes: true, attributeFilter: ['aria-expanded'] });
+})();

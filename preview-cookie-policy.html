@@ -76,6 +76,19 @@
   .prose .table-scroll table{margin:0;min-width:560px}
   .prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap}
   .prose td:first-child{white-space:nowrap}
+  @media (max-width:700px){
+    /* Phones: each cookie becomes a card; purpose reads full width, short facts sit in pairs */
+    .table-scroll{overflow:visible;margin:16px 0 8px}
+    .prose .table-scroll table.cookie-table{min-width:0;--m-cols:2;border-top:1px solid var(--line)}
+    .prose .cookie-table tr{padding:18px 0 20px;gap:8px}
+    .prose .cookie-table tr > td:first-child{white-space:normal;padding-bottom:2px!important}
+    .prose .cookie-table code{font-size:15px;padding:3px 8px}
+    .prose .cookie-table tr > td:not(:first-child){align-items:flex-start;text-align:left;padding:10px 12px!important;font-size:15px;line-height:1.5;color:var(--ink)}
+    .prose .cookie-table tr > td:nth-child(2){grid-column:1/-1;background:none;padding:2px 0 6px!important;font-size:16px;line-height:1.55}
+    .prose .cookie-table tr:has(> td:nth-child(3):last-child) > td:nth-child(3){grid-column:1/-1}
+    .settings-box{padding:18px}
+    .settings-box .btn{width:100%}
+  }
 </style>
 </head>
 <body>
@@ -134,20 +147,20 @@
       <h3>Essential cookies</h3>
       <p>These cookies are necessary for the site to function properly and do not require your consent.</p>
 
-      <div class="table-scroll"><table>
+      <div class="table-scroll"><table class="m-table cookie-table">
         <thead>
           <tr><th scope="col">Cookie</th><th scope="col">Purpose</th><th scope="col">Duration</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><code>nb-consent</code></td>
-            <td>Remembers your cookie consent choice (accepted or declined) so the banner does not reappear on every visit. Set as a cookie on nielsenandbrown.com, so the choice also applies on our AI Readiness Score tool at score.nielsenandbrown.com and you are only asked once.</td>
-            <td>Persistent (until you clear your browser storage or change your choice)</td>
+            <td data-label="Purpose">Remembers your cookie consent choice (accepted or declined) so the banner does not reappear on every visit. Set as a cookie on nielsenandbrown.com, so the choice also applies on our AI Readiness Score tool at score.nielsenandbrown.com and you are only asked once.</td>
+            <td data-label="Duration">Persistent (until you clear your browser storage or change your choice)</td>
           </tr>
           <tr>
             <td><code>nb-attrib</code></td>
-            <td>If you arrive from an advert or a campaign link, this remembers which campaign it was, so that if you send us an enquiry we can see where it came from. Held only for the current browsing session and never used for advertising.</td>
-            <td>Session (cleared when you close the tab)</td>
+            <td data-label="Purpose">If you arrive from an advert or a campaign link, this remembers which campaign it was, so that if you send us an enquiry we can see where it came from. Held only for the current browsing session and never used for advertising.</td>
+            <td data-label="Duration">Session (cleared when you close the tab)</td>
           </tr>
         </tbody>
       </table></div>
@@ -155,22 +168,22 @@
       <h3>Analytics cookies (only set if you accept)</h3>
       <p>These cookies help us understand how visitors use our site in aggregate. They are only set after you click "Accept" on the cookie banner.</p>
 
-      <div class="table-scroll"><table>
+      <div class="table-scroll"><table class="m-table cookie-table">
         <thead>
           <tr><th scope="col">Cookie</th><th scope="col">Purpose</th><th scope="col">Duration</th><th scope="col">Provider</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><code>_ga</code></td>
-            <td>Distinguishes individual users for analytics, in a way that does not directly identify them</td>
-            <td>2 years</td>
-            <td>Google Analytics</td>
+            <td data-label="Purpose">Distinguishes individual users for analytics, in a way that does not directly identify them</td>
+            <td data-label="Duration">2 years</td>
+            <td data-label="Provider">Google Analytics</td>
           </tr>
           <tr>
             <td><code>_ga_V9Q0XLTP7Q</code></td>
-            <td>Used by Google Analytics 4 to persist session state for our specific property</td>
-            <td>2 years</td>
-            <td>Google Analytics</td>
+            <td data-label="Purpose">Used by Google Analytics 4 to persist session state for our specific property</td>
+            <td data-label="Duration">2 years</td>
+            <td data-label="Provider">Google Analytics</td>
           </tr>
         </tbody>
       </table></div>
@@ -261,6 +274,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>

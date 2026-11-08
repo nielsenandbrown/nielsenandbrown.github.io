@@ -146,6 +146,43 @@
   .path .you{font-size:14px;font-weight:600;color:var(--charcoal)}
   @media (max-width:900px){.psr{grid-template-columns:1fr}.psr div{border-left:0;border-top:1px solid var(--line)}.psr div:first-child{border-top:0}.path{grid-template-columns:1fr 1fr}}
   @media (max-width:600px){.head-ctas .btn{width:100%}.path{grid-template-columns:1fr}.need li{font-size:17px}}
+  /* phones */
+  @media (max-width:700px){
+    .page-head .lede{font-size:17px}
+    .head-ctas{margin-top:24px;gap:10px}
+    .split{gap:40px}
+    .split h2{margin:10px 0 16px}
+    .need{gap:8px}
+    .need li{padding:13px 16px;font-size:16px}
+    #problem .ticks{margin:0}
+    #problem .ticks li{padding:9px 0 9px 28px}
+    #problem .ticks li span{font-size:14px;line-height:1.45;margin-top:2px}
+    #prices .card{padding:20px}
+    #prices .card .price{font-size:32px}
+    #prices .card .ticks{margin:12px 0 0}
+    #prices .card .ticks li{font-size:15px;padding:6px 0 6px 26px}
+    #prices .card .ticks li::before{top:13px}
+    .cards-foot .link,.ex-links .link,.path .link{display:inline-block;padding:10px 0;margin:-10px 0}
+    #prices .card .more{margin:auto 0 -10px;padding:20px 0 10px}
+    .cards-foot{margin-top:18px}
+    .free-line{margin-top:22px}
+    .psr div{padding:18px 20px}
+    .psr p{font-size:16px}
+    .ex-links{margin-top:18px}
+    .path{gap:0;counter-reset:none}
+    .path li{position:relative;background:none;border:0;border-radius:0;padding:0 0 26px 34px;gap:3px}
+    .path li:last-child{padding-bottom:0}
+    .path li::before{content:"";position:absolute;left:4px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);box-sizing:border-box;z-index:1}
+    .path li::after{content:"";position:absolute;left:9px;top:18px;bottom:-2px;width:2px;background:var(--line)}
+    .path li:last-child::after{display:none}
+    .path li.here{border:0}
+    .path li.here::before{background:var(--charcoal);border-color:var(--charcoal);box-shadow:0 0 0 4px rgba(198,160,82,.35)}
+    .path li.here h3{font-size:20px}
+    .path h3{font-size:18px}
+    .path p{font-size:15px;flex:none}
+    .path .you{position:absolute;right:0;top:-2px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--charcoal);color:var(--cream);padding:4px 10px;border-radius:99px}
+    .cta-band .ctas{flex-direction:column}
+  }
 </style>
 </head>
 <body>
@@ -215,7 +252,7 @@
         <h2>Fixed prices. From one session to a programme.</h2>
         <p>Start with one team for half a day. Build up from there if it lands.</p>
       </div>
-      <div class="cards">
+      <div class="cards m-swipe" aria-label="Prices">
         <article class="card">
           <p class="tag">Half day</p>
           <h3>AI in Practice</h3>
@@ -361,6 +398,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="../preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="../preview-cookie-policy.html">cookie policy</a>.</p>

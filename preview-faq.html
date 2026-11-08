@@ -183,6 +183,27 @@
   .faq-group + .faq-group{margin-top:56px}
   .faq-group h2{font-size:clamp(24px,2.6vw,30px);margin-bottom:12px}
   .faq a{color:var(--action);font-weight:500}
+
+  /* phones */
+  @media (max-width:700px){
+    .faq-jump{margin:-8px -16px 28px;padding:2px 16px 6px}
+    .faq-jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--charcoal);font-size:15px;font-weight:600;text-decoration:none}
+    .faq-group{scroll-margin-top:92px}
+    .faq-group + .faq-group{margin-top:40px}
+    .faq-group h2{font-size:24px;margin-bottom:14px}
+    .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0}
+    .faq details + details{margin-top:8px}
+    .faq details:last-child{border-bottom:1px solid var(--line)}
+    .faq summary{align-items:center;min-height:56px;padding:14px 16px 14px 18px;font-size:17px;line-height:1.35}
+    .faq summary::after{flex:none;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--paper);font-size:20px}
+    .faq details[open]{border-color:var(--gold)}
+    .faq details[open] summary{padding-bottom:6px}
+    .faq details > :not(summary){padding:0 18px}
+    .faq details > :last-child:not(summary){padding-bottom:18px}
+    .faq details p,.faq details ul{font-size:16px;margin-top:8px}
+    .faq details ul{padding-left:38px}
+    .cta-band .ctas{flex-direction:column}
+  }
 </style>
 </head>
 <body>
@@ -219,6 +240,8 @@
 
   <section class="sec paper" id="faq" data-track>
     <div class="wrap">
+
+      <nav class="faq-jump m-only m-chips" aria-label="FAQ topics"><a href="#about-us">About us</a><a href="#cost-and-scope">Cost</a><a href="#data-and-safety">Data and safety</a></nav>
 
       <div class="faq faq-group" id="about-us">
         <h2>About us</h2>
@@ -342,6 +365,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>

@@ -173,3 +173,81 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .video .vcap b{display:block;font-size:16px;color:var(--cream)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (max-width:600px){.video .play{width:60px;height:60px;margin:-30px 0 0 -30px}}
+
+/* ── Mobile patterns (desktop unaffected) ─────────────────────────────────
+   .m-swipe      card grid becomes a horizontal swipe row with dots (≤700px)
+   .m-collapse   on a card: its .ticks list folds behind a toggle (≤700px)
+   .m-chips      row of links/chips scrolls sideways instead of wrapping
+   .m-table      table rows become stacked cards; cells need data-label
+   .m-hide       hidden on phones; .m-only shown only on phones (inline)
+   .m-cta        sticky bottom bar (markup in the footer partial)          */
+.m-dots,.m-toggle,.m-cta,.m-only{display:none}
+@media (max-width:700px){
+  .m-swipe{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px!important;margin-left:-16px;margin-right:-16px;padding:4px 16px 6px;scroll-padding-left:16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .m-swipe::-webkit-scrollbar{display:none}
+  .m-swipe > *{flex:0 0 84%;min-width:0;scroll-snap-align:start}
+  .m-swipe > :last-child{margin-right:0}
+  .m-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .m-dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
+  .m-dots button[aria-current="true"]{width:22px;background:var(--gold)}
+  .dark .m-dots button{background:var(--char-line)}
+  .dark .m-dots button[aria-current="true"]{background:var(--gold)}
+  .m-dots button::after{content:"";position:absolute;inset:-12px -6px}
+  .m-dots button{position:relative}
+
+  .m-collapse .ticks{display:none}
+  .m-collapse.open .ticks{display:block}
+  .m-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin:14px 0 4px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--cream);font:inherit;font-size:15px;font-weight:600;color:var(--charcoal);cursor:pointer}
+  .m-toggle::after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+  .m-collapse.open .m-toggle::after{content:"\2013"}
+  .dark .m-toggle{background:var(--char-2);border-color:var(--char-line);color:var(--cream)}
+
+  .m-chips{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;gap:8px;margin-left:-16px;margin-right:-16px;padding:2px 16px 6px;scrollbar-width:none}
+  .m-chips::-webkit-scrollbar{display:none}
+  .m-chips > *{flex:none;white-space:nowrap}
+
+  .m-table,.m-table tbody{display:block}
+  .m-table thead{display:none}
+  .m-table tr{display:grid;grid-template-columns:repeat(var(--m-cols,3),1fr);gap:6px 8px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .m-table tr > :first-child{grid-column:1/-1;font-weight:600;padding:0 0 4px!important;border:0!important;text-align:left!important}
+  .m-table tr > :not(:first-child){display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px!important;border:0!important;border-radius:8px;background:var(--paper);text-align:center;font-size:14px}
+  .m-table tr > :not(:first-child)::before{content:attr(data-label);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .dark .m-table tr{border-color:var(--char-line)}
+  .dark .m-table tr > :not(:first-child){background:var(--char-2)}
+  .dark .m-table tr > :not(:first-child)::before{color:var(--muted-dark)}
+  .m-hide{display:none!important}
+  .m-only{display:inline}
+
+  /* sticky call to action */
+  .m-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(250,248,243,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
+  .m-cta.show{transform:none}
+  .m-cta .btn{flex:1;padding:13px 10px;font-size:15px}
+  .m-cta .btn-ghost{flex:0 0 auto;padding:13px 16px}
+  body.has-m-cta footer{padding-bottom:96px}
+  .consent{bottom:calc(16px + env(safe-area-inset-bottom))}
+
+  /* in-page links land below the sticky header */
+  [id]{scroll-margin-top:88px}
+
+  /* type and rhythm */
+  h1{font-size:clamp(34px,9.4vw,44px)}
+  h2{font-size:clamp(27px,7.4vw,32px)}
+  .sec{padding:56px 0}
+  .sec-head{margin-bottom:28px}
+  .sec-head p{font-size:17px}
+  .page-head{padding:36px 0 32px}
+  .page-head h1{font-size:clamp(32px,9vw,42px)}
+  .card{padding:22px}
+  .cta-band .ctas{width:100%;flex-direction:column}
+  .cta-band .ctas .btn{width:100%}
+  .free-line{padding:18px}
+  .free-line p{font-size:16px}
+  .free-line .btn{width:100%}
+}
+
+/* mobile menu: full height panel with large links */
+@media (max-width:900px){
+  .nav.open .nav-links{min-height:calc(100dvh - 76px);overflow-y:auto;padding:12px 20px 28px}
+  .nav-links a:not(.btn){font-size:22px;font-weight:600;padding:16px 4px;color:var(--charcoal)}
+  body.menu-open{overflow:hidden}
+}

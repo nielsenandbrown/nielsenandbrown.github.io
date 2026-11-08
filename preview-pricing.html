@@ -128,6 +128,55 @@
   .good .ticks{margin:0}
   @media (max-width:760px){.good{grid-template-columns:1fr}}
   @media (max-width:600px){.grp{padding:52px 0}.card{padding:22px}}
+
+  /* phones */
+  @media (max-width:700px){
+    .page-head{padding-bottom:28px}
+    .jump-pin.m-chips{display:flex!important;position:sticky;top:var(--nav-h,76px);z-index:15;margin:0;padding:10px 16px;gap:8px;background:rgba(250,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);scroll-padding-left:16px}
+    .jump-pin a{font-weight:600;text-decoration:none;color:var(--charcoal);border:1.5px solid var(--line);background:#fff;border-radius:999px;display:inline-flex;align-items:center;min-height:40px;font-size:14px;padding:0 14px;transition:background .2s,color .2s,border-color .2s}
+    .jump-pin a span{color:var(--gold-text);font-weight:500;margin-left:6px}
+    .jump-pin a.on{background:var(--charcoal);border-color:var(--charcoal);color:var(--cream)}
+    .jump-pin a.on span{color:var(--gold)}
+    main section[id]{scroll-margin-top:calc(var(--nav-h,76px) + 61px)}
+    .card,.score .card{scroll-margin-top:calc(var(--nav-h,76px) + 76px)}
+
+    #start{padding:44px 0 48px}
+    .score{gap:24px}
+    .score .lead{font-size:17px;margin-top:10px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:20px 0 22px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .stats li{padding:12px 4px 11px;text-align:center;font-size:12px;line-height:1.3;border-left:1px solid var(--line)}
+    .stats li:first-child{border-left:0}
+    .stats b{font-size:24px;margin-bottom:2px}
+    .score .btn{display:flex;width:100%;justify-content:center;text-align:center}
+    .score .small{text-align:center}
+
+    .grp{padding:48px 0}
+    .grp-head{margin-bottom:20px;gap:12px}
+    .grp-head h2{margin-top:8px}
+    .grp-head p{font-size:17px;margin-top:8px}
+    .grp-head .band{font-size:15px;margin:0;padding:6px 14px;background:#fff;border:1px solid var(--line);border-radius:999px}
+    .cards{gap:12px}
+
+    .grp .card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px}
+    .grp .card > *{grid-column:1/-1}
+    .grp .card .price{grid-column:1;grid-row:1;font-size:28px;margin:0}
+    .grp .card .kind{grid-column:2;grid-row:1;justify-self:end;font-size:11px;letter-spacing:.05em;padding:4px 9px;border-radius:999px;background:var(--sand);color:var(--charcoal)}
+    .grp .card .price{white-space:nowrap}
+    #pilot-delivery-sprint .price{font-size:clamp(20px,6.2vw,24px)}
+    .card h3{font-size:21px;margin:6px 0 2px}
+    .card .who{margin-top:10px;font-size:15px;line-height:1.45}
+    .card .note{margin-top:10px}
+    .card .m-toggle{margin-top:14px}
+    .card .ticks{margin:10px 0 4px}
+    .card.m-collapse:not(.open) .next{display:none}
+    .card .next{margin-top:8px;padding-top:12px}
+    .card .more{display:flex;align-items:center;min-height:44px;padding-top:6px;margin-bottom:-8px}
+
+    .cta-band .ctas{flex-direction:column}
+    .good{gap:0}
+    .good .ticks li{padding-top:10px;padding-bottom:10px}
+    .good .ticks + .ticks li:first-child{border-top:1px solid var(--paper)}
+  }
 </style>
 </head>
 <body>
@@ -159,7 +208,7 @@
       <p class="eyebrow">Prices</p>
       <h1>Every service, priced up front.</h1>
       <p class="lede">Fixed scope, fixed price, and something you keep at the end. Start small, see the work, then decide. If a step doesn't earn the next one, you stop there.</p>
-      <nav class="jump" aria-label="Jump to a group">
+      <nav class="jump m-hide" aria-label="Jump to a group">
         <a href="#start">Free score<span>£0</span></a>
         <a href="#first-step">First step<span>£995 to £2,950</span></a>
         <a href="#go-further">Go further<span>£3,500 to £4,500</span></a>
@@ -168,6 +217,14 @@
       </nav>
     </div>
   </section>
+
+  <nav class="jump-pin m-only m-chips" id="jump-pin" aria-label="Jump to a group">
+    <a href="#start">Free score<span>£0</span></a>
+    <a href="#first-step">First step<span>£995 to £2,950</span></a>
+    <a href="#go-further">Go further<span>£3,500 to £4,500</span></a>
+    <a href="#plan">The plan<span>£4,500 and £5,500</span></a>
+    <a href="#beyond">Build and keep it working<span>From £6,500</span></a>
+  </nav>
 
   <section class="sec paper" id="start" data-track>
     <div class="wrap score">
@@ -184,7 +241,7 @@
         <a class="btn btn-primary" href="https://score.nielsenandbrown.com" data-ga="cta_pricing_score">Get your free AI readiness report</a>
         <p class="small">No payment details. The report is yours whether or not we ever speak.</p>
       </div>
-      <article class="card" id="ai-readiness-score">
+      <article class="card m-collapse" id="ai-readiness-score" data-toggle="What your report shows (6)">
         <span class="kind">Free</span>
         <h3>AI Readiness Score</h3>
         <p class="dur">20 minutes, online</p>
@@ -212,7 +269,7 @@
       </div>
       <div class="cards">
 
-        <article class="card" id="ai-starting-point">
+        <article class="card m-collapse" id="ai-starting-point">
           <span class="kind">Plan</span>
           <div class="price">£995</div>
           <h3>AI Starting Point</h3>
@@ -229,7 +286,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_ai_starting_point">Book a call about this →</a>
         </article>
 
-        <article class="card" id="ai-in-practice">
+        <article class="card m-collapse" id="ai-in-practice">
           <span class="kind">Train</span>
           <div class="price">£1,250</div>
           <h3>AI in Practice</h3>
@@ -247,7 +304,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_ai_in_practice">Book a call about this →</a>
         </article>
 
-        <article class="card" id="shadow-ai-audit">
+        <article class="card m-collapse" id="shadow-ai-audit">
           <span class="kind">Check</span>
           <div class="price">£1,500</div>
           <h3>Shadow AI Audit</h3>
@@ -264,7 +321,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_shadow_ai_audit">Book a call about this →</a>
         </article>
 
-        <article class="card" id="fractional-advisory-day">
+        <article class="card m-collapse" id="fractional-advisory-day">
           <span class="kind">Advise</span>
           <div class="price">£1,950</div>
           <h3>Fractional Advisory Day</h3>
@@ -281,7 +338,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_fractional_advisory_day">Book a call about this →</a>
         </article>
 
-        <article class="card" id="ai-foundations-day">
+        <article class="card m-collapse" id="ai-foundations-day">
           <span class="kind">Train</span>
           <div class="price">£2,195</div>
           <h3>AI Foundations Day</h3>
@@ -299,7 +356,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_ai_foundations_day">Book a call about this →</a>
         </article>
 
-        <article class="card" id="automation-starter">
+        <article class="card m-collapse" id="automation-starter">
           <span class="kind">Build</span>
           <div class="price">£2,950</div>
           <h3>Automation Starter</h3>
@@ -332,7 +389,7 @@
       </div>
       <div class="cards">
 
-        <article class="card" id="automation-sprint">
+        <article class="card m-collapse" id="automation-sprint">
           <span class="kind">Build</span>
           <div class="price">£4,500</div>
           <h3>Automation Sprint</h3>
@@ -350,7 +407,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_automation_sprint">Book a call about this →</a>
         </article>
 
-        <article class="card" id="data-readiness-check">
+        <article class="card m-collapse" id="data-readiness-check">
           <span class="kind">Check</span>
           <div class="price">£3,500</div>
           <h3>Data Readiness Check</h3>
@@ -383,7 +440,7 @@
       </div>
       <div class="cards">
 
-        <article class="card" id="diagnostic-assessment">
+        <article class="card m-collapse" id="diagnostic-assessment">
           <span class="kind">Stage one of two</span>
           <div class="price">£4,500</div>
           <h3>Diagnostic Assessment</h3>
@@ -400,7 +457,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_diagnostic_assessment">Book a call about this →</a>
         </article>
 
-        <article class="card" id="strategy-roadmap">
+        <article class="card m-collapse" id="strategy-roadmap">
           <span class="kind">Stage two of two</span>
           <div class="price">£5,500</div>
           <h3>Strategy &amp; Roadmap</h3>
@@ -432,7 +489,7 @@
       </div>
       <div class="cards">
 
-        <article class="card" id="pilot-delivery-sprint">
+        <article class="card m-collapse" id="pilot-delivery-sprint">
           <span class="kind">Build</span>
           <div class="price">£10,000 to £15,000</div>
           <h3>Pilot Delivery Sprint</h3>
@@ -449,7 +506,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_pilot_delivery_sprint">Book a call about this →</a>
         </article>
 
-        <article class="card" id="ai-champions-programme">
+        <article class="card m-collapse" id="ai-champions-programme">
           <span class="kind">Train</span>
           <div class="price">£6,500</div>
           <h3>AI Champions Programme</h3>
@@ -466,7 +523,7 @@
           <a class="link more" href="preview.html#contact" data-ga="cta_pricing_ai_champions_programme">Book a call about this →</a>
         </article>
 
-        <article class="card" id="continuing-partnership">
+        <article class="card m-collapse" id="continuing-partnership">
           <span class="kind">Keep it working</span>
           <div class="price">Monthly</div>
           <h3>Continuing Partnership</h3>
@@ -572,6 +629,11 @@
   </div>
 </footer>
 
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
+
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>
   <div class="consent-actions">
@@ -581,5 +643,37 @@
 </div>
 <script src="assets/preview/site.js"></script>
 <!-- /shell:footer -->
+<script>
+// Phones: highlight the group in view in the sticky jump bar.
+(function () {
+  var bar = document.getElementById('jump-pin');
+  var nav = document.querySelector('.nav');
+  if (!bar) return;
+  function navH() { if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  navH(); window.addEventListener('resize', navH);
+  var links = Array.prototype.slice.call(bar.querySelectorAll('a'));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = null, ticking = false;
+  function update() {
+    ticking = false;
+    if (!bar.offsetParent) return;
+    var mark = (nav ? nav.offsetHeight : 76) + bar.offsetHeight + 40, pick = -1;
+    secs.forEach(function (sec, i) { if (sec && sec.getBoundingClientRect().top <= mark) pick = i; });
+    var last = secs[secs.length - 1];
+    if (last && last.getBoundingClientRect().bottom < mark) pick = -1;
+    if (pick === current) return;
+    current = pick;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === pick); if (i === pick) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+    if (pick >= 0) bar.scrollTo({ left: links[pick].offsetLeft - 16, behavior: 'smooth' });
+  }
+  // A product linked from elsewhere on the page opens its list too.
+  window.addEventListener('hashchange', function () {
+    var t = document.getElementById(location.hash.slice(1));
+    if (t && t.classList.contains('m-collapse') && !t.classList.contains('open')) { var tb = t.querySelector('.m-toggle'); if (tb) tb.click(); }
+  });
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>

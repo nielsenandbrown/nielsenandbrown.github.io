@@ -114,6 +114,39 @@
   .rules .cards{grid-template-columns:repeat(4,1fr)}
   @media (max-width:1000px){.rules .cards{grid-template-columns:1fr 1fr}}
   @media (max-width:600px){.rules .cards{grid-template-columns:1fr}}
+
+  /* phones */
+  @media (max-width:700px){
+    .qs{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 18px}
+    .qs li{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:14px;background:none;border:0;border-top:1px solid var(--paper);border-radius:0;padding:16px 0}
+    .qs li:first-child{border-top:0}
+    .qs li::before{grid-row:1/3;width:30px;height:30px;font-size:14px;margin:0}
+    .qs h3{font-size:18px;line-height:1.3;align-self:center}
+    .qs p{margin-top:4px;font-size:15px;line-height:1.45}
+    .qs-note{margin-top:16px}
+
+    .stages{position:relative}
+    .stage{grid-template-columns:36px minmax(0,1fr);gap:0 16px;padding:0 0 32px;border:0;position:relative}
+    .stage:last-child{border:0;padding-bottom:0}
+    .stage::before{content:"";position:absolute;left:17px;top:40px;bottom:4px;width:2px;background:var(--line)}
+    .stage:last-child::before{display:none}
+    .stage .num{grid-row:1/3;width:36px;height:36px;font-size:16px;background:var(--cream);position:relative}
+    .stage > div{grid-column:2;padding-top:3px}
+    .stage h3{font-size:21px;line-height:1.25}
+    .stage .band{margin-top:4px;font-size:16px}
+    .stage .say{margin-top:6px;font-size:16px;line-height:1.5}
+    .stage .prods{grid-column:2;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 14px}
+    .prods a{padding:12px 0;min-height:44px;align-content:center}
+    .prods b{font-size:16px}
+    .prods em{font-size:16px}
+    .prods span{font-size:14px;line-height:1.4;margin-top:1px}
+    .prods li:first-child a[href^="https"] span{margin-top:3px}
+
+    .rules .cards{display:grid;grid-template-columns:1fr}
+    .rules .card{padding:20px}
+    .rules .card h3{font-size:19px}
+    .cta-band .ctas{flex-direction:column}
+  }
 </style>
 </head>
 <body>
@@ -249,7 +282,7 @@
         <p class="eyebrow">Every time</p>
         <h2>What stays the same.</h2>
       </div>
-      <div class="cards">
+      <div class="cards m-swipe" aria-label="What stays the same">
         <article class="card">
           <h3>Fixed scope, fixed price</h3>
           <p>Agreed before we start, with something you keep at the end.</p>
@@ -333,6 +366,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>

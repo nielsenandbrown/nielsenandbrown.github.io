@@ -74,6 +74,29 @@
   #soro-blog,#soro-blog *{font-family:'Jost','Helvetica Neue',Arial,sans-serif!important}
   #soro-blog h1,#soro-blog h2,#soro-blog h3,#soro-blog h4{color:var(--charcoal)}
   .blog-note{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:16px;max-width:720px}
+  @media (max-width:700px){
+    /* Phones: the Soro cards become a compact list (thumbnail left, title and date right) */
+    #soro-blog .soro-blog-list{gap:0;border-top:1px solid var(--line)}
+    #soro-blog .soro-blog-card{flex-direction:row;align-items:center;gap:14px;padding:14px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+    #soro-blog .soro-blog-card:active{background:var(--paper)}
+    #soro-blog .soro-blog-card-image{width:92px;height:70px;border-radius:8px;flex:0 0 92px;background:var(--paper)}
+    #soro-blog .soro-blog-card-content{display:flex;flex-direction:column;gap:6px}
+    #soro-blog h2.soro-blog-card-title{font-size:16px;line-height:1.3;margin:0;color:var(--charcoal);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    #soro-blog .soro-blog-card-excerpt{display:none}
+    #soro-blog .soro-blog-card-date{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+    /* single-post view */
+    #soro-blog .soro-blog-article-title{font-size:clamp(27px,7.4vw,32px);line-height:1.15}
+    #soro-blog .soro-blog-article-image{max-height:240px;border-radius:10px}
+    #soro-blog .soro-blog-article-content{font-size:17px;line-height:1.65;overflow-wrap:break-word}
+    #soro-blog .soro-blog-article-content h2{font-size:23px}
+    #soro-blog .soro-blog-article-content h3{font-size:19px}
+    #soro-blog .soro-blog-article-content table{display:block;overflow-x:auto;max-width:100%}
+    /* long list: show the latest 15, the rest behind a button */
+    #soro-blog:not(.show-all) .soro-blog-card:nth-child(n+16){display:none}
+    .blog-more.ready:not([hidden]){display:flex;width:100%;margin-top:20px}
+    .blog-note{margin-top:28px}
+  }
+  .blog-more{display:none}
 </style>
 </head>
 <body>
@@ -113,6 +136,16 @@
       <h2 class="sr-only">Latest posts</h2>
       <div id="soro-blog"></div>
       <script src="https://app.trysoro.com/api/embed/fba939fc-95e0-4343-b4c7-f61b00933430" defer></script>
+      <button type="button" class="btn btn-ghost blog-more" hidden>Show all posts</button>
+      <script>
+        (function(){
+          var box=document.getElementById('soro-blog'),btn=box.parentNode.querySelector('.blog-more');
+          function check(){var n=box.querySelectorAll('.soro-blog-card').length;var list=box.querySelector('.soro-blog-list');var visible=list&&list.offsetParent!==null;
+            if(n>15&&visible&&!box.classList.contains('show-all')){btn.textContent='Show all '+n+' posts';btn.hidden=false;btn.classList.add('ready')}else{btn.hidden=true}}
+          new MutationObserver(check).observe(box,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
+          btn.addEventListener('click',function(){box.classList.add('show-all');btn.hidden=true;var c=box.querySelectorAll('.soro-blog-card')[15];if(c)c.focus({preventScroll:true})});
+        })();
+      </script>
       <noscript><p>Posts load with JavaScript. You'll also find us on <a class="link" href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p></noscript>
       <p class="blog-note">Want to talk something through rather than read about it? <a class="link" href="preview.html#contact" data-ga="cta_blog_book">Book a 30-minute call →</a></p>
     </div>
@@ -181,6 +214,11 @@
     </div>
   </div>
 </footer>
+
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="preview.html#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
+</div>
 
 <div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="preview-cookie-policy.html">cookie policy</a>.</p>
