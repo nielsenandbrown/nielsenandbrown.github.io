@@ -1,2400 +1,679 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    // Consent Mode: set defaults BEFORE the 'js' command so storage is denied
-    // from the very first hit, until the visitor accepts cookies.
-    gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
-    gtag('js', new Date());
-    // gtag('config', ...) is deferred to the cookie-consent grant (see footer script).
-  </script>
-
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Pricing and engagement | Nielsen &amp; Brown</title>
-  <meta name="description" content="Fixed scope, fixed price AI engagements for UK businesses with 10 to 300 people. Start with a free AI Readiness Score, or pick the question you are actually asking."/>
-  <!-- The engagement selector now lives on the homepage. This page is kept for
-       direct sends only, so it is excluded from search to avoid duplicate content. -->
-  <meta name="robots" content="noindex, follow"/>
-  <link rel="canonical" href="https://www.nielsenandbrown.com/pricing"/>
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
-  <link rel="icon" href="favicon.ico"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
-
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.nielsenandbrown.com/pricing"/>
-  <meta property="og:site_name" content="Nielsen &amp; Brown"/>
-  <meta property="og:title" content="Pricing and engagement | Nielsen &amp; Brown"/>
-  <meta property="og:description" content="Fixed scope, fixed price AI engagements. Every engagement published, with what you keep at the end of it."/>
-  <meta property="og:locale" content="en_GB"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <!-- Fonts: single combined request, loaded async so it never blocks first paint.
-       Cormorant Garamond for headings, Jost for body, per the brand spec.
-       System fallbacks (Georgia / system-ui) apply until they load. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'"/>
-  <noscript>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"/>
-  </noscript>
-
-  <style>
-/* ═══════════════════════════════════════════════
-       DESIGN TOKENS — Nielsen & Brown Brand
-    ══════════════════════════════════════════════════ */
-    :root {
-      --cream:        #FAF8F3;
-      --cream-2:      #F2EDE6;
-      --cream-3:      #E9E1D2;
-      --charcoal:     #2C2C29;
-      --charcoal-2:   #3A3A36;
-      --charcoal-3:   #4A4A45;
-      --gold:         #B8924A;
-      --gold-light:   #C9A867;
-      --gold-pale:    #E9DCC0;
-      --action:       #A64B2A;
-      --action-dark:  #8E3F23;
-      --gold-deep:    #9C7936;
-      --ink:          #403D34;
-      --line:         #DCD3BF;
-      --muted:        #7D7968;
-      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
-      --muted-2:      #6E6A5A;   /* darkened: was #9C9989 at 2.46:1, now 4.66:1 */
-      --stone:        #DCD3BF;
-      --stone-2:      #E9E1D2;
-
-      --font-display: 'Cormorant Garamond', Cormorant, Georgia, serif;
-      --font-body:    'Jost', 'Calibri', sans-serif;
-
-      --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
-      --shadow-sm:    0 2px 12px rgba(44,44,41,0.08);
-      --shadow-md:    0 8px 32px rgba(44,44,41,0.12);
-      --shadow-lg:    0 20px 60px rgba(44,44,41,0.16);
-    }
-/* ═══════════════════════════════════════════════
-       RESET & BASE
-    ══════════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--charcoal);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: var(--font-body); }
-ul { list-style: none; }
-/* Visible keyboard focus for all interactive elements */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible,
-    [tabindex]:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-/* Respect users who prefer reduced motion: disable reveals, marquee,
-       hero entrance animations, and smooth scrolling. */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal, .reveal-left, .reveal-right,
-      .hero-eyebrow, .hero-headline, .hero-sub, .hero-actions, .hero-stats {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-      .marquee-track { animation: none !important; }
-    }
-/* ═══════════════════════════════════════════════
-       SCROLL ANIMATIONS
-    ══════════════════════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-.reveal-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-.reveal-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-/* ═══════════════════════════════════════════════
-       NAVIGATION
-    ══════════════════════════════════════════════════ */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 1.4rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
-    }
-#nav.scrolled {
-      background: rgba(250,248,243, 0.97);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 var(--stone);
-      padding: 1rem 5%;
-    }
-.nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--charcoal);
-      display: flex;
-      align-items: baseline;
-      gap: 0;
-    }
-.nav-logo .amp {
-      color: var(--gold);
-      font-style: normal;
-      font-weight: 600;
-      padding: 0 0.06em;
-    }
-.nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-.nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.25s;
-    }
-.nav-links a:hover { color: var(--charcoal); }
-.nav-cta {
-      background: var(--charcoal) !important;
-      color: var(--cream) !important;
-      padding: 0.65rem 1.5rem;
-      font-size: 0.78rem !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase !important;
-      font-weight: 500 !important;
-      border: 2px solid var(--charcoal);
-      transition: background 0.25s, color 0.25s, border-color 0.25s !important;
-    }
-.nav-cta:hover {
-      background: var(--gold) !important;
-      border-color: var(--gold) !important;
-      color: var(--cream) !important;
-    }
-.nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-.nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--charcoal);
-      transition: transform 0.3s, opacity 0.3s;
-    }
-/* ═══════════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 5% 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-.hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(184,146,74,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(184,146,74,0.04) 0%, transparent 50%);
-    }
-.hero-grain {
-      position: absolute;
-      inset: 0;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-    }
-/* large decorative ampersand */
-    .hero-amp {
-      position: absolute;
-      right: -2%;
-      top: 50%;
-      transform: translateY(-55%);
-      width: clamp(20rem, 30vw, 38rem);
-      aspect-ratio: 400 / 500;
-      /* the brand mark itself, so it cannot drift from the asset */
-      background: url("assets/brand/NB_Watermark_Mark.svg") center / contain no-repeat;
-      opacity: 0.30;
-      user-select: none;
-      pointer-events: none;
-      font-size: 0;
-    }
-.hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1120px;
-      margin: 0 auto;
-      width: 100%;
-    }
-.hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      animation: heroFadeUp 0.9s 0.2s var(--ease-out) both;
-    }
-.hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
-    }
-.hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(3.2rem, 7vw, 7rem);
-      font-weight: 300;
-      line-height: 1.03;
-      letter-spacing: -0.01em;
-      color: var(--charcoal);
-      margin-bottom: 2.5rem;
-      max-width: 900px;
-      animation: heroFadeUp 0.9s 0.4s var(--ease-out) both;
-    }
-.hero-headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
-.hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-      margin-bottom: 3.5rem;
-      animation: heroFadeUp 0.9s 0.6s var(--ease-out) both;
-    }
-.hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      animation: heroFadeUp 0.9s 0.8s var(--ease-out) both;
-    }
-.btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--charcoal);
-      color: var(--cream);
-      padding: 1rem 2.2rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-    }
-.btn-primary:hover {
-      background: var(--gold);
-      transform: translateY(-2px);
-    }
-.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.btn-primary:hover svg { transform: translateX(3px); }
-.btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--charcoal);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--stone);
-      padding-bottom: 3px;
-      transition: color 0.25s, border-color 0.25s;
-    }
-.btn-outline:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-/* Hero Stats */
-    .hero-stats {
-      display: flex;
-      gap: 0;
-      margin-top: 5rem;
-      border-top: 1px solid var(--stone-2);
-      padding-top: 3rem;
-      animation: heroFadeUp 0.9s 1s var(--ease-out) both;
-    }
-.hero-stat {
-      flex: 1;
-      padding-right: 3rem;
-      border-right: 1px solid var(--stone-2);
-      margin-right: 3rem;
-    }
-.hero-stat:last-child {
-      border-right: none;
-      margin-right: 0;
-    }
-.hero-stat-num {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 4vw, 3.5rem);
-      font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-.hero-stat-num span { color: var(--gold); }
-.hero-stat-label {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      line-height: 1.4;
-    }
-/* Fill mode is "both", and the rules above deliberately carry no
-   opacity: 0. Reduce Motion forces animation-duration to 0, and a
-   zero-duration animation applies no fill at all, so a base
-   opacity: 0 would leave the whole hero invisible permanently
-   rather than merely unanimated. "both" supplies the start state
-   while the animation runs and nothing when it does not. */
-    @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-/* ═══════════════════════════════════════════════
-       MARQUEE TRUST BAR
-    ══════════════════════════════════════════════════ */
-    #trust-bar {
-      background: var(--charcoal-2);
-      padding: 1.1rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-.marquee-track {
-      display: flex;
-      gap: 4rem;
-      width: max-content;
-      animation: marquee 32s linear infinite;
-    }
-.marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(250,248,243,0.45);
-      white-space: nowrap;
-    }
-.marquee-item .dot {
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-@keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-/* ═══════════════════════════════════════════════
-       SECTION HEADERS
-    ══════════════════════════════════════════════════ */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-.section-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-.section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-.section-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-.section-intro {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-    }
-/* ═══════════════════════════════════════════════
-       OPPORTUNITY SECTION
-    ══════════════════════════════════════════════════ */
-.opportunity-text .section-title {
-      margin-bottom: 1.5rem;
-    }
-/* ═══════════════════════════════════════════════
-       SERVICES
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHY US
-    ══════════════════════════════════════════════════ */
-    #why {
-      padding: 8rem 5%;
-      background: var(--charcoal);
-      position: relative;
-      overflow: hidden;
-    }
-#why .section-label { color: var(--gold-light); }
-#why .section-label::before { background: var(--gold-light); }
-#why .section-title { color: var(--cream); }
-#why .section-intro { color: rgba(250,248,243,0.55); max-width: 100%; }
-/* ═══════════════════════════════════════════════
-       CLIENT JOURNEY
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHO WE SERVE
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       FAQ
-    ══════════════════════════════════════════════════ */
-.faq-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 8%;
-      align-items: start;
-    }
-.faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--stone);
-    }
-.faq-item {
-      border-bottom: 1px solid var(--stone);
-    }
-.faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem 0;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.4;
-      transition: color 0.25s;
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-.faq-question > span:first-child { flex: 1; }
-.faq-question:hover { color: var(--gold); }
-.faq-icon {
-      width: 20px;
-      height: 20px;
-      border: 1px solid var(--stone);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.25s, border-color 0.25s, transform 0.3s;
-      color: var(--muted);
-    }
-.faq-item.open .faq-icon {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--cream);
-      transform: rotate(45deg);
-    }
-.faq-icon svg { width: 10px; height: 10px; }
-.faq-answer {
-      display: none;
-      padding-bottom: 1.5rem;
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 300;
-    }
-.faq-item.open .faq-answer { display: block; }
-/* ═══════════════════════════════════════════════
-       CONTACT / CTA
-    ══════════════════════════════════════════════════ */
-    #contact {
-      padding: 5.5rem 0;
-      background: var(--cream);
-    }
-.contact-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8%;
-    }
-.contact-info .section-title { margin-bottom: 1.5rem; }
-.contact-info p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 2.5rem;
-    }
-.contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-.contact-line {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-.contact-line-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--stone);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-.contact-line-icon svg { width: 15px; height: 15px; }
-.contact-line-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin-bottom: 0.15rem;
-    }
-.contact-line-val {
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      font-weight: 400;
-    }
-/* Form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-.form-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-.form-input, .form-select, .form-textarea {
-      background: var(--cream-2);
-      border: 1px solid var(--stone);
-      padding: 0.85rem 1rem;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      outline: none;
-      transition: border-color 0.25s, background 0.25s;
-      border-radius: 0;
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-    }
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--gold);
-      background: var(--cream);
-    }
-.form-textarea { resize: vertical; min-height: 110px; }
-.form-submit {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--charcoal);
-      color: var(--cream);
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-      align-self: flex-start;
-    }
-.form-submit:hover {
-      background: var(--gold);
-      transform: translateY(-2px);
-    }
-.form-submit svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.form-submit:hover svg { transform: translateX(3px); }
-.form-note {
-      font-size: 0.75rem;
-      color: var(--muted-2);
-      line-height: 1.5;
-    }
-/* ═══════════════════════════════════════════════
-       CTA BANNER
-    ══════════════════════════════════════════════════ */
-.btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--gold);
-      color: var(--cream);
-      padding: 1rem 2.5rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-    }
-.btn-gold:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-.btn-ghost-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(250,248,243,0.6);
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(250,248,243,0.2);
-      padding-bottom: 3px;
-      transition: color 0.25s, border-color 0.25s;
-    }
-.btn-ghost-light:hover {
-      color: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-/* ═══════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════ */
-    #footer {
-      background: var(--charcoal-2);
-      padding: 5rem 5% 3rem;
-    }
-.footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-.footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-.footer-brand .nav-logo {
-      color: var(--cream);
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-.footer-brand p {
-      font-size: 0.85rem;
-      color: rgba(250,248,243,0.45);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 240px;
-    }
-.footer-social {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-.social-link {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(250,248,243,0.4);
-      transition: border-color 0.25s, color 0.25s;
-    }
-.social-link:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-.social-link svg { width: 14px; height: 14px; }
-.footer-col h4 {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(250,248,243,0.3);
-      margin-bottom: 1.5rem;
-    }
-.footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-.footer-links a {
-      font-size: 0.85rem;
-      color: rgba(250,248,243,0.55);
-      font-weight: 300;
-      transition: color 0.25s;
-    }
-.footer-links a:hover { color: var(--gold-light); }
-.footer-legal { display: inline-block; margin-top: 0.5rem; opacity: 0.75; line-height: 1.6; }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-.footer-bottom p {
-      font-size: 0.78rem;
-      color: rgba(250,248,243,0.25);
-    }
-.footer-bottom a {
-      color: rgba(250,248,243,0.25);
-      font-size: 0.78rem;
-      transition: color 0.25s;
-    }
-.footer-bottom a:hover { color: var(--gold-light); }
-/* ═══════════════════════════════════════════════
-       BLOG TEASER — dark section above footer
-    ══════════════════════════════════════════════════ */
-    #blog {
-      background: var(--charcoal);
-      padding: 5.5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-/* Faint gold hairline top border to lead the eye into the section */
-    #blog::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 5%; right: 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184,146,74,0.4), transparent);
-    }
-.blog-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-.blog-header {
-      max-width: 540px;
-    }
-#blog .section-label { color: var(--gold-light); }
-#blog .section-label::before { background: var(--gold-light); }
-#blog .section-title { color: var(--cream); margin-bottom: 1.4rem; }
-#blog .section-intro {
-      color: rgba(250,248,243,0.62);
-      max-width: 500px;
-      margin-bottom: 2rem;
-    }
-/* CTA card — sits opposite the header text, holds the "Read our thinking" link */
-    .blog-cta-card {
-      background: var(--charcoal-2);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px;
-      padding: 3rem 2.5rem;
-      transition: border-color 0.3s var(--ease-out);
-      position: relative;
-    }
-.blog-cta-card:hover { border-color: rgba(184,146,74,0.4); }
-.blog-cta-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 1.5rem;
-    }
-.blog-cta-headline {
-      font-family: var(--font-display);
-      font-size: 1.85rem;
-      font-weight: 500;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      letter-spacing: -0.005em;
-    }
-.blog-cta-headline em { color: var(--gold); font-style: italic; }
-.blog-cta-body {
-      color: rgba(250,248,243,0.6);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-.blog-cta-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--gold);
-      font-weight: 500;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s, gap 0.25s var(--ease-out);
-      text-decoration: none;
-    }
-.blog-cta-link:hover { color: var(--gold-light); gap: 0.9rem; }
-.blog-cta-link svg { width: 18px; height: 18px; }
-/* ═══════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .why-grid { grid-template-columns: repeat(3, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-      .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-/* The desktop nav only fits six items above ~1240px, so it collapses
-   to the hamburger below that. Everything else stays at 768px. */
-@media (max-width: 1240px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-    }
-    @media (max-width: 768px) {
-      #hero { padding: 9rem 5% 5rem; }
-      .hero-amp { display: none; }
-      .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .hero-stat {
-        border-right: none;
-        border-bottom: 1px solid var(--stone-2);
-        padding-right: 0;
-        padding-bottom: 1.5rem;
-        margin-right: 0;
-        margin-bottom: 0;
-      }
-      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-      .opportunity-inner,
-      .audience-inner,
-      .contact-inner,
-      .faq-inner,
-      .why-header { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-    }
-@media (max-width: 480px) {
-.form-row { grid-template-columns: 1fr; }
+<!-- shell:head -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Consent Mode: storage denied from the first hit until the visitor accepts cookies.
+  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+  gtag('js', new Date());
+  // gtag('config', ...) runs only once consent is granted (assets/site/site.js).
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Nielsen &amp; Brown">
+<meta name="theme-color" content="#2C2C29">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site/site.css">
+<!-- /shell:head -->
+<title>AI service prices, fixed and published | Nielsen &amp; Brown</title>
+<meta name="description" content="Every Nielsen &amp; Brown AI service with its fixed price, how long it takes and what you get. From a free readiness score to £995 starting points and full builds.">
+<link rel="canonical" href="https://nielsenandbrown.com/pricing">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nielsenandbrown.com/pricing">
+<meta property="og:site_name" content="Nielsen &amp; Brown">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="AI service prices, fixed and published">
+<meta property="og:description" content="Every Nielsen &amp; Brown AI service with its fixed price, how long it takes and what you get. From a free readiness score to £995 starting points and full builds.">
+<meta property="og:image" content="https://nielsenandbrown.com/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nielsen &amp; Brown: we work out where AI fits, then we implement it and make it stick.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI service prices, fixed and published">
+<meta name="twitter:description" content="Every Nielsen &amp; Brown AI service with its fixed price, how long it takes and what you get. From a free readiness score to £995 starting points and full builds.">
+<meta name="twitter:image" content="https://nielsenandbrown.com/assets/og/home.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://nielsenandbrown.com/pricing#webpage",
+      "url": "https://nielsenandbrown.com/pricing",
+      "name": "AI service prices, fixed and published | Nielsen & Brown",
+      "description": "Every Nielsen & Brown AI service with its fixed price, how long it takes and what you get. From a free readiness score to £995 starting points and full builds.",
+      "inLanguage": "en-GB",
+      "isPartOf": { "@id": "https://nielsenandbrown.com/#website" },
+      "publisher": { "@id": "https://nielsenandbrown.com/#organization" },
+      "mainEntity": { "@id": "https://nielsenandbrown.com/pricing#catalog" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nielsenandbrown.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Prices", "item": "https://nielsenandbrown.com/pricing" }
+      ]
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://nielsenandbrown.com/pricing#catalog",
+      "name": "Nielsen & Brown fixed price AI services",
+      "itemListElement": [
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#ai-readiness-score", "price": "0", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "AI Readiness Score", "description": "A free 20 minute self assessment with a score out of 120 and one action for this week.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#ai-starting-point", "price": "995", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "AI Starting Point", "description": "Half a day on site to find your three strongest AI opportunities.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#ai-in-practice", "price": "1250", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "AI in Practice", "description": "Half a day getting up to 12 people using AI on their real work.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#shadow-ai-audit", "price": "1500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Shadow AI Audit", "description": "Which AI tools staff already use, on what work, with what data.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#fractional-advisory-day", "price": "1950", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Fractional Advisory Day", "description": "An outside view for your leadership team on what is working.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#ai-foundations-day", "price": "2195", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "AI Foundations Day", "description": "A full day on site for up to 15 people: ground rules in the morning, hands-on practice in the afternoon.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#automation-starter", "price": "2950", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Automation Starter", "description": "One process built in the tools you already pay for.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#data-readiness-check", "price": "3500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Data Readiness Check", "description": "What your data can support before you spend on AI that depends on it.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#automation-sprint", "price": "4500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Automation Sprint", "description": "Two or three connected processes automated, measured and handed over.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#diagnostic-assessment", "price": "4500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Diagnostic Assessment", "description": "Evidence gathered first hand, across your teams and systems.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#strategy-roadmap", "price": "5500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "Strategy & Roadmap", "description": "A phased 12 month AI plan with owners, business cases and a way to measure it.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#ai-champions-programme", "price": "6500", "priceCurrency": "GBP", "itemOffered": { "@type": "Service", "name": "AI Champions Programme", "description": "An internal cohort trained over 10 to 12 weeks so the skills stay in the business.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#pilot-delivery-sprint", "priceCurrency": "GBP", "priceSpecification": { "@type": "PriceSpecification", "minPrice": "10000", "maxPrice": "15000", "priceCurrency": "GBP" }, "itemOffered": { "@type": "Service", "name": "Pilot Delivery Sprint", "description": "The first priority use case from your roadmap, built and running on live work.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } },
+        { "@type": "Offer", "url": "https://nielsenandbrown.com/pricing#continuing-partnership", "itemOffered": { "@type": "Service", "name": "Continuing Partnership", "description": "Monthly, rolling and cancellable ongoing support, reviewed each quarter.", "provider": { "@id": "https://nielsenandbrown.com/#organization" } } }
+      ]
+    }
+  ]
 }
-/* Mobile nav open */
-    body.nav-open .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      inset: 0;
-      background: var(--cream);
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 999;
-    }
-body.nav-open .nav-links a {
-      font-size: 1.1rem;
-    }
-/* ═══════════════════════════════════════════════
-       SUCCESS STATE
-    ══════════════════════════════════════════════════ */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--cream-2);
-      border: 1px solid var(--stone-2);
-    }
-.form-success.visible { display: block; }
-.form-success svg {
-      width: 48px;
-      height: 48px;
-      color: var(--gold);
-      margin: 0 auto 1rem;
-    }
-.form-success h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      margin-bottom: 0.5rem;
-    }
-.form-success p {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-/* ═══════════════════════════════════════════════
-       ENGAGEMENT (stacked card feature)
-    ══════════════════════════════════════════════════ */
-.eng-inner .section-label { margin-bottom: 1.6rem; }
-/* ═══════════════════════════════════════════════
-       PAIN
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       CREDIBILITY
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHEEL
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       USE CASES
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       ASSURANCE
-    ══════════════════════════════════════════════════ */
-/* ── Hero trust strip ── */
-    .hero-trust { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; margin-top: 2.75rem; color: var(--muted); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.02em; }
-.hero-trust span { display: inline-flex; align-items: center; gap: 0.5rem; }
-.hero-trust .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); display: inline-block; }
-/* ── Micro-promise above form ── */
-    .form-promise { background: var(--cream-2); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; margin-bottom: 1.75rem; color: var(--charcoal-2); font-size: 0.92rem; line-height: 1.6; }
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-/* ── Cookie consent ── */
-    .consent { position: fixed; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1200; max-width: 720px; margin: 0 auto;
-      background: var(--charcoal); color: var(--cream); border-radius: 14px; box-shadow: var(--shadow-lg);
-      padding: 1.35rem 1.5rem; display: none; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-.consent.visible { display: flex; }
-.consent p { font-size: 0.86rem; line-height: 1.6; color: var(--cream-3); font-weight: 300; flex: 1 1 320px; }
-.consent p a { color: var(--gold-light); border-bottom: 1px solid rgba(217,170,90,0.4); }
-.consent-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
-.consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
-.consent-accept { background: var(--gold); color: var(--cream); }
-.consent-accept:hover { background: var(--gold-light); }
-.consent-decline { background: transparent; color: var(--cream); border-color: rgba(255,255,255,0.35); }
-.consent-decline:hover { border-color: var(--cream); }
-/* ═══════════════════════════════════════════════
-       PAIN  (scroll-stacking panels — compact)
-       Tokens scoped to #pain so they don't touch the rest of the page.
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       V3 HOMEPAGE — approved mockup sections
-       All classes namespaced nb- to avoid cascade
-       collisions with the pre-existing component CSS.
-    ══════════════════════════════════════════════════ */
-    .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
-.nb-sec { padding: 5.5rem 0; }
-.footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
-.nb-sec--mid  { background: var(--cream-3); }
-.nb-sec--dark { background: var(--charcoal); }
-.nb-sec--dark .nb-h2            { color: var(--cream); }
-.nb-sec--dark .nb-h2 em         { color: var(--gold-light); }
-.nb-sec--dark .nb-eyebrow       { color: var(--gold-light); }
-.nb-sec--dark .nb-lede          { color: rgba(250,248,243,0.72); }
-.nb-sec--dark .nb-qlist li      { color: rgba(250,248,243,0.86); border-bottom-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-qlist li:first-child { border-top-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-tick          { color: var(--gold-light); }
-.nb-sec--dark .nb-qside         { background: var(--cream); border-left-color: var(--gold); }
-.nb-sec--dark .nb-qside h4      { color: var(--charcoal); }
-.nb-sec--dark .nb-qside p       { color: var(--ink); }
-.nb-eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold-deep); font-weight: 600; margin-bottom: 1rem;
-    }
-.nb-h2 {
-      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.45rem);
-      font-weight: 600; color: var(--charcoal); max-width: 44rem;
-      margin-bottom: 1.1rem; line-height: 1.18;
-    }
-.nb-h2 em { color: var(--gold-deep); font-style: italic; }
-.nb-lede { font-size: 1.02rem; color: var(--ink); max-width: 46rem; margin-bottom: 2.6rem; }
-/* ── Proof strip ───────────────────────────── */
-    .nb-proof { background: var(--charcoal); }
-.nb-proof-inner {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      max-width: 1160px; margin: 0 auto;
-    }
-.nb-proof-card { padding: 2.4rem 2.5rem; color: var(--cream-2); }
-.nb-proof-card + .nb-proof-card { border-left: 1px dashed #565349; }
-.nb-proof-card .nb-kicker {
-      font-size: 0.69rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); font-weight: 600; margin-bottom: 0.9rem;
-    }
-.nb-shift {
-      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
-      margin-bottom: 0.6rem; display: flex; align-items: baseline; gap: 0.65rem;
-    }
-.nb-shift .nb-from { color: #9c9989; text-decoration: line-through; font-size: 1.18rem; }
-.nb-shift .nb-to { color: var(--gold); }
-.nb-proof-card p { font-size: 0.84rem; color: #c9c5b6; }
-/* ── Is this you ───────────────────────────── */
-    .nb-qualify { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
-.nb-qlist { list-style: none; }
-.nb-qlist li {
-      display: flex; gap: 0.9rem; padding: 1.05rem 0;
-      border-bottom: 1px dashed var(--line); font-size: 0.95rem;
-    }
-.nb-qlist li:first-child { border-top: 1px dashed var(--line); }
-.nb-qlist .nb-tick { color: var(--gold-deep); font-weight: 700; flex-shrink: 0; }
-.nb-qside { background: var(--charcoal); color: var(--cream-2); padding: 2rem; border-left: 3px solid var(--gold); }
-.nb-qside h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--cream); }
-.nb-qside p { font-size: 0.9rem; color: #c9c5b6; margin-bottom: 1.5rem; }
-/* ── Problem rows ──────────────────────────── */
-    .nb-problems { display: flex; flex-direction: column; }
-.nb-problem {
-      display: grid; grid-template-columns: 15rem 1fr; gap: 2.5rem;
-      padding: 1.6rem 0; border-top: 1px solid var(--line);
-    }
-.nb-problem:last-child { border-bottom: 1px solid var(--line); }
-.nb-problem .nb-ptitle { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); }
-.nb-problem p { font-size: 0.94rem; color: var(--ink); }
-/* ── Stats ─────────────────────────────────── */
-    .nb-stats { display: flex; gap: 4rem; margin-bottom: 1.2rem; }
-.nb-stat .nb-num { font-family: var(--font-display); font-size: 3.6rem; font-weight: 600; color: var(--gold-deep); line-height: 1; }
-.nb-stat p { font-size: 0.9rem; color: var(--ink); margin-top: 0.4rem; }
-.nb-source { font-size: 0.78rem; color: var(--muted); }
-/* ── Card grids ────────────────────────────── */
-    .nb-cards { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-cards--4 { grid-template-columns: repeat(4, 1fr); }
-.nb-cards--5 { grid-template-columns: repeat(5, 1fr); }
-.nb-cards--6 { grid-template-columns: repeat(3, 1fr); }
-.nb-card { background: var(--cream); padding: 1.7rem 1.5rem; }
-.nb-sec--mid .nb-card { background: var(--cream-2); }
-.nb-card h4 { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.55rem; }
-.nb-card p { font-size: 0.88rem; color: var(--ink); }
-/* ── Services ──────────────────────────────── */
-    .nb-service {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      padding: 2.4rem 0; border-top: 1px solid var(--line); align-items: start;
-    }
-.nb-service:last-of-type { border-bottom: 1px solid var(--line); }
-.nb-service .nb-slabel { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-service h3 { font-family: var(--font-display); font-size: 1.65rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.7rem; }
-.nb-service > div > p { font-size: 0.94rem; color: var(--ink); }
-.nb-example { background: var(--cream-2); padding: 1.5rem 1.6rem; border-left: 2px solid var(--gold); }
-.nb-sec--mid .nb-example { background: var(--cream); }
-.nb-chip {
-      display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-      background: var(--charcoal); color: var(--cream-2); padding: 0.25rem 0.6rem; margin-bottom: 0.8rem;
-    }
-.nb-psr { display: grid; gap: 0.85rem; }
-.nb-psr div { font-size: 0.87rem; color: var(--ink); line-height: 1.55; }
-.nb-psr-label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.2rem; }
-.nb-example p { font-size: 0.87rem; color: var(--ink); }
-/* ── Tiers ─────────────────────────────────── */
-    .nb-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-tier { background: var(--cream); padding: 1.8rem 1.5rem; display: flex; flex-direction: column; }
-.nb-tier .nb-len { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.7rem; }
-.nb-tier h4 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
-.nb-tier p { font-size: 0.87rem; color: var(--ink); flex-grow: 1; }
-.nb-tier .nb-fit { font-size: 0.78rem; color: var(--muted); margin-top: 1.1rem; padding-top: 0.8rem; border-top: 1px dashed var(--line); }
-/* ── Sector examples ───────────────────────── */
-    .nb-examples { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.nb-ex { background: var(--cream); border: 1px solid var(--line); padding: 1.8rem; }
-.nb-sec--mid .nb-ex { background: var(--cream-2); }
-.nb-ex .nb-sector { font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-ex h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--charcoal); margin: 0.5rem 0 0.6rem; }
-.nb-ex > p { font-size: 0.89rem; color: var(--ink); margin-bottom: 1.2rem; }
-.nb-ba { display: grid; gap: 0.6rem; padding-top: 1rem; border-top: 1px dashed var(--line); }
-.nb-ba div { font-size: 0.85rem; color: var(--ink); }
-.nb-ba .nb-balabel { display: inline-block; min-width: 3.8rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.nb-illustrative { margin-top: 1.8rem; font-size: 0.83rem; color: var(--muted); font-style: italic; max-width: 52rem; }
-/* ── Partners ticker ───────────────────────── */
-    .nb-pgroup { margin-bottom: 1.6rem; }
-.nb-ticker {
-      overflow: hidden; border: 1px solid var(--line); background: var(--cream);
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-              mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-    }
-.nb-sec--mid .nb-ticker { background: var(--cream-2); }
-.nb-track { display: flex; width: max-content; align-items: center; animation: nb-scroll 34s linear infinite; }
-.nb-ticker:hover .nb-track, .nb-ticker:focus-within .nb-track { animation-play-state: paused; }
-.nb-logo { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 1.5rem 3rem; }
-.nb-logo--named { gap: 0.6rem; }
-.nb-logo-name { font-size: 0.82rem; font-weight: 500; color: var(--charcoal); white-space: nowrap; }
-.nb-logo img { display: block; width: auto; max-width: none; }
-.nb-logo--lovable              { height: 22px; }
-.nb-logo--anthropic            { height: 20px; }
-.nb-logo--openai               { height: 25px; }
-.nb-logo--google               { height: 26px; }
-.nb-logo--grok                 { height: 25px; }
-.nb-logo--n8n                  { height: 24px; }
-.nb-logo--promanchester        { height: 32px; }
-.nb-logo--manchesterdigital    { height: 34px; }
-@keyframes nb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-.nb-track { animation: none; }
-.nb-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-}
-.nb-pnote { font-size: 0.85rem; color: var(--muted); font-style: italic; max-width: 44rem; margin-top: 0.5rem; }
-/* ── Pricing bridge ────────────────────────── */
-.nb-cost { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 1px solid var(--stone); padding-bottom: 3px; transition: color .25s, border-color .25s; }
-.nb-cost:hover, .nb-cost:focus-visible { color: var(--charcoal); border-color: var(--gold); }
-.nb-bridge { margin-top: 3rem; background: var(--charcoal); padding: 2.6rem 2.4rem; }
-.nb-bridge-top { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; }
-.nb-bridge .nb-eyebrow { color: var(--gold-light); }
-.nb-bridge-h { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: var(--cream); margin-bottom: 0.7rem; line-height: 1.2; max-width: 22ch; }
-.nb-bridge-lede { font-size: 0.94rem; color: rgba(250,248,243,0.72); max-width: 46ch; }
-.nb-qs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.nb-q { display: flex; flex-direction: column; background: rgba(250,248,243,0.04); border: 1px solid rgba(250,248,243,0.12); padding: 1.4rem 1.5rem; transition: border-color .25s, background .25s; }
-.nb-q:hover, .nb-q:focus-visible { border-color: var(--gold); background: rgba(250,248,243,0.07); }
-.nb-q-bar { width: 2.2rem; height: 2px; background: var(--gold); margin-bottom: 1rem; }
-.nb-q-t { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--cream); margin-bottom: 0.5rem; }
-.nb-q-d { font-size: 0.85rem; color: rgba(250,248,243,0.68); line-height: 1.55; flex-grow: 1; }
-.nb-q-p { margin-top: 1.1rem; font-size: 0.74rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 600; color: var(--gold-light); }
-@media (max-width: 1000px) { .nb-bridge-top { grid-template-columns: 1fr; } .nb-qs { grid-template-columns: 1fr; } }
-@media (max-width: 680px) { .nb-bridge { padding: 1.8rem 1.4rem; } }
-/* ── FAQ ───────────────────────────────────── */
-    /* ── Final CTA ─────────────────────────────── */
-    .nb-cta-card { background: var(--cream); border: 1px solid var(--gold); padding: 3.5rem 3rem; text-align: center; max-width: 52rem; margin: 0 auto; }
-.nb-cta-card .nb-eyebrow, .nb-cta-card .nb-h2, .nb-cta-card .nb-lede { margin-left: auto; margin-right: auto; }
-.nb-cta-card .nb-lede { margin-bottom: 1.8rem; }
-.nb-leave { display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center; margin-bottom: 2rem; font-size: 0.85rem; color: var(--ink); }
-.nb-leave span::before { content: "✓"; color: var(--gold-deep); font-weight: 700; margin-right: 0.45rem; }
-.nb-cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
-/* ── Responsive ────────────────────────────── */
-    @media (max-width: 1000px) {
-      .nb-cards--4, .nb-cards--5, .nb-tiers { grid-template-columns: repeat(2, 1fr); }
-      .nb-cards--6 { grid-template-columns: repeat(2, 1fr); }
-      .nb-qualify, .nb-service { grid-template-columns: 1fr; gap: 2rem; }
-      .nb-proof-inner { grid-template-columns: 1fr; }
-      .nb-proof-card + .nb-proof-card { border-left: none; border-top: 1px dashed #565349; }
-      .nb-problem { grid-template-columns: 1fr; gap: 0.5rem; }
-    }
-@media (max-width: 680px) {
-.nb-wrap { padding: 0 1.5rem; }
-.nb-sec { padding: 3.5rem 0; }
-.nb-cards--4, .nb-cards--5, .nb-cards--6, .nb-tiers, .nb-examples { grid-template-columns: 1fr; }
-.nb-stats { gap: 2rem; }
-.nb-cta-card { padding: 2.2rem 1.5rem; }
-.nb-logo { padding: 1.2rem 2rem; }
-}
+</script>
+<style>
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .jump a{font-size:15px;font-weight:600;text-decoration:none;color:var(--charcoal);border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px}
+  .jump a:hover{border-color:var(--charcoal)}
+  .jump a span{color:var(--gold-text);font-weight:500;margin-left:6px}
 
+  .grp{padding:72px 0}
+  .grp-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;margin-bottom:32px}
+  .grp-head > div{max-width:680px}
+  .grp-head h2{margin-top:10px;font-size:clamp(28px,3.4vw,38px)}
+  .grp-head p{margin-top:12px;font-size:18px;color:var(--muted)}
+  .band{font-size:22px;font-weight:700;color:var(--charcoal);letter-spacing:-.01em;white-space:nowrap}
 
+  .card{scroll-margin-top:96px;padding:26px}
+  .card:target{outline:3px solid var(--gold);outline-offset:2px}
+  .card .kind{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-text)}
+  .card .price{font-size:34px;margin-top:8px}
+  .card h3{margin:10px 0 2px}
+  .card .who{margin-top:14px;font-size:15px;color:var(--charcoal)}
+  .card .who b{font-weight:600}
+  .card .note{margin-top:12px;background:var(--sand);color:var(--charcoal);border-radius:6px;padding:8px 12px;font-size:14px;line-height:1.45}
+  .card .ticks li{font-size:15px}
+  .card .next{font-size:14px;color:var(--muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--paper)}
+  .card .next b{color:var(--charcoal);font-weight:600}
+  .card .more{padding-top:12px}
 
-  
-    /* Booking CTAs sit outside the brand palette deliberately, so they read as
-       actions rather than decoration. Also fixes a contrast failure: cream on
-       gold was 2.73:1, cream on terracotta is 5.40:1. See STYLE.md. */
-    .btn-book {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--action); color: #FFFFFF;
-      white-space: nowrap;
-      padding: 1rem 2rem; font-size: var(--fs-button); font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; border: none;
-      transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
-    }
-    .btn-book:hover, .btn-book:focus-visible { background: var(--action-dark); transform: translateY(-1px); }
-    .btn-book svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s; }
-    .btn-book:hover svg { transform: translateX(3px); }
-    .btn-book span { flex-shrink: 0; }
-    .nav-cta.btn-book {
-      padding: 0.65rem 1.5rem;
-      background: var(--action) !important;   /* beats .nav-cta's own !important */
-      color: #FFFFFF !important;
-    }
-    .nav-cta.btn-book:hover { background: var(--action-dark) !important; }
+  .score{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .score h2{margin-top:12px}
+  .score .lead{margin-top:14px;font-size:19px;color:var(--muted)}
+  .stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin:24px 0 28px;padding:0;list-style:none}
+  .stats li{font-size:15px;color:var(--muted)}
+  .stats b{display:block;font-size:30px;font-weight:700;color:var(--charcoal);line-height:1.1}
+  .score .small{margin-top:14px;font-size:14px;color:var(--muted)}
+  .score .card{scroll-margin-top:96px}
+  @media (max-width:900px){.score{grid-template-columns:1fr;gap:32px}}
 
-/* Readiness panel, ported from the pricing mockup. The report is an
-   illustration of what Allan emails, not something the app renders on
-   screen: the score app spec is explicit that there is no on-screen report. */
-/* The heading carries an explicit line break after "stand". In a
-   362px column a 42px setting pushes "stand" onto its own third
-   line, so cap the scale where the two intended lines still fit. */
-.feature .herotop h2 {font-size:clamp(28px,2.5vw,36px);letter-spacing:-.01em;line-height:1.08;margin:14px 0 0}
-.herotop {display:grid;grid-template-columns:1.1fr 340px;gap:34px;align-items:center}
-.feature .rule {width:110px;height:2px;background:var(--gold);margin:24px 0 22px}
-.statlist {list-style:none;margin:0 0 32px;padding:0;border-top:1px solid rgba(242,237,230,.14)}
-.statlist li {display:flex;align-items:baseline;gap:18px;padding:11px 0;border-bottom:1px solid rgba(242,237,230,.14)}
-.statlist b {font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);line-height:1;min-width:46px;text-align:right;flex:0 0 auto}
-.statlist span {font-size:16px;color:rgba(242,237,230,.86);font-weight:300}
-.reportwrap {perspective:1400px;display:flex;justify-content:center;align-items:center;min-height:520px}
-.reportstack {position:relative;transform-style:preserve-3d;transform:rotateY(-15deg) rotateX(4deg) rotateZ(-3deg);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.reportwrap:hover .reportstack {transform:rotateY(-9deg) rotateX(2deg) rotateZ(-1.5deg)}
-.sheetback2 {position:absolute;inset:0;background:#CFC7B8;border-radius:2px;transform:translate3d(24px,26px,-60px)}
-.sheetback {position:absolute;inset:0;background:var(--cream);border-radius:2px;transform:translate3d(14px,14px,-30px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
-.report {position:relative;width:305px;height:424px;background:var(--ink);border-radius:2px;padding:0 30px 26px;display:flex;flex-direction:column;box-shadow:0 34px 70px rgba(0,0,0,.5)}
-.report::before {content:"";position:absolute;left:0;right:0;top:0;height:9px;background:var(--gold);border-radius:2px 2px 0 0}
-.report::after {content:"";position:absolute;left:0;top:9px;bottom:0;width:5px;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent)}
-.report .rtag {margin-top:34px;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.report h3 {font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1.08;font-weight:600;color:var(--cream);margin:12px 0 0}
-.report .rrule {width:100%;height:1px;background:rgba(242,237,230,.22);margin:18px 0 20px}
-.report .dial {align-self:flex-start;margin-bottom:20px}
-.rlines {display:flex;flex-direction:column;gap:9px;margin-top:auto;padding-bottom:6px}
-.rlines i {display:block;height:5px;border-radius:3px;background:rgba(242,237,230,.16)}
-.rmark {font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,237,230,.4);font-weight:500;padding-top:14px;border-top:1px solid rgba(242,237,230,.14)}
-.herobullets {display:grid;grid-template-columns:repeat(3,1fr);gap:12px 32px;margin:34px 0 24px;padding:30px 0 0;border-top:1px solid rgba(242,237,230,.16);list-style:none}
-.herobullets li {position:relative;padding-left:22px;font-size:16px;line-height:1.55;font-weight:300;color:rgba(242,237,230,.88)}
-.herobullets li::before {content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--gold);border-radius:50%}
-@media (prefers-reduced-motion: reduce) {
-  .reportstack {transition:none}
-}
-@media (max-width:1000px) {
-  .herotop {grid-template-columns:1fr;gap:34px}
-  .reportwrap {min-height:430px}
-  .herobullets {grid-template-columns:1fr;margin-top:32px}
-}
+  .good{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 48px;max-width:980px}
+  .good .ticks{margin:0}
+  @media (max-width:760px){.good{grid-template-columns:1fr}}
+  @media (max-width:600px){.grp{padding:52px 0}.card{padding:22px}}
 
-/* ── Responsive hardening ──────────────────────────────
-   Three narrow-viewport bugs, all the same shape: a child
-   with a min-content floor wider than the space available,
-   which grid honours and then overflows the page.        */
+  /* phones */
+  @media (max-width:700px){
+    .page-head{padding-bottom:28px}
+    .jump-pin.m-chips{display:flex!important;position:sticky;top:var(--nav-h,76px);z-index:15;margin:0;padding:10px 16px;gap:8px;background:rgba(250,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);scroll-padding-left:16px}
+    .jump-pin a{font-weight:600;text-decoration:none;color:var(--charcoal);border:1.5px solid var(--line);background:#fff;border-radius:999px;display:inline-flex;align-items:center;min-height:40px;font-size:14px;padding:0 14px;transition:background .2s,color .2s,border-color .2s}
+    .jump-pin a span{color:var(--gold-text);font-weight:500;margin-left:6px}
+    .jump-pin a.on{background:var(--charcoal);border-color:var(--charcoal);color:var(--cream)}
+    .jump-pin a.on span{color:var(--gold)}
+    main section[id]{scroll-margin-top:calc(var(--nav-h,76px) + 61px)}
+    .card,.score .card{scroll-margin-top:calc(var(--nav-h,76px) + 76px)}
 
-/* 1. Long CTA labels. white-space:nowrap set a min-content
-      floor (411px for "Book your free discovery call"),
-      which the enclosing grid column adopted, pushing the
-      whole document wider than the phone. Let them wrap
-      where there is no room; they still fit on one line at
-      the widths where nowrap mattered. */
-.btn-book, .btn { white-space: normal; }        /* wrap rather than set a min-content floor */
-.nav-cta.btn-book { white-space: nowrap; }      /* except in the nav, which has room and must stay on one line */
+    #start{padding:44px 0 48px}
+    .score{gap:24px}
+    .score .lead{font-size:17px;margin-top:10px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:20px 0 22px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .stats li{padding:12px 4px 11px;text-align:center;font-size:12px;line-height:1.3;border-left:1px solid var(--line)}
+    .stats li:first-child{border-left:0}
+    .stats b{font-size:24px;margin-bottom:2px}
+    .score .btn{display:flex;width:100%;justify-content:center;text-align:center}
+    .score .small{text-align:center}
 
-/* The report illustration is a fixed 305px plus a 24px offset
-   on the back sheet, so it exceeds the content box on the
-   narrowest phones. Scale the whole stack instead of letting
-   it push the page wide. */
-/* The report is a fixed 305px. A transform would shrink it on
-   screen but not in layout, so the 305px floor would still push
-   the page wide. Reduce the real width instead, keeping the
-   305:424 proportion. */
-@media (max-width: 430px) {
-  .report { width: 244px; height: 339px; padding: 0 24px 20px; }
-  .reportwrap { min-height: 400px; }
-}
-@media (max-width: 360px) {
-  .report { width: 205px; height: 285px; padding: 0 18px 16px; }
-  .reportwrap { min-height: 340px; }
-  .report h3 { font-size: 21px; }
-}
+    .grp{padding:48px 0}
+    .grp-head{margin-bottom:20px;gap:12px}
+    .grp-head h2{margin-top:8px}
+    .grp-head p{font-size:17px;margin-top:8px}
+    .grp-head .band{font-size:15px;margin:0;padding:6px 14px;background:#fff;border:1px solid var(--line);border-radius:999px}
+    .cards{gap:12px}
 
-/* 2. Grid tracks must be allowed to shrink. 1fr means
-      minmax(auto,1fr), and auto floors at min-content.
-   Each live grid keeps its own column count. An earlier version of this
-   rule set every one of them to two columns, which collapsed the
-   four-column footer at desktop width. */
-.contact-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-.footer-top { grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); }
-@media (max-width: 1024px) {
-  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 768px) {
-  .contact-inner, .footer-top { grid-template-columns: minmax(0, 1fr); }
-}
+    .grp .card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px}
+    .grp .card > *{grid-column:1/-1}
+    .grp .card .price{grid-column:1;grid-row:1;font-size:28px;margin:0}
+    .grp .card .kind{grid-column:2;grid-row:1;justify-self:end;font-size:11px;letter-spacing:.05em;padding:4px 9px;border-radius:999px;background:var(--sand);color:var(--charcoal)}
+    .grp .card .price{white-space:nowrap}
+    #pilot-delivery-sprint .price{font-size:clamp(20px,6.2vw,24px)}
+    .card h3{font-size:21px;margin:6px 0 2px}
+    .card .who{margin-top:10px;font-size:15px;line-height:1.45}
+    .card .note{margin-top:10px}
+    .card .m-toggle{margin-top:14px}
+    .card .ticks{margin:10px 0 4px}
+    .card.m-collapse:not(.open) .next{display:none}
+    .card .next{margin-top:8px;padding-top:12px}
+    .card .more{display:flex;align-items:center;min-height:44px;padding-top:6px;margin-bottom:-8px}
 
-/* 3. Form controls carry an intrinsic size and will not
-      shrink on their own. */
-.form-input, .form-select, .form-textarea {
-  width: 100%; min-width: 0; max-width: 100%;
-}
-
-/* 4. The readiness panel sits in the right-hand column of a
-      two-column ladder, so its usable width is much narrower
-      than the viewport. Between roughly 1000 and 1250px that
-      column cannot hold a 340px illustration beside the text,
-      so the pair stacks earlier than the viewport alone would
-      suggest. */
-/* The panel sits in the right column of the ladder, so its width
-   is set by the wrap, not the viewport: on the homepage it is
-   662px at every desktop size. Let the track count follow the
-   space actually available rather than a viewport breakpoint,
-   which cannot see it. */
-.herotop { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
-
-/* 5. Flex text next to a fixed-size icon needs permission to
-      shrink, and long unbroken values (emails, URLs) need a
-      break opportunity, or they set the floor instead. */
-.contact-line > div:not(.contact-line-icon) { min-width: 0; }
-.contact-line-val, .contact-line-val a { overflow-wrap: anywhere; }
-
-/* The hamburger icon is 24px, which left a 32x24 tap target,
-   under the 44px minimum. Grow the hit area, not the icon,
-   and pull the extra padding back out of the layout so the
-   nav does not shift. */
-.nav-hamburger {
-  padding: 12px;
-  margin: -12px -12px -12px 0;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  min-height: 48px;
-}
-
-/* Wrapped CTAs read better centred; at desktop widths the
-   button is sized to its content so this changes nothing. */
-.btn-book, .btn { justify-content: center; text-align: center; }
-
-/* When a trust item wraps to two lines, align-items:center
-   floated its dot to the middle of the block instead of the
-   first line. */
-.hero-trust span { align-items: flex-start; }
-.hero-trust .dot { margin-top: 0.55em; flex: 0 0 auto; }
-
-/* Same reasoning as .herotop: three fixed columns become
-   unreadable in a 566px panel. Let the count follow the room. */
-.herobullets { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
-
-.ladder { grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 1001px) { .ladder { grid-template-columns: 330px minmax(0, 1fr); } }
-</style>
-  <style>
-
-:root{
-  --char:#2C2C29;--ink:#1C1C1A;--gold:#B8924A;--gold-deep:#8E6F35;
-  --cream:#F2EDE6;--paper:#FAF8F4;--rule:#E2DACE;--muted:#6E6E68;
-  --shadow:0 1px 2px rgba(44,44,41,.04),0 8px 28px rgba(44,44,41,.06);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--char);font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-body.locked{overflow:hidden}
-.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0;border-bottom:1px solid var(--rule)}
-.brand{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700}
-.brand em{font-style:normal;color:var(--gold)}
-.navlinks{display:flex;gap:34px;font-size:14px;color:var(--muted)}
-.navlinks a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent}
-.navlinks a:hover{color:var(--char)}
-.navlinks a.here{color:var(--char);border-bottom-color:var(--gold)}
-.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 18px}
-.pagehead{padding:74px 0 46px}
-.pagehead h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(38px,5.4vw,66px);line-height:1.02;margin:0 0 22px;letter-spacing:-.01em}
-.pagehead p{max-width:680px;margin:0;font-size:17px;line-height:1.65;color:var(--muted);font-weight:300}
-.ladder{display:grid;grid-template-columns:330px 1fr;gap:56px;padding-bottom:88px;align-items:start}
-.rail{position:sticky;top:32px;border-top:1px solid var(--rule)}
-.rung{appearance:none;background:none;border:0;border-bottom:1px solid var(--rule);width:100%;text-align:left;cursor:pointer;padding:28px 0 26px;color:var(--char);font-family:inherit;display:block;transition:padding-left .35s ease}
-.rung:hover{padding-left:8px}
-.rung:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-.bar{display:block;height:3px;background:var(--rule);margin-bottom:16px;transition:width .4s ease,background .3s ease}
-.rung[data-step="1"] .bar{width:34px}
-.rung[data-step="2"] .bar{width:72px}
-.rung[data-step="3"] .bar{width:124px}
-.rung.on .bar{background:var(--gold)}
-.rung .q{font-family:'Cormorant Garamond',serif;font-size:clamp(25px,2.4vw,31px);line-height:1.14;font-weight:600;color:var(--muted);transition:color .3s;display:block}
-.rung.on .q{color:var(--char)}
-.rung .band{display:block;margin-top:9px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500}
-.rung.on .band{color:var(--gold)}
-.panel{display:none}
-.panel.on{display:block;animation:rise .45s ease both}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.feature{background:var(--char);color:var(--cream);border-radius:4px;padding:46px 48px;box-shadow:var(--shadow)}
-.feature .tag{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.feature h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;line-height:1.05;margin:14px 0 8px;color:#fff}
-.feature .sub{font-size:17.5px;line-height:1.6;font-weight:300;color:var(--cream);opacity:.85;margin:0 0 32px;max-width:540px}
-.metrics{display:flex;gap:52px;flex-wrap:wrap;padding:26px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
-.metric b{display:block;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);line-height:1}
-.metric span{display:block;margin-top:6px;font-size:14px;color:var(--cream);opacity:.75}
-.getlist{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
-.getlist li{position:relative;padding-left:22px;font-size:16.5px;line-height:1.55;font-weight:300;color:var(--cream);opacity:.92}
-.getlist li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);border-radius:50%}
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;text-decoration:none;padding:15px 30px;border-radius:3px;font-size:16px;letter-spacing:.04em;font-weight:500;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
-.btn:hover{background:var(--gold-deep)}
-.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.note{margin:16px 0 0;font-size:13.5px;color:var(--cream);opacity:.6;font-weight:300}
-.slab{background:var(--char);border-radius:4px;padding:38px;box-shadow:var(--shadow)}
-.slabhead{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid rgba(242,237,230,.16)}
-.slabhead .tag{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.slabhead .count{font-size:13px;color:rgba(242,237,230,.6);font-weight:300}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.card{background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:26px 26px 22px;display:flex;flex-direction:column;text-align:left;cursor:pointer;font-family:inherit;color:inherit;width:100%;transition:border-color .25s,transform .25s}
-.card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:6px}
-.card h3{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;margin:0;line-height:1.14;color:#fff}
-.price{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--gold);white-space:nowrap}
-.card .dur{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,230,.5);font-weight:500;margin-bottom:13px;display:block}
-.card p{margin:0 0 18px;font-size:14.5px;line-height:1.62;color:rgba(242,237,230,.72);font-weight:300}
-.card .more{margin-top:auto;padding-top:15px;border-top:1px solid rgba(242,237,230,.16);font-size:12.5px;letter-spacing:.06em;color:var(--gold);font-weight:500;display:flex;align-items:center;gap:8px}
-.card .more i{font-style:normal;transition:transform .25s;display:inline-block}
-.card:hover .more i{transform:translateX(4px)}
-.group{margin-top:30px}
-.group:first-child{margin-top:0}
-.grouphead{display:flex;align-items:baseline;gap:8px 14px;flex-wrap:wrap;padding-bottom:13px;margin-bottom:17px;border-bottom:1px solid rgba(242,237,230,.16)}
-.gnum{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--gold);border:1px solid rgba(184,146,74,.55);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.gname{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#fff;line-height:1.1}
-.gnote{font-size:13px;color:rgba(242,237,230,.6);font-weight:300;order:3;flex:1 1 100%}
-.gband{margin-left:auto;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;white-space:nowrap;flex:0 0 auto;order:2}
-.card.feat{border-color:var(--gold)}
-.card .req{display:block;font-size:11.5px;line-height:1.45;color:var(--gold);font-weight:500;margin:-8px 0 16px;padding-left:13px;border-left:2px solid rgba(184,146,74,.45)}
-.reqnote{background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:18px 20px;margin:0 0 28px}
-.reqnote span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
-.reqnote p{margin:0;font-size:14px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
-.card .stage{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:9px}
-.scrim{position:fixed;inset:0;background:rgba(28,28,26,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:1100}
-.scrim.on{opacity:1;pointer-events:auto}
-.sheet{position:fixed;top:0;right:0;height:100%;width:min(720px,100%);background:var(--char);z-index:1110;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.7,.3,1);overflow-y:auto;box-shadow:-20px 0 60px rgba(0,0,0,.28)}
-.sheet.on{transform:none}
-.sheetin{padding:40px 48px 60px}
-.sheetbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px}
-.closebtn{appearance:none;background:none;border:1px solid rgba(242,237,230,.3);color:var(--cream);border-radius:3px;padding:9px 16px;font-family:inherit;font-size:13px;cursor:pointer;transition:border-color .25s,color .25s}
-.closebtn:hover{border-color:var(--gold);color:var(--gold)}
-.closebtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.sheet .eyebrow{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
-.sheet h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.4vw,44px);font-weight:600;color:#fff;margin:12px 0 14px;line-height:1.06}
-.sheet .sum{font-size:16px;line-height:1.65;color:rgba(242,237,230,.8);font-weight:300;margin:0 0 30px}
-.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:22px 0;border-top:1px solid rgba(242,237,230,.16);border-bottom:1px solid rgba(242,237,230,.16);margin-bottom:32px}
-.meta div span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:7px}
-.meta div b{display:block;font-size:14px;line-height:1.45;color:var(--cream);font-weight:400}
-.sheet h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;margin:0 0 20px}
-.items{list-style:none;margin:0 0 32px;padding:0;counter-reset:it}
-.items li{counter-increment:it;position:relative;padding:0 0 20px 48px;margin-bottom:20px;border-bottom:1px solid rgba(242,237,230,.1)}
-.items li:last-child{border-bottom:0;margin-bottom:0}
-.items li::before{content:counter(it,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);width:32px;height:32px;border:1px solid rgba(184,146,74,.5);border-radius:50%;display:flex;align-items:center;justify-content:center}
-.items b{display:block;font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;line-height:1.35}
-.items p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.72);font-weight:300}
-.thenwhat{background:var(--ink);border:1px solid rgba(184,146,74,.34);border-radius:4px;padding:22px 24px;margin-bottom:28px}
-.thenwhat span{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
-.thenwhat p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(242,237,230,.82);font-weight:300}
-.close{border-top:1px solid var(--rule);padding:70px 0 90px;text-align:center}
-.close h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,3.6vw,44px);line-height:1.14;margin:0 auto 22px;max-width:760px}
-.close p{max-width:560px;margin:0 auto 32px;color:var(--muted);font-weight:300;font-size:16.5px;line-height:1.65}
-footer{border-top:1px solid var(--rule);padding:30px 0;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media (max-width:1000px){
-  .wrap{padding:0 24px}
-  .ladder{grid-template-columns:1fr;gap:36px}
-  .rail{position:static}
-  .rung{padding:20px 0 18px}
-  .getlist,.grid{grid-template-columns:1fr}
-  .feature{padding:34px 26px}
-  .slab{padding:24px 20px}
-  .sheetin{padding:28px 24px 50px}
-  .meta{grid-template-columns:1fr;gap:16px}
-  .navlinks{display:none}
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
-
-  
-    /* Tabs must read as tabs at rest: Allan reviews on an iPad, where there is
-       no hover at all, so hover is an enhancement and not the affordance. */
-    .rung {
-      border: 1px solid var(--line) !important;
-      background: var(--surface-2, #F2EDE6) !important;
-      padding: 1rem 1.15rem !important;
-      min-height: 56px;
-      cursor: pointer;
-      transition: border-color .2s, background .2s, box-shadow .2s;
-    }
-    .rung + .rung { margin-top: 0.5rem; }
-    .rung .bar { display: none !important; }
-    .rung.on {
-      background: var(--charcoal) !important;
-      border-color: var(--charcoal) !important;
-      box-shadow: inset 3px 0 0 var(--action);
-    }
-    .rung.on .q { color: var(--cream) !important; }
-    .rung.on .band { color: var(--gold-light) !important; }
-    .rung:hover:not(.on) { border-color: var(--gold); background: var(--cream) !important; }
-    .rung:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
-
-    /* .btn from the ported pricing CSS is more specific than .btn-book once
-       scoped under #engagement, so re-assert the booking colour above it. */
-    #engagement .btn.btn-book, .sheet .btn.btn-book, .btn.btn-book {
-      background: var(--action);
-      color: #FFFFFF;
-    }
-    #engagement .btn.btn-book:hover, .sheet .btn.btn-book:hover, .btn.btn-book:hover {
-      background: var(--action-dark);
-    }
-
-    /* Anchored sections must clear the sticky nav, or the eyebrow and heading
-       land underneath it. */
-    section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
+    .cta-band .ctas{flex-direction:column}
+    .good{gap:0}
+    .good .ticks li{padding-top:10px;padding-bottom:10px}
+    .good .ticks + .ticks li:first-child{border-top:1px solid var(--paper)}
+  }
 </style>
 </head>
 <body>
 
-<header>
-
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="Nielsen &amp; Brown home">
-      Nielsen <span class="amp">&amp;</span> Brown
-    </a>
-
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/#wheel">How it works</a></li>
-      <li><a href="/#audience">Who it is for</a></li>
-      <li><a href="/#services">What we do</a></li>
-      <li><a href="pricing.html" aria-current="page">Pricing</a></li>
-      <li><a href="/#faq">FAQs</a></li>
-      <li><a href="founders.html">Founders</a></li>
-      <li><a href="/#contact" class="nav-cta btn-book">Start your AI journey</a></li>
-    </ul>
-
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-</header>
-
-
-
-<div class="wrap">
-  
-
-  <header class="pagehead">
-    <p class="kicker">Pricing and engagement</p>
-    <h1>Three questions, and<br>what each one costs.</h1>
-    <p>Most consultancies ask you to commit before you know whether the work is worth doing. We would rather you started small, saw the quality, and decided from there. Every engagement below has a fixed scope, a fixed price, and something you keep at the end of it. Select any one to see exactly what you receive.</p>
-  </header>
-
-  <div class="ladder">
-    <div class="rail" role="tablist" aria-label="Choose where you are">
-      <button class="rung on" data-step="1" data-hash="start" role="tab" aria-selected="true" aria-controls="start" id="t1">
-        <span class="bar"></span><span class="q">Where do we start?</span><span class="band">No cost</span>
-      </button>
-      <button class="rung" data-step="2" data-hash="next" role="tab" aria-selected="false" aria-controls="next" id="t2">
-        <span class="bar"></span><span class="q">What next?</span><span class="band">£995 to £2,950</span>
-      </button>
-      <button class="rung" data-step="3" data-hash="accelerate" role="tab" aria-selected="false" aria-controls="accelerate" id="t3">
-        <span class="bar"></span><span class="q">How do we accelerate?</span><span class="band">£3,500 and above</span>
-      </button>
-    </div>
-
-    <div>
-      <section class="panel on" id="start" role="tabpanel" aria-labelledby="t1">
-        <div class="feature">
-          <div class="herotop">
-            <div>
-              <span class="tag">Free, self serve</span>
-              <h2>Know where you stand<br>before you invest</h2>
-              <div class="rule"></div>
-              <p class="sub">Where AI earns its place in your business, and just as usefully, where it does not.</p>
-              <ul class="statlist">
-                <li><b>32</b><span>questions</span></li>
-                <li><b>2</b><span>frameworks</span></li>
-                <li><b>11</b><span>dimensions</span></li>
-                <li><b>20</b><span>minutes of your time</span></li>
-                <li><b>1</b><span>action for this week</span></li>
-              </ul>
-              <a class="btn btn-book" href="https://score.nielsenandbrown.com" data-ga="readiness_score_start">Get your free AI readiness report <span>&rarr;</span></a>
-            </div>
-          <div class="reportwrap" aria-hidden="true">
-            <div class="reportstack">
-              <div class="sheetback2"></div>
-              <div class="sheetback"></div>
-              <div class="report">
-                <span class="rtag">AI Readiness Score</span>
-                <h3>Where to act first,<br>and why</h3>
-                <div class="rrule"></div>
-                <svg class="dial" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Dimension profile">
-                  <circle cx="64" cy="64" r="46" fill="none" stroke="#3A3630" stroke-width="30"/>
-                  <circle cx="64" cy="64" r="46" fill="none" stroke="#B8924A" stroke-width="30"
-                          stroke-dasharray="72 217" transform="rotate(-90 64 64)"/>
-                  <circle cx="64" cy="64" r="46" fill="none" stroke="#D8B978" stroke-width="30"
-                          stroke-dasharray="52 237" transform="rotate(15 64 64)"/>
-                  <circle cx="64" cy="64" r="46" fill="none" stroke="#8E6F35" stroke-width="30"
-                          stroke-dasharray="46 243" transform="rotate(72 64 64)"/>
-                  <circle cx="64" cy="64" r="46" fill="none" stroke="#E8D6AF" stroke-width="30"
-                          stroke-dasharray="38 251" transform="rotate(140 64 64)"/>
-                  <circle cx="64" cy="64" r="31" fill="#1C1C1A"/>
-                </svg>
-                <div class="rlines">
-                  <i style="width:100%"></i><i style="width:92%"></i><i style="width:97%"></i>
-                  <i style="width:64%"></i><i style="width:88%"></i><i style="width:46%"></i>
-                </div>
-                <div class="rmark">Nielsen &amp; Brown</div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <ul class="herobullets">
-            <li>Your score out of 120, with the breakdown behind it</li>
-            <li>Where the business is strongest, and where it is weakest</li>
-            <li>Where to act first, scored across the five Strategy Wheel dimensions</li>
-            <li>Your three lowest scoring areas, named specifically</li>
-            <li>A verdict on whether you are ready to invest yet</li>
-            <li>One immediate action worth taking this week</li>
-          </ul>
-          <p class="note">No payment details. No call booked. The report is yours whether or not we ever speak.</p>
-        </div>
-      </section>
-
-      <section class="panel" id="next" role="tabpanel" aria-labelledby="t2">
-        <div class="slab">
-          <div class="group">
-            <div class="grouphead">
-              <span class="gnum">2</span>
-              <span class="gname">A first working step</span>
-              <span class="gnote">Six ways in. Most clients take one and stop there if it is not working.</span>
-              <span class="gband">£995 to £2,950</span>
-            </div>
-            <div class="grid" id="grid-next"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel" id="accelerate" role="tabpanel" aria-labelledby="t3">
-        <div class="slab">
-          <div class="group">
-            <div class="grouphead">
-              <span class="gnum">3</span>
-              <span class="gname">Acceleration</span>
-              <span class="gnote">Proof at scale, built and measured.</span>
-              <span class="gband">£3,500 to £4,500</span>
-            </div>
-            <div class="grid" id="grid-accel"></div>
-          </div>
-
-          <div class="group">
-            <div class="grouphead">
-              <span class="gnum">4</span>
-              <span class="gname">The core programme</span>
-              <span class="gnote">Evidence based, not self reported. Priced and bought separately.</span>
-              <span class="gband">£4,500 and £5,500</span>
-            </div>
-            <div class="grid" id="grid-core"></div>
-          </div>
-
-          <div class="group">
-            <div class="grouphead">
-              <span class="gnum">5</span>
-              <span class="gname">Beyond the roadmap</span>
-              <span class="gnote">Where the roadmap gets built, and stays working.</span>
-              <span class="gband">Scoped per engagement</span>
-            </div>
-            <div class="grid" id="grid-after"></div>
-          </div>
-        </div>
-      </section>
-    </div>
+<!-- shell:nav -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="/" aria-label="Nielsen &amp; Brown home"><img src="assets/brand/NB_Logo_Stacked_Charcoal.svg" alt="Nielsen &amp; Brown" width="90" height="44"></a>
+    <a class="btn btn-primary nav-cta" href="/#contact" data-ga="cta_nav_book" style="padding:10px 16px;font-size:15px">Book a call</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/#fix">What we fix</a>
+      <a href="/how-we-work">How we work</a>
+      <a href="/pricing" aria-current="page">Prices</a>
+      <a href="/founders">About us</a>
+      <a href="/faq">FAQs</a>
+      <a class="btn btn-primary" href="/#contact" data-ga="cta_nav_book">Book a call</a>
+    </nav>
   </div>
-</div>
+</header>
+<!-- /shell:nav -->
 
-<div class="wrap">
-  <section class="close">
-    <h2>Not sure which question you are asking yet?</h2>
-    <p>That is the usual position, and it is a reasonable one. A short diagnostic conversation is the sensible next step.</p>
-    <a class="btn btn-book" href="/#contact">Talk to a human <span>&rarr;</span></a>
+<main id="main">
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="crumb"><a href="/">Home</a></p>
+      <p class="eyebrow">Prices</p>
+      <h1>Every service, priced up front.</h1>
+      <p class="lede">Fixed scope, fixed price, and something you keep at the end. Start small, see the work, then decide. If a step doesn't earn the next one, you stop there.</p>
+      <nav class="jump m-hide" aria-label="Jump to a group">
+        <a href="#start">Free score<span>£0</span></a>
+        <a href="#first-step">First step<span>£995 to £2,950</span></a>
+        <a href="#go-further">Go further<span>£3,500 to £4,500</span></a>
+        <a href="#plan">The plan<span>£4,500 and £5,500</span></a>
+        <a href="#beyond">Build and keep it working<span>From £6,500</span></a>
+      </nav>
+    </div>
   </section>
-  
-</div>
 
-<div class="scrim" id="scrim"></div>
-<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1"></aside>
+  <nav class="jump-pin m-only m-chips" id="jump-pin" aria-label="Jump to a group">
+    <a href="#start">Free score<span>£0</span></a>
+    <a href="#first-step">First step<span>£995 to £2,950</span></a>
+    <a href="#go-further">Go further<span>£3,500 to £4,500</span></a>
+    <a href="#plan">The plan<span>£4,500 and £5,500</span></a>
+    <a href="#beyond">Build and keep it working<span>From £6,500</span></a>
+  </nav>
 
-<script>
-var P = {
-'fractional-advisory-day':{tier:'Entry engagement',name:'Fractional Advisory Day',price:'£1,950',
- dur:'Half a day on site',who:'Leadership teams who need to know where to look first',next:'Automation Starter, or the Diagnostic Assessment',
- blurb:'A working session with your leadership team, structured around where the business loses time and money rather than around what AI can do.',
- sum:'A working session with your leadership team, structured around where the business loses time and money rather than around what AI can do. You have the written summary the following morning.',
- items:[['A working session with your leadership team','Half a day on site, built around your operations rather than a generic agenda.'],
- ['A live opportunity map','Every candidate use case surfaced in the session, captured and sorted by value and feasibility while the team watches it happen.'],
- ['A same day written summary','Delivered within twenty four hours, not two weeks. Three to five pages, no filler.'],
- ['A go and no go list','The opportunities worth pursuing, and the ones that will waste money, with the reason stated for each.'],
- ['A governance flag list','Anything currently exposing the business, identified and named.'],
- ['One immediate action','The single move to make this week, with the owner named.']],
- then:'Most clients leave the day with one opportunity they want proved. That is the Automation Starter. If the picture is broader than one process, the Diagnostic Assessment is the right next step.'},
+  <section class="sec paper" id="start" data-track>
+    <div class="wrap score">
+      <div>
+        <p class="eyebrow">Free, self serve</p>
+        <h2>Know where you stand before you spend anything.</h2>
+        <p class="lead">Where AI earns its place in your business, and where it doesn't.</p>
+        <ul class="stats">
+          <li><b>32</b>questions</li>
+          <li><b>11</b>dimensions</li>
+          <li><b>20</b>minutes</li>
+          <li><b>£0</b>no call booked</li>
+        </ul>
+        <a class="btn btn-primary" href="https://score.nielsenandbrown.com" data-ga="cta_pricing_score">Get your free AI readiness report</a>
+        <p class="small">No payment details. The report is yours whether or not we ever speak.</p>
+      </div>
+      <article class="card m-collapse" id="ai-readiness-score" data-toggle="What your report shows (6)">
+        <span class="kind">Free</span>
+        <h3>AI Readiness Score</h3>
+        <p class="dur">20 minutes, online</p>
+        <ul class="ticks">
+          <li>Your score out of 120, with the breakdown</li>
+          <li>Where you're strongest and weakest</li>
+          <li>Where to act first, across five areas</li>
+          <li>Your three lowest scoring areas, named</li>
+          <li>Whether you're ready to invest yet</li>
+          <li>One action to take this week</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-'ai-foundations-day':{tier:'Entry engagement',name:'AI Foundations Day',price:'£2,195',
- req:'Follows the AI Readiness Score or a diagnostic finding',
- dur:'One full day on site',who:'Teams already using AI without agreed ground rules',next:'Shadow AI Audit, or the Diagnostic Assessment',
- blurb:'The full day version. Direction in the morning, working practice in the afternoon, for teams that would rather do it in one visit.',
- sum:'A full day for up to fifteen people. The morning covers risk and reward and the ground rules. The afternoon is hands on, working on their own real tasks. Nobody leaves with a handout they will never open again.',
- items:[['A pre-session readiness read','Attendees complete the free AI Readiness Score first, so the day is shaped by this business rather than a generic curriculum.'],
- ['A full day on site for up to fifteen people','Morning on risk and reward. Afternoon on doing the work. No slides after lunch.'],
- ['A one page set of ground rules','The dos and the do nots, written in your language, ready to put on the wall or in the handbook.'],
- ['A red lines list','What must never be entered into a public AI tool, named specifically for your data and your client obligations.'],
- ['A prompt library built from your own tasks','Fifteen to twenty working prompts your team writes in the room, on their real work, tested before they leave.'],
- ['A named internal owner and a thirty day practice plan','Who keeps this alive, what they do weekly, and how you will know it is working.'],
- ['One immediate action','The single change to make on Monday morning.']],
- then:'A team that has just written its own red lines list usually asks what else is exposed. That question is answered by the Shadow AI Audit or, if it runs deeper, the Diagnostic Assessment.'},
+  <section class="grp" id="first-step" data-track>
+    <div class="wrap">
+      <div class="grp-head">
+        <div>
+          <p class="eyebrow">A first working step</p>
+          <h2>Six ways in.</h2>
+          <p>Most clients take one, and stop there if it isn't working.</p>
+        </div>
+        <p class="band">£995 to £2,950</p>
+      </div>
+      <div class="cards">
 
-'automation-starter':{tier:'Entry engagement',name:'Automation Starter',price:'£2,950',
- dur:'Two to three weeks',who:'Businesses that want proof rather than paper',next:'Automation Sprint',
- blurb:'One process, scoped with your team, built in the systems you already pay for, measured before and after, and handed over.',
- sum:'Every other engagement at this price produces a document. This one produces a working thing. One process, scoped with your team, built in the systems you already pay for, measured before and after, and handed over.',
- items:[['A scoped process','One workflow chosen with the team, with the time it currently takes and the errors it currently produces written down before anything is built.'],
- ['A working automation','Built in the tools the business already pays for, running on live work, with the exception paths handled rather than ignored.'],
- ['A before and after measure','Hours, handoffs and errors counted at the start and again at handover, so the return is a number rather than a claim.'],
- ['A handover pack and a named owner','How it works, how to change it, how to switch it off, and the person inside the business who runs it without us.'],
- ['The next two candidates, ranked','The following processes worth automating, in order, with the reason each one is next.']],
- then:'Once one process is running and measured, the next two are already ranked. The Automation Sprint takes on two or three connected processes with the controls to run them safely.'},
+        <article class="card m-collapse" id="ai-starting-point">
+          <span class="kind">Plan</span>
+          <div class="price">£995</div>
+          <h3>AI Starting Point</h3>
+          <p class="dur">Half a day, on site</p>
+          <p class="who"><b>For:</b> owners and leaders deciding where AI belongs.</p>
+          <ul class="ticks">
+            <li>Your readiness score reviewed before we arrive</li>
+            <li>Your three strongest opportunities</li>
+            <li>A rough return on each one</li>
+            <li>A basic safety checklist</li>
+            <li>One action to take this week</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> AI in Practice, or Automation Starter</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_ai_starting_point">Book a call about this →</a>
+        </article>
 
-'shadow-ai-audit':{tier:'Entry engagement',name:'Shadow AI Audit',price:'£1,500',
- dur:'One to two weeks',who:'Any business where staff are already using AI unsupervised',next:'Diagnostic Assessment',
- blurb:'Which people are using which AI tools, on what work, with what data, and what to do about it.',
- sum:'Most businesses of sixty to a hundred and fifty people have staff putting client information into consumer AI tools right now. This establishes which people, which tools, which data, and what to do about it.',
- items:[['A full picture of current AI use','Which tools, which teams, on what work. Gathered by structured staff survey and systems review.'],
- ['A data exposure assessment','What information is leaving the business, and where that creates client, contractual or regulatory risk.'],
- ['A licence and spend reconciliation','What is paid for, what is used, and the gap in both directions.'],
- ['A risk register','Every exposure rated, with a named owner and a mitigation.'],
- ['A remediation sequence','What to stop this week, what to control this month, and what to formalise this quarter.']],
- then:'The audit tells you what is exposed. If the underlying issue is that nobody agreed the rules, the Foundations Day fixes it. If it runs broader than governance, the Diagnostic Assessment is the next step.'},
+        <article class="card m-collapse" id="ai-in-practice">
+          <span class="kind">Train</span>
+          <div class="price">£1,250</div>
+          <h3>AI in Practice</h3>
+          <p class="dur">Half a day on site, up to 12 people</p>
+          <p class="who"><b>For:</b> the people who do the work, not the people who decide.</p>
+          <p class="note"><b>£995</b> if booked within 30 days of an AI Starting Point.</p>
+          <ul class="ticks">
+            <li>Built from tasks your team sends in</li>
+            <li>Safe use covered first</li>
+            <li>Working patterns for each role</li>
+            <li>Everyone leaves with something that works on Monday</li>
+            <li>A patterns library and one page use policy within 5 working days</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Automation Starter</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_ai_in_practice">Book a call about this →</a>
+        </article>
 
-'ai-starting-point':{tier:'Entry engagement',name:'AI Starting Point',price:'£995',
- dur:'Half a day on site',who:'Owners and leadership deciding where AI belongs',next:'AI in Practice, or Automation Starter',
- blurb:'A half day that answers where AI belongs in this business, and just as usefully, where it does not.',
- sum:'For a business still working out whether any of this applies to them. Half a day with the people who decide, ending in a shortlist of three opportunities with a rough return against each, rather than a list of tools to go and look at.',
- items:[['A short pre-session read','Your AI Readiness Score reviewed before we arrive, so the session starts from your position rather than from first principles.'],
- ['A half day working session','With the owner and whoever else makes the call, built around where the business loses time and money.'],
- ['A shortlist of the three strongest opportunities','Named specifically, in your operation, not drawn from a sector case study.'],
- ['A rough return against each','What it is plausibly worth in a year, and what it depends on being true.'],
- ['A basic safety checklist','What to put in place before anyone starts, sized to a business of your kind.'],
- ['One immediate action','The single move to make this week, with the owner named.']],
- then:'Knowing where AI belongs is not the same as your people knowing how to use it. AI in Practice is the follow through, and it is £995 when booked within thirty days of this session.'},
+        <article class="card m-collapse" id="shadow-ai-audit">
+          <span class="kind">Check</span>
+          <div class="price">£1,500</div>
+          <h3>Shadow AI Audit</h3>
+          <p class="dur">1 to 2 weeks</p>
+          <p class="who"><b>For:</b> any business where staff already use AI unsupervised.</p>
+          <ul class="ticks">
+            <li>Which tools, which teams, on what work</li>
+            <li>What data is leaving the business</li>
+            <li>Licences paid for against licences used</li>
+            <li>A risk register with owners</li>
+            <li>What to stop this week, control this month, formalise this quarter</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Diagnostic Assessment</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_shadow_ai_audit">Book a call about this →</a>
+        </article>
 
-'ai-in-practice':{tier:'Entry engagement',name:'AI in Practice',price:'£1,250',
- bundle:'£995 when booked within thirty days of an AI Starting Point session',
- dur:'Half a day on site, up to twelve people',who:'Working teams rather than leadership',next:'Automation Starter',
- blurb:'Half a day with a working team, on their own tasks, in their own tools. Everyone leaves with at least one thing that works on Monday.',
- sum:'A working session for the people who do the work, not the people who decide. Their laptops, their real tasks, their actual tools. Generic examples are what makes this kind of session forgettable, so the material comes from the team itself.',
- items:[['Pre-work built from real tasks','Each attendee submits two things from their actual week that they suspect could be faster. Those become the material.'],
- ['What these tools are and are not','Twenty minutes in plain terms, and no theory beyond that.'],
- ['Safe use, covered first','What must never be pasted into a public tool, what counts as client data, and who to ask. Early in the session, not as a closing caveat.'],
- ['Working patterns by role','Three or four role groups, each building against the tasks they submitted.'],
- ['A live build','Everyone leaves with at least one working thing they can use immediately.'],
- ['Where it stops','The limits named out loud, so nobody later trusts an output they should not have.'],
- ['A working patterns library within five working days','Specific to their roles, with a one page acceptable use summary and a named internal point of contact agreed in the room.']],
- then:'A team using AI well on its own tasks starts noticing the processes that should not need a person at all. That is the Automation Starter.'},
+        <article class="card m-collapse" id="fractional-advisory-day">
+          <span class="kind">Advise</span>
+          <div class="price">£1,950</div>
+          <h3>Fractional Advisory Day</h3>
+          <p class="dur">Half a day, on site</p>
+          <p class="who"><b>For:</b> leadership teams who need to know where to look first.</p>
+          <ul class="ticks">
+            <li>A live map of every opportunity, sorted by value</li>
+            <li>A go and no-go list, with reasons</li>
+            <li>Anything exposing the business, flagged</li>
+            <li>A written summary within 24 hours</li>
+            <li>One action, with an owner</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Automation Starter, or the Diagnostic Assessment</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_fractional_advisory_day">Book a call about this →</a>
+        </article>
 
-'automation-sprint':{tier:'Acceleration engagement',name:'Automation Sprint',price:'£4,500',
- dur:'Four to six weeks',who:'Businesses ready to move beyond one proven process',next:'Strategy & Roadmap',
- blurb:'Two or three connected processes mapped, automated, measured and handed over, with the controls needed to run them safely.',
- sum:'Two or three connected processes mapped, automated, measured and handed over, with the controls needed to run them safely. A deck is a promise. A running process is a receipt.',
- items:[['A process map of the target area','Two or three connected workflows mapped end to end, with the time and cost of every step recorded.'],
- ['Two to three automations built and running','In your own systems, on live work, with exception handling and a fallback for when the tool is wrong.'],
- ['A measured baseline and result','Hours, handoffs and error rates before and after, so the payback is evidence rather than an estimate.'],
- ['A control and governance wrapper','Who can change what, what is logged, and what a human must still sign before it goes out.'],
- ['A handover pack and a named internal owner','Documentation, an escalation route, and a person inside the business who can run it after we leave.'],
- ['The next wave, ranked','What to automate next, in order, with the dependency each one carries.'],
- ['One immediate action','The single move to make before the next process is touched.']],
- then:'A business with three processes running and a measured return needs a plan for the rest of them. That is the Strategy & Roadmap.'},
+        <article class="card m-collapse" id="ai-foundations-day">
+          <span class="kind">Train</span>
+          <div class="price">£2,195</div>
+          <h3>AI Foundations Day</h3>
+          <p class="dur">One full day on site, up to 15 people</p>
+          <p class="who"><b>For:</b> teams already using AI without agreed ground rules.</p>
+          <p class="note">Runs after the AI Readiness Score or a diagnostic finding, so the day is built around you.</p>
+          <ul class="ticks">
+            <li>Risk and rules in the morning, hands on in the afternoon</li>
+            <li>One page of ground rules, in your language</li>
+            <li>A red lines list for your data</li>
+            <li>15 to 20 tested prompts from your own tasks</li>
+            <li>An internal owner and a 30 day practice plan</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Shadow AI Audit, or the Diagnostic Assessment</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_ai_foundations_day">Book a call about this →</a>
+        </article>
 
-'data-readiness-check':{tier:'Acceleration engagement',name:'Data Readiness Check',price:'£3,500',
- dur:'Two to three weeks',who:'Businesses about to invest in AI that depends on their own data',next:'Diagnostic Assessment',
- blurb:'Most AI programmes fail on data rather than on models. This establishes what your data can actually support before you spend.',
- sum:'Most AI programmes fail on data rather than on models. This establishes what your data can actually support before you spend money finding out the hard way.',
- items:[['A data inventory','What the business holds, where it sits, and what condition it is in.'],
- ['A quality and completeness assessment','Scored per system, with the specific gaps that would break a use case named.'],
- ['An integration read','What connects to what today, and what would need to be built.'],
- ['A permissions and lawful basis review','What the business is permitted to use, and for what purpose.'],
- ['A readiness verdict per use case','Which use cases your current data can support, which need work first, and how much work.']],
- then:'Sometimes the honest answer is that the business is not ready yet, and we will say so. Where the data holds up, the Diagnostic Assessment turns it into a prioritised plan.'},
+        <article class="card m-collapse" id="automation-starter">
+          <span class="kind">Build</span>
+          <div class="price">£2,950</div>
+          <h3>Automation Starter</h3>
+          <p class="dur">2 to 3 weeks</p>
+          <p class="who"><b>For:</b> businesses that want proof, not paper.</p>
+          <ul class="ticks">
+            <li>One process scoped and timed</li>
+            <li>Built in tools you already pay for, on live work</li>
+            <li>Time and errors measured before and after</li>
+            <li>A handover pack and a named owner</li>
+            <li>The next two processes worth doing, ranked</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Automation Sprint</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_automation_starter">Book a call about this →</a>
+        </article>
 
-'diagnostic-assessment':{tier:'Engagement four, stage two',stage:'Stage two',feat:true,name:'Diagnostic Assessment',price:'£4,500',
- dur:'Three to four weeks',who:'Businesses committing real budget and needing evidence first',next:'Strategy & Roadmap',
- blurb:'Evidence based, not self reported. The foundation everything after it is built on.',
- sum:'We gather the evidence ourselves rather than taking a self assessment at face value. Interviews, a systems review and a working session on site, assessed against the same underlying framework, so nothing is wasted moving to the next stage.',
- items:[['Findings gathered first hand','Interviews, a systems review and a working session, rather than a questionnaire filled in by one person.'],
- ['Results broken down by function, team and process','Not one blended score, because the blended picture almost always hides where the problem actually sits.'],
- ['The single constraint holding the business back most','Named plainly, with what it costs you annually.'],
- ['Three prioritised opportunities, costed','Each with an outline of what it depends on before it can work.'],
- ['One immediate action','The single move worth making before the roadmap is written.']],
- then:'The Diagnostic establishes what is true. The Strategy & Roadmap turns it into a plan the leadership team can run. They are priced and bought separately, so you can stop here if the evidence says you should.'},
+      </div>
+    </div>
+  </section>
 
-'strategy-roadmap':{tier:'Engagement four, stage three',stage:'Stage three',feat:true,name:'Strategy & Roadmap',price:'£5,500',
- dur:'Three to four weeks',who:'Businesses with the evidence, needing the plan',next:'Delivery',
- blurb:'Turns the diagnostic into a plan the leadership team can actually run.',
- sum:'The findings turned into a phased twelve month plan with owners, decision points, a governance position sized to the business, and an agreed way to tell whether it is working.',
- items:[['A phased roadmap covering the next twelve months','What happens when, in what order, with named owners and decision points between phases.'],
- ['Prioritisation based on your real KPIs','Use cases ranked against the measures the business already runs on, not against a generic scoring model.'],
- ['A business case per use case','Cost, value at stake and payback, so each one can be approved or declined on its own merits.'],
- ['A governance position sized to the business','Proportionate controls. What needs signing, what needs logging, and what does not need either.'],
- ['A way to measure whether the plan is working','Agreed before it starts, measured against the baseline from the Diagnostic.']],
- then:'From here the work is delivery. We build the first priority use case, or your team does with our support. Either way the roadmap is yours to keep.'},
+  <section class="grp paper" id="go-further" data-track>
+    <div class="wrap">
+      <div class="grp-head">
+        <div>
+          <p class="eyebrow">Acceleration</p>
+          <h2>Go further, once something has worked.</h2>
+          <p>Proof at scale, built and measured.</p>
+        </div>
+        <p class="band">£3,500 to £4,500</p>
+      </div>
+      <div class="cards">
 
-'pilot-delivery-sprint':{tier:'Engagement five, stage four',stage:'Stage four',name:'Pilot Delivery Sprint',price:'£10,000 to £15,000',
- dur:'Six to eight weeks',who:'Clients with a roadmap and a first use case to build',next:'Continuing Partnership',
- blurb:'Where the roadmap gets built, not just written. The first priority use case, running on live work.',
- sum:'A fixed scope build of the first priority use case from your roadmap, with a defined success measure agreed at the outset and a checkpoint partway through, so spend stays controlled.',
- items:[['The first priority use case built and running','Scoped and priced before anything starts, then built in your own systems on live work.'],
- ['A defined success measure','Agreed at the outset, so nobody argues afterwards about whether it worked.'],
- ['A clear checkpoint partway through','A genuine stop point, so spend stays controlled. If the evidence does not support continuing, we say so.'],
- ['A full handover once the use case is proven','Documentation, an escalation route, and people inside the business who can run it without us.']],
- then:'Delivered work needs to keep working. The Continuing Partnership keeps the governance current and re scores you against your original baseline.'},
+        <article class="card m-collapse" id="automation-sprint">
+          <span class="kind">Build</span>
+          <div class="price">£4,500</div>
+          <h3>Automation Sprint</h3>
+          <p class="dur">4 to 6 weeks</p>
+          <p class="who"><b>For:</b> businesses ready to go beyond one proven process.</p>
+          <ul class="ticks">
+            <li>Two or three connected processes mapped and costed</li>
+            <li>Automations built and running on live work</li>
+            <li>Hours, handoffs and errors measured before and after</li>
+            <li>Controls: who can change what, and what a person signs off</li>
+            <li>A handover pack and a named owner</li>
+            <li>The next wave, ranked</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Strategy &amp; Roadmap</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_automation_sprint">Book a call about this →</a>
+        </article>
 
-'ai-champions-programme':{tier:'Engagement five, capability',stage:'Capability',name:'AI Champions Programme',price:'£6,500',
- dur:'Ten to twelve weeks',who:'Businesses whose capability must survive after we leave',next:'Continuing Partnership',
- blurb:'An internal cohort equipped and supported so the capability stays inside the business. Sequenced after the roadmap, never before it.',
- sum:'An internal cohort equipped and supported so the capability stays inside the business. Sequenced after the roadmap, never before it, so the cohort works on real priorities rather than hypotheticals.',
- items:[['A selected internal cohort','Chosen with you, on the basis of who actually influences how work gets done.'],
- ['A working programme built on your roadmap','The cohort works on the priorities already agreed, not on generic exercises.'],
- ['Supported practice over ten to twelve weeks','Regular sessions with real work in between, rather than a single day that fades.'],
- ['A shared internal playbook','Written by the cohort, owned by the business, and kept current after we leave.'],
- ['A capability handover','Named owners, an escalation route, and a plan for bringing on the next cohort without us.']],
- then:'Once capability sits inside the business, the Continuing Partnership keeps it current as tools, regulation and priorities change.'},
+        <article class="card m-collapse" id="data-readiness-check">
+          <span class="kind">Check</span>
+          <div class="price">£3,500</div>
+          <h3>Data Readiness Check</h3>
+          <p class="dur">2 to 3 weeks</p>
+          <p class="who"><b>For:</b> businesses about to invest in AI that runs on their own data.</p>
+          <ul class="ticks">
+            <li>What data you hold, where, and in what state</li>
+            <li>Quality scored system by system</li>
+            <li>What connects to what, and what would need building</li>
+            <li>What you're allowed to use, and for what</li>
+            <li>A verdict on each use case, and how much work it needs</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Diagnostic Assessment</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_data_readiness_check">Book a call about this →</a>
+        </article>
 
-'continuing-partnership':{tier:'Engagement five, stage five',stage:'Stage five',name:'Continuing Partnership',price:'Monthly',
- dur:'Rolling, cancellable',who:'Clients past the roadmap who need the work to keep working',next:'Reviewed each quarter',
- blurb:'Ongoing, shaped around the business rather than a fixed package.',
- sum:'A steady cadence of strategy and governance check ins, direct access as new questions and tools come up, and a periodic re score against your original baseline so progress stays visible.',
- items:[['A steady cadence of strategy and governance check ins','Regular sessions on what has moved, what has stalled, and what to reprioritise.'],
- ['Direct access to the team','Not an account manager. The people who did the work, available as new questions or tools come up.'],
- ['A periodic re score against the original baseline','The same instrument, re run, so progress is measured rather than claimed.'],
- ['Ongoing enablement to keep capability current','Your people supported as tools, regulation and priorities change.'],
- ['A quarterly business review and executive update','Written for the board, not for us.']],
- then:'Reviewed every quarter. If the value is not there, you stop. We would rather you left than stayed out of habit.'}
-};
+      </div>
+    </div>
+  </section>
 
-var NEXT  = ['ai-starting-point','ai-in-practice','shadow-ai-audit','fractional-advisory-day','ai-foundations-day','automation-starter'];
-var ACCEL = ['automation-sprint','data-readiness-check'];
-var CORE  = ['diagnostic-assessment','strategy-roadmap'];
-var AFTER = ['pilot-delivery-sprint','ai-champions-programme','continuing-partnership'];
+  <section class="grp" id="plan" data-track>
+    <div class="wrap">
+      <div class="grp-head">
+        <div>
+          <p class="eyebrow">The core programme</p>
+          <h2>Evidence first, then the plan.</h2>
+          <p>Priced and bought separately. If the evidence says stop, you stop after the first.</p>
+        </div>
+        <p class="band">£4,500 and £5,500</p>
+      </div>
+      <div class="cards">
 
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+        <article class="card m-collapse" id="diagnostic-assessment">
+          <span class="kind">Stage one of two</span>
+          <div class="price">£4,500</div>
+          <h3>Diagnostic Assessment</h3>
+          <p class="dur">3 to 4 weeks</p>
+          <p class="who"><b>For:</b> businesses about to commit real budget that want evidence first.</p>
+          <ul class="ticks">
+            <li>Interviews, a systems review and time on site</li>
+            <li>Findings by function, team and process</li>
+            <li>The biggest constraint, with its yearly cost</li>
+            <li>Three opportunities, costed</li>
+            <li>One action to take first</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Strategy &amp; Roadmap</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_diagnostic_assessment">Book a call about this →</a>
+        </article>
 
-function cardHTML(id){
-  var p = P[id];
-  return '<button class="card'+(p.feat?' feat':'')+'" data-open="'+id+'">'
-    + (p.stage ? '<span class="stage">'+esc(p.stage)+'</span>' : '')
-    + '<span class="top"><h3>'+esc(p.name)+'</h3><span class="price">'+p.price+'</span></span>'
-    + '<span class="dur">'+esc(p.dur)+'</span>'
-    + '<p>'+esc(p.blurb)+'</p>'
-    + (p.req ? '<span class="req">'+esc(p.req)+'</span>' : '')
-    + (p.bundle ? '<span class="req">'+esc(p.bundle)+'</span>' : '')
-    + '<span class="more">See what you get <i>&rarr;</i></span></button>';
-}
-function fill(elId,list){var el=document.getElementById(elId); if(el) el.innerHTML=list.map(cardHTML).join('');}
-fill('grid-next',NEXT); fill('grid-accel',ACCEL); fill('grid-core',CORE); fill('grid-after',AFTER);
+        <article class="card m-collapse" id="strategy-roadmap">
+          <span class="kind">Stage two of two</span>
+          <div class="price">£5,500</div>
+          <h3>Strategy &amp; Roadmap</h3>
+          <p class="dur">3 to 4 weeks</p>
+          <p class="who"><b>For:</b> businesses with the evidence that now need the plan.</p>
+          <ul class="ticks">
+            <li>A phased 12 month plan with owners and decision points</li>
+            <li>Use cases ranked against your own KPIs</li>
+            <li>A business case for each one</li>
+            <li>Governance sized to the business</li>
+            <li>An agreed way to tell if it's working</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> delivery, by us or by your team with our support</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_strategy_roadmap">Book a call about this →</a>
+        </article>
 
-var sheet=document.getElementById('sheet'), scrim=document.getElementById('scrim'), lastFocus=null;
+      </div>
+    </div>
+  </section>
 
-function sheetHTML(p){
-  return '<div class="sheetin">'
-  + '<div class="sheetbar"><span class="eyebrow">'+esc(p.tier)+'&nbsp; |&nbsp; '+p.price+'</span>'
-  + '<button class="closebtn" data-close>Close</button></div>'
-  + '<h2 id="sheet-title">'+esc(p.name)+'</h2>'
-  + '<p class="sum">'+esc(p.sum)+'</p>'
-  + (p.req ? '<div class="reqnote"><span>Before this runs</span><p>'+esc(p.req)+'. The day is built from what that surfaces, so the content is yours rather than a fixed syllabus.</p></div>' : '')
-  + (p.bundle ? '<div class="reqnote"><span>Bought as a pair</span><p>'+esc(p.bundle)+'. The two are sequential rather than alternative: the first decides where AI belongs, the second gets your people using it.</p></div>' : '')
-  + '<div class="meta">'
-    + '<div><span>How long</span><b>'+esc(p.dur)+'</b></div>'
-    + '<div><span>Best for</span><b>'+esc(p.who)+'</b></div>'
-    + '<div><span>Usually leads to</span><b>'+esc(p.next)+'</b></div>'
-  + '</div>'
-  + '<h3>What you get</h3>'
-  + '<ul class="items">'+p.items.map(function(i){return '<li><b>'+esc(i[0])+'</b><p>'+esc(i[1])+'</p></li>';}).join('')+'</ul>'
-  + '<div class="thenwhat"><span>And then?</span><p>'+esc(p.then)+'</p></div>'
-  + '<a class="btn btn-book" href="/#contact">Talk to a human <span>&rarr;</span></a>'
-  + '</div>';
-}
-function openSheet(id,push){
-  var p=P[id]; if(!p) return;
-  lastFocus=document.activeElement;
-  sheet.innerHTML=sheetHTML(p);
-  sheet.classList.add('on'); scrim.classList.add('on');
-  document.body.classList.add('locked');
-  sheet.scrollTop=0; sheet.focus();
-  if(push&&history.replaceState) history.replaceState(null,'','#'+id);
-}
-function closeSheet(){
-  sheet.classList.remove('on'); scrim.classList.remove('on');
-  document.body.classList.remove('locked');
-  if(history.replaceState) history.replaceState(null,'',location.pathname);
-  if(lastFocus&&lastFocus.focus) lastFocus.focus();
-}
-document.addEventListener('click',function(e){
-  var o=e.target.closest('[data-open]');
-  if(o){openSheet(o.getAttribute('data-open'),true); return;}
-  if(e.target.closest('[data-close]')||e.target===scrim) closeSheet();
-});
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape'&&sheet.classList.contains('on')) closeSheet();
-});
-
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.rung')),
-      panels=[].slice.call(document.querySelectorAll('.panel'));
-  function show(i,push){
-    tabs.forEach(function(t,n){t.classList.toggle('on',n===i);t.setAttribute('aria-selected',n===i?'true':'false');});
-    panels.forEach(function(p,n){p.classList.toggle('on',n===i);});
-    if(push&&history.replaceState) history.replaceState(null,'','#'+tabs[i].getAttribute('data-hash'));
-  }
-  function panelFor(id){
-    if(NEXT.indexOf(id)>-1) return 1;
-    return 2;
-  }
-  function fromHash(){
-    var h=(location.hash||'').replace('#',''); if(!h) return;
-    var qi=-1;
-    tabs.forEach(function(t,i){ if(t.getAttribute('data-hash')===h) qi=i; });
-    if(qi>-1){ show(qi,false); return; }
-    if(P[h]){ show(panelFor(h),false); openSheet(h,false); }
-  }
-  fromHash();
-  window.addEventListener('hashchange',fromHash);
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){show(i,true);});
-    t.addEventListener('keydown',function(e){
-      var n=null;
-      if(e.key==='ArrowDown'||e.key==='ArrowRight') n=(i+1)%tabs.length;
-      if(e.key==='ArrowUp'||e.key==='ArrowLeft') n=(i-1+tabs.length)%tabs.length;
-      if(n!==null){e.preventDefault();tabs[n].focus();show(n,true);}
-    });
-  });
-})();
-</script>
-
-<footer id="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-
-      <div class="footer-brand">
-        <a href="/#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
-          Nielsen <span class="amp">&amp;</span> Brown
-        </a>
-        <p>Helping UK businesses with 10 to 300 people use AI in a practical, safe, and properly sized way.</p>
-        <div class="footer-social">
-          <span class="footer-li-url">linkedin.com/company/nielsenandbrown</span>
-          <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
+  <section class="grp paper" id="beyond" data-track>
+    <div class="wrap">
+      <div class="grp-head">
+        <div>
+          <p class="eyebrow">Beyond the roadmap</p>
+          <h2>Build it, and keep it working.</h2>
+          <p>Scoped to your roadmap, with the price agreed before anything starts.</p>
         </div>
       </div>
+      <div class="cards">
 
-      <div class="footer-col">
-        <h4>What we do</h4>
-        <ul class="footer-links">
-          <li><a href="/#services">Strategy and roadmap</a></li>
-          <li><a href="/#services">Team training</a></li>
-          <li><a href="/#services">Custom-built tools</a></li>
-          <li><a href="/#services">Governance and compliance</a></li>
+        <article class="card m-collapse" id="pilot-delivery-sprint">
+          <span class="kind">Build</span>
+          <div class="price">£10,000 to £15,000</div>
+          <h3>Pilot Delivery Sprint</h3>
+          <p class="dur">6 to 8 weeks</p>
+          <p class="who"><b>For:</b> clients with a roadmap and a first use case to build.</p>
+          <ul class="ticks">
+            <li>Your first priority use case, built on live work</li>
+            <li>Scope and price fixed before we start</li>
+            <li>A success measure agreed up front</li>
+            <li>A real stop point partway through</li>
+            <li>Full handover once it's proven</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Continuing Partnership</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_pilot_delivery_sprint">Book a call about this →</a>
+        </article>
+
+        <article class="card m-collapse" id="ai-champions-programme">
+          <span class="kind">Train</span>
+          <div class="price">£6,500</div>
+          <h3>AI Champions Programme</h3>
+          <p class="dur">10 to 12 weeks</p>
+          <p class="who"><b>For:</b> businesses that need the skills to stay after we leave.</p>
+          <p class="note">Runs after the roadmap, never before, so the group works on real priorities.</p>
+          <ul class="ticks">
+            <li>An internal group, chosen with you</li>
+            <li>Regular sessions, with real work in between</li>
+            <li>A playbook your team writes and owns</li>
+            <li>Named owners and a plan for the next group</li>
+          </ul>
+          <p class="next"><b>Usually leads to:</b> Continuing Partnership</p>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_ai_champions_programme">Book a call about this →</a>
+        </article>
+
+        <article class="card m-collapse" id="continuing-partnership">
+          <span class="kind">Keep it working</span>
+          <div class="price">Monthly</div>
+          <h3>Continuing Partnership</h3>
+          <p class="dur">Rolling, cancellable</p>
+          <p class="who"><b>For:</b> clients past the roadmap who need the work to keep working.</p>
+          <p class="note">Reviewed every quarter. If the value isn't there, you stop.</p>
+          <ul class="ticks">
+            <li>Regular strategy and governance check-ins</li>
+            <li>Direct access to the people who did the work</li>
+            <li>A re-score against your original baseline</li>
+            <li>Training kept current as tools and rules change</li>
+            <li>A quarterly review written for the board</li>
+          </ul>
+          <a class="link more" href="/#contact" data-ga="cta_pricing_continuing_partnership">Book a call about this →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="good-to-know" data-track>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Good to know</p>
+        <h2>How the prices work.</h2>
+      </div>
+      <div class="good">
+        <ul class="ticks">
+          <li>Every price is fixed before we start<span>Scope, price and what you keep, agreed up front.</span></li>
+          <li>Each step is bought on its own<span>No package to sign up to. Stop after any step.</span></li>
+          <li>AI in Practice drops to £995<span>When booked within 30 days of an AI Starting Point.</span></li>
+        </ul>
+        <ul class="ticks">
+          <li>The Diagnostic and the Roadmap are separate<span>Stop after the Diagnostic if the evidence says so.</span></li>
+          <li>The Pilot Delivery Sprint has a stop point<span>A checkpoint partway through keeps spend under control.</span></li>
+          <li>The first call is free<span>30 minutes to find the sensible next step. <a class="link" href="/how-we-work">See how we work →</a></span></li>
         </ul>
       </div>
+    </div>
+  </section>
 
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul class="footer-links">
-          <li><a href="/#credibility">Who we are</a></li>
-          <li><a href="founders.html">Meet the founders</a></li>
-          <li><a href="/#engagement">How we work</a></li>
-          <li><a href="/#audience">Who it is for</a></li>
+  <section class="sec dark cta-band" id="book" data-track>
+    <div class="wrap">
+      <div>
+        <h2>Not sure which one fits?</h2>
+        <p>That's normal. Book 30 minutes and we'll point you to the right first step, or tell you to wait.</p>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/#contact" data-ga="cta_pricing_book">Book a call</a>
+        <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_pricing_score_footer">Free AI readiness score</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- shell:footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="/" aria-label="Nielsen &amp; Brown home"><img src="assets/brand/NB_Logo_Stacked_Cream.svg" alt="Nielsen &amp; Brown" width="107" height="52" loading="lazy"></a>
+        <p>AI strategy and delivery for UK businesses with 10 to 300 people. Based in Manchester.</p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="/services/ai-strategy-and-roadmap">Strategy and roadmap</a></li>
+          <li><a href="/services/workflow-automation">Automation</a></li>
+          <li><a href="/services/team-enablement">Team training</a></li>
+          <li><a href="/services/governance-and-compliance">Governance and compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/founders">About us</a></li>
+          <li><a href="/how-we-work">How we work</a></li>
+          <li><a href="/results">Results</a></li>
+          <li><a href="/governance">How we keep AI safe</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/#faq">FAQs</a></li>
+          <li><a href="/faq">FAQs</a></li>
         </ul>
       </div>
-
-      <div class="footer-col">
-        <h4>Get started</h4>
-        <ul class="footer-links">
-          <li><a href="/#contact">Book a free call</a></li>
-          <li><a href="/#contact">Contact form</a></li>
+      <div>
+        <h2>Get started</h2>
+        <ul>
+          <li><a href="/#contact" data-ga="cta_footer_book">Book a call</a></li>
+          <li><a href="/pricing">Prices</a></li>
+          <li><a href="https://score.nielsenandbrown.com" data-ga="cta_footer_score">Free AI readiness score</a></li>
           <li><a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </div>
-
     </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.<br/><span class="footer-legal">Nielsen &amp; Brown Ltd. Registered in England and Wales, company number 15318367. VAT number 525 7236 88. Registered office: Bartle House, Oxford Court, Manchester M2 3WQ.</span></p>
-      <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/cookie-policy">Cookie Policy</a>
-        <a href="#" id="cookie-settings-link" role="button">Cookie Settings</a>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Nielsen &amp; Brown Ltd. Registered in England and Wales, company number <b>15318367</b>. VAT number <b>525 7236 88</b>. Registered office: Bartle House, Oxford Court, Manchester M2 3WQ.</p>
+      <div class="foot-legal">
+        <a href="/privacy-policy">Privacy policy</a>
+        <a href="/cookie-policy">Cookie policy</a>
+        <button type="button" id="cookie-settings-link">Cookie settings</button>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Cookie consent -->
-<div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
-  <p>We use essential cookies to run this site, and analytics cookies to understand how it is used. Analytics stay off until you accept. See our <a href="/cookie-policy">Cookie Policy</a>.</p>
-  <div class="consent-actions">
-    <button class="consent-btn consent-decline" id="consent-decline" type="button">Decline</button>
-    <button class="consent-btn consent-accept" id="consent-accept" type="button">Accept</button>
-  </div>
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="/#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
 </div>
 
-
+<div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="/cookie-policy">cookie policy</a>.</p>
+  <div class="consent-actions">
+    <button class="btn btn-ghost" id="consent-decline" type="button" style="border-color:var(--muted-dark);color:var(--cream)">Decline</button>
+    <button class="btn btn-primary" id="consent-accept" type="button">Accept</button>
+  </div>
+</div>
+<script src="assets/site/site.js"></script>
+<!-- /shell:footer -->
 <script>
-  // ── Anchor position after webfonts load ──────────────────
-  // Cormorant Garamond arriving reflows the page by ~1000px, and the browser
-  // has already scrolled to the hash using the fallback-font layout. Re-apply
-  // the scroll once fonts have settled, unless the visitor has moved since.
-  (function () {
-    if (!location.hash || location.hash.length < 2) return;
-    var target = document.getElementById(location.hash.slice(1));
-    if (!target || !document.fonts || !document.fonts.ready) return;
-    // A panel id (#start, #next, #accelerate) belongs to the engagement
-    // selector; scroll to the section so its heading is visible, not to the
-    // panel, which the tab script is also positioning.
-    var section = target.closest && target.closest('#engagement');
-    if (section && target !== section) target = section;
-    var startY = window.scrollY;
-    document.fonts.ready.then(function () {
-      if (Math.abs(window.scrollY - startY) > 40) return;   // they scrolled, leave it
-      target.scrollIntoView();
-    });
-  })();
-
-  // ── Nav scroll behaviour ──────────────────────
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-
-  // ── Mobile hamburger ──────────────────────────
-  const hamburger = document.getElementById('hamburger');
-  const body = document.body;
-  hamburger.addEventListener('click', () => {
-    const open = body.classList.toggle('nav-open');
-    hamburger.setAttribute('aria-expanded', open);
-  });
-
-  document.getElementById('nav-links').querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      body.classList.remove('nav-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // ── Scroll reveal ─────────────────────────────
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach((el, i) => {
-    const siblings = el.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    let delay = 0;
-    siblings.forEach((sib, j) => { if (sib === el) delay = j * 100; });
-    el.dataset.delay = delay;
-    observer.observe(el);
-  });
-
-  // ── FAQ accordion ─────────────────────────────
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // ── Counter animation ─────────────────────────
-  function animateCounter(el, target, suffix, duration = 1800) {
-    const start = performance.now();
-    const update = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(ease * target * 10) / 10;
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
+// Phones: highlight the group in view in the sticky jump bar.
+(function () {
+  var bar = document.getElementById('jump-pin');
+  var nav = document.querySelector('.nav');
+  if (!bar) return;
+  function navH() { if (nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px'); }
+  navH(); window.addEventListener('resize', navH);
+  var links = Array.prototype.slice.call(bar.querySelectorAll('a'));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  var current = null, ticking = false;
+  function update() {
+    ticking = false;
+    if (!bar.offsetParent) return;
+    var mark = (nav ? nav.offsetHeight : 76) + bar.offsetHeight + 40, pick = -1;
+    secs.forEach(function (sec, i) { if (sec && sec.getBoundingClientRect().top <= mark) pick = i; });
+    var last = secs[secs.length - 1];
+    if (last && last.getBoundingClientRect().bottom < mark) pick = -1;
+    if (pick === current) return;
+    current = pick;
+    links.forEach(function (a, i) { a.classList.toggle('on', i === pick); if (i === pick) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+    if (pick >= 0) bar.scrollTo({ left: links[pick].offsetLeft - 16, behavior: 'smooth' });
   }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  EMAILJS SETUP — 5-minute one-time configuration
-  //  Delivers all form enquiries to enquiries@nielsenandbrown.com
-  //
-  //  STEP 1 — Create a free account at https://www.emailjs.com
-  //           (free tier = 200 emails/month, no credit card needed)
-  //
-  //  STEP 2 — Add an Email Service:
-  //           Dashboard → Email Services → Add New Service
-  //           Connect Gmail or any inbox. Note your SERVICE ID.
-  //
-  //  STEP 3 — Create an Email Template:
-  //           Dashboard → Email Templates → Create New Template
-  //           Set "To Email" to:  enquiries@nielsenandbrown.com
-  //           Paste this template body (or customise it):
-  //
-  //           New enquiry from {{from_name}} ({{from_email}})
-  //
-  //           Company: {{company}}
-  //           Size: {{size}}
-  //           Service interest: {{service}}
-  //
-  //           Message:
-  //           {{message}}
-  //
-  //           Note your TEMPLATE ID.
-  //
-  //  STEP 4 — Get your Public Key:
-  //           Dashboard → Account → General → Public Key
-  //
-  //  STEP 5 — Replace the three placeholder values below:
-  // ═══════════════════════════════════════════════════════════════════
-
-  const EMAILJS_SERVICE_ID  = 'service_aozn9e4';   // e.g. 'service_aozn9e4'
-  const EMAILJS_TEMPLATE_ID = 'template_x5k0q58';  // e.g. 'template_x5k0q58'
-  const EMAILJS_PUBLIC_KEY  = 'iG7oUlfEEQt7CJzHX';   // e.g. 'iG7oUlfEEQt7CJzHX'
-
-  // Initialise EmailJS (library is loaded with defer, so guard against a race
-  // where this inline script could run before the library has parsed).
-  function nbInitEmailJS() { if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); }
-  if (window.emailjs) { nbInitEmailJS(); }
-  else { window.addEventListener('DOMContentLoaded', nbInitEmailJS); }
-
-  // Form submission and EmailJS live on the homepage only; this page has no form.
-
-  // ── Active nav link ───────────────────────────
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = '';
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.color = 'var(--charcoal)';
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => sectionObserver.observe(s));
-</script>
-
-<script>
-  // ── Campaign attribution ──────────────────────────────────
-  // Captured first-touch per session so a hop to another page does not lose it.
-  // sessionStorage only, cleared when the tab closes, used to tell you where an
-  // enquiry came from. Not analytics, so it is not gated on consent.
-  window.nbAttribution = (function () {
-    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','account_id'];
-    var STORE = 'nb-attrib';
-    var data = null;
-    try { var st = sessionStorage.getItem(STORE); if (st) data = JSON.parse(st); } catch (e) {}
-    var p = new URLSearchParams(window.location.search), incoming = {}, any = false;
-    KEYS.forEach(function (k) { var v = p.get(k); if (v) { incoming[k] = v.slice(0,200); any = true; } });
-    if (any && !data) {
-      data = incoming;
-      try { sessionStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
-    }
-    function d() { return data || {}; }
-    return {
-      get: d,
-      summary:  function () { return d().utm_source ? [d().utm_source, d().utm_medium].filter(Boolean).join(' / ') : 'Direct or organic'; },
-      campaign: function () { return [d().utm_campaign, d().utm_term, d().utm_content].filter(Boolean).join(' \u2014 ') || 'Not set'; },
-      account:  function () { return d().account_id || 'Not set'; },
-      appendTo: function (url) {
-        var k = Object.keys(d()); if (!k.length) return url;
-        return url + (url.indexOf('?') === -1 ? '?' : '&') +
-          k.map(function (x) { return x + '=' + encodeURIComponent(d()[x]); }).join('&');
-      }
-    };
-  })();
-
-  document.querySelectorAll('a[href^="https://score.nielsenandbrown.com"]').forEach(function (el) {
-    el.setAttribute('href', window.nbAttribution.appendTo(el.getAttribute('href')));
+  // A product linked from elsewhere on the page opens its list too.
+  window.addEventListener('hashchange', function () {
+    var t = document.getElementById(location.hash.slice(1));
+    if (t && t.classList.contains('m-collapse') && !t.classList.contains('open')) { var tb = t.querySelector('.m-toggle'); if (tb) tb.click(); }
   });
-
-  // ── Cookie consent + GA4 Consent Mode ─────────────────────
-  (function () {
-    var banner = document.getElementById('cookie-consent');
-    var KEY = 'nb-consent';
-    function grant() {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-        gtag('config', 'G-V9Q0XLTP7Q');
-      }
-    }
-    function revoke() {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
-      }
-    }
-    // Cookie, not localStorage: localStorage is per-subdomain, so the score app
-    // could not read the decision and would ask a second time.
-    function readCookie() {
-      var m = document.cookie.match(/(?:^|;\s*)nb-consent=(granted|denied)/);
-      return m ? m[1] : null;
-    }
-    // The domain attribute is only valid on the real host. Setting it anywhere
-    // else (localhost, a preview URL) makes the browser reject the cookie
-    // silently, so scope it only when we are actually on the live domain.
-    function cookieDomain() {
-      return /(^|\.)nielsenandbrown\.com$/.test(location.hostname)
-        ? ';domain=.nielsenandbrown.com' : '';
-    }
-    function writeCookie(v) {
-      document.cookie = 'nb-consent=' + v + cookieDomain() +
-        ';path=/;max-age=31536000;SameSite=Lax' +
-        (location.protocol === 'https:' ? ';Secure' : '');
-    }
-    var stored = readCookie();
-    if (!stored) {
-      try {
-        var legacy = localStorage.getItem(KEY);
-        if (legacy === 'granted' || legacy === 'denied') {
-          stored = legacy; writeCookie(legacy); localStorage.removeItem(KEY);
-        }
-      } catch (e) {}
-    }
-    if (stored === 'granted') { grant(); }
-    else if (stored !== 'denied') { banner.classList.add('visible'); }
-
-    document.getElementById('consent-accept').addEventListener('click', function () {
-      writeCookie('granted');
-      grant(); banner.classList.remove('visible');
-    });
-    document.getElementById('consent-decline').addEventListener('click', function () {
-      writeCookie('denied');
-      // Revoke immediately, so analytics stop even if the user had accepted earlier this session.
-      revoke(); banner.classList.remove('visible');
-    });
-
-    // "Cookie Settings" footer link — lets users reopen the banner and change their choice.
-    var settingsLink = document.getElementById('cookie-settings-link');
-    if (settingsLink) {
-      settingsLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        banner.classList.add('visible');
-        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    }
-  })();
-
-  // ── GA4 interaction events (no-op until consent grants) ───
-  (function () {
-    function track(name, params) {
-      if (typeof gtag === 'function') { gtag('event', name, params || {}); }
-    }
-
-    // CTA clicks: pass the link's destination (e.g. "contact", "engagement")
-    // so reports show what the user was reaching for, not just the button label.
-    document.querySelectorAll('[data-ga]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        var name = el.getAttribute('data-ga');
-        var href = el.getAttribute('href') || '';
-        var destination = href.indexOf('#') === 0 ? href.slice(1) : '';
-        track(name, destination ? { destination: destination } : {});
-      });
-    });
-
-    document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
-      el.addEventListener('click', function () { track('email_click'); });
-    });
-    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function (el) {
-      el.addEventListener('click', function () { track('linkedin_click'); });
-    });
-
-    // Outbound link tracking — external (non-mailto, non-anchor) links,
-    // captured by hostname so it's easy to read in GA.
-    document.querySelectorAll('a[href^="http"]').forEach(function (el) {
-      var href = el.getAttribute('href') || '';
-      if (href.indexOf('nielsenandbrown.com') !== -1) return;       // skip our own domain
-      if (href.indexOf('linkedin.com') !== -1) return;              // already tracked above
-      el.addEventListener('click', function () {
-        var hostname = '';
-        try { hostname = new URL(href).hostname.replace(/^www\./, ''); } catch (e) {}
-        track('outbound_click', { link_url: href, link_domain: hostname });
-      });
-    });
-
-    var form = document.getElementById('contact-form');
-    if (form) {
-      var started = false;
-      form.addEventListener('focusin', function () {
-        if (!started) { started = true; track('form_start'); }
-      });
-    }
-
-    // Section-view tracking — fire once per session when a major section first
-    // enters the viewport. Lets us see how far through the page visitors actually
-    // get, which on a single-page site is the only meaningful depth metric.
-    if ('IntersectionObserver' in window) {
-      var sectionIds = ['proof','audience','pain','opportunity','credibility','wheel','services','engagement','assurance','partners','faq','cta-banner','contact'];
-      var seen = {};
-      var sectionObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !seen[entry.target.id]) {
-            seen[entry.target.id] = true;
-            track('section_view', { section_id: entry.target.id });
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });  // section is 40% in view before counting
-
-      sectionIds.forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) sectionObserver.observe(el);
-      });
-    }
-  })();
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }, { passive: true });
+  update();
+})();
 </script>
-
-
 </body>
 </html>

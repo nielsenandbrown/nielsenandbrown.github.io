@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nielsenandbrown.com/sitemap.xml

@@ -12,5 +12,5 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return p + '.html'
         return p
 
-print(f'Open http://localhost:{PORT}/preview.html   (Ctrl+C to stop)')
+print(f'Open http://localhost:{PORT}/   (Ctrl+C to stop)')
 http.server.ThreadingHTTPServer(('127.0.0.1', PORT), Handler).serve_forever()

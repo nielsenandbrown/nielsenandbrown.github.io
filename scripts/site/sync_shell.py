@@ -1,7 +1,7 @@
-"""Copy the shared head, nav and footer into every preview page.
+"""Copy the shared head, nav and footer into every page of the site.
 
-    python3 scripts/preview/sync_shell.py                      # every preview page
-    python3 scripts/preview/sync_shell.py preview-faq.html     # just these
+    python3 scripts/site/sync_shell.py              # every page
+    python3 scripts/site/sync_shell.py faq.html     # just these
 
 Each page marks where the shared parts go with comment pairs:
 
@@ -21,20 +21,22 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 PARTIALS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'partials')
 
-pages = [os.path.abspath(a) for a in sys.argv[1:]] or sorted(glob.glob(os.path.join(ROOT, 'preview*.html')) + glob.glob(os.path.join(ROOT, 'services', 'preview-*.html')))
+# Every page that carries the shell markers (the template in partials/ is not a page).
+pages = [os.path.abspath(a) for a in sys.argv[1:]] or sorted(
+    f for f in glob.glob(os.path.join(ROOT, '*.html')) + glob.glob(os.path.join(ROOT, 'services', '*.html'))
+    if '<!-- shell:head -->' in open(f, encoding='utf8').read())
 parts = {n: open(os.path.join(PARTIALS, n + '.html'), encoding='utf8').read().strip() for n in ('head', 'nav', 'footer')}
 
 def relative(doc, depth):
-    """Root paths ("/assets/x.css", "/preview-faq#a") become relative file paths
-    ("../assets/x.css", "preview-faq.html#a"), so pages work opened straight from
-    disk as well as on GitHub Pages. Write root paths in pages and partials."""
+    """Root file paths ("/assets/x.css") become relative ("../assets/x.css") so a
+    page opened straight from disk still gets its styles and images. Links to
+    pages ("/pricing", "/#contact") stay as root, extensionless routes, matching
+    the canonical URLs. Write root paths in pages and partials."""
     up = '../' * depth
     def fix(m):
         attr, path, frag = m.group(1), m.group(2), m.group(3) or ''
-        if path == '/':
+        if path == '/' or '.' not in os.path.basename(path):   # a page route, not a file
             return m.group(0)
-        if '.' not in os.path.basename(path):          # a page route, not a file
-            path += '.html'
         return f'{attr}="{up}{path.lstrip("/")}{frag}"'
     return re.sub(r'\b(href|src)="(/(?!/)[^"#?]*)(#[^"]*)?"', fix, doc)
 
@@ -42,6 +44,8 @@ def relative(doc, depth):
 for path in pages:
     doc = open(path, encoding='utf8').read()
     route = '/' + os.path.relpath(path, ROOT)[:-len('.html')]
+    if route == '/index':
+        route = '/'
     for name, body in parts.items():
         if name == 'nav':
             body = body.replace(f'<a href="{route}">', f'<a href="{route}" aria-current="page">')

@@ -1,4 +1,4 @@
-/* Nielsen & Brown preview site: shared behaviour for every page.
+/* Nielsen & Brown: shared behaviour for every page.
    Campaign attribution, cookie consent with GA4 Consent Mode, interaction
    events and the mobile menu. Ported from the live index.html. */
 

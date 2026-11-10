@@ -1,1809 +1,313 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    // Consent Mode: set defaults BEFORE the 'js' command so storage is denied
-    // from the very first hit, until the visitor accepts cookies.
-    gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
-    gtag('js', new Date());
-    // gtag('config', ...) is deferred to the cookie-consent grant (see footer script).
-  </script>
+<!-- shell:head -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V9Q0XLTP7Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Consent Mode: storage denied from the first hit until the visitor accepts cookies.
+  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+  gtag('js', new Date());
+  // gtag('config', ...) runs only once consent is granted (assets/site/site.js).
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Nielsen &amp; Brown">
+<meta name="theme-color" content="#2C2C29">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site/site.css">
+<!-- /shell:head -->
+<title>About us | Nielsen &amp; Brown</title>
+<meta name="description" content="Nielsen &amp; Brown is a Manchester AI consultancy for UK businesses with 10 to 300 people. Meet co-founder Allan Nielsen and see how we work with you.">
+<link rel="canonical" href="https://nielsenandbrown.com/founders">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nielsenandbrown.com/founders">
+<meta property="og:site_name" content="Nielsen &amp; Brown">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="About us | Nielsen &amp; Brown">
+<meta property="og:description" content="Nielsen &amp; Brown is a Manchester AI consultancy for UK businesses with 10 to 300 people. Meet co-founder Allan Nielsen and see how we work with you.">
+<meta property="og:image" content="https://nielsenandbrown.com/assets/og/home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nielsen &amp; Brown: we work out where AI fits, then we implement it and make it stick.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About us | Nielsen &amp; Brown">
+<meta name="twitter:description" content="Nielsen &amp; Brown is a Manchester AI consultancy for UK businesses with 10 to 300 people. Meet co-founder Allan Nielsen and see how we work with you.">
+<meta name="twitter:image" content="https://nielsenandbrown.com/assets/og/home.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["WebPage", "AboutPage"],
+      "@id": "https://nielsenandbrown.com/founders#webpage",
+      "url": "https://nielsenandbrown.com/founders",
+      "name": "About us | Nielsen & Brown",
+      "description": "Nielsen & Brown is a Manchester AI consultancy for UK businesses with 10 to 300 people. Meet co-founder Allan Nielsen and see how we work with you.",
+      "inLanguage": "en-GB",
+      "isPartOf": { "@id": "https://nielsenandbrown.com/#website" },
+      "about": { "@id": "https://nielsenandbrown.com/#organization" },
+      "publisher": { "@id": "https://nielsenandbrown.com/#organization" },
+      "mainEntity": { "@id": "https://nielsenandbrown.com/founders#allan-nielsen" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nielsenandbrown.com/founders#allan-nielsen",
+      "name": "Allan Nielsen",
+      "jobTitle": "Co-founder",
+      "image": "https://nielsenandbrown.com/assets/people/allan-nielsen@450.jpg",
+      "worksFor": { "@id": "https://nielsenandbrown.com/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nielsenandbrown.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About us", "item": "https://nielsenandbrown.com/founders" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  .about-head .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .about-head .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  @media (max-width:900px){.about-head .wrap{grid-template-columns:1fr;gap:36px}}
 
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  /* video, as on the homepage */
 
-  <title>Meet the founders | Nielsen &amp; Brown</title>
-  <meta name="description" content="Meet Allan Nielsen, Co-founder of Nielsen &amp; Brown. Why we built an AI consultancy for UK businesses with 10 to 300 people."/>
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
-  <link rel="canonical" href="https://www.nielsenandbrown.com/founders"/>
-  <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
-  <link rel="icon" href="favicon.ico"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  .cards.four{grid-template-columns:repeat(4,1fr)}
+  @media (max-width:1000px){.cards.four{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.cards.four{grid-template-columns:1fr}}
 
-  <meta property="og:type" content="profile"/>
-  <meta property="og:url" content="https://www.nielsenandbrown.com/founders"/>
-  <meta property="og:site_name" content="Nielsen &amp; Brown"/>
-  <meta property="og:title" content="Meet the founders | Nielsen &amp; Brown"/>
-  <meta property="og:description" content="Why we built an AI consultancy for UK businesses with 10 to 300 people."/>
-  <meta property="og:image" content="https://www.nielsenandbrown.com/assets/people/allan-nielsen.jpg"/>
-  <meta property="og:locale" content="en_GB"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <!-- Fonts: single combined request, loaded async so it never blocks first paint.
-       Cormorant Garamond for headings, Jost for body, per the brand spec.
-       System fallbacks (Georgia / system-ui) apply until they load. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'"/>
-  <noscript>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap"/>
-  </noscript>
+  /* Allan */
+  .person{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:56px;align-items:start}
+  .person figure{margin:0}
+  .person figure img{width:100%;height:auto;border-radius:12px;background:var(--sand)}
+  .person figcaption{margin-top:14px;font-size:15px;color:var(--muted)}
+  .person figcaption b{display:block;color:var(--charcoal);font-size:18px}
+  .person .prose h2{margin-top:12px}
+  .pull{margin:28px 0;padding:4px 0 4px 22px;border-left:3px solid var(--gold);font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(22px,2.2vw,27px);line-height:1.35;color:var(--charcoal)}
+  @media (max-width:900px){.person{grid-template-columns:1fr;gap:32px}.person figure{max-width:320px}}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Allan Nielsen",
-    "jobTitle": "Co-founder",
-    "image": "https://www.nielsenandbrown.com/assets/people/allan-nielsen.jpg",
-    "worksFor": { "@type": "Organization", "name": "Nielsen & Brown", "url": "https://www.nielsenandbrown.com" },
-    "url": "https://www.nielsenandbrown.com/founders"
+  /* where we are */
+  .base p.lead{font-size:19px;margin-top:16px;color:#CFCBBE;max-width:560px}
+  .base address{font-style:normal;margin-top:18px;color:var(--cream);font-weight:500}
+  @media (max-width:600px){.about-head .ctas .btn{width:100%}}
+
+  /* phones */
+  @media (max-width:700px){
+    .about-head .wrap{gap:28px}
+    .about-head .ctas{gap:10px;margin-top:24px}
+    .cards.four .card{padding:20px}
+    .cards.four .card h3{font-size:19px}
+    .cards.four .card p{font-size:15px}
+    .person{display:grid;grid-template-columns:104px 1fr;gap:0 18px;align-items:center}
+    .person .prose{display:contents}
+    .person figure{grid-column:1;grid-row:1/3;max-width:none;align-self:start}
+    .person figure img{display:block;border-radius:10px;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%}
+    .person figcaption{display:none}
+    .person .prose .eyebrow{grid-column:2;grid-row:1;align-self:end;margin:0}
+    .person .prose h2{grid-column:2;grid-row:2;align-self:start;margin:6px 0 0;font-size:clamp(24px,6.6vw,28px)}
+    .person .prose h2 .nw{white-space:nowrap}
+    .person .prose > :not(.eyebrow):not(h2){grid-column:1/-1}
+    .person .prose h2 + p{margin-top:22px}
+    .pull{margin:24px 0;padding-left:18px;font-size:21px}
+    .base p.lead{font-size:17px}
   }
-  </script>
-  <style>
-/* ═══════════════════════════════════════════════
-       DESIGN TOKENS — Nielsen & Brown Brand
-    ══════════════════════════════════════════════════ */
-    :root {
-      --cream:        #FAF8F3;
-      --cream-2:      #F2EDE6;
-      --cream-3:      #E9E1D2;
-      --charcoal:     #2C2C29;
-      --charcoal-2:   #3A3A36;
-      --charcoal-3:   #4A4A45;
-      --gold:         #B8924A;
-      --gold-light:   #C9A867;
-      --gold-pale:    #E9DCC0;
-      --action:       #A64B2A;
-      --action-dark:  #8E3F23;
-      --gold-deep:    #9C7936;
-      --ink:          #403D34;
-      --line:         #DCD3BF;
-      --muted:        #7D7968;
-      --muted-on-dark: #B5B1A0;   /* the same role on charcoal, 5.9:1 */
-      --muted-2:      #6E6A5A;   /* darkened: was #9C9989 at 2.46:1, now 4.66:1 */
-      --stone:        #DCD3BF;
-      --stone-2:      #E9E1D2;
-
-      --font-display: 'Cormorant Garamond', Cormorant, Georgia, serif;
-      --font-body:    'Jost', 'Calibri', sans-serif;
-
-      --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
-      --shadow-sm:    0 2px 12px rgba(44,44,41,0.08);
-      --shadow-md:    0 8px 32px rgba(44,44,41,0.12);
-      --shadow-lg:    0 20px 60px rgba(44,44,41,0.16);
-    }
-/* ═══════════════════════════════════════════════
-       RESET & BASE
-    ══════════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--charcoal);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: var(--font-body); }
-ul { list-style: none; }
-/* Visible keyboard focus for all interactive elements */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible,
-    [tabindex]:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-/* Respect users who prefer reduced motion: disable reveals, marquee,
-       hero entrance animations, and smooth scrolling. */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal, .reveal-left, .reveal-right,
-      .hero-eyebrow, .hero-headline, .hero-sub, .hero-actions, .hero-stats {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-      .marquee-track { animation: none !important; }
-    }
-/* ═══════════════════════════════════════════════
-       SCROLL ANIMATIONS
-    ══════════════════════════════════════════════════ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-.reveal-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-.reveal-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-    }
-.reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-/* ═══════════════════════════════════════════════
-       NAVIGATION
-    ══════════════════════════════════════════════════ */
-    #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 1.4rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
-    }
-#nav.scrolled {
-      background: rgba(250,248,243, 0.97);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 var(--stone);
-      padding: 1rem 5%;
-    }
-.nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--charcoal);
-      display: flex;
-      align-items: baseline;
-      gap: 0;
-    }
-.nav-logo .amp {
-      color: var(--gold);
-      font-style: normal;
-      font-weight: 600;
-      padding: 0 0.06em;
-    }
-.nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-.nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.25s;
-    }
-.nav-links a:hover { color: var(--charcoal); }
-.nav-cta {
-      background: var(--charcoal) !important;
-      color: var(--cream) !important;
-      padding: 0.65rem 1.5rem;
-      font-size: 0.78rem !important;
-      letter-spacing: 0.08em !important;
-      text-transform: uppercase !important;
-      font-weight: 500 !important;
-      border: 2px solid var(--charcoal);
-      transition: background 0.25s, color 0.25s, border-color 0.25s !important;
-    }
-.nav-cta:hover {
-      background: var(--gold) !important;
-      border-color: var(--gold) !important;
-      color: var(--cream) !important;
-    }
-.nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-.nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--charcoal);
-      transition: transform 0.3s, opacity 0.3s;
-    }
-/* ═══════════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 5% 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-.hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(184,146,74,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(184,146,74,0.04) 0%, transparent 50%);
-    }
-.hero-grain {
-      position: absolute;
-      inset: 0;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-    }
-/* large decorative ampersand */
-    .hero-amp {
-      position: absolute;
-      right: -2%;
-      top: 50%;
-      transform: translateY(-55%);
-      width: clamp(20rem, 30vw, 38rem);
-      aspect-ratio: 400 / 500;
-      /* the brand mark itself, so it cannot drift from the asset */
-      background: url("assets/brand/NB_Watermark_Mark.svg") center / contain no-repeat;
-      opacity: 0.30;
-      user-select: none;
-      pointer-events: none;
-      font-size: 0;
-    }
-.hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1120px;
-      margin: 0 auto;
-      width: 100%;
-    }
-.hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      animation: heroFadeUp 0.9s 0.2s var(--ease-out) both;
-    }
-.hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
-    }
-.hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(3.2rem, 7vw, 7rem);
-      font-weight: 300;
-      line-height: 1.03;
-      letter-spacing: -0.01em;
-      color: var(--charcoal);
-      margin-bottom: 2.5rem;
-      max-width: 900px;
-      animation: heroFadeUp 0.9s 0.4s var(--ease-out) both;
-    }
-.hero-headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
-.hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-      margin-bottom: 3.5rem;
-      animation: heroFadeUp 0.9s 0.6s var(--ease-out) both;
-    }
-.hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      animation: heroFadeUp 0.9s 0.8s var(--ease-out) both;
-    }
-.btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--charcoal);
-      color: var(--cream);
-      padding: 1rem 2.2rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-    }
-.btn-primary:hover {
-      background: var(--gold);
-      transform: translateY(-2px);
-    }
-.btn-primary svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.btn-primary:hover svg { transform: translateX(3px); }
-.btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--charcoal);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--stone);
-      padding-bottom: 3px;
-      transition: color 0.25s, border-color 0.25s;
-    }
-.btn-outline:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-/* Hero Stats */
-    .hero-stats {
-      display: flex;
-      gap: 0;
-      margin-top: 5rem;
-      border-top: 1px solid var(--stone-2);
-      padding-top: 3rem;
-      animation: heroFadeUp 0.9s 1s var(--ease-out) both;
-    }
-.hero-stat {
-      flex: 1;
-      padding-right: 3rem;
-      border-right: 1px solid var(--stone-2);
-      margin-right: 3rem;
-    }
-.hero-stat:last-child {
-      border-right: none;
-      margin-right: 0;
-    }
-.hero-stat-num {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 4vw, 3.5rem);
-      font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-.hero-stat-num span { color: var(--gold); }
-.hero-stat-label {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      line-height: 1.4;
-    }
-/* Fill mode is "both", and the rules above deliberately carry no
-   opacity: 0. Reduce Motion forces animation-duration to 0, and a
-   zero-duration animation applies no fill at all, so a base
-   opacity: 0 would leave the whole hero invisible permanently
-   rather than merely unanimated. "both" supplies the start state
-   while the animation runs and nothing when it does not. */
-    @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-/* ═══════════════════════════════════════════════
-       MARQUEE TRUST BAR
-    ══════════════════════════════════════════════════ */
-    #trust-bar {
-      background: var(--charcoal-2);
-      padding: 1.1rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-.marquee-track {
-      display: flex;
-      gap: 4rem;
-      width: max-content;
-      animation: marquee 32s linear infinite;
-    }
-.marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(250,248,243,0.45);
-      white-space: nowrap;
-    }
-.marquee-item .dot {
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
-@keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-/* ═══════════════════════════════════════════════
-       SECTION HEADERS
-    ══════════════════════════════════════════════════ */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-.section-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-.section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 300;
-      color: var(--charcoal);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-.section-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-.section-intro {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-    }
-/* ═══════════════════════════════════════════════
-       OPPORTUNITY SECTION
-    ══════════════════════════════════════════════════ */
-.opportunity-text .section-title {
-      margin-bottom: 1.5rem;
-    }
-/* ═══════════════════════════════════════════════
-       SERVICES
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHY US
-    ══════════════════════════════════════════════════ */
-    #why {
-      padding: 8rem 5%;
-      background: var(--charcoal);
-      position: relative;
-      overflow: hidden;
-    }
-#why .section-label { color: var(--gold-light); }
-#why .section-label::before { background: var(--gold-light); }
-#why .section-title { color: var(--cream); }
-#why .section-intro { color: rgba(250,248,243,0.55); max-width: 100%; }
-/* ═══════════════════════════════════════════════
-       CLIENT JOURNEY
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHO WE SERVE
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       FAQ
-    ══════════════════════════════════════════════════ */
-.faq-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 8%;
-      align-items: start;
-    }
-.faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--stone);
-    }
-.faq-item {
-      border-bottom: 1px solid var(--stone);
-    }
-.faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.5rem 0;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.4;
-      transition: color 0.25s;
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      font-family: inherit;
-    }
-.faq-question > span:first-child { flex: 1; }
-.faq-question:hover { color: var(--gold); }
-.faq-icon {
-      width: 20px;
-      height: 20px;
-      border: 1px solid var(--stone);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.25s, border-color 0.25s, transform 0.3s;
-      color: var(--muted);
-    }
-.faq-item.open .faq-icon {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--cream);
-      transform: rotate(45deg);
-    }
-.faq-icon svg { width: 10px; height: 10px; }
-.faq-answer {
-      display: none;
-      padding-bottom: 1.5rem;
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 300;
-    }
-.faq-item.open .faq-answer { display: block; }
-/* ═══════════════════════════════════════════════
-       CONTACT / CTA
-    ══════════════════════════════════════════════════ */
-    #contact {
-      padding: 5.5rem 0;
-      background: var(--cream);
-    }
-.contact-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8%;
-    }
-.contact-info .section-title { margin-bottom: 1.5rem; }
-.contact-info p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 2.5rem;
-    }
-.contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-.contact-line {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-.contact-line-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--stone);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-.contact-line-icon svg { width: 15px; height: 15px; }
-.contact-line-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin-bottom: 0.15rem;
-    }
-.contact-line-val {
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      font-weight: 400;
-    }
-/* Form */
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-.form-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-.form-input, .form-select, .form-textarea {
-      background: var(--cream-2);
-      border: 1px solid var(--stone);
-      padding: 0.85rem 1rem;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--charcoal);
-      outline: none;
-      transition: border-color 0.25s, background 0.25s;
-      border-radius: 0;
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-    }
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-      border-color: var(--gold);
-      background: var(--cream);
-    }
-.form-textarea { resize: vertical; min-height: 110px; }
-.form-submit {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--charcoal);
-      color: var(--cream);
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-      align-self: flex-start;
-    }
-.form-submit:hover {
-      background: var(--gold);
-      transform: translateY(-2px);
-    }
-.form-submit svg { width: 14px; height: 14px; transition: transform 0.25s; }
-.form-submit:hover svg { transform: translateX(3px); }
-.form-note {
-      font-size: 0.75rem;
-      color: var(--muted-2);
-      line-height: 1.5;
-    }
-/* ═══════════════════════════════════════════════
-       CTA BANNER
-    ══════════════════════════════════════════════════ */
-.btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--gold);
-      color: var(--cream);
-      padding: 1rem 2.5rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.3s, transform 0.2s;
-    }
-.btn-gold:hover {
-      background: var(--gold-light);
-      transform: translateY(-2px);
-    }
-.btn-ghost-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(250,248,243,0.6);
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(250,248,243,0.2);
-      padding-bottom: 3px;
-      transition: color 0.25s, border-color 0.25s;
-    }
-.btn-ghost-light:hover {
-      color: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-/* ═══════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════ */
-    #footer {
-      background: var(--charcoal-2);
-      padding: 5rem 5% 3rem;
-    }
-.footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-.footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 4rem;
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-.footer-brand .nav-logo {
-      color: var(--cream);
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-.footer-brand p {
-      font-size: 0.85rem;
-      color: rgba(250,248,243,0.45);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 240px;
-    }
-.footer-social {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-.social-link {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(250,248,243,0.4);
-      transition: border-color 0.25s, color 0.25s;
-    }
-.social-link:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-.social-link svg { width: 14px; height: 14px; }
-.footer-col h4 {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(250,248,243,0.3);
-      margin-bottom: 1.5rem;
-    }
-.footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-.footer-links a {
-      font-size: 0.85rem;
-      color: rgba(250,248,243,0.55);
-      font-weight: 300;
-      transition: color 0.25s;
-    }
-.footer-links a:hover { color: var(--gold-light); }
-.footer-legal { display: inline-block; margin-top: 0.5rem; opacity: 0.75; line-height: 1.6; }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-.footer-bottom p {
-      font-size: 0.78rem;
-      color: rgba(250,248,243,0.25);
-    }
-.footer-bottom a {
-      color: rgba(250,248,243,0.25);
-      font-size: 0.78rem;
-      transition: color 0.25s;
-    }
-.footer-bottom a:hover { color: var(--gold-light); }
-/* ═══════════════════════════════════════════════
-       BLOG TEASER — dark section above footer
-    ══════════════════════════════════════════════════ */
-    #blog {
-      background: var(--charcoal);
-      padding: 5.5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-/* Faint gold hairline top border to lead the eye into the section */
-    #blog::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 5%; right: 5%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184,146,74,0.4), transparent);
-    }
-.blog-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 3.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-.blog-header {
-      max-width: 540px;
-    }
-#blog .section-label { color: var(--gold-light); }
-#blog .section-label::before { background: var(--gold-light); }
-#blog .section-title { color: var(--cream); margin-bottom: 1.4rem; }
-#blog .section-intro {
-      color: rgba(250,248,243,0.62);
-      max-width: 500px;
-      margin-bottom: 2rem;
-    }
-/* CTA card — sits opposite the header text, holds the "Read our thinking" link */
-    .blog-cta-card {
-      background: var(--charcoal-2);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px;
-      padding: 3rem 2.5rem;
-      transition: border-color 0.3s var(--ease-out);
-      position: relative;
-    }
-.blog-cta-card:hover { border-color: rgba(184,146,74,0.4); }
-.blog-cta-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      margin-bottom: 1.5rem;
-    }
-.blog-cta-headline {
-      font-family: var(--font-display);
-      font-size: 1.85rem;
-      font-weight: 500;
-      color: var(--cream);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      letter-spacing: -0.005em;
-    }
-.blog-cta-headline em { color: var(--gold); font-style: italic; }
-.blog-cta-body {
-      color: rgba(250,248,243,0.6);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-.blog-cta-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--gold);
-      font-weight: 500;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s, gap 0.25s var(--ease-out);
-      text-decoration: none;
-    }
-.blog-cta-link:hover { color: var(--gold-light); gap: 0.9rem; }
-.blog-cta-link svg { width: 18px; height: 18px; }
-/* ═══════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .why-grid { grid-template-columns: repeat(3, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-      .blog-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-/* The desktop nav only fits six items above ~1240px, so it collapses
-   to the hamburger below that. Everything else stays at 768px. */
-@media (max-width: 1240px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-    }
-    @media (max-width: 768px) {
-      #hero { padding: 9rem 5% 5rem; }
-      .hero-amp { display: none; }
-      .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .hero-stat {
-        border-right: none;
-        border-bottom: 1px solid var(--stone-2);
-        padding-right: 0;
-        padding-bottom: 1.5rem;
-        margin-right: 0;
-        margin-bottom: 0;
-      }
-      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
-      .opportunity-inner,
-      .audience-inner,
-      .contact-inner,
-      .faq-inner,
-      .why-header { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-    }
-@media (max-width: 480px) {
-.form-row { grid-template-columns: 1fr; }
-}
-/* Mobile nav open */
-    body.nav-open .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      inset: 0;
-      background: var(--cream);
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 999;
-    }
-body.nav-open .nav-links a {
-      font-size: 1.1rem;
-    }
-/* ═══════════════════════════════════════════════
-       SUCCESS STATE
-    ══════════════════════════════════════════════════ */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--cream-2);
-      border: 1px solid var(--stone-2);
-    }
-.form-success.visible { display: block; }
-.form-success svg {
-      width: 48px;
-      height: 48px;
-      color: var(--gold);
-      margin: 0 auto 1rem;
-    }
-.form-success h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--charcoal);
-      margin-bottom: 0.5rem;
-    }
-.form-success p {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-/* ═══════════════════════════════════════════════
-       ENGAGEMENT (stacked card feature)
-    ══════════════════════════════════════════════════ */
-.eng-inner .section-label { margin-bottom: 1.6rem; }
-/* ═══════════════════════════════════════════════
-       PAIN
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       CREDIBILITY
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       WHEEL
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       USE CASES
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       ASSURANCE
-    ══════════════════════════════════════════════════ */
-/* ── Hero trust strip ── */
-    .hero-trust { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; margin-top: 2.75rem; color: var(--muted); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.02em; }
-.hero-trust span { display: inline-flex; align-items: center; gap: 0.5rem; }
-.hero-trust .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); display: inline-block; }
-/* ── Micro-promise above form ── */
-    .form-promise { background: var(--cream-2); border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.1rem 1.3rem; margin-bottom: 1.75rem; color: var(--charcoal-2); font-size: 0.92rem; line-height: 1.6; }
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-/* ── Cookie consent ── */
-    .consent { position: fixed; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 1200; max-width: 720px; margin: 0 auto;
-      background: var(--charcoal); color: var(--cream); border-radius: 14px; box-shadow: var(--shadow-lg);
-      padding: 1.35rem 1.5rem; display: none; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-.consent.visible { display: flex; }
-.consent p { font-size: 0.86rem; line-height: 1.6; color: var(--cream-3); font-weight: 300; flex: 1 1 320px; }
-.consent p a { color: var(--gold-light); border-bottom: 1px solid rgba(217,170,90,0.4); }
-.consent-actions { display: flex; gap: 0.6rem; flex: 0 0 auto; }
-.consent-btn { font-family: var(--font-body); font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; border: 1px solid var(--gold); transition: all 0.25s; }
-.consent-accept { background: var(--gold); color: var(--cream); }
-.consent-accept:hover { background: var(--gold-light); }
-.consent-decline { background: transparent; color: var(--cream); border-color: rgba(255,255,255,0.35); }
-.consent-decline:hover { border-color: var(--cream); }
-/* ═══════════════════════════════════════════════
-       PAIN  (scroll-stacking panels — compact)
-       Tokens scoped to #pain so they don't touch the rest of the page.
-    ══════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════
-       V3 HOMEPAGE — approved mockup sections
-       All classes namespaced nb- to avoid cascade
-       collisions with the pre-existing component CSS.
-    ══════════════════════════════════════════════════ */
-    .nb-wrap { max-width: 1160px; margin: 0 auto; padding: 0 3.5rem; }
-.nb-sec { padding: 5.5rem 0; }
-.footer-social { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
-.footer-social .footer-li-url { order: 2; font-size: 0.78rem; color: var(--muted-on-dark); letter-spacing: 0.01em; }
-.nb-sec--mid  { background: var(--cream-3); }
-.nb-sec--dark { background: var(--charcoal); }
-.nb-sec--dark .nb-h2            { color: var(--cream); }
-.nb-sec--dark .nb-h2 em         { color: var(--gold-light); }
-.nb-sec--dark .nb-eyebrow       { color: var(--gold-light); }
-.nb-sec--dark .nb-lede          { color: rgba(250,248,243,0.72); }
-.nb-sec--dark .nb-qlist li      { color: rgba(250,248,243,0.86); border-bottom-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-qlist li:first-child { border-top-color: rgba(250,248,243,0.16); }
-.nb-sec--dark .nb-tick          { color: var(--gold-light); }
-.nb-sec--dark .nb-qside         { background: var(--cream); border-left-color: var(--gold); }
-.nb-sec--dark .nb-qside h4      { color: var(--charcoal); }
-.nb-sec--dark .nb-qside p       { color: var(--ink); }
-.nb-eyebrow {
-      font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold-deep); font-weight: 600; margin-bottom: 1rem;
-    }
-.nb-h2 {
-      font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.45rem);
-      font-weight: 600; color: var(--charcoal); max-width: 44rem;
-      margin-bottom: 1.1rem; line-height: 1.18;
-    }
-.nb-h2 em { color: var(--gold-deep); font-style: italic; }
-.nb-lede { font-size: 1.02rem; color: var(--ink); max-width: 46rem; margin-bottom: 2.6rem; }
-/* ── Proof strip ───────────────────────────── */
-    .nb-proof { background: var(--charcoal); }
-.nb-proof-inner {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      max-width: 1160px; margin: 0 auto;
-    }
-.nb-proof-card { padding: 2.4rem 2.5rem; color: var(--cream-2); }
-.nb-proof-card + .nb-proof-card { border-left: 1px dashed #565349; }
-.nb-proof-card .nb-kicker {
-      font-size: 0.69rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold); font-weight: 600; margin-bottom: 0.9rem;
-    }
-.nb-shift {
-      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
-      margin-bottom: 0.6rem; display: flex; align-items: baseline; gap: 0.65rem;
-    }
-.nb-shift .nb-from { color: #9c9989; text-decoration: line-through; font-size: 1.18rem; }
-.nb-shift .nb-to { color: var(--gold); }
-.nb-proof-card p { font-size: 0.84rem; color: #c9c5b6; }
-/* ── Is this you ───────────────────────────── */
-    .nb-qualify { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: start; }
-.nb-qlist { list-style: none; }
-.nb-qlist li {
-      display: flex; gap: 0.9rem; padding: 1.05rem 0;
-      border-bottom: 1px dashed var(--line); font-size: 0.95rem;
-    }
-.nb-qlist li:first-child { border-top: 1px dashed var(--line); }
-.nb-qlist .nb-tick { color: var(--gold-deep); font-weight: 700; flex-shrink: 0; }
-.nb-qside { background: var(--charcoal); color: var(--cream-2); padding: 2rem; border-left: 3px solid var(--gold); }
-.nb-qside h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--cream); }
-.nb-qside p { font-size: 0.9rem; color: #c9c5b6; margin-bottom: 1.5rem; }
-/* ── Problem rows ──────────────────────────── */
-    .nb-problems { display: flex; flex-direction: column; }
-.nb-problem {
-      display: grid; grid-template-columns: 15rem 1fr; gap: 2.5rem;
-      padding: 1.6rem 0; border-top: 1px solid var(--line);
-    }
-.nb-problem:last-child { border-bottom: 1px solid var(--line); }
-.nb-problem .nb-ptitle { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); }
-.nb-problem p { font-size: 0.94rem; color: var(--ink); }
-/* ── Stats ─────────────────────────────────── */
-    .nb-stats { display: flex; gap: 4rem; margin-bottom: 1.2rem; }
-.nb-stat .nb-num { font-family: var(--font-display); font-size: 3.6rem; font-weight: 600; color: var(--gold-deep); line-height: 1; }
-.nb-stat p { font-size: 0.9rem; color: var(--ink); margin-top: 0.4rem; }
-.nb-source { font-size: 0.78rem; color: var(--muted); }
-/* ── Card grids ────────────────────────────── */
-    .nb-cards { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-cards--4 { grid-template-columns: repeat(4, 1fr); }
-.nb-cards--5 { grid-template-columns: repeat(5, 1fr); }
-.nb-cards--6 { grid-template-columns: repeat(3, 1fr); }
-.nb-card { background: var(--cream); padding: 1.7rem 1.5rem; }
-.nb-sec--mid .nb-card { background: var(--cream-2); }
-.nb-card h4 { font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.55rem; }
-.nb-card p { font-size: 0.88rem; color: var(--ink); }
-/* ── Services ──────────────────────────────── */
-    .nb-service {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-      padding: 2.4rem 0; border-top: 1px solid var(--line); align-items: start;
-    }
-.nb-service:last-of-type { border-bottom: 1px solid var(--line); }
-.nb-service .nb-slabel { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-service h3 { font-family: var(--font-display); font-size: 1.65rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.7rem; }
-.nb-service > div > p { font-size: 0.94rem; color: var(--ink); }
-.nb-example { background: var(--cream-2); padding: 1.5rem 1.6rem; border-left: 2px solid var(--gold); }
-.nb-sec--mid .nb-example { background: var(--cream); }
-.nb-chip {
-      display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-      background: var(--charcoal); color: var(--cream-2); padding: 0.25rem 0.6rem; margin-bottom: 0.8rem;
-    }
-.nb-psr { display: grid; gap: 0.85rem; }
-.nb-psr div { font-size: 0.87rem; color: var(--ink); line-height: 1.55; }
-.nb-psr-label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.2rem; }
-.nb-example p { font-size: 0.87rem; color: var(--ink); }
-/* ── Tiers ─────────────────────────────────── */
-    .nb-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.nb-tier { background: var(--cream); padding: 1.8rem 1.5rem; display: flex; flex-direction: column; }
-.nb-tier .nb-len { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.7rem; }
-.nb-tier h4 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.6rem; }
-.nb-tier p { font-size: 0.87rem; color: var(--ink); flex-grow: 1; }
-.nb-tier .nb-fit { font-size: 0.78rem; color: var(--muted); margin-top: 1.1rem; padding-top: 0.8rem; border-top: 1px dashed var(--line); }
-/* ── Sector examples ───────────────────────── */
-    .nb-examples { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.nb-ex { background: var(--cream); border: 1px solid var(--line); padding: 1.8rem; }
-.nb-sec--mid .nb-ex { background: var(--cream-2); }
-.nb-ex .nb-sector { font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 0.6rem; }
-.nb-ex h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--charcoal); margin: 0.5rem 0 0.6rem; }
-.nb-ex > p { font-size: 0.89rem; color: var(--ink); margin-bottom: 1.2rem; }
-.nb-ba { display: grid; gap: 0.6rem; padding-top: 1rem; border-top: 1px dashed var(--line); }
-.nb-ba div { font-size: 0.85rem; color: var(--ink); }
-.nb-ba .nb-balabel { display: inline-block; min-width: 3.8rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.nb-illustrative { margin-top: 1.8rem; font-size: 0.83rem; color: var(--muted); font-style: italic; max-width: 52rem; }
-/* ── Partners ticker ───────────────────────── */
-    .nb-pgroup { margin-bottom: 1.6rem; }
-.nb-ticker {
-      overflow: hidden; border: 1px solid var(--line); background: var(--cream);
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-              mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-    }
-.nb-sec--mid .nb-ticker { background: var(--cream-2); }
-.nb-track { display: flex; width: max-content; align-items: center; animation: nb-scroll 34s linear infinite; }
-.nb-ticker:hover .nb-track, .nb-ticker:focus-within .nb-track { animation-play-state: paused; }
-.nb-logo { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 1.5rem 3rem; }
-.nb-logo--named { gap: 0.6rem; }
-.nb-logo-name { font-size: 0.82rem; font-weight: 500; color: var(--charcoal); white-space: nowrap; }
-.nb-logo img { display: block; width: auto; max-width: none; }
-.nb-logo--lovable              { height: 22px; }
-.nb-logo--anthropic            { height: 20px; }
-.nb-logo--openai               { height: 25px; }
-.nb-logo--google               { height: 26px; }
-.nb-logo--grok                 { height: 25px; }
-.nb-logo--n8n                  { height: 24px; }
-.nb-logo--promanchester        { height: 32px; }
-.nb-logo--manchesterdigital    { height: 34px; }
-@keyframes nb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-.nb-track { animation: none; }
-.nb-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-}
-.nb-pnote { font-size: 0.85rem; color: var(--muted); font-style: italic; max-width: 44rem; margin-top: 0.5rem; }
-/* ── Pricing bridge ────────────────────────── */
-.nb-cost { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold-deep); border-bottom: 1px solid var(--stone); padding-bottom: 3px; transition: color .25s, border-color .25s; }
-.nb-cost:hover, .nb-cost:focus-visible { color: var(--charcoal); border-color: var(--gold); }
-.nb-bridge { margin-top: 3rem; background: var(--charcoal); padding: 2.6rem 2.4rem; }
-.nb-bridge-top { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; }
-.nb-bridge .nb-eyebrow { color: var(--gold-light); }
-.nb-bridge-h { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: var(--cream); margin-bottom: 0.7rem; line-height: 1.2; max-width: 22ch; }
-.nb-bridge-lede { font-size: 0.94rem; color: rgba(250,248,243,0.72); max-width: 46ch; }
-.nb-qs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.nb-q { display: flex; flex-direction: column; background: rgba(250,248,243,0.04); border: 1px solid rgba(250,248,243,0.12); padding: 1.4rem 1.5rem; transition: border-color .25s, background .25s; }
-.nb-q:hover, .nb-q:focus-visible { border-color: var(--gold); background: rgba(250,248,243,0.07); }
-.nb-q-bar { width: 2.2rem; height: 2px; background: var(--gold); margin-bottom: 1rem; }
-.nb-q-t { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--cream); margin-bottom: 0.5rem; }
-.nb-q-d { font-size: 0.85rem; color: rgba(250,248,243,0.68); line-height: 1.55; flex-grow: 1; }
-.nb-q-p { margin-top: 1.1rem; font-size: 0.74rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 600; color: var(--gold-light); }
-@media (max-width: 1000px) { .nb-bridge-top { grid-template-columns: 1fr; } .nb-qs { grid-template-columns: 1fr; } }
-@media (max-width: 680px) { .nb-bridge { padding: 1.8rem 1.4rem; } }
-/* ── FAQ ───────────────────────────────────── */
-    /* ── Final CTA ─────────────────────────────── */
-    .nb-cta-card { background: var(--cream); border: 1px solid var(--gold); padding: 3.5rem 3rem; text-align: center; max-width: 52rem; margin: 0 auto; }
-.nb-cta-card .nb-eyebrow, .nb-cta-card .nb-h2, .nb-cta-card .nb-lede { margin-left: auto; margin-right: auto; }
-.nb-cta-card .nb-lede { margin-bottom: 1.8rem; }
-.nb-leave { display: flex; flex-wrap: wrap; gap: 1.6rem; justify-content: center; margin-bottom: 2rem; font-size: 0.85rem; color: var(--ink); }
-.nb-leave span::before { content: "✓"; color: var(--gold-deep); font-weight: 700; margin-right: 0.45rem; }
-.nb-cta-actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
-/* ── Responsive ────────────────────────────── */
-    @media (max-width: 1000px) {
-      .nb-cards--4, .nb-cards--5, .nb-tiers { grid-template-columns: repeat(2, 1fr); }
-      .nb-cards--6 { grid-template-columns: repeat(2, 1fr); }
-      .nb-qualify, .nb-service { grid-template-columns: 1fr; gap: 2rem; }
-      .nb-proof-inner { grid-template-columns: 1fr; }
-      .nb-proof-card + .nb-proof-card { border-left: none; border-top: 1px dashed #565349; }
-      .nb-problem { grid-template-columns: 1fr; gap: 0.5rem; }
-    }
-@media (max-width: 680px) {
-.nb-wrap { padding: 0 1.5rem; }
-.nb-sec { padding: 3.5rem 0; }
-.nb-cards--4, .nb-cards--5, .nb-cards--6, .nb-tiers, .nb-examples { grid-template-columns: 1fr; }
-.nb-stats { gap: 2rem; }
-.nb-cta-card { padding: 2.2rem 1.5rem; }
-.nb-logo { padding: 1.2rem 2rem; }
-}
-
-
-
-
-    /* ── Founders ──────────────────────────────── */
-    .nb-founder { display: grid; grid-template-columns: 22rem 1fr; gap: 4rem; align-items: start; }
-    .nb-founder-photo img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
-    .nb-founder-meta { margin-top: 1.2rem; }
-    .nb-founder-meta .n { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--charcoal); }
-    .nb-founder-meta .r { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-top: 0.3rem; }
-    .nb-founder-body p { font-size: 1rem; color: var(--ink); margin-bottom: 1.3rem; max-width: 60ch; }
-    .nb-founder-body p:last-child { margin-bottom: 0; }
-    .nb-signoff { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 1.15rem; color: var(--charcoal); }
-    .nb-signoff span { display: block; font-family: var(--font-body); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
-    @media (max-width: 900px) { .nb-founder { grid-template-columns: 1fr; gap: 2rem; } .nb-founder-photo { max-width: 20rem; } }
-
-  
-    /* Booking CTAs sit outside the brand palette deliberately, so they read as
-       actions rather than decoration. Also fixes a contrast failure: cream on
-       gold was 2.73:1, cream on terracotta is 5.40:1. See STYLE.md. */
-    .btn-book {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--action); color: #FFFFFF;
-      white-space: nowrap;
-      padding: 1rem 2rem; font-size: var(--fs-button); font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase; border: none;
-      transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
-    }
-    .btn-book:hover, .btn-book:focus-visible { background: var(--action-dark); transform: translateY(-1px); }
-    .btn-book svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform 0.25s; }
-    .btn-book:hover svg { transform: translateX(3px); }
-    .btn-book span { flex-shrink: 0; }
-    .nav-cta.btn-book {
-      padding: 0.65rem 1.5rem;
-      background: var(--action) !important;   /* beats .nav-cta's own !important */
-      color: #FFFFFF !important;
-    }
-    .nav-cta.btn-book:hover { background: var(--action-dark) !important; }
-
-    /* Anchored sections must clear the sticky nav, or the eyebrow and heading
-       land underneath it. */
-    section[id], div[id].nb-proof, #trust-bar { scroll-margin-top: 104px; }
-
-/* 5. Flex text next to a fixed-size icon needs permission to
-      shrink, and long unbroken values (emails, URLs) need a
-      break opportunity, or they set the floor instead. */
-.contact-line > div:not(.contact-line-icon) { min-width: 0; }
-.contact-line-val, .contact-line-val a { overflow-wrap: anywhere; }
-
-/* Long CTA labels must wrap rather than set a min-content
-   floor that the enclosing grid adopts and overflows. */
-.btn-book, .btn { white-space: normal; }
-.nav-cta.btn-book { white-space: nowrap; }
-
-/* The hamburger icon is 24px, which left a 32x24 tap target,
-   under the 44px minimum. Grow the hit area, not the icon,
-   and pull the extra padding back out of the layout so the
-   nav does not shift. */
-.nav-hamburger {
-  padding: 12px;
-  margin: -12px -12px -12px 0;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  min-height: 48px;
-}
-
-/* Wrapped CTAs read better centred; at desktop widths the
-   button is sized to its content so this changes nothing. */
-.btn-book, .btn { justify-content: center; text-align: center; }
-
-/* When a trust item wraps to two lines, align-items:center
-   floated its dot to the middle of the block instead of the
-   first line. */
-.hero-trust span { align-items: flex-start; }
-.hero-trust .dot { margin-top: 0.55em; flex: 0 0 auto; }
 </style>
 </head>
 <body>
 
-<header>
-
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="Nielsen &amp; Brown home">
-      Nielsen <span class="amp">&amp;</span> Brown
-    </a>
-
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/#wheel">How it works</a></li>
-      <li><a href="/#audience">Who it is for</a></li>
-      <li><a href="/#services">What we do</a></li>
-      <li><a href="/#engagement">Pricing</a></li>
-      <li><a href="/#faq">FAQs</a></li>
-      <li><a href="#allan-heading">Founders</a></li>
-      <li><a href="/#contact" class="nav-cta btn-book">Start your AI journey</a></li>
-    </ul>
-
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-</header>
-
-<main>
-
-<section class="nb-sec" aria-labelledby="founders-heading">
-  <div class="nb-wrap">
-    <div class="nb-eyebrow">Meet the founders</div>
-    <h2 class="nb-h2" id="founders-heading">Why we built <em>Nielsen &amp; Brown</em></h2>
+<!-- shell:nav -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="/" aria-label="Nielsen &amp; Brown home"><img src="assets/brand/NB_Logo_Stacked_Charcoal.svg" alt="Nielsen &amp; Brown" width="90" height="44"></a>
+    <a class="btn btn-primary nav-cta" href="/#contact" data-ga="cta_nav_book" style="padding:10px 16px;font-size:15px">Book a call</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Main">
+      <a href="/#fix">What we fix</a>
+      <a href="/how-we-work">How we work</a>
+      <a href="/pricing">Prices</a>
+      <a href="/founders" aria-current="page">About us</a>
+      <a href="/faq">FAQs</a>
+      <a class="btn btn-primary" href="/#contact" data-ga="cta_nav_book">Book a call</a>
+    </nav>
   </div>
-</section>
+</header>
+<!-- /shell:nav -->
 
-<section class="nb-sec nb-sec--mid" aria-labelledby="allan-heading">
-  <div class="nb-wrap">
-    <div class="nb-founder">
-      <div class="nb-founder-photo">
-        <picture>
-          <source srcset="assets/people/allan-nielsen.webp" type="image/webp"/>
-          <img src="assets/people/allan-nielsen.jpg" width="900" height="1200"
-               alt="Allan Nielsen, Co-founder of Nielsen &amp; Brown" loading="eager" decoding="async"/>
-        </picture>
-        <div class="nb-founder-meta">
-          <div class="n" id="allan-heading">Allan Nielsen</div>
-          <div class="r">Co-founder</div>
+<main id="main">
+
+  <section class="page-head about-head" id="about" data-track>
+    <div class="wrap">
+      <div>
+        <p class="crumb"><a href="/">Home</a></p>
+        <p class="eyebrow">About us</p>
+        <h1>We plan it with you, build it, and stay until it works.</h1>
+        <p class="lede">Nielsen &amp; Brown is an AI consultancy for UK businesses with 10 to 300 people. Based in Manchester, working UK wide.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="/#contact" data-ga="cta_about_book_top">Book a 30 minute call</a>
+          <a class="btn btn-ghost" href="/how-we-work" data-ga="cta_about_how">How we work</a>
         </div>
       </div>
-      <div class="nb-founder-body">
-        <p>For most of my career, I have worked alongside the businesses that keep the UK moving, leading commercial teams, supporting B2B product and service providers, and helping teams solve practical problems. Throughout all of it, one thing has held my attention: how small, incremental gains in technology, and more recently in AI, can genuinely change the way people work.</p>
-        <p>That instinct goes back much further than my career.</p>
-        <p>As a competitive swimmer, I learned early that the gap between good and exceptional is rarely one big leap. It is a hundred small gains, compounded, most of them invisible from the outside. The tenth of a second comes from the turn, the breathing pattern, the thing you fixed in November that nobody watching in March would ever notice. I have never stopped seeing the world that way, and it is exactly how the best AI adoption works. Not one dramatic, chaotic overhaul, but deliberate, compounding improvements that transform how a business operates.</p>
-        <p>I set up Nielsen &amp; Brown because I watched too many small and medium-sized businesses get sold the same rigid AI tools and sweeping promises as global enterprises, only to be left wondering where to start, how to bring their team along, and whether they would ever see a real return.</p>
-        <p>There is a better approach, and it is not complicated: identify where AI creates genuine value, design a practical strategy, and deliver the right technology. Whether that means configuring existing off-the-shelf tools or building custom solutions from scratch, the priority is what actually fits your business. Crucially, we do not just hand over software, we stay around to train your people, manage the onboarding, and provide ongoing support. We are completely vendor-independent, so our recommendation is always based on your needs, not a quota set by a vendor.</p>
-        <p>Starting a business is exciting, but it is also a leap of faith.</p>
-        <p>I am a husband, a father to three energetic boys, and someone who moved from Denmark to build a life and career in the UK. My wife Chloe backed this vision from day one, including the parts that meant stepping into the unknown, and I could not have done it without her. Between three boys and a growing business, getting an early morning workout in is still where I clear my head and do my best thinking.</p>
-        <p>I have always believed that hard work, curiosity, and doing the right thing create real opportunity. This is me building a company around a field I have been fascinated by for years, specifically for the kinds of businesses I have spent my entire career serving.</p>
-        <div class="nb-signoff">Allan Nielsen<span>Co-founder, Nielsen &amp; Brown</span></div>
-      </div>
+      <button class="video" type="button" data-yt="2a1BiF3GKt4" data-title="Who we are: Nielsen &amp; Brown" aria-label="Play video: who we are">
+        <img src="assets/people/allan-nielsen.jpg" alt="" width="900" height="1200" loading="lazy" style="object-position:50% 22%">
+        <span class="play" aria-hidden="true"></span>
+        <span class="vcap"><b>Who we are</b>Allan Nielsen, Co-founder</span>
+      </button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="nb-sec" aria-labelledby="founders-cta">
-  <div class="nb-wrap">
-    <div class="nb-cta-card">
-      <div class="nb-eyebrow">Ready to start</div>
-      <h2 class="nb-h2" id="founders-cta">Let us find one real AI project worth doing</h2>
-      <p class="nb-lede">No jargon, no generic slides, no enterprise sales process. In 30 minutes we will help identify one realistic AI project, one risk worth avoiding, and the sensible next step for a business your size.</p>
-      <div class="nb-cta-actions">
-        <a href="/#contact" class="btn-book" data-ga="cta_founders">Book a free discovery call</a>
-        <a href="/#engagement" class="btn-outline" data-ga="cta_founders_pricing">See pricing and engagement</a>
+  <section class="sec paper" id="how-we-work-with-you" data-track>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">How we work with you</p>
+        <h2>Practical AI, at a size that suits you.</h2>
+        <p>Too many smaller businesses get sold the same rigid tools and big promises as global enterprises. We do it differently.</p>
+      </div>
+      <div class="cards four m-swipe" aria-label="How we work with you">
+        <article class="card">
+          <h3>You deal with us directly</h3>
+          <p>No account managers, no junior analysts, no hand-off to a delivery partner.</p>
+        </article>
+        <article class="card">
+          <h3>We start with the value</h3>
+          <p>We find where AI earns its keep, plan it, then build it. Off-the-shelf where that fits, custom-built where it doesn't.</p>
+        </article>
+        <article class="card">
+          <h3>We don't just hand over software</h3>
+          <p>We train your people, run the onboarding and stay on for ongoing support.</p>
+        </article>
+        <article class="card">
+          <h3>We don't sell for a vendor</h3>
+          <p>We're independent of every software company, so we recommend what fits your needs, not a sales quota.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="sec" id="allan" data-track>
+    <div class="wrap person">
+      <figure>
+        <img src="assets/people/allan-nielsen@450.jpg" alt="Allan Nielsen, co-founder of Nielsen &amp; Brown" width="450" height="600" loading="lazy">
+        <figcaption><b>Allan Nielsen</b>Co-founder</figcaption>
+      </figure>
+      <div class="prose">
+        <p class="eyebrow">Who you'll work with</p>
+        <h2>Allan Nielsen, <span class="nw">Co-founder</span></h2>
+        <p>Allan has spent his career working with the businesses that keep the UK moving. He's led commercial teams, supported B2B product and service providers, and helped teams solve practical problems.</p>
+        <p>Throughout, he's been drawn to how small gains in technology, and now AI, change the way people work. That goes back to his years as a competitive swimmer.</p>
+        <blockquote class="pull">“The gap between good and exceptional is rarely one big leap. It is a hundred small gains, compounded.”</blockquote>
+        <p>That's how good AI adoption works too. Not one big, chaotic overhaul, but steady improvements that add up.</p>
+        <p>Allan moved from Denmark to build his life and career in the UK. He's a husband and a father to three boys, and does his best thinking on an early morning workout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark base" id="where-we-are" data-track>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Where we are</p>
+        <h2 style="margin-top:12px">Based in Manchester. Working across the UK.</h2>
+        <p class="lead">Most of the work is remote. For anything that needs to be on site, like in-person sessions, we come to you.</p>
+        <address>Bartle House, Oxford Court, Manchester M2 3WQ</address>
+      </div>
+      <div>
+        <div class="members">
+          <span>Members of</span>
+          <span class="badge"><img src="assets/partners/promanchester.svg" alt="pro-manchester" width="100" height="36" loading="lazy"></span>
+          <span class="badge"><img src="assets/partners/manchesterdigital.png" alt="" width="54" height="34" loading="lazy">Manchester Digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec paper cta-band" id="book" data-track>
+    <div class="wrap">
+      <div>
+        <h2>Let's find one AI project worth doing.</h2>
+        <p style="color:var(--muted)">30 minutes, no pitch deck. We'll find one realistic project, one risk to avoid, and the sensible next step.</p>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/#contact" data-ga="cta_about_book">Book a call</a>
+        <a class="btn btn-ghost" href="/pricing" data-ga="cta_about_prices">See prices</a>
+      </div>
+    </div>
+  </section>
 
 </main>
-<footer id="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
 
-      <div class="footer-brand">
-        <a href="/#hero" class="nav-logo" aria-label="Nielsen &amp; Brown home">
-          Nielsen <span class="amp">&amp;</span> Brown
-        </a>
-        <p>Helping UK businesses with 10 to 300 people use AI in a practical, safe, and properly sized way.</p>
-        <div class="footer-social">
-          <span class="footer-li-url">linkedin.com/company/nielsenandbrown</span>
-          <a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nielsen &amp; Brown on LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-        </div>
+<!-- shell:footer -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="/" aria-label="Nielsen &amp; Brown home"><img src="assets/brand/NB_Logo_Stacked_Cream.svg" alt="Nielsen &amp; Brown" width="107" height="52" loading="lazy"></a>
+        <p>AI strategy and delivery for UK businesses with 10 to 300 people. Based in Manchester.</p>
       </div>
-
-      <div class="footer-col">
-        <h4>What we do</h4>
-        <ul class="footer-links">
-          <li><a href="/#services">Strategy and roadmap</a></li>
-          <li><a href="/#services">Team training</a></li>
-          <li><a href="/#services">Custom-built tools</a></li>
-          <li><a href="/#services">Governance and compliance</a></li>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="/services/ai-strategy-and-roadmap">Strategy and roadmap</a></li>
+          <li><a href="/services/workflow-automation">Automation</a></li>
+          <li><a href="/services/team-enablement">Team training</a></li>
+          <li><a href="/services/governance-and-compliance">Governance and compliance</a></li>
         </ul>
       </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul class="footer-links">
-          <li><a href="/#credibility">Who we are</a></li>
-          <li><a href="founders.html">Meet the founders</a></li>
-          <li><a href="/#engagement">How we work</a></li>
-          <li><a href="/#audience">Who it is for</a></li>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/founders">About us</a></li>
+          <li><a href="/how-we-work">How we work</a></li>
+          <li><a href="/results">Results</a></li>
+          <li><a href="/governance">How we keep AI safe</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/#faq">FAQs</a></li>
+          <li><a href="/faq">FAQs</a></li>
         </ul>
       </div>
-
-      <div class="footer-col">
-        <h4>Get started</h4>
-        <ul class="footer-links">
-          <li><a href="/#contact">Book a free call</a></li>
-          <li><a href="/#contact">Contact form</a></li>
+      <div>
+        <h2>Get started</h2>
+        <ul>
+          <li><a href="/#contact" data-ga="cta_footer_book">Book a call</a></li>
+          <li><a href="/pricing">Prices</a></li>
+          <li><a href="https://score.nielsenandbrown.com" data-ga="cta_footer_score">Free AI readiness score</a></li>
           <li><a href="https://www.linkedin.com/company/nielsenandbrown/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         </ul>
       </div>
-
     </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 Nielsen &amp; Brown. All rights reserved.<br/><span class="footer-legal">Nielsen &amp; Brown Ltd. Registered in England and Wales, company number 15318367. VAT number 525 7236 88. Registered office: Bartle House, Oxford Court, Manchester M2 3WQ.</span></p>
-      <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/cookie-policy">Cookie Policy</a>
-        <a href="#" id="cookie-settings-link" role="button">Cookie Settings</a>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Nielsen &amp; Brown Ltd. Registered in England and Wales, company number <b>15318367</b>. VAT number <b>525 7236 88</b>. Registered office: Bartle House, Oxford Court, Manchester M2 3WQ.</p>
+      <div class="foot-legal">
+        <a href="/privacy-policy">Privacy policy</a>
+        <a href="/cookie-policy">Cookie policy</a>
+        <button type="button" id="cookie-settings-link">Cookie settings</button>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Cookie consent -->
-<div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
-  <p>We use essential cookies to run this site, and analytics cookies to understand how it is used. Analytics stay off until you accept. See our <a href="/cookie-policy">Cookie Policy</a>.</p>
-  <div class="consent-actions">
-    <button class="consent-btn consent-decline" id="consent-decline" type="button">Decline</button>
-    <button class="consent-btn consent-accept" id="consent-accept" type="button">Accept</button>
-  </div>
+<div class="m-cta" id="m-cta">
+  <a class="btn btn-primary" href="/#contact" data-ga="cta_mobile_bar_book">Book a 30 minute call</a>
+  <a class="btn btn-ghost" href="https://score.nielsenandbrown.com" data-ga="cta_mobile_bar_score">Free score</a>
 </div>
 
-
-<script>
-  // ── Anchor position after webfonts load ──────────────────
-  // Cormorant Garamond arriving reflows the page by ~1000px, and the browser
-  // has already scrolled to the hash using the fallback-font layout. Re-apply
-  // the scroll once fonts have settled, unless the visitor has moved since.
-  (function () {
-    if (!location.hash || location.hash.length < 2) return;
-    var target = document.getElementById(location.hash.slice(1));
-    if (!target || !document.fonts || !document.fonts.ready) return;
-    // A panel id (#start, #next, #accelerate) belongs to the engagement
-    // selector; scroll to the section so its heading is visible, not to the
-    // panel, which the tab script is also positioning.
-    var section = target.closest && target.closest('#engagement');
-    if (section && target !== section) target = section;
-    var startY = window.scrollY;
-    document.fonts.ready.then(function () {
-      if (Math.abs(window.scrollY - startY) > 40) return;   // they scrolled, leave it
-      target.scrollIntoView();
-    });
-  })();
-
-  // ── Nav scroll behaviour ──────────────────────
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-
-  // ── Mobile hamburger ──────────────────────────
-  const hamburger = document.getElementById('hamburger');
-  const body = document.body;
-  hamburger.addEventListener('click', () => {
-    const open = body.classList.toggle('nav-open');
-    hamburger.setAttribute('aria-expanded', open);
-  });
-
-  document.getElementById('nav-links').querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      body.classList.remove('nav-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // ── Scroll reveal ─────────────────────────────
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach((el, i) => {
-    const siblings = el.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    let delay = 0;
-    siblings.forEach((sib, j) => { if (sib === el) delay = j * 100; });
-    el.dataset.delay = delay;
-    observer.observe(el);
-  });
-
-  // ── FAQ accordion ─────────────────────────────
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  // ── Counter animation ─────────────────────────
-  function animateCounter(el, target, suffix, duration = 1800) {
-    const start = performance.now();
-    const update = (now) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(ease * target * 10) / 10;
-      el.textContent = current + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  //  EMAILJS SETUP — 5-minute one-time configuration
-  //  Delivers all form enquiries to enquiries@nielsenandbrown.com
-  //
-  //  STEP 1 — Create a free account at https://www.emailjs.com
-  //           (free tier = 200 emails/month, no credit card needed)
-  //
-  //  STEP 2 — Add an Email Service:
-  //           Dashboard → Email Services → Add New Service
-  //           Connect Gmail or any inbox. Note your SERVICE ID.
-  //
-  //  STEP 3 — Create an Email Template:
-  //           Dashboard → Email Templates → Create New Template
-  //           Set "To Email" to:  enquiries@nielsenandbrown.com
-  //           Paste this template body (or customise it):
-  //
-  //           New enquiry from {{from_name}} ({{from_email}})
-  //
-  //           Company: {{company}}
-  //           Size: {{size}}
-  //           Service interest: {{service}}
-  //
-  //           Message:
-  //           {{message}}
-  //
-  //           Note your TEMPLATE ID.
-  //
-  //  STEP 4 — Get your Public Key:
-  //           Dashboard → Account → General → Public Key
-  //
-  //  STEP 5 — Replace the three placeholder values below:
-  // ═══════════════════════════════════════════════════════════════════
-
-  const EMAILJS_SERVICE_ID  = 'service_aozn9e4';   // e.g. 'service_aozn9e4'
-  const EMAILJS_TEMPLATE_ID = 'template_x5k0q58';  // e.g. 'template_x5k0q58'
-  const EMAILJS_PUBLIC_KEY  = 'iG7oUlfEEQt7CJzHX';   // e.g. 'iG7oUlfEEQt7CJzHX'
-
-  // Initialise EmailJS (library is loaded with defer, so guard against a race
-  // where this inline script could run before the library has parsed).
-  function nbInitEmailJS() { if (window.emailjs) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); }
-  if (window.emailjs) { nbInitEmailJS(); }
-  else { window.addEventListener('DOMContentLoaded', nbInitEmailJS); }
-
-  // Form submission and EmailJS live on the homepage only; this page has no form.
-
-  // ── Active nav link ───────────────────────────
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = '';
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.style.color = 'var(--charcoal)';
-          }
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => sectionObserver.observe(s));
-</script>
-
-<script>
-  // ── Campaign attribution ──────────────────────────────────
-  // Captured first-touch per session so a hop to another page does not lose it.
-  // sessionStorage only, cleared when the tab closes, used to tell you where an
-  // enquiry came from. Not analytics, so it is not gated on consent.
-  window.nbAttribution = (function () {
-    var KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','account_id'];
-    var STORE = 'nb-attrib';
-    var data = null;
-    try { var st = sessionStorage.getItem(STORE); if (st) data = JSON.parse(st); } catch (e) {}
-    var p = new URLSearchParams(window.location.search), incoming = {}, any = false;
-    KEYS.forEach(function (k) { var v = p.get(k); if (v) { incoming[k] = v.slice(0,200); any = true; } });
-    if (any && !data) {
-      data = incoming;
-      try { sessionStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
-    }
-    function d() { return data || {}; }
-    return {
-      get: d,
-      summary:  function () { return d().utm_source ? [d().utm_source, d().utm_medium].filter(Boolean).join(' / ') : 'Direct or organic'; },
-      campaign: function () { return [d().utm_campaign, d().utm_term, d().utm_content].filter(Boolean).join(' \u2014 ') || 'Not set'; },
-      account:  function () { return d().account_id || 'Not set'; },
-      appendTo: function (url) {
-        var k = Object.keys(d()); if (!k.length) return url;
-        return url + (url.indexOf('?') === -1 ? '?' : '&') +
-          k.map(function (x) { return x + '=' + encodeURIComponent(d()[x]); }).join('&');
-      }
-    };
-  })();
-
-  document.querySelectorAll('a[href^="https://score.nielsenandbrown.com"]').forEach(function (el) {
-    el.setAttribute('href', window.nbAttribution.appendTo(el.getAttribute('href')));
-  });
-
-  // ── Cookie consent + GA4 Consent Mode ─────────────────────
-  (function () {
-    var banner = document.getElementById('cookie-consent');
-    var KEY = 'nb-consent';
-    function grant() {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
-        gtag('config', 'G-V9Q0XLTP7Q');
-      }
-    }
-    function revoke() {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
-      }
-    }
-    // Cookie, not localStorage: localStorage is per-subdomain, so the score app
-    // could not read the decision and would ask a second time.
-    function readCookie() {
-      var m = document.cookie.match(/(?:^|;\s*)nb-consent=(granted|denied)/);
-      return m ? m[1] : null;
-    }
-    // The domain attribute is only valid on the real host. Setting it anywhere
-    // else (localhost, a preview URL) makes the browser reject the cookie
-    // silently, so scope it only when we are actually on the live domain.
-    function cookieDomain() {
-      return /(^|\.)nielsenandbrown\.com$/.test(location.hostname)
-        ? ';domain=.nielsenandbrown.com' : '';
-    }
-    function writeCookie(v) {
-      document.cookie = 'nb-consent=' + v + cookieDomain() +
-        ';path=/;max-age=31536000;SameSite=Lax' +
-        (location.protocol === 'https:' ? ';Secure' : '');
-    }
-    var stored = readCookie();
-    if (!stored) {
-      try {
-        var legacy = localStorage.getItem(KEY);
-        if (legacy === 'granted' || legacy === 'denied') {
-          stored = legacy; writeCookie(legacy); localStorage.removeItem(KEY);
-        }
-      } catch (e) {}
-    }
-    if (stored === 'granted') { grant(); }
-    else if (stored !== 'denied') { banner.classList.add('visible'); }
-
-    document.getElementById('consent-accept').addEventListener('click', function () {
-      writeCookie('granted');
-      grant(); banner.classList.remove('visible');
-    });
-    document.getElementById('consent-decline').addEventListener('click', function () {
-      writeCookie('denied');
-      // Revoke immediately, so analytics stop even if the user had accepted earlier this session.
-      revoke(); banner.classList.remove('visible');
-    });
-
-    // "Cookie Settings" footer link — lets users reopen the banner and change their choice.
-    var settingsLink = document.getElementById('cookie-settings-link');
-    if (settingsLink) {
-      settingsLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        banner.classList.add('visible');
-        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    }
-  })();
-
-  // ── GA4 interaction events (no-op until consent grants) ───
-  (function () {
-    function track(name, params) {
-      if (typeof gtag === 'function') { gtag('event', name, params || {}); }
-    }
-
-    // CTA clicks: pass the link's destination (e.g. "contact", "engagement")
-    // so reports show what the user was reaching for, not just the button label.
-    document.querySelectorAll('[data-ga]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        var name = el.getAttribute('data-ga');
-        var href = el.getAttribute('href') || '';
-        var destination = href.indexOf('#') === 0 ? href.slice(1) : '';
-        track(name, destination ? { destination: destination } : {});
-      });
-    });
-
-    document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
-      el.addEventListener('click', function () { track('email_click'); });
-    });
-    document.querySelectorAll('a[href*="linkedin.com"]').forEach(function (el) {
-      el.addEventListener('click', function () { track('linkedin_click'); });
-    });
-
-    // Outbound link tracking — external (non-mailto, non-anchor) links,
-    // captured by hostname so it's easy to read in GA.
-    document.querySelectorAll('a[href^="http"]').forEach(function (el) {
-      var href = el.getAttribute('href') || '';
-      if (href.indexOf('nielsenandbrown.com') !== -1) return;       // skip our own domain
-      if (href.indexOf('linkedin.com') !== -1) return;              // already tracked above
-      el.addEventListener('click', function () {
-        var hostname = '';
-        try { hostname = new URL(href).hostname.replace(/^www\./, ''); } catch (e) {}
-        track('outbound_click', { link_url: href, link_domain: hostname });
-      });
-    });
-
-    var form = document.getElementById('contact-form');
-    if (form) {
-      var started = false;
-      form.addEventListener('focusin', function () {
-        if (!started) { started = true; track('form_start'); }
-      });
-    }
-
-    // Section-view tracking — fire once per session when a major section first
-    // enters the viewport. Lets us see how far through the page visitors actually
-    // get, which on a single-page site is the only meaningful depth metric.
-    if ('IntersectionObserver' in window) {
-      var sectionIds = ['proof','audience','pain','opportunity','credibility','wheel','services','engagement','assurance','partners','faq','cta-banner','contact'];
-      var seen = {};
-      var sectionObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !seen[entry.target.id]) {
-            seen[entry.target.id] = true;
-            track('section_view', { section_id: entry.target.id });
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });  // section is 40% in view before counting
-
-      sectionIds.forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) sectionObserver.observe(el);
-      });
-    }
-  })();
-</script>
-
+<div class="consent" id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p>We use essential cookies to run this site, and analytics cookies to see how it's used. Analytics stay off until you accept. See our <a href="/cookie-policy">cookie policy</a>.</p>
+  <div class="consent-actions">
+    <button class="btn btn-ghost" id="consent-decline" type="button" style="border-color:var(--muted-dark);color:var(--cream)">Decline</button>
+    <button class="btn btn-primary" id="consent-accept" type="button">Accept</button>
+  </div>
+</div>
+<script src="assets/site/site.js"></script>
+<!-- /shell:footer -->
 </body>
 </html>
