@@ -1,297 +1,160 @@
-# Nielsen &amp; Brown — copy style rules
+# Nielsen & Brown: brand and copy style
 
-The rules the site copy is written to. Consolidated from the ticket document
-`NAB-Website-Update-Tickets.docx`, where they were split across NAB-101
-(acceptance criteria) and NAB-106 (QA checklist).
+How the site looks and sounds since the November 2026 rebuild. The previous
+rules (no contractions, no possessives, no prices on the page) are retired; the
+old version of this file is in git history if you need it.
 
 ## Checking
 
 ```
-python3 scripts/check-style.py           # the homepage, per NAB-106
+python3 scripts/check-style.py           # every page except the legal ones
 python3 scripts/check-style.py --all     # every page
 ```
 
-Exits 1 if anything is found, so it can gate a build. NAB-106 scopes the pass
-to "the live homepage", so that is the default. The legal pages are a different
-register and name institutions the rules cannot sensibly apply to, which is why
-they are not checked unless you ask.
+Exits 1 if anything is found, so it can gate a build. Flag what it finds rather
+than silently fixing: some matches are deliberate. Deliberate exceptions go in
+`scripts/style-ignore.txt`, one substring per line, with a comment saying why.
+How the pages are built (shared CSS, script, head, nav, footer) is in
+`scripts/site/README.md`.
 
 ---
 
-## The rules
+## Who we're writing for
+
+Decision makers at UK businesses with **10 to 300 people**. Often not the MD:
+the Operations, Technical, Commercial or Marketing Director who has been handed
+"sort out AI". They're busy, practical and sceptical of consultancy talk.
+
+## What we're saying
+
+We work out where AI fits, then we implement it and make it stick. Most firms
+either advise or build; we do both, with one team from first plan to everyday
+use. Everything is fixed scope and fixed price, and the prices are published.
+
+The free AI Readiness Score is a hook, not the business. Point to it as the
+low-commitment option ("Not ready to talk?"), never as the main offer.
+
+## Tone of voice
+
+| Do | Don't |
+|---|---|
+| Plain, short, direct. Say the thing. | Consultancy speak ("leverage", "unlock value", "transformation journey") |
+| Practical and specific: the job, the tool, the result | Abstract promises about the future of work |
+| Confident, warm, human | Luxury or exclusive ("discerning", "curated", "elevated") |
+| "We" for the company | "I", or naming anyone but Allan |
+| Contractions and possessives are fine: "we'll", "your team's" | Stiff spelled-out forms just to avoid them |
+| Fewer words. If a section can lose a sentence, it should | Paragraphs where a list or a heading would do |
+| Prices and durations stated plainly: "£995, half a day" | "Contact us for pricing" |
+| Honest limits: "If a step doesn't earn the next one, you stop there." | Hard sell |
+
+Examples from the site to match: "We work out where AI fits. Then we implement
+it and make it stick." · "30 minutes. No pitch deck." · "Check it's the right
+job. Then build it." · "Three ways in. All priced up front."
+
+## Rules the checker enforces
 
 | # | Rule | Write | Not |
 |---|------|-------|-----|
-| 1 | No possessive apostrophes | the data from the client | the client's data |
-| 2 | No em dashes | a comma, or a colon | text — like this |
-| 3 | No contractions | do not, we will, it is | don't, we'll, it's |
-| 4 | No pricing figures | "a short, low-cost way to test" | "£4,500" |
-| 5 | British spelling | organisation, programme, licence | organization, program, license |
-| 6 | Sentence case headings | Four ways to start | Four Ways To Start |
-| 7 | No banned terms | see list below | — |
-| 8 | Company name takes the ampersand | Nielsen &amp; Brown | Nielsen and Brown |
-
-**Rule 4 exception:** the engagement selector publishes fixed prices, and it now
-appears on both the homepage and `pricing.html`, so the checker skips that rule on
-those two files. Every other page still fails on a price.
+| 1 | No em dashes | a comma, a colon, or a full stop | text — like this |
+| 2 | British spelling | organisation, programme, licence | organization, program, license |
+| 3 | Sentence case headings | Three ways in | Three Ways In |
+| 4 | No banned terms | see below | |
+| 5 | Company name takes the ampersand | Nielsen & Brown | Nielsen and Brown |
+| 6 | No unsourced statistics | a named, checkable source, or no number | "cut admin by 70%" |
+| 7 | Founder visibility | Allan Nielsen, Co-founder; "we" | naming Sam, "two founders", "the two co-owners" |
+| 8 | Client names as the client gives them | Tom Mathew | Thomas Mathew |
 
 ### Banned terms
 
 `bespoke` · `retainer` · `tailored` · `owner-led` · `UK AI Bill`
 
-Use instead: **custom-built** for bespoke, **ongoing support** for retainer,
-**built around your business** for tailored.
+Use instead: **custom-built** for bespoke, **ongoing support** (or Continuing
+Partnership) for retainer, **built around your business** for tailored.
 
-### Also required
+## Proof
 
-- Illustrative examples stay clearly labelled as illustrative (NAB-101)
-- No percentage statistics in the "Why now" section (NAB-105)
-- The ampersand renders upright, semibold, in warm gold, matching the brand
-  assets in `assets/brand/` (see note below)
+- **No anonymous numbers.** Don't use a statistic unless it has a source we can
+  name and check. Scenario examples are fine if they're labelled "a typical
+  example, not results from a named client" and carry no figures.
+- **Testimonials.** All current quotes are from one client, Dunsters Farm (a
+  family-owned foodservice wholesaler; the work was an AI readiness and
+  opportunity assessment with its directors). Present them as one leadership
+  team, never as separate clients. Use only the approved wordings:
+  - Tom Mathew, Commercial Director: the long quote.
+  - Hannah Barlow, Managing Director; Tom Curtin, Operations Director; Dean
+    Smalley, Head of IT & Systems: the short versions.
 
----
-
-## Two things the source tickets disagree on
-
-Recorded here so the next person does not have to rediscover them.
-
-**Scope.** NAB-101 qualifies several rules as applying to *body copy*.
-NAB-106 states them unqualified. Whether they cover form labels, button text,
-validation messages and the cookie banner is not defined anywhere. The checker
-reports everything and leaves the judgement to a person, which is why NAB-106
-says to flag rather than silently fix.
-
-**Ampersand form.** NAB-102 specifies the ampersand "set in italic". Every
-supplied brand asset uses an **upright** ampersand, and the upright form was
-chosen. NAB-102's wording is out of date, not the assets.
-
-**Founders line.** NAB-101 requires a founders line naming both co-founders in
-the "Who we are" section. It was removed by later instruction and the FAQ
-reference changed to "the two co-owners". The ticket's acceptance criteria no
-longer match the build.
-
-**How we work.** NAB-101 lists a "How we work: three steps" section. It was
-removed as duplicating "How we work together", which covers the same ground.
-Links that pointed at it now go to "How we think about it" (the five-question
-method) or "How we work together" (the four engagement options).
-
-**Size range.** NAB-101 specifies 50 to 250 people throughout. Changed first to
-30 to 300, then to **10 to 300**, across all 13 references on all three pages.
-
-**Illustrative labels.** NAB-101 requires "illustrative examples remain clearly
-labelled as illustrative". All seven labels were removed on instruction, and the
-sector section carrying the remaining disclaimer was deleted. The service boxes
-now carry specific measured outcomes with no qualifier. Raised twice before
-building; the decision stands and is recorded here rather than argued again.
-
-**Headcount chips.** NAB-101 requires each service example to carry "an approximate
-headcount chip". All four were removed on instruction. The section heading still
-reads "each proven on a business your size", which the chips were what evidenced.
-
-**Why now percentages.** The "also required" note above, from NAB-105, says no
-percentage statistics in this section, and the section was rewritten to strip two.
-A 76% Gartner figure has since been added back by instruction, so the section now
-carries one. NAB-105 no longer matches the build.
-
-**Why now sources.** The section is three columns: the GOV.UK 5.6M, the Gartner
-76%, and a DSIT block. A McKinsey EBIT figure was supplied and then withdrawn.
-The DSIT wording is as supplied and has not been checked against the report; it
-was queried as possibly describing skills as a barrier rather than readiness, and
-confirmed for use as written.
-
-**Sector examples.** NAB-101 lists "Real, practical examples by sector: four
-sector cards". Deleted as duplicating the service boxes, which cover the same
-four scenarios at the same four headcounts.
-
-**Pricing.** NAB-101 says "no pricing figures anywhere on the page". There is now
-a public pricing page, and the homepage bridge shows three price bands as the
-hook into it. See the exception note above.
-
-**Engagement lineup.** Rebuilt from `nb-pricing-engagement-larger-type (4).html`.
-Second Opinion (£1,950) and Board and Leadership Briefing (£1,500) retired; AI
-Starting Point (£995) and AI in Practice (£1,250) added; AI Foundations Day
-repriced £2,500 to £2,195. The entry band is now £995 to £2,950. AI in Practice
-carries a bundle price, £995 when booked within thirty days of an AI Starting
-Point session, which is a new field the card and detail templates were extended
-to support.
-
-**Readiness panel.** Layout and copy both come from the pricing mockup, with the
-lede, the six bullets and the closing line supplied directly. Two notes for
-whoever picks this up next:
-
-- The score is stated as **out of 120**, not 160. Tech spec M-3: 24 of the 32
-  questions are scored, 120 raw maximum. The 160 in the original mockup was
-  wrong and has been corrected on instruction.
-- The mockup's *"How you compare to businesses of similar size and sector"* is
-  deliberately **not** on the page. `copy.v1.ts` states benchmarking is out of
-  scope and G-2 forbids the report from inventing a peer comparison, so the
-  bullet would have promised something the report does not contain. Replaced
-  with the Strategy Wheel line, which also explains the second of the two
-  frameworks the stat row advertises. Revisit if the app ever gains
-  benchmarking.
-
-The report illustration is kept. The report exists and is emailed; the app
-config only forbids promising one **on screen**.
-
-The CTA reads "Get your free AI readiness report", which diverges from the
-`cta` string in `copy.v1.ts` ("Take the AI Readiness Score"). Deliberate, on
-instruction. If the score app's own landing page is meant to match, that string
-needs changing there too.
-
-**Engagement section.** NAB-101 lists "How we work together: four engagement options
-with duration and best-for line". That section was removed and replaced by the full
-priced engagement selector, moved high up the page, directly after "Is this you".
-
-**CTA colour.** NAB-101 sets the brand palette. Booking CTAs now use burnt terracotta
-`#A64B2A`, deliberately outside it, on the board's instruction. It also fixes a
-contrast failure: cream on gold was 2.73:1, below WCAG AA. Cream on terracotta is
-5.40:1.
-
-**Type scale.** Body copy and micro-labels increased by roughly 2px and 1px
-respectively, driven by `--fs-*` tokens in `:root`. Cormorant headings, the hero
-headline, the before/after figures and the nav are deliberately unchanged.
-
-**Type scale, revised.** Ticket 1 was reissued at +1.5px, superseding the earlier
-+2px version. Applied from the original baseline, so nine elements are 0.5px
-smaller than the +2px build. The nav is excluded; the before/after figures and the
-budget card heading are included despite being Cormorant, because the reissued
-ticket lists them explicitly.
-
-**Round 6 on test.html.** Fourth proof card (Tender responses), grid 4 / 2 by 2 /
-1 with dividers drawn per card and clipped on the first row and column, so they
-stay right at every column count. "Why now" replaced with the three-column
-evidence version on site tokens: gold text uses `--gold-deep` and titles are
-24px, because no gold passes 4.5:1 on that ground and 24px counts as large text.
-The Gartner 76% is used as written on Allan's confirmation, although the file it
-came from carried this note: "76% could not be traced to a public Gartner
-source. Published Gartner figures are 74% (December 2025) and 77% (CEO and CFO
-survey). Confirm before this goes live." The DSIT 54% and 34% were checked
-against the GOV.UK report (updated 13 February 2026) and match. The intro
-paragraph at the top of each engagement tab was removed on test.html and
-pricing.html.
-
-**Footer grid regression, fixed.** The responsive pass set every grid in one
-rule to two columns, which collapsed the four-column footer at desktop width on
-test, index and pricing. Each live grid now carries its own column count.
-
-**Restructure preview.** `preview.html` plus eight new routes implement
-`nb-landing-page-restructure-spec.md`, deliberately kept apart from test.html.
-Built by scripts, not by hand, so they can be rerun after test.html changes:
-see `scripts/preview/README.md`. Decisions
-taken where the spec was silent or clashed:
-
-- Hero proof strip carries four stats, not the spec's three, to keep Tender
-  responses.
-- Tab one of the engagement module is a short pointer to `#score`, so the two
-  do not repeat each other. Tab three keeps only the Acceleration group;
-  groups four and five live on `/how-we-work`. Product deep links such as
-  `/preview.html#diagnostic-assessment` still open the detail panel.
-- `/faq` carries eleven questions: the six from the home page plus five
-  rewritten in house style from the old FAQ structured data. Three old ones
-  were dropped because they describe products that no longer exist (Insight
-  Sprint, AI Pilot, a four-stage model).
-- `/governance` includes drafted copy on UK GDPR Articles 22A to 22D (in force
-  5 February 2026, checked against legislation.gov.uk) and ISO/IEC 42001. It is
-  general information and needs Allan to read it before it goes live.
-- The anchor correction script used to give up whenever the page had scrolled,
-  which the browser does itself on a smooth hash jump, so on a slow font load
-  `#services` landed 153px late. It now waits for real input (wheel, touch,
-  key, mouse) before deciding the visitor has moved.
-
-**Preview height.** 6.9 viewport heights at 1440x900 against the spec target of
-5. Hero through FAQ is 4.9; the contact form, blog strip and footer add 1.9.
-Reaching 5 overall means shortening the form or footer, which the spec keeps.
-
-**Rollout checklist for the preview, when signed off.**
-1. In the eight new pages, replace `/preview.html` with `/` in every link
-   (set `HOME = '/'` in `scripts/preview/build_pages.py` and rerun it).
-2. Copy `preview.html` over `index.html`, and restore
-   `index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`
-   as its robots directive.
-3. Remove `noindex` from the eight new pages.
-4. Create `sitemap.xml` with the home page, the eight routes, founders and the
-   blog, and reference it from `robots.txt`.
-5. Repoint `/#services`, `/#wheel` links in `founders.html` and `pricing.html`
-   footers to the new routes; the old anchors still resolve, so this is tidy-up.
-6. Delete `preview.html`.
-
-**Page width.** `test.html` uses a **1320px** wrap; `index.html` and the current
-live pages still use 1160px. The two files are otherwise identical copies, so
-this is the only divergence, and it is deliberate pending sign-off.
-
-The width is not cosmetic. The engagement module is the densest thing on the
-page: a 330px rail, then a panel that wants a 340px illustration beside its text.
-At 1160px that panel gets 662px and the pair cannot fit, so it stacks. At 1320px
-it gets 822px and sits side by side, which is what the mockup shows. Narrowing
-the wrap will make the panel stack again.
-
-All four section wrappers (`.nb-wrap`, `.contact-inner`, `.blog-inner`,
-`.nb-proof-inner`) carry the same value; changing one alone makes that section
-visibly narrower than its neighbours.
-
-**Hero visibility, and Reduce Motion.** The five hero rules used to pair
-`opacity: 0` with `animation: heroFadeUp ... forwards`. The reduced-motion block
-sets `animation-duration: 0.001ms !important`, which computes to `0s`, and a
-zero-duration animation applies **no fill at all**, so `forwards` never ran and
-the base `opacity: 0` stood permanently. Anyone with Reduce Motion enabled in
-iOS accessibility settings saw a blank hero: eyebrow, headline, standfirst and
-both buttons. The trust bullets below still showed, because they are not
-animated.
-
-Fixed by deleting the base `opacity: 0` and switching the fill mode to `both`.
-The animation now supplies its own start state while it runs, and supplies
-nothing when it does not, so the content is visible by default in every failure
-mode rather than invisible. The reduced-motion block also names the hero
-selectors explicitly now, so reintroducing `opacity: 0` cannot resurrect this.
-
-**Do not make content visibility depend on an animation completing.** That is the
-general rule this came from, and it applies to `.reveal` too: those are safe only
-because the reduced-motion block forces them to `opacity: 1 !important`.
-
-**Responsive pass.** The page scrolled sideways on phones, which shifted every
-section and cut content off. `body { overflow-x: hidden }` was masking it, and
-iOS Safari does not reliably honour that, which is why it showed on a real phone
-and not in review. Root causes, all the same shape, a child setting a min-content
-floor wider than the space available:
-
-- `white-space: nowrap` on `.btn-book`. "Book your free discovery call" has a
-  411px min-content, which the enclosing grid column adopted. CTAs now wrap;
-  only the nav CTA keeps nowrap.
-- `1fr` grid tracks. `1fr` means `minmax(auto, 1fr)` and `auto` floors at
-  min-content, so tracks could not shrink. Now `minmax(0, 1fr)`.
-- Form controls have an intrinsic size and will not shrink without
-  `min-width: 0`.
-- The report illustration is a fixed 305px. A transform shrinks it visually but
-  not in layout, so its real width is reduced on small screens instead.
-- Wide tables on the cookie policy now scroll inside their own container.
-
-Two panel grids were switched from fixed column counts to
-`repeat(auto-fit, minmax(min(Npx, 100%), 1fr))`. Their width is set by the
-ladder and the wrap, not the viewport: on the homepage the panel is 662px at
-every desktop size, so a viewport breakpoint cannot see when the columns stop
-fitting. The `min()` is load-bearing, without it the floor becomes the new
-overflow.
-
-The hamburger tap target was 32x24, under the 44px minimum, and is now 48x48
-with the icon unchanged.
-
-Verified clean at 320, 360, 390, 414, 768, 834, 1024 and 1180 on all six pages.
-
-**Nav breakpoint.** Raised from 768px to 1240px. The five-item nav already wrapped
-between roughly 769 and 1090px, which included iPad landscape at 1024px. Adding a
-sixth item made that worse, so the desktop nav now only shows where it fits.
-
-**Muted grey.** `--muted-2` darkened from #9C9989 (2.46:1, failing) to #6E6A5A
-(4.66:1). A companion `--muted-on-dark` #B5B1A0 covers the same role on charcoal,
-where darkening would have made things worse.
+  Headshots are in `assets/people/*-dunsters-farm.jpg`. The quotes praise
+  strategy work, so don't place them as proof of a build.
+- **Memberships:** pro-manchester and Manchester Digital, shown as white badges
+  in their own colours.
 
 ---
 
-## Deliberate exceptions
+## Visual brand
 
-Some flags are intentional. List them in `scripts/style-ignore.txt`, one
-substring per line, and the checker will skip any match containing it.
-Add a comment line above each explaining why.
+### Colours
 
-Already listed: the GOV.UK source citation, and the proper nouns on the legal
-pages (Information Commissioner's Office, Google's privacy policy, and so on).
+The palette is fixed (it matches the business cards). Tokens live in
+`assets/site/site.css`:
+
+| Token | Hex | Use |
+|---|---|---|
+| `--cream` | `#FAF8F3` | page background |
+| `--paper` | `#F2EDE6` | alternate sections, soft panels |
+| `--sand` | `#E9DCC0` | tags, highlights |
+| `--line` | `#DCD3BF` | borders and dividers |
+| `--charcoal` | `#2C2C29` | headings, dark sections, footer |
+| `--ink` | `#3A382F` | body text |
+| `--muted` / `--muted-dark` | `#6B6759` / `#B5B1A0` | secondary text on light / dark |
+| `--gold` / `--gold-text` | `#B8924A` / `#85652A` | accents, ticks; gold text on light grounds |
+| `--action` / `--action-dark` | `#A64B2A` / `#8E3F23` | booking buttons only |
+
+Gold is an accent, never body text on cream (it fails contrast); use
+`--gold-text` there. The terracotta `--action` is reserved for calls to action.
+
+### Type
+
+- **Jost** for everything: headings 600, body 400.
+- **Cormorant Garamond italic** only for the large pull quote in testimonials.
+- Headings are tight (`letter-spacing: -.02em`) and short.
+
+### Logo
+
+Lowercase stacked wordmark, "nielsen &" over "brown", in Jost Semi-bold with a
+gold ampersand. Files in `assets/brand/`:
+
+| File | Use |
+|---|---|
+| `NB_Logo_Stacked_Charcoal.svg` / `.png` | light backgrounds (nav) |
+| `NB_Logo_Stacked_Cream.svg` / `.png` | dark backgrounds (footer) |
+| `NB_Logo_Stacked_Strap_*.svg` / `.png` | with "AI strategy and delivery for UK businesses", for large uses only |
+| `NB_Icon_nb.svg` / `.png` | n&b circle: avatars, favicons, social |
+
+Use the SVGs on the web and in print; the PNGs where SVG isn't accepted. Never
+use the strapline version at nav size: it becomes unreadable.
+
+### Layout
+
+- Lots of space, few words per section, one idea per section.
+- Prices sit on cards with the duration and a short list of what you get.
+- Phones get their own representation of dense content (swipe rows, collapsible
+  lists, tables as cards, a sticky "Book a call" bar) through the shared mobile
+  classes described in `scripts/site/README.md`. Desktop and mobile should each
+  look designed, not squeezed.
+- Every page ends with a route to a call: "30 minutes. No pitch deck."
+
+---
+
+## Notes carried over
+
+- **Ampersand form.** Upright, not italic, matching every brand asset.
+- **CTA colour.** Terracotta `#A64B2A` sits outside the original palette on the
+  board's instruction. It also fixes contrast: cream on gold was 2.73:1, cream
+  on terracotta is 5.40:1.
+- **Readiness score facts.** The score is out of **120** (24 of the 32 questions
+  are scored). The app does not benchmark against other businesses, so never
+  promise "how you compare to businesses like yours".
+- **Don't make content visibility depend on an animation completing.** With
+  Reduce Motion on, a zero-length animation never applies its end state, so
+  anything starting at `opacity: 0` stays invisible.

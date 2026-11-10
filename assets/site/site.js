@@ -48,7 +48,7 @@ document.querySelectorAll('a[href^="https://score.nielsenandbrown.com"]').forEac
   }
   function revoke() {
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+      gtag('consent', 'update', { 'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
     }
   }
   // Cookie, not localStorage: localStorage is per-subdomain, so the score app

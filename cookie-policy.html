@@ -8,7 +8,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   // Consent Mode: storage denied from the first hit until the visitor accepts cookies.
-  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
   gtag('js', new Date());
   // gtag('config', ...) runs only once consent is granted (assets/site/site.js).
 </script>
@@ -120,7 +120,7 @@
       <p class="eyebrow">Legal</p>
       <h1>Cookie policy</h1>
       <p class="lede">This Cookie Policy explains what cookies are, which ones we use on nielsenandbrown.com, and how you can control them.</p>
-      <p class="legal-meta">Last updated: 22 June 2026</p>
+      <p class="legal-meta">Last updated: 10 November 2026</p>
     </div>
   </section>
 
@@ -139,27 +139,27 @@
 
       <h2>Our approach</h2>
       <p>By default, <strong>no analytics or marketing cookies are set when you arrive on our site</strong>. We use Google's Consent Mode v2, which means analytics tracking is denied until you actively accept it via the cookie banner.</p>
-      <p>If you decline, no analytics cookies are set on your device. Google may still receive anonymous, aggregated signals that cannot identify you, but no tracking cookies are placed and no individual browsing data is collected about you.</p>
+      <p>If you decline, Google Analytics does not run: no analytics cookies are set on your device and no analytics data is sent. Your browser still downloads the Google Analytics script file when a page loads, so Google receives basic request data as part of that download.</p>
       <p>If you change your mind later, you can click "Cookie settings" in the footer of any page to reopen the consent banner and update your choice.</p>
 
       <h2>Cookies we use</h2>
 
-      <h3>Essential cookies</h3>
-      <p>These cookies are necessary for the site to function properly and do not require your consent.</p>
+      <h3>Essential cookies and storage</h3>
+      <p>These are necessary for the site to function properly and do not require your consent.</p>
 
       <div class="table-scroll"><table class="m-table cookie-table">
         <thead>
-          <tr><th scope="col">Cookie</th><th scope="col">Purpose</th><th scope="col">Duration</th></tr>
+          <tr><th scope="col">Name</th><th scope="col">Purpose</th><th scope="col">Duration</th></tr>
         </thead>
         <tbody>
           <tr>
             <td><code>nb-consent</code></td>
             <td data-label="Purpose">Remembers your cookie consent choice (accepted or declined) so the banner does not reappear on every visit. Set as a cookie on nielsenandbrown.com, so the choice also applies on our AI Readiness Score tool at score.nielsenandbrown.com and you are only asked once.</td>
-            <td data-label="Duration">Persistent (until you clear your browser storage or change your choice)</td>
+            <td data-label="Duration">12 months, or until you change your choice or clear your cookies</td>
           </tr>
           <tr>
             <td><code>nb-attrib</code></td>
-            <td data-label="Purpose">If you arrive from an advert or a campaign link, this remembers which campaign it was, so that if you send us an enquiry we can see where it came from. Held only for the current browsing session and never used for advertising.</td>
+            <td data-label="Purpose">If you arrive from an advert or a campaign link, this remembers which campaign it was, so that if you send us an enquiry we can see where it came from. Held in your browser's session storage rather than as a cookie, only for the current browsing session, and never used for advertising.</td>
             <td data-label="Duration">Session (cleared when you close the tab)</td>
           </tr>
         </tbody>
@@ -196,7 +196,9 @@
       <ul>
         <li><strong>Google Fonts</strong>: provides the typefaces used on the site. Receives basic request data when your browser fetches font files. Google states that this data is not used for advertising.</li>
         <li><strong>EmailJS</strong>: used to deliver contact form submissions to us. Only processes data you actively submit through the form, and only when you submit it.</li>
-        <li><strong>YouTube</strong>: plays the client testimonial video on our homepage. The player is only loaded, from youtube-nocookie.com, when you press play on the video, and receives basic request data when it loads.</li>
+        <li><strong>YouTube</strong>: plays the videos on some of our pages. The player is only loaded, from youtube-nocookie.com, when you press play on a video, and receives basic request data when it loads. Until then, the preview image comes from our own site.</li>
+        <li><strong>jsDelivr</strong>: serves the code that sends our contact form, on our homepage. Receives basic request data when it loads.</li>
+        <li><strong>Soro</strong>: loads the posts on our blog page from app.trysoro.com, with images and data held by its hosting provider Supabase (supabase.co). Receives basic request data when the blog loads, and sets no cookies.</li>
         <li><strong>GitHub Pages</strong>: hosts the site. May log standard web server information (IP, browser, page) for operational and security purposes.</li>
       </ul>
 

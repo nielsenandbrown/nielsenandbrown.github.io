@@ -8,7 +8,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   // Consent Mode: storage denied from the first hit until the visitor accepts cookies.
-  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied' });
+  gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
   gtag('js', new Date());
   // gtag('config', ...) runs only once consent is granted (assets/site/site.js).
 </script>
@@ -122,7 +122,7 @@
       <p class="eyebrow">Legal</p>
       <h1>Privacy policy</h1>
       <p class="lede">This Privacy Policy explains what personal data Nielsen &amp; Brown collects when you use our website, how we use it, and the rights you have over it.</p>
-      <p class="legal-meta">Last updated: 22 June 2026</p>
+      <p class="legal-meta">Last updated: 10 November 2026</p>
     </div>
   </section>
 
@@ -154,9 +154,9 @@
       <h2 id="what-we-collect">What data we collect</h2>
       <p>We collect personal data in two ways:</p>
       <h3>1. When you fill in our contact form</h3>
-      <p>This includes your first name, last name, email address, company name (if provided), company size (if provided), and the message you send us. We collect this so we can respond to your enquiry.</p>
+      <p>This includes your name, work email address, company name, phone number (if provided), the problem you pick from the list, and any message you add. If you arrived from an advert or a campaign link, the enquiry also includes the campaign details from that link (for example, which campaign it was), so we can see where it came from. We collect this so we can respond to your enquiry.</p>
       <h3>2. When you accept analytics cookies</h3>
-      <p>We use Google Analytics 4 to understand how visitors use our site, in aggregate. If you accept analytics cookies, Google sets cookies on your device which may collect data such as your IP address (truncated by Google), the pages you view, how long you spend on them, the device and browser you are using, and broad location data (typically country or region). If you decline, no analytics cookies are set and only anonymous, aggregated signals are sent to Google; these cannot identify you.</p>
+      <p>We use Google Analytics 4 to understand how visitors use our site, in aggregate. If you accept analytics cookies, Google sets cookies on your device which may collect data such as your IP address (truncated by Google), the pages you view, how long you spend on them, the device and browser you are using, and broad location data (typically country or region). If you decline, Google Analytics does not run: no analytics cookies are set and no analytics data is sent. Your browser still downloads the Google Analytics script file when a page loads, so Google receives basic request data (your IP address and browser information) as part of that download.</p>
       <p>We do not knowingly collect any other personal data. We do not use marketing or advertising cookies. We do not buy data from third parties or build profiles about visitors.</p>
 
       <h2 id="lawful-basis">Why we use it and the lawful basis</h2>
@@ -165,15 +165,17 @@
 
       <h2 id="sharing">Who we share it with</h2>
       <p>We do not sell your data or share it for marketing.</p>
-      <p>We do use a small number of third-party services that necessarily process some of your data on our behalf:</p>
+      <p>We do use a small number of third-party services that necessarily receive or process some of your data:</p>
       <ul>
         <li><strong>EmailJS</strong>: when you submit the contact form, your submission is sent through EmailJS, which forwards it to our inbox. EmailJS is the service provider that processes the form data for transmission. Their privacy policy is available at <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">emailjs.com/legal/privacy-policy</a>.</li>
         <li><strong>Google Analytics 4</strong>: only if you accept analytics cookies. Google's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
         <li><strong>Google Fonts</strong>: our site loads typefaces from Google Fonts. When your browser fetches a font file, Google receives your IP address and basic browser information as part of that request. Google states that font requests are not used for advertising and are not linked to a Google account.</li>
-        <li><strong>YouTube</strong>: our homepage includes a client testimonial video. The YouTube video player is only loaded, from youtube-nocookie.com, when you press play on the video. When it loads, Google receives your IP address and basic browser information as part of that request. Google's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+        <li><strong>YouTube</strong>: some pages include videos hosted on YouTube. The YouTube video player is only loaded, from youtube-nocookie.com, when you press play on a video; until then the preview image comes from our own site. When it loads, Google receives your IP address and basic browser information as part of that request. Google's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+        <li><strong>jsDelivr</strong>: the code that sends our contact form is loaded from cdn.jsdelivr.net on our homepage. jsDelivr receives your IP address and basic browser information as part of that request.</li>
+        <li><strong>Soro</strong>: the posts on our blog page are loaded from Soro (app.trysoro.com), which stores them, including images, with its hosting provider Supabase (supabase.co). They receive your IP address and basic browser information when the blog loads. Soro does not set cookies on our site.</li>
         <li><strong>GitHub Pages</strong>: our site is hosted on GitHub Pages. GitHub may collect standard web server logs (IP address, browser, page requested) for security and operational purposes. GitHub's privacy statement is available at <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">docs.github.com</a>.</li>
       </ul>
-      <p>These providers act as data processors. We have no other third parties with access to your personal data.</p>
+      <p>EmailJS, Google Analytics and GitHub act as data processors on our behalf. Google Fonts, YouTube, jsDelivr and Soro receive only the standard technical data that any web request involves, under their own privacy policies. We have no other third parties with access to your personal data.</p>
 
       <h2 id="transfers">International transfers</h2>
       <p>Some of the providers above (notably Google and GitHub) are based in the United States. Where data is transferred outside the UK, it is covered by the UK's adequacy decisions or by the providers' standard contractual clauses for international data transfers.</p>

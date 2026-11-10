@@ -2,13 +2,11 @@
 """
 Check site copy against the rules in STYLE.md.
 
-    python3 scripts/check-style.py              # the homepage, per NAB-106
+    python3 scripts/check-style.py              # every page except the legal ones
     python3 scripts/check-style.py --all        # every page
     python3 scripts/check-style.py blog.html    # specific files
 
-NAB-106 scopes the check to "the live homepage", so that is the default.
-The legal pages are a different register: they name institutions
-("Information Commissioner's Office") that the rules cannot sensibly apply to.
+The legal pages are a different register, so they are only checked with --all.
 
 Exits 1 if anything is found, so it can gate a build.
 Deliberate exceptions go in scripts/style-ignore.txt.
@@ -24,15 +22,8 @@ IGNORE_FILE = os.path.join(ROOT, "scripts", "style-ignore.txt")
 
 # name -> (pattern, hint)
 RULES = [
-    ("possessive apostrophe", r"\b\w+['’]s\b",
-     "write 'the data from the client', not 'the client's data'"),
     ("em dash", r"—",
      "use a comma, a colon, or a full stop"),
-    ("contraction", r"\b\w+['’](t|s|re|ve|ll|d|m)\b",
-     "spell it out: do not, we will, it is"),
-    ("pricing figure", r"[£$€]\s?[\d,]+(?:\.\d+)?",
-     "no pricing anywhere on the site",
-     {"pricing.html", "test.html", "index.html", "preview.html", "how-we-work.html"}),  # these publish the engagement prices deliberately
     ("non-British spelling",
      r"(?i)\b(organiz\w*|analyz\w*|optimiz\w*|specializ\w*|recogniz\w*|"
      r"colou?r(?<!colour)\w*|cent(?:er|ers)\b|program(?!me)s?\b|license[ds]?\b)",
@@ -41,7 +32,15 @@ RULES = [
      "custom-built / ongoing support / built around your business"),
     ("spelled-out company name", r"Nielsen and Brown",
      "the company name always takes the ampersand"),
+    ("statistic to source", r"\b\d+(?:\.\d+)?\s?%|\b\d+\+\s?(?:hours|staff|people|clients)",
+     "no figures without a named, checkable source; label examples as examples"),
+    ("founder visibility", r"\bSam\b|\btwo (?:co-?)?(?:founders|owners|co-owners)\b|\bboth founders\b",
+     "only Allan is shown, as Co-founder; write 'we'"),
+    ("client name", r"\bThomas Mathew\b",
+     "he is Tom Mathew, as on the Dunsters Farm site"),
 ]
+
+LEGAL = {"privacy-policy.html", "cookie-policy.html"}
 
 TITLE_CASE = re.compile(r"^(?:[A-Z][a-z]+[ ,]+){2,}[A-Z][a-z]+$")
 SMALL = {"a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "is",
@@ -108,10 +107,10 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     if args:
         files = args
-    elif "--all" in sys.argv:
-        files = sorted(glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "services", "*.html")))
     else:
-        files = [os.path.join(ROOT, "index.html")]
+        files = sorted(glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "services", "*.html")))
+        if "--all" not in sys.argv:
+            files = [f for f in files if os.path.basename(f) not in LEGAL]
     ignores = load_ignores()
 
     total = 0
@@ -130,8 +129,8 @@ def main():
 
     print()
     if total:
-        print(f"{total} item(s) to review. NAB-106: flag these rather than "
-              f"silently fixing, some may be deliberate.")
+        print(f"{total} item(s) to review. Flag these rather than silently "
+              f"fixing: some may be deliberate.")
         print(f"Deliberate exceptions go in {os.path.relpath(IGNORE_FILE, ROOT)}")
         return 1
     print("Clean against every rule in STYLE.md.")
