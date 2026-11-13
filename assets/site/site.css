@@ -173,6 +173,11 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
 .video .vcap b{display:block;font-size:16px;color:var(--cream)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (max-width:600px){.video .play{width:60px;height:60px;margin:-30px 0 0 -30px}}
+/* .clean: the poster already carries its own titles, so no caption or shading and a corner play button */
+.video.clean{outline:1px solid var(--char-line);outline-offset:-1px}
+.video.clean::after{display:none}
+.video.clean .play{left:20px;top:auto;bottom:20px;margin:0;width:64px;height:64px;box-shadow:0 8px 24px -6px rgba(0,0,0,.55)}
+@media (max-width:600px){.video.clean .play{left:12px;bottom:12px;width:48px;height:48px;margin:0}.video.clean .play::before{border-width:9px 0 9px 15px;margin-left:4px}}
 
 /* ── Mobile patterns (desktop unaffected) ─────────────────────────────────
    .m-swipe      card grid becomes a horizontal swipe row with dots (≤700px)
